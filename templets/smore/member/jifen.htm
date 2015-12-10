@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>我的积分记录-{sline:global.cfg_webname/}</title>
+{sline:php}Helper_Archive::getCss('base.css,space.css','2014.02');{/sline:php}
+{sline:php}Helper_Archive::getScript('jquery-1.8.3.min.js,common.js,ajax.member.search.js,user.order.js','2014.02');{/sline:php}
+</head>
+
+<body>
+	{sline:include file='public/header.htm'/}
+  
+  <!-- 中间内容开始 -->
+  <div class="big">
+  	<div class="width_1210">
+    	<!-- 面包屑and订单开始 -->
+    	<div class="top_first">
+      	<div class="crumbs"><a href="{sline:global.cfg_basehost/}">{sline:global.cfg_indexname/}</a> &gt; {sline:field.ordername/}</div>
+         {sline:include file='public/scroll_order.htm'/}
+      </div>
+      <!-- 面包屑and订单结束 -->
+    
+    	<!--用户空间开始-->
+			<div class="user_space_big">
+            {sline:include file='public/member_left_nav.htm'/}
+        
+        <!--用户空间内容开始-->
+        <div class="user_con">
+          
+          <!--订单统计开始-->
+          <div id="clicktab" class="statistics">
+              <div class="st_order_menu" style="height: auto">
+                  <a href="javascript:void(0)" >积分记录</a>
+              </div>
+            <div class="st_order_con"> 	
+              
+            </div>
+            <!--翻页功能开始-->
+              <div class="main_mod_page clear" id="pageinfo">
+              
+              <div style="clear:both"></div>
+              <!--翻页功能结束-->
+           
+            
+          </div>
+          <!--订单统计结束-->
+          
+        </div>
+        <!--用户空间内容结束-->
+      </div>
+      <!--用户空间结束-->
+      
+    </div>
+  </div>
+  <!-- 中间内容结束 -->
+  
+  {sline:include file='public/help.htm'/}
+  {sline:include file='public/footer.htm'/}
+  <!--隐藏域-->
+
+  <input type="hidden" id="currentpage" value="1" />
+</div>
+
+</body>
+<script>
+    $(function(){
+        $("#currentpage").val(1);//设置当前页
+        var action = 'jifenlog';
+        var content = $('.st_order_con').data('jifen');
+        var that = $(".st_order_con");
+
+        if(content)
+        {
+
+            $(".st_order_con").html(content);
+        }
+        else
+        {
+            $(this).parent().parent().find(".st_order_con").html('<img src="'+siteUrl+'/templets/smore/images/loading.gif" style="display:block;width:28px;height:28px;margin:160px auto 157px auto;">');
+
+            var config={
+                pageSize:6,
+                ajaxUrl:'member/ajax.php',
+                dopost:action,
+                conditionfield:[]
+            };
+            $.AjaxSearch(
+                    config,
+                    function(data){
+
+                        that.html(data.list);
+                        that.data('jifen',data.list);
+                        $("#pageinfo").html(data.pageinfo);
+
+
+                    }
+            );
+
+
+        }
+
+
+    })
+
+</script>
+</html>

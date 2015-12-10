@@ -1,0 +1,157 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{sline:field.seotitle/}-{sline:global.cfg_webname/}</title>
+<meta name="description" content="{sline:field.seodescription/}" />
+<meta name="keywords" content="{sline:field.seokeyword/}" />
+<meta name="author" content="{sline:global.cfg_webname/}" />
+{sline:php}Helper_Archive::getCss('base.css,hotel.css','2014.01');{/sline:php}
+{sline:php}Helper_Archive::getScript('jquery-1.8.3.min.js,common.js,hotel.index.js','2014.02');{/sline:php}
+<script language="javascript" src="/templets/smore/js/DatePicker/WdatePicker.js"></script>
+</head>
+
+<body>
+	{sline:include file='public/header.htm'/}
+  
+  <!-- 中间内容开始 -->
+  <div class="big">
+  	<div class="width_1210">
+    	<!-- 面包屑and订单开始 -->
+    	<div class="top_first">
+     <div class="crumbs"><a href="{sline:global.cfg_basehost/}">{sline:global.cfg_indexname/}</a> &raquo; <a href="{sline:global.cfg_cmsurl/}/hotels/">{sline:field.typename/}</a></div>
+        {sline:include file='public/scroll_order.htm'/}
+      </div>
+      <!-- 面包屑and订单结束 -->
+      <div class="hotel_top">
+      	<div class="hotel_sx">
+        	<h3 class="jd_title">酒店预定查询</h3>
+        	<ul class="nr_ul">
+          	<li>
+            	<label>目的城市</label>
+              <input type="text" class="text md" name="mdd" id="destname" value="输入目的地拼音首字母" datadef="输入目的地拼音首字母" />
+            </li>
+            <li>
+            	<label>入住时间</label>
+              <input type="text" class="text rz" name="rz_time" id="startdate" />
+            </li>
+           
+            <li>
+            	<label>房价范围</label>
+              <div class='diy_select'>
+                <input type="hidden" name="" class='diy_select_input'/>
+                <div class="diy_select_txt">全部</div>
+                <div class="diy_select_btn"></div>
+                <ul class="diy_select_list">
+                    <li data-value="0" data-field="priceid">全部</li>
+                  {sline:gethotelguide flag='price'}
+                   <li data-value="[field:id/]" data-field="priceid">[field:title/]</li>
+                  {/sline:gethotelguide}
+                </ul>
+              </div>
+            </li>
+            
+            <li>
+            	<label>酒店星级</label>
+              <div class='diy_select'>
+                <input type="hidden" name="" class='diy_select_input'/>
+                <div class="diy_select_txt">全部</div>
+                <div class="diy_select_btn"></div>
+                <ul class="diy_select_list">
+                  <li data-value="0" data-field="rankid">全部</li>
+                 {sline:gethotelguide flag='rank'}
+                  <li data-value="[field:id/]" data-field="rankid">[field:title/]</li>
+                 {/sline:gethotelguide}
+                </ul>
+              </div>
+            </li>
+            <li>
+            	<label>酒店名称</label>
+              <input type="text" class="jd_name" name="jd_name" id="jd_name" />
+            </li>
+          </ul>
+          <!--隐藏域-->
+           <input type="hidden" id="rankid" value="0" />
+           <input type="hidden" id="priceid" value="0" />
+           <input type="hidden" id="dest_id" value="0"/>
+          
+          <div class="hotel_cx"><a href="javascript:;" class="btn_search">酒店查询</a></div>
+        </div>
+        <div class="hotel_gg">
+        	<div class="h_foucs slides" id="slides">
+              {sline:rollingad name='HotelRollingAd'}
+                    <a href="[field:linkurl/]" target="_blank"><img src="[field:picurl/]" width="800" height="325" title="[field:linktext/]" alt="[field:linktext/]" /></a>
+             {/sline:rollingad}
+            
+            </div>
+         
+        </div>
+      </div>
+      
+      <!--本季热推开始-->
+      <div class="hotel_hot">
+      	<h3>本季热推</h3>
+        <ul>
+         {sline:gethotellist flag='recommend' row='6'}
+          <li>
+          	  <a class="fl" href="[field:url/]" target="_blank"><img class="fl" src="[field:lit240/]" width="170" height="125" alt="[field:title/]" title="[field:title/]" /></a>
+              <p class="p1"><a href="[field:url/]" target="_blank">[field:title/]</a></p>
+              <p class="p2">优惠价：[field:price3/]</p>
+          </li>
+         {/sline:gethotellist}
+        </ul>
+      </div>
+      <!--本季热推结束-->
+      
+      <div class="hotel_big">
+        <div class="city_hotel">
+        	<!--精选酒店开始-->
+          <div class="tabbox" id="statetab">
+            <div class="tab_title">精选酒店</div>
+            <ul class="tabbtn tjjd_tag_top">
+             {sline:getdest flag='hot' item='hotel'}
+              <li><a href="/hotels/[field:pinyin/]/" target="_blank" data-id="[field:kindid/]">[field:title/]</a></li>
+             {/sline:getdest}
+            </ul>
+            <div class="tabcon tjjd_tag_con">
+              
+            </div>
+            
+            
+            
+            
+            
+            
+            
+          </div>
+          <!--精选酒店结束-->
+        </div>
+        
+        <!--客户评论开始-->
+        <div class="discuss">
+        	<h3>客户评论</h3>
+        	<div class="dis_list">
+            {sline:getcommentlist flag="hotel" row="5"}
+              <dl>
+                <dt><b>[field:nickname/]</b><strong>满意度：</strong><span><s style=" width:[field:percent/]"></s></span></dt>
+                <dd>[field:content/]</dd>
+              </dl>
+             {/sline:getcommentlist}
+          </div>
+        </div>
+				<!--客户评论结束-->
+        
+      </div>
+      
+      
+      
+    </div>
+  </div>
+  <!-- 中间内容结束 -->
+  
+  {sline:include file='public/help.htm'/}
+  {sline:include file='public/footer.htm'/}
+  {sline:include file='public/flink.htm'/}
+<script language="javascript" src="/templets/smore/js/list_box.js"></script>
+</body>
+</html>

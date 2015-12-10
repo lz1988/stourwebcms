@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{sline:field.seotitle/}-{sline:global.cfg_webname/}</title>
+    {sline:field.seokeyword/}
+    {sline:field.seodescription/}
+    <meta name="author" content="{sline:global.cfg_webname/}" />
+    <link href="/templets/smore/js/artDialog/skins/default.css" rel="stylesheet" media="screen" type="text/css">
+    {sline:php}Helper_Archive::getCss('base.css,question.css');{/sline:php}
+    {sline:php}Helper_Archive::getScript('jquery-1.8.3.min.js,jqueryValidation/dist/jquery.validate.min.js,artDialog/artDialog.js,question.index.js');{/sline:php}
+</head>
+
+<body>
+{sline:include file='public/header.htm'/}
+	<div class="big">
+  	<div class="width_1210">
+    
+    	<div class="wd_list_box">
+      	<div class="wd_tit">
+        	<h3>在线问答</h3>
+          <p>共{sline:global.totalcount/}个问题，已回答{sline:global.count/}个</p>
+        </div>
+        <div class="wd_con sh-con">
+        	
+          <div class="faq_list">
+            <ul>
+              <li>
+              	<div class="tw_box">
+                	<div class="wt">
+                  	<strong>问题：</strong>
+                    <p>{sline:field.title/}</p>
+                    <span><em>{sline:field.nickname/}</em>发表于&nbsp;&nbsp;{sline:field.addtime function="date('Y-m-d',@me)"/}</span>
+                  </div>
+                  <div class="nr">{sline:field.content/}</div>
+                </div>
+                <div class="hf">
+                	<strong>回复：</strong>
+                  <div class="con">{sline:field.replycontent/}</div>
+                  <span>回复时间：{sline:field.replytime function="date('Y-m-d',@me)"/}</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    
+    </div>
+  </div>
+{sline:include file='public/footer.htm'/}
+</body>
+</html>

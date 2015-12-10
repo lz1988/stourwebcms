@@ -1,0 +1,18 @@
+.basic-con table tr{
+    height: 40px;
+}
+.basic-con .des{
+    border:1px solid #dcdcdc;
+    width: 400px;
+    height: 70px;
+    margin-top:10px;
+    padding:5px;
+}
+.basic-con table .tit{
+    text-align: right;
+    padding-right: 10px;
+}
+.save-con{
+    text-align: center;
+    padding: 15px 0px;
+}

@@ -1,0 +1,41 @@
+ <div class="menu">
+     {sline:include file='public/plugin_usernav.htm'/}
+     <div class="main_nav_list">
+      <a href="{sline:global.cfg_basehost/}{sline:global.cfg_cmsurl/}/">{sline:global.cfg_indexname/}</a>
+      {sline:channel type='top'}
+        <a href="[field:typelink/]"
+         [field:linktype runphp='yes']
+         if(@me!=1)
+         {
+         @me=' target=_blank ';
+         }
+         else
+         {
+         @me='';
+         }
+         [/field:linktype]
+         [field:linktitle runphp='yes']if(@me!=""){@me="title=\"".@me."\"";}[/field:linktitle]>
+         [field:kind runphp='yes']
+           if(@me==1)
+             {
+              @me='<s class="ico_new"></s>';
+             }
+            else if(@me==2)
+             {
+              @me='<s class="ico_hot"></s>';
+             }
+            else
+             {
+              @me='';
+             }
+         [/field:kind]
+       [field:typename/]</a>
+      {/sline:channel}
+      <!--<div class="skip">
+        <a href="#">目的地</a>
+        <a href="#"><s>|</s>社区</a>
+        <a href="#"><s>|</s>活动</a>
+      </div>-->
+    </div>
+ </div>
+ 

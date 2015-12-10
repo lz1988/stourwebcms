@@ -1,0 +1,1 @@
+<li data-value="[field:id/]" data-pinyin="[field:pinyin/]" data-field="dest_id">[field:title/]</li>

@@ -1,0 +1,6 @@
+ <!-- 导航开始 -->
+  <div class="nav">
+  	 {sline:include file='public/nav_dynamic.htm' if="!empty($GLOBALS['destnavid'])"/}
+     {sline:include file='public/nav_static.htm' if="empty($GLOBALS['destnavid'])"/}
+  </div>
+  <!-- 导航结束 -->

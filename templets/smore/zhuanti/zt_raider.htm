@@ -1,0 +1,24 @@
+ {sline:if var='_hasthemeraider'} 
+    <div class="content" id="2916">
+			<div class="cate_tit">
+				<p class="more"><a href="/raiders/" target="_blank">查看更多攻略&gt;&gt;</a></p>
+				<h3 class="tit" id="2916">攻略</h3>
+			</div>
+			<div class="cate_con">
+				<div class="list_2">
+					<ul class="lis basefix">
+         {sline:getarclist type='theme' row='30'}
+             <li>
+			 <a href="[field:url/]" target="_blank" style="height:250px">
+								    <img src="[field:litpic/]">
+						
+								    <h3 class="tit">[field:title/]</h3>
+								    <p class="tit_tip">[field:content function=cutstr_html(@me,40)/]</p>						
+							    </a>
+			 </li> 
+         {/sline:getarclist}
+       			</ul>	
+				</div>			
+            </div>
+	    </div>
+  {/sline:if}

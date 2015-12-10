@@ -1,0 +1,1 @@
+<a data-index="[field:global.step runphp='yes']@me=intval(@me)-1;[/field:global.step]" href="javascript:void(0);"><span class="bg-b"></span><span class="inner"></span></a>

@@ -1,0 +1,33 @@
+﻿ #jMonthCalendar { position:relative; margin-top:10px; background:#fff}
+.MonthlyCalendar .MonthNavigation { border-bottom:solid 1px #ddd; clear:both; height:30px; padding:0px 10px 0 10px; line-height:30px;}
+.MonthlyCalendar .MonthNavPrev, .MonthlyCalendar .MonthNavNext, .MonthlyCalendar .TodayLink { width:20%; float:left; }
+.MonthlyCalendar .YearNavNext, .MonthlyCalendar .YearNavPrev { width:20%; float:right;}
+.MonthlyCalendar .MonthNavPrev a, .MonthlyCalendar .MonthNavNext a{ text-decoration:none; color:#005bb5;}
+.MonthlyCalendar .MonthName { width:60%; text-align:center; font-weight:bold; float:left; color:#494949; font-size:12px;}
+.MonthlyCalendar .MonthNavNext{ text-align:right}
+.MonthlyCalendar .MonthNavPrev{ text-align:left}
+
+.MonthlyCalendar { height:100%; width:100%; border:solid 1px #ddd; border-collapse:collapse; }
+.MonthlyCalendar #CalendarHead { width:100%; background:#F7F7F7 none repeat scroll 0 0; }
+.MonthlyCalendar #CalendarHead .DateHeader { width:14%; text-align:center; font-size:14px; font-weight:normal; border-right:1px solid #dddddd;}
+.normal{ color:#494949; }
+.week{ color:#494949;}
+.noweek{ color:#494949; border:none;}
+ #jMonthCalendar .mouseover{background:#fff8ec;vertical-align:top;border:solid 1px #ddd;}
+ #jMonthCalendar .mouseout{background:#fff;vertical-align:top; border:solid 1px #ddd;}
+
+.MonthlyCalendar #CalendarBody { }
+.DateBox { vertical-align:top; border:solid 1px #ddd; }
+.DateLabel { width:100%; text-align:left; }
+.DateLabel a { color:#333; cursor:pointer; padding:0 5px 2px; text-decoration:none; line-height:16px; }
+
+#CalendarBody .Inactive{ background:#fafafa none repeat scroll 0 0; }
+#CalendarBody .Weekend { background:#ddffff none repeat scroll 0 0; }
+.Today { background:#fff8ec; none repeat scroll 0 0; }
+
+#jMonthCalendar .Event { font-size:12px; padding:0 2px; -moz-border-radius:0 8px 8px 8px;cursor:pointer; display:block; text-align:left;}
+.Event a { text-decoration:none; color:#ff1212;font-size:12px; font-family:"微软雅黑", Gadget, sans-serif }
+.Event a:hover { text-decoration:underline; }
+.Meeting a{ color:#999;}
+.Meeting a:hover{text-decoration:none}
+#CalendarBody .Inactive a{color:#ccc}

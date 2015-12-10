@@ -1,0 +1,1 @@
+<li><span>[field:nickname/]</span>[field:pltime/]评论了[field:productname/]</li>

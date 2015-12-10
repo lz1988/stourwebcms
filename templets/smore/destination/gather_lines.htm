@@ -1,0 +1,234 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{sline:field.seotitle/}-{sline:global.cfg_webname/}</title>
+{sline:field.keywords/}
+{sline:field.description/}
+
+{sline:php}GetCss('base.css,line.css','2014.01');{/sline:php}
+{sline:php}GetScript('jquery-1.8.3.min.js,common.js,ajax.search.js,dest.line.js','2014.01');{/sline:php}
+</head>
+
+<body>
+   {sline:include file='public/header.htm'/}
+  
+  <!-- 中间内容开始 -->
+  <div class="big">
+  	<div class="width_1210">
+    	<!-- 热门目的地开始 -->
+    	<div class="top_first">
+      	<div class="hot_mdd">
+        	<span>热门目的地：</span>
+            {sline:getdest flag='hot' row='6'}
+               <a href="[field:url/]">[field:title/]</a>
+            {/sline:getdest}
+         
+        </div>
+        {sline:include file='public/scroll_order.htm'/}
+      </div>
+      <!-- 热门目的地结束 -->
+      
+        {sline:include file='destination/line_leftnav.htm'/}
+        <!--边栏满意度开始-->
+        <div class="dos">
+          <div class="dos_pic">
+            <p>客户满意度</p>
+            <span><s style=" width:100%"></s></span>
+          </div>
+          <div class="peo_data">已为<span>3008374</span>位客户提供旅游服务！</div>
+          <div class="fl"><img src="{sline:global.cfg_templets_skin/}/images/serve_pic.png" alt="" title="" /></div>
+          <div class="dis_list">
+            <dl>
+              <dt><b>keneve</b><strong>满意度：</strong><span><s style=" width:80%"></s></span></dt>
+              <dd>服务不错，日程安排得很人性化，导游有商有量，素质蛮高。带孩子和老人一起去的，感觉非常好。</dd>
+            </dl>
+            <dl>
+              <dt><b>keneve</b><strong>满意度：</strong><span><s style=" width:80%"></s></span></dt>
+              <dd>服务不错，日程安排得很人性化，导游有商有量，素质蛮高。带孩子和老人一起去的，感觉非常好。</dd>
+            </dl>
+            <dl>
+              <dt><b>keneve</b><strong>满意度：</strong><span><s style=" width:80%"></s></span></dt>
+              <dd>服务不错，日程安排得很人性化，导游有商有量，素质蛮高。</dd>
+            </dl>
+            <dl>
+              <dt><b>keneve</b><strong>满意度：</strong><span><s style=" width:80%"></s></span></dt>
+              <dd>服务不错，日程安排得很人性化，导游有商有量，素质蛮高。带孩子和老人一起去的，感觉非常好。</dd>
+            </dl>
+            <dl>
+              <dt><b>keneve</b><strong>满意度：</strong><span><s style=" width:80%"></s></span></dt>
+              <dd>服务不错，日程安排得很人性化，导游有商有量，素质蛮高。带孩子和老人一起去的，感觉非常好。</dd>
+            </dl>
+            <dl>
+              <dt><b>keneve</b><strong>满意度：</strong><span><s style=" width:80%"></s></span></dt>
+              <dd>服务不错，日程安排得很人性化，导游有商有量，素质蛮高。</dd>
+            </dl>
+          </div>
+        </div>
+        <!--边栏满意度结束-->
+        
+        <!--边栏攻略开始-->
+        <div class="side_strategy">
+        	<h3>{sline:field.kindname/}攻略</h3>
+          <dl>
+           {sline:getarclist type='mdd' flag='imagehot' row='1'}
+          	<dt><a class="fl" href="[field:url/]"><img class="fl" src="[field:litpic/]" width="218" height="150" title="" alt="[field:title/]" /></a></dt>
+           {/sline:getarclist}
+            {sline:getarclist type='mdd' flag='new'}
+              <dd><a href="[field:url/]"><span>[[field:destname/]]</span>[field:title/]</a></dd>
+            {/sline:getarclist}
+          </dl>
+        </div>
+        <!--边栏攻略结束-->
+        
+      </div>
+      <!--边栏结束-->
+      <!--主体内容开始-->
+      <div class="line_con_rig">
+      	<div class="hot_time">
+        	<h3><s></s>本季热荐</h3>
+          <ul>
+            {sline:getlinelist type='mdd' flag='recommend' row='5'}
+              <li>
+                  <a class="fl" href="[field:url/]" target="_blank"><img class="fl" src="[field:litpic/]" width="170" height="125" alt="[field:title/]" /></a>
+                <p class="p1"><a href="[field:url/]" target="_blank">[field:title/]</a></p>
+                <p class="p2">优惠价：<strong>[field:price/]</strong><span>起</span></p>
+              </li>
+            {/sline:getlinelist}
+            
+          </ul>
+        </div>
+        <div class="serach_menu">
+        	<div class="search_bt"></div>
+        	<dl>
+          	<dt>目的地：</dt>
+            <dd>
+              <span class="sp_1"><a  href="javascript:void(0)" data-field="destid" data-value="0" class="on">全部</a></span>
+              <span class="sp_2">
+               {sline:getdest flag='next'}
+                 <a href="javascript:void(0)" data-field="destid" data-value="[field:kindid/]" >[field:title/]</a>
+               {/sline:getdest}
+              </span>
+            </dd>
+          </dl>
+          <dl>
+          	<dt>游玩时间：</dt>
+            <dd>
+              <span class="sp_1"><a class="on" href="javascript:void(0)" data-field="day" data-value="0">全部</a></span>
+              <span class="sp_2">
+                {sline:getlineguide flag='day'}
+              	 <a href="javascript:void(0)" data-field="day" data-value="[field:word/]">[field:title/]</a>
+                {/sline:getlineguide}
+              </span>
+            </dd>
+          </dl>
+          {sline:attrgrouplist typeid='1' filterid='91'}
+            <dl>
+              <dt>{sline:field.groupname/}：</dt>
+              <dd>
+                <span class="sp_1"><a class="on" href="javascript:void(0)" data-field="lineattr{sline:global.itemindex/}" data-value="0">全部</a></span>
+                <span class="sp_2">
+                   {sline:getattrbygroup}
+                      <a href="javascript:void(0)"  data-field="lineattr[field:global.itemindex/]" data-value="[field:attrid/]">[field:title/]</a>
+                   {/sline:getattrbygroup}
+                   
+                </span>
+              </dd>
+            </dl>
+          {/sline:attrgrouplist}
+          <dl class="bor_bot_0">
+          	<dt>价格区间：</dt>
+            <dd>
+              <span class="sp_1"><a class="on" href="javascript:void(0)" data-field="priceid" data-value="0">全部</a></span>
+              <span class="sp_2">
+               {sline:getlineguide flag='price'}
+              	<a href="javascript:void(0)" data-field="priceid" data-value="[field:id/]">[field:title/]</a>
+               {/sline:getlineguide}
+              </span>
+            </dd>
+          </dl>
+        </div>
+        <!--隐藏域-->
+  
+           <input type="hidden" name="sorttype" id="sorttype" value="0"/>
+           <input type="hidden" name="stdate" id="stdate" value="0"/>
+           <input type="hidden" name="totalpage" id="totalpage" value="1"/>
+           <input type="hidden" name="currentpage" id="currentpage" value="1"/>
+        <!--/隐藏域-->
+        <div class="search_list">
+          <div class="list_nav">
+          	<span class="sp_1"></span>
+          	<span><a class="on" href="javascript:void(0)" data-field="sorttype" data-value="0">默认排序</a></span>
+            <span><a href="javascript:void(0)" data-field="sorttype" data-value="1">推荐</a></span>
+            <span><a href="javascript:void(0)" data-field="sorttype" data-value="2">价格</a></span>
+            <span><a href="javascript:void(0)" data-field="sorttype" data-value="3">销量</a></span>
+            <span><a href="javascript:void(0)" data-field="sorttype" data-value="4">人气</a></span>
+          </div>
+          <div id="linelist">
+             <div class="list_con">
+          	<div class="list_pic">
+            	<a class="fl" href="#"><img class="fl" src="../images/pic/gril_1.jpg" width="150" height="115" title="说明" alt="说明" /></a>
+            </div>
+           	<div class="list_txt">
+            	<p class="p1"><a href="#">【成都出发】港澳海洋公园升级版五日游港澳海洋公园升级版五日游港澳海洋公园升级版五日游</a></p>
+              <p class="p2">线路特色：宁波往返香港直飞，全程四星住宿，游览海洋公园，一天自由活动，一天自由活动，一天自由活动，赠送价值280元洋紫荆</p>
+              <p class="p3">行程时间：5 天</p>
+              <p class="p4">出团日期：01-01,01-07,01-08,01-10,01-14,01-15,01-21,02-02,02-03,01-18,...</p>
+              <p class="p5">
+              	<span>销量：<b>295</b>人已购买</span>
+                <span>评论：<b>209</b>条评论</span>
+                <span class="sp_star"><strong class="fl">满意度：</strong><b><s style=" width:80%"></s></b></span>
+              </p>
+            </div>
+            <div class="list_price">
+            	<p class="p1"><span>&yen;2880</span>起</p>
+              <p class="p2"><a href="#">查看详情</a></p>
+              <p class="p3">
+              	<span class="sp_1"><b>100</b><s></s></span>
+              	<span class="sp_2"><b>100+55</b><s></s></span>
+              </p>
+            </div>
+          </div>
+            <div class="list_con bor_bot_0">
+          	<div class="list_pic">
+            	<a class="fl" href="#"><img class="fl" src="../images/pic/gril_1.jpg" width="150" height="115" title="说明" alt="说明" /></a>
+            </div>
+           	<div class="list_txt">
+            	<p class="p1"><a href="#">【成都出发】港澳海洋公园升级版五日游港澳海洋公园升级版五日游港澳海洋公园升级版五日游</a></p>
+              <p class="p2">线路特色：宁波往返香港直飞，全程四星住宿，游览海洋公园，一天自由活动，一天自由活动，一天自由活动，赠送价值280元洋紫荆</p>
+              <p class="p3">行程时间：5 天</p>
+              <p class="p4">出团日期：01-01,01-07,01-08,01-10,01-14,01-15,01-21,02-02,02-03,01-18,...</p>
+              <p class="p5">
+              	<span>销量：<b>295</b>人已购买</span>
+                <span>评论：<b>209</b>条评论</span>
+                <span class="sp_star"><strong class="fl">满意度：</strong><b><s style=" width:80%"></s></b></span>
+              </p>
+            </div>
+            <div class="list_price">
+            	<p class="p1"><span>&yen;2880</span>起</p>
+              <p class="p2"><a href="#">查看详情</a></p>
+              <p class="p3">
+              	<span class="sp_1"><b>100</b><s></s></span>
+              	<span class="sp_2"><b>100+55</b><s></s></span>
+              </p>
+            </div>
+          </div>
+          </div>
+        </div>
+        
+        <div class="main_mod_page clear" id="pageinfo">
+       
+        </div>
+      </div>
+      <!--主体内容结束-->
+    </div>
+  </div>
+  <!-- 中间内容结束 -->
+  
+  {sline:include file='public/help.htm'/}
+  
+  {sline:include file='public/footer.htm'/}
+  
+  {sline:include file='public/flink.htm'/}
+</body>
+</html>

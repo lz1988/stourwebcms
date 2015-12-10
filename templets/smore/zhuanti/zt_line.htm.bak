@@ -1,0 +1,30 @@
+{sline:if var='_hasthemeline'}
+  <div id="#ztline" class="show_con">
+    	<div class="line_hot"></div>
+      <div></div>
+      <div class="line_name">{sline:field.shortname/}线路</div>
+      <div></div>
+      <div class="phone"></div>
+      <div></div>
+    	<div class="show_top"></div>
+      <div class="show_mid">
+      	<ul>
+         {sline:getlinelist type='theme' row='8'}
+             <li>
+              <a href="[field:url/]" target="_blank">
+              <img src="[field:litpic/]" alt="[field:title/]" title="[field:title/]" width="206" height="145" />
+              </a>
+              <span class="up_img_bg"></span>
+              <div></div>
+              <p class="up_font_bg">门市价：<del>[field:storeprice/]</del>&nbsp;&nbsp;省[field:array runphp='yes']@me=@me['storeprice']-@me['price'];[/field:array]<b style=" color:#addf5c; margin-left:20px">[field:shownum/]</b>人关注</p>
+              <div></div>
+              <div></div>
+              <span class="up_img_name"><a href="[field:url/]">[field:title/]</a></span>
+              <span class="cp_yuding"><span class="fl">优惠价[field:price/]</span><input class="fr" type="image" src="[field:global.cfg_templets_skin/]/images/ckxq.gif"  /></span>
+              </li>
+         {/sline:getlinelist}
+        </ul>
+      </div>
+      <div class="show_bot"></div>
+ </div>
+{/sline:if}

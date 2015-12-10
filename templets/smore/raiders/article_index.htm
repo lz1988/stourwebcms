@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{sline:field.seotitle/}-{sline:global.cfg_webname/}</title>
+<meta name="description" content="{sline:field.seodescription/}" />
+<meta name="keywords" content="{sline:field.seokeyword/}" />
+<meta name="author" content="{sline:global.cfg_webname/}" />
+{sline:php}GetCss('base.css,article.css','2012.06');{/sline:php}
+{sline:php}GetScript('jquery-1.8.3.min.js,common.js,scroll.1.3.js,article.index.js,jquery.zoomImgRollover.js','2012.06');{/sline:php}
+
+</head>
+
+<body>
+	{sline:include file='public/header.htm'/}
+  
+  <!-- 中间内容开始 -->
+  <div class="big">
+  	<div class="width_1210">
+    	<!-- 面包屑and订单开始 -->
+    	<div class="top_first">
+      	<div class="crumbs"><a href="/">{sline:global.cfg_indexname/}</a> &raquo; <a href="/raiders/">{sline:field.typename/}</a></div>
+        {sline:include file='public/scroll_order.htm'/}
+      </div>
+      <!-- 面包屑and订单结束 -->
+
+      <!--文章内容开始-->
+      <div class="articel_con">
+      	<div class="art_top_scrool">
+          <div id="sca1" class="warp-pic-list">
+            <div id="wrapBox1" class="wrapBox">
+              <ul id="count1" class="count clearfix">
+              {sline:getarclist row="6" flag="recommend" haspic="1"}
+                <li>
+                  <a href="[field:url/]" class="img_wrap" target="_blank"><img src="[field:litpic/]" width="345" height="255" border="0" /></a>
+                  <div class="title"><a href="[field:url/]" target="_blank">[field:title/]</a></div>
+                  <div class="tag"><span>[<a href="/raiders/[field:pinyin/]" target="_blank">[field:destname/]</a>]</span> [field:attrnamearr runphp='yes']
+                   foreach(@me as $k=>$v)
+                   {
+                     $str.=" - [<a target=\"_blank\" href=\"/raiders/all-{$k}\">{$v}</a>]"; 
+                   }
+                   @me=$str;
+                  [/field:attrnamearr]</div>
+                  <div class="txt">
+                  	<div class="pl">
+                    [field:array runphp='yes']
+                    if(empty(@me['commentcontent']))
+                      @me='';
+                    else
+                    @me="<img class=\"fl\" src=\"{@me['commentlitpic']}\" width=\"24\" height=\"24\" /><b>{@me['commentcontent']}</b>";
+                    [/field:array]
+                    </div><span class="sp_1">[field:shownum/]</span><span class="sp_2">[field:commentnum/]</span>
+                  </div>
+                </li>
+               {/sline:getarclist} 
+              </ul>
+            </div>
+            <a id="right1" class="prev icon btn"></a>
+            <a id="left1" class="next icon btn"></a>
+          </div>
+        </div>
+        
+        <!--主题分类开始-->
+        <div class="articel_nav">
+        	<dl>
+          	<dt>主题</dt>
+            <dd>
+            {sline:getarcattr}
+            	<a target="_blank" href="[field:url/]">[field:title/]</a>
+            {/sline:getarcattr}
+            </dd>
+          </dl>
+        </div>
+        <!--主题分类结束-->
+        
+        
+        <!--攻略大分类展示开始-->
+        <div class="articel-left-con">
+         {sline:middlenavlist flag="raider" readad='1'}
+          <div class="con-list">
+          	<div class="h3-tit">
+            	<h3>{sline:field.kindname/}攻略</h3>
+              <div class="mdd-fl">
+                {sline:getdest flag='next' row='12'}
+              	 <a href="/raiders/[field:pinyin/]/" target="_blank">[field:title/]</a>
+                {/sline:getdest}
+              </div>
+              <a class="more" href="/raiders/{sline:field.pinyin/}/" target="_blank">更多</a>
+            </div>
+            {sline:getarclist type='mdd' flag='recommend' haspic='1' row='1'}
+                <div class="con-l">
+                    <s class="jh">精华</s>
+                    <a class="fl" href="[field:url/]" target="_blank"><img class="fl" src="[field:litpic/]" width="295" height="190" title="[field:title/]" /></a>
+                  <p class="p1">
+                    <span class="sp1"><a href="/raiders/[field:pinyin/]/">[field:destname/]</a></span>
+                    <span class="sp2">[field:shownum/]</span>
+                    <span class="sp3">[field:commentnum/]</span>
+                  </p>
+                  <p class="p2"><a href="[field:url/]" target="_blank">[field:title/]</a></p>
+                  <p class="p3">[field:content function="cutstr_html(@me,70)"/]<a href="[field:url/]" target="_blank">[详情]</a></p>
+                </div>
+            {/sline:getarclist}
+            <div class="con-m">
+                {sline:getarclist type='mdd' flag='recommend' row='4' limit='1'}
+                    <dl>
+                    <dt><a class="mdd-a" href="/raiders/[field:pinyin/]/" target="_blank">[field:destname/]</a><a class="tit-a" href="[field:url/]" target="_blank">[field:title/]</a></dt>
+                    <dd>[field:content function="cutstr_html(@me,50)"/]<a href="[field:url/]" target="_blank">[详情]</a></dd>
+                  </dl>
+                {/sline:getarclist}
+
+            </div>
+            <div class="con-r">
+            	<ul>
+                       {sline:getarclist type='mdd' flag='recommend' row='2' limit='3'}
+                        <li class="mb-15">
+                            <a class="fl" href="[field:url/]" target="_blank"><img class="fl" src="[field:litpic/]" width="250" height="138" title="[field:title/]" /></a>
+                          <p><a href="[field:url/]" target="_blank">[field:title/]</a></p>
+                        </li>
+                       {/sline:getarclist}
+              </ul>
+            </div>
+          </div>
+           {sline:field.middlead/}
+         {/sline:middlenavlist}
+           <script>
+			 			$(".articel-left-con img").zoomImgRollover()
+	       </script>
+          <div class="new-dz">
+          	<h3 class="tit">最新评论攻略</h3>
+            <ul class="con-ul">
+             {sline:getarclist type='pinlun' row='6'}
+              <li class="post_item">
+              	<dl>
+                	<dt><a class="fl" href="[field:url/]" target="_blank"><img class="fl" src="[field:lit240/]" width="195" height="125" title="[field:title/]" alt="[field:title/]" /></a></dt>
+                  <dd>
+                  	<div class="tit">
+                    	<a href="[field:url/]" target="_blank">[field:title/]</a>
+                    	<div class="date">
+                      	<span class="sp1">[field:shownum/]</span>
+                        <span class="sp2">[field:commentnum/]</span>
+                      </div>
+                    </div>
+                    <div class="txt">[field:content function="cutstr_html(@me,60)"/]</div>
+                    [field:pinlun/]
+                  </dd>
+                </dl>
+              </li>
+             {/sline:getarclist}
+
+            </ul>
+          </div>
+        </div>
+        <!--攻略大分类展示结束-->
+       
+       
+        <!--右侧开始-->
+        <div class="line_con_rig">
+          {sline:getrightcontent pagename='index'/}
+        </div>
+        <!--右侧结束-->
+        
+      </div>
+      <!--文章内容结束-->
+      
+    </div>
+  </div>
+  <!-- 中间内容结束 -->
+  <!--底部开始-->
+  {sline:include file='public/help.htm'/}
+  
+  {sline:include file='public/footer.htm'/}
+  
+  {sline:include file='public/flink.htm'/}
+  <!-- 底部结束 -->
+0  <!-- 友情链接结束 -->
+
+</body>
+</html>

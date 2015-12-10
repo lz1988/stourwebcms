@@ -1,0 +1,622 @@
+@charset "utf-8";
+/* CSS Document */
+.con_left{
+	float:left;
+	width:960px}
+.st_left{
+	float:left;
+	width:960px;
+	height:380px}
+.con_rig{
+	float:right;
+	width:240px;
+	height:auto;
+	overflow:hidden}
+.st_rig{
+	float:left;
+	width:240px;
+	height:auto}
+.user_con{
+	float:left;
+	width:240px;
+	margin-bottom:10px}
+.user_con a{
+	width:117px;
+	height:38px;
+	line-height:38px;
+	text-align:center;
+	font-family:"微软雅黑";
+	font-size:14px;
+	color:#fff;
+	background:url(../images/body_bg.png) no-repeat}
+.user_con a.register{
+	float:left;
+	background-position:0 -366px}
+.user_con a:hover.register{
+	color:#fff;
+	float:left;
+	background-position:0 -327px}
+.user_con a.login{
+	float:right;
+	background-position:-119px -366px}
+.user_con a:hover.login{
+	color:#fff;
+	float:right;
+	background-position:-119px -327px}
+
+#main { float:left; width:590px;overflow: hidden; zoom: 1; position: relative}
+#index_b_hero { float:left; width: 590px; height: 380px; margin: auto; position: relative}
+#index_b_hero img { width: 590px; height: 380px; }
+#index_b_hero .heros { width: 590px; height: 380px; }
+#index_b_hero .hero-wrap { overflow:hidden; position: absolute; }
+#index_b_hero .next, #index_b_hero .prev { position: absolute; bottom:3px; margin-top: -25px; margin-left: 5px; z-index: 3; }
+#index_b_hero .next { margin: -25px 3px 0 0; right: 0; }
+#index_b_hero .disabled { background-color: #eee; }
+#index_b_hero .mask-left, #index_b_hero .mask-right, #index_b_hero .hero { background: #fff; z-index: 1; position: absolute; top: 0; left: 0; width: 590px; height: 380px; overflow: hidden; left: 1920px; }
+#index_b_hero .mask-right, #index_b_hero .mask-left { z-index: 4; left: -590px; filter: alpha(Opacity=50); opacity: .5; background: #fff; overflow: hidden; }
+#index_b_hero .mask-right { left: 590px; }
+#index_b_hero .active { z-index: 2; left: 0; }
+.icon-arrow-a-left, .icon-arrow-a-right { background: url(../images/link_btn_ico.gif) no-repeat; }
+.icon-arrow-a-left { background-position: 0 0; height: 30px; width: 28px; right:34px}
+.icon-arrow-a-left:hover, .icon-arrow-a-left.arrow-a-left_hover, .icon-arrow-a-left.arrow-a-left-hover { background-position:0 0; }
+.icon-arrow-a-right { background-position: -28px 0; height: 30px; width:28px; }
+.icon-arrow-a-right:hover, .icon-arrow-a-right.arrow-a-right_hover, .icon-arrow-a-right.arrow-a-right-hover { background-position:-28px 0; }
+.tishi{
+	color:#fff;
+	float:left;
+	width:590px;
+	position:absolute;
+	bottom:0;
+	left:0;
+	background:url(../images/toum_bg.png) left repeat}
+.tishi a{
+	float:left;
+	color:#fff;
+	width:500px;
+	line-height:36px;
+	padding:0 10px;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	font-family:"微软雅黑";
+	font-size:16px}
+.gl_top{
+	float:right;
+	width:368px;
+	height:228px;
+	position:relative}
+.gl_top .ct_ico{
+	color:#fff;
+	width:20px;
+	height:31px;
+	line-height:14px;
+	text-align:center;
+	padding-top:20px;
+	position:absolute;
+	top:5px;
+	right:5px;
+	background:url(../images/body_bg.png) no-repeat 0 -530px}
+.gl_top .tg{
+	float:left;
+	width:366px;
+	height:35px;
+	line-height:35px;
+	margin-top:-35px;
+	background:url(../images/toum_bg.png) left repeat}	
+.gl_top .tg .title{
+	float:left;
+	color:#fff;
+	width:280px;
+	height:35px;
+	line-height:35px;
+	margin-left:10px;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap}
+.gl_top .tg .ct_btn{
+	float:right;
+	color:#fff;
+	width:56px;
+	height:24px;
+	line-height:24px;
+	text-align:center;
+	margin:5px 10px 0 0;
+	font-size:14px;
+	font-family:"微软雅黑";
+	background:url(../images/body_bg.png) no-repeat 0 -100px}
+.gl_b1,.gl_b2{
+	float:left;
+	width:183px;
+	height:150px;
+	margin:2px 0 0 2px;
+	position:relative}
+.gl_b1 .gl_ico,.gl_b2 .gl_ico	{
+	color:#fff;
+	width:20px;
+	height:31px;
+	line-height:14px;
+	text-align:center;
+	padding-top:20px;
+	position:absolute;
+	top:5px;
+	right:5px;
+	background:url(../images/body_bg.png) no-repeat right -530px}
+.gl_b1 .title,.gl_b2 .title{
+	float:left;
+	width:183px;
+	height:30px;
+	line-height:30px;
+	margin-top:-30px;
+	background:url(../images/toum_bg.png) left repeat}
+.gl_b1 .title a,.gl_b2 .title a{
+	float:left;
+	color:#fff;
+	width:163px;
+	height:30px;
+	line-height:30px;
+	padding:0 10px;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap}
+.line_list_con{
+	float:left;
+	width:960px;
+	height:auto;
+	margin-top:20px}
+.line_list_con .list_bt{
+	float:left;
+	width:960px;
+	height:40px;
+	line-height:40px;
+	border-bottom:3px solid #65b71f;
+	background:url(../images/index2.png) no-repeat 725px -217px}
+.line_list_con .list_bt s{
+	float:left;
+	width:37px;
+	height:30px;
+	margin:5px 5px 0;
+	background:url(../images/index2.png) no-repeat 0 -73px}
+.line_list_con .list_bt h3{
+	float:left;
+	color:#464646;
+	font-size:18px;
+	font-weight:500;
+	font-family:"微软雅黑"}
+.line_list_con .list_bt a,.tuan_con .tuan_bt a,.gl_con .gl_bt a{
+	height:24px;
+	line-height:24px;
+	font-size:12px;
+	float:right;
+	margin-top:16px;
+	font-family:"微软雅黑";
+	padding-right:10px}
+.menu_left{
+	float:left;
+	width:200px}
+.menu_left .line_menu_txt{
+	float:left;
+	width:200px;
+	overflow:hidden;
+	background:#fdfdfd;
+	border-left:1px solid #e5e5e5;
+	box-shadow:2px 0 2px #eee}
+.menu_left .line_menu_txt a{
+	float:left;
+	color:#666;
+	width:85px;
+	height:30px;
+	line-height:30px;
+	margin-left:-1px;
+	padding-left:15px;
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+	border-top:0;
+	border-right:1px solid #e5e5e5;
+	border-bottom:1px solid #e5e5e5;
+	border-left:0}
+.menu_left .line_menu_txt a:hover{
+	color:#fff;
+	background:#65b71f}	
+.menu_left .line_menu_pic{
+	float:left;
+	width:200px;
+	overflow:hidden}
+.list_rig{
+	float:right;
+	width:746px}
+.list_rig ul{
+	float:left;
+	margin-top:5px;}
+.list_rig ul li{
+	float:left;
+	width:740px;
+	padding:10px 0 10px 6px;
+	border-bottom:1px solid #f2f2f2}
+.list_rig ul li:hover{
+	background:#ebf5e2}
+/*.list_rig ul li.pad_bom{
+	padding-bottom:0}*/
+.list_rig ul li .con_txt{
+	float:left;
+	width:500px;
+	margin-left:10px}
+.list_rig ul li .con_txt p{
+	color:#999;
+	width:500px;
+	height:20px;
+	line-height:20px;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap}
+.list_rig ul li .con_txt a{
+	float:left;
+	color:#f60;
+	width:500px;
+	height:20px;
+	line-height:20px;
+	font-size:14px;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap}
+.list_rig ul li .con_txt a:hover{
+	text-decoration:underline}
+.list_rig ul li .con_txt .p3 .color_f60{
+	color:#65b71f}
+.list_rig ul li .con_txt .p3 .wid_1{
+	float:left;
+	width:130px;
+	height:20px;
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow:ellipsis}
+.list_rig ul li .con_txt .p3 .wid_2{
+	float:left;
+	width:234px;
+	height:20px;
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow:ellipsis}
+.list_rig ul li .price{
+	float:right;
+	width:100px;
+	padding-right:10px}
+.list_rig ul li .price p{
+	float:left;
+	width:100px;
+	height:30px;
+	line-height:30px;
+	text-align:right}
+.list_rig ul li .price .p1 span{
+	color:#f60;
+	font-size:14px;}
+.list_rig ul li .price .p1 strong{
+	color:#f60;
+	font-size:24px;
+	margin-left:3px;
+	font-weight:500;
+	font-family:Arial;}
+.list_rig ul li .price .p1 i{
+	font-style:normal;
+	color:#999;
+	margin-left:3px}
+.list_rig ul li .price .p2{
+	float:right;
+	color:#f60;
+	width:30px;
+	height:17px;
+	line-height:17px;
+	padding-left:20px;
+	text-align:center;
+	margin-top:5px;
+	background:url(../images/dsp_bg.png) no-repeat 0 0}
+.tuan_con{
+	float:left;
+	width:960px;
+	margin-top:20px}
+.tuan_con .tuan_bt {
+	float:left;
+	width:960px;
+	height:40px;
+	line-height:40px;
+	border-bottom:3px solid #65b71f;
+	background:url(../images/index2.png) no-repeat 725px -293px}
+.tuan_con .tuan_bt h3 {
+	float:left;
+	color:#464646;
+	font-size:18px;
+	font-weight:500;
+	font-family:"微软雅黑"}
+.tuan_con .tuan_bt s {
+	float:left;
+	width:37px;
+	height:30px;
+	margin:5px 5px 0;
+	background:url(../images/index2.png) no-repeat 0 -119px}
+.tuan_con ul{
+	float:left;
+	width:960px;
+	height:auto;
+	margin-top:15px;
+	overflow:hidden}
+.tuan_con ul li{
+	float:left;
+	width:223px;
+	height:240px;
+	margin-right:20px;
+	overflow:hidden;
+	position:relative;
+	border:1px solid #dcdcdc}
+.tuan_con ul li.mr_0{
+	margin-right:0}
+.tuan_con ul li .tuan_ico{
+	width:44px;
+	height:60px;
+	position:absolute;
+	right:5px;
+	top:0;
+	color:#fff;
+	text-align:center;
+	font-size:12px;
+	font-family:"微软雅黑";
+	background:url(../images/index2.png) no-repeat right -73px}
+.tuan_con ul li .tuan_ico span{
+	display:block;
+	width:42px;
+	font-size:20px}
+.tuan_con ul li .p1{
+	float:left;
+	width:203px;
+	height:30px;
+	padding:10px 10px 0}
+.tuan_con ul li .p1 a{
+	float:left;
+	width:203px;
+	height:30px;
+	line-height:30px;
+	font-size:14px;
+	overflow:hidden;
+	text-overflow:ellipsis}
+.tuan_con ul li .p1 a:hover{
+	color:#f60;
+	text-decoration:underline}
+.tuan_con ul li .p2{
+	float:left;
+	color:#999;
+	width:203px;
+	height:30px;
+	line-height:30px;
+	padding:0 10px}
+.tuan_con ul li .p2 span{
+	float:left;
+	color:#666;
+	font-size:14px}
+.tuan_con ul li .p2 span i{
+	color:#f60;
+	font-style:normal}
+.tuan_con ul li .p2 span strong{
+	color:#f60;
+	font-size:24px;
+	font-weight:500;
+	margin-left:3px}
+.tuan_con ul li .p2 s{
+	float:right;
+	height:20px;
+	line-height:20px;
+	margin-top:8px}
+.gl_con{
+	float:left;
+	width:960px;
+	margin-top:20px}
+.gl_con .gl_bt {
+	float:left;
+	width:960px;
+	height:40px;
+	line-height:40px;
+	border-bottom:3px solid #65b71f;
+	background:url(../images/index2.png) no-repeat 755px -367px}
+.gl_con .gl_bt h3 {
+	float:left;
+	color:#464646;
+	font-size:18px;
+	font-weight:500;
+	font-family:"微软雅黑"}
+.gl_con .gl_bt s {
+	float:left;
+	width:37px;
+	height:30px;
+	margin:5px 5px 0;
+	background:url(../images/index2.png) no-repeat 0 -166px}
+.gl_ul_top{
+	float:left;
+	width:960px}
+.gl_ul_top li{
+	float:left;
+	width:310px;
+	height:215px;
+	overflow:hidden;
+	margin:15px 15px 0 0;
+	position:relative}
+.gl_ul_top li.mr_0{
+	margin-right:0}
+.gl_ul_top li p{
+	width:310px;
+	height:35px;
+	position:absolute;
+	bottom:0;
+	left:0}
+.gl_ul_top li p a{
+	float:left;
+	color:#fff;
+	width:290px;
+	height:35px;
+	line-height:35px;
+	padding:0 10px;
+	font-size:14px;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	background:url(../images/toum_bg.png) left repeat-x}
+.gl_ul_top li p a:hover{
+	color:#f60;
+	text-decoration:underline}
+.gl_list_con{
+	float:left;
+	width:960px;
+	margin-top:15px}
+.gl_list_con ul{
+	float:left}
+.gl_list_con ul li.txt_img_list{
+	float:left;
+	width:310px;
+	height:100px;
+	margin-right:15px;
+	overflow:hidden}
+.gl_list_con ul li.txt_img_list .tit{
+	float:right;
+	width:155px;
+	font-size:14px;}
+.gl_list_con ul li.txt_img_list .tit a{
+	float:left;
+	width:155px;
+	max-height:44px;
+	line-height:22px;
+	overflow:hidden}
+.gl_list_con ul li.txt_img_list .tit a:hover{
+	color:#f60;
+	text-decoration:underline}
+.gl_list_con ul li.txt_img_list .txt{
+	float:right;
+	color:#999;
+	width:155px;
+	max-height:40px;
+	line-height:20px;
+	margin-top:10px;
+	overflow:hidden}
+.gl_list_con ul li.txt_list{
+	float:left;
+	width:310px;
+	height:28px}
+.gl_list_con ul li.txt_list a{
+	float:left;
+	width:295px;
+	height:28px;
+	line-height:28px;
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+	font-size:14px}
+.gl_list_con ul li.txt_list a:hover{
+	color:#f60;
+	text-decoration:underline}
+.gl_list_con ul li.txt_list span{
+	float:left;
+	width:15px;
+	color:#464646;
+	font-size:30px;
+	margin-top:-13px;
+	overflow:hidden}
+.hot_gl{
+	float:left;
+	width:960px;
+	margin-top:10px}
+.hot_gl .hot_tit{
+	float:left;
+	color:#464646;
+	width:960px;
+	height:30px;
+	line-height:30px;
+	font-family:"微软雅黑"}
+.hot_gl .hot_tit s{
+	float:left;
+	width:21px;
+	height:19px;
+	margin-top:5px;
+	background:url(../images/index2.png) no-repeat 0 -36px}
+.hot_gl .hot_tit h3{
+	float:left;
+	font-size:16px;
+	font-weight:500;
+	margin-left:7px}
+.hot_gl .hot_tit i{
+	float:right;
+	width:850px;
+	margin-top:15px;
+	border-top:1px solid #dcdcdc}
+.hot_gl ul{
+	float:left;
+	width:960px;
+	margin-top:10px}
+.hot_gl ul li{
+	float:left;
+	width:180px;
+	margin-right:15px}
+.hot_gl ul li.mr_0{
+	margin-right:0}
+.hot_gl ul li .p1{
+	float:left;
+	margin-top:8px}
+.hot_gl ul li .p1 a{
+	float:left;
+	width:180px;
+	max-height:44px;
+	line-height:22px;
+	overflow:hidden;
+	font-size:14px}
+.hot_gl ul li .p1 a:hover{
+	color:#f60;
+	text-decoration:underline}
+.hot_gl ul li .p2{
+	float:left;
+	width:180px;
+	height:30px;
+	line-height:30px;
+	margin-top:10px}
+.hot_gl ul li .p2 .sp1{
+	float:left;
+	height:30px;
+	line-height:30px;
+	padding-left:18px;
+	background:url(../images/index2.png) no-repeat 0 7px}
+.hot_gl ul li .p2 .sp1 a{
+	float:left;
+	color:#00a104;
+	width:100px;
+	height:30px;
+	line-height:30px;
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	font-size:14px}
+.hot_gl ul li .p2 .sp2{
+	float:right;
+	color:#999;
+	height:30px;
+	line-height:30px;
+	padding-left:24px;
+	background:url(../images/gl_zs_bg.png) no-repeat 0 -22px}
+.hot_link{
+	float:left;
+	width:938px;
+	padding:10px;
+	margin-top:15px;
+	border:1px solid #f2f2f2}
+.hot_link dt{
+	float:left;
+	color:#666;
+	width:60px;
+	height:24px;
+	line-height:24px;}
+.hot_link dd{
+	float:left;
+	width:878px}
+.hot_link dd a{
+	float:left;
+	color:#999;
+	height:24px;
+	line-height:24px;
+	margin-right:15px}
+.hot_link dd a:hover{
+	color:#f60;
+	text-decoration:underline}
+
+

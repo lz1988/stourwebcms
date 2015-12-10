@@ -1,0 +1,20 @@
+
+  <!--边栏开始-->
+    	<div class="line_con_left">
+      	<!--边栏导航开始-->
+      	<div class="side_menu">
+          <h3>{sline:field.kindname/}旅游热门目的地</h3>
+          {sline:destlist}
+            <dl>
+              <dt>{sline:field.destname/}</dt>
+              <dd>
+                  {sline:getdest flag='next'}
+                   <a href="[field:url/]lines/">[field:title/]<s>|</s></a>
+                  {/sline:getdest}
+                 
+              </dd>
+            </dl>
+          {/sline:destlist}
+        
+        </div>
+        <!--边栏导航结束-->

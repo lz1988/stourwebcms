@@ -1,0 +1,252 @@
+@charset "utf-8";
+/* CSS Document */
+#top{
+	width:100%;
+	height:30px;
+	background:#eee;
+	border-bottom:1px solid #4aa8db}
+.top_auto{
+	width:980px;
+	margin:auto}	
+.top_nav{
+	float:left;
+	height:30px}	
+.top_sp{
+	float:right;
+	height:30px}		
+.top_nav li,.top_sp li{
+	float:left;
+	height:13px;
+	line-height:13px;
+	padding-right:10px;
+	margin:9px 10px 0 0;
+	border-right:1px solid #999}
+.zt_top_big{
+	width:100%;
+	min-height:410px;
+	}
+.logo_banner{
+	float:left;
+	width:980px;
+	height:auto}	
+.introduce{
+	float:left;
+	width:960px;
+	height:auto;
+	padding:10px;
+	line-height:24px;
+	color:#1bc6c4;
+	background:#fffcf9}
+.introduce_bg{
+	float:left;
+	width:940px;
+	height:14px;
+	margin:0 20px;
+	display:inline;
+	background:url(../images/specialtopic.png) no-repeat 0 -275px}
+.nav{
+	float:left;
+	width:980px;
+	height:auto;
+	margin:20px 0;}
+.nav ul{
+	float:left;
+	width:980px;
+	height:74;}
+.nav ul li{
+	float:left;
+	width:171px;
+	height:74px}	
+.nav ul li a{
+	float:left;
+	width:171px;
+	height:69px;
+	color:#444;
+	font-size:24px;
+	text-align:center;
+	padding-top:5px}	
+.nav ul li a:hover{
+	color:#fff}	
+.nav_line{
+	background:url(../images/specialtopic.png) no-repeat 0 0}	
+.nav_hotel{
+	margin-left:31px;
+	background:url(../images/specialtopic.png) no-repeat -171px 0}	
+.nav_car{
+	margin-left:31px;
+	background:url(../images/specialtopic.png) no-repeat -342px 0}	
+.nav_spot{
+	margin-left:31px;
+	background:url(../images/specialtopic.png) no-repeat -513px 0}	
+.nav_raider{
+	margin-left:31px;
+	background:url(../images/specialtopic.png) no-repeat -684px 0}
+.show_con{
+	float:left;
+	width:980px;
+	height:auto;
+	margin-top:20px;
+	position:relative}	
+.line_hot,.hotel_hot,.car_hot,.spot_hot,.raider_hot{
+	z-index:99;
+	position:absolute;
+	left:-7px;
+	top:-7px;
+	width:100px;
+	height:102px}
+.line_hot{
+	background:url(../images/specialtopic.png) no-repeat 0 -168px}
+.hotel_hot{
+	background:url(../images/specialtopic.png) no-repeat -100px -168px}
+.car_hot{
+	background:url(../images/specialtopic.png) no-repeat -200px -168px}
+.spot_hot{
+	background:url(../images/specialtopic.png) no-repeat -300px -168px}
+.raider_hot{
+	background:url(../images/specialtopic.png) no-repeat -400px -168px}
+.line_name{
+	z-index:99;
+	position:absolute;
+	left:320px;
+	top:-6px;
+	width:329px;
+	height:52px;
+	line-height:52px;
+	text-align:center;
+	font-size:24px;
+	color:#fff;
+	background:url(../images/specialtopic.png) no-repeat 0 -116px}	
+.phone{
+	position:absolute;
+	top:0;
+	right:40px;
+	width:300px;
+	height:50px;
+	line-height:50px;
+	margin-top:5px;
+	text-align:right;
+	color:#c77726;
+	font-size:18px;}	
+.show_top{
+	float:left;
+	height:20px;
+	width:980px;
+	background:url(../images/specialtopic.png) no-repeat 0 -75px}
+.show_mid{
+	float:left;
+	height:auto;
+	width:980px;
+	background:url(../images/show_mid.png) left repeat-y}
+.show_mid ul{
+	float:left;
+	width:940px;
+	height:auto;
+	display:inline;
+	margin:50px 0 0 20px}
+.show_mid ul li{
+	float:left;
+	width:206px;
+	height:230px;
+	display:inline;
+	position:relative;
+	margin:0 15px 10px 12px;}	
+.show_mid ul li a{
+	float:left;
+	display:block;
+	cursor:pointer}
+.up_img_bg{
+	float:left;
+	background:#000;
+	filter:progid:DXImageTransform.Microsoft.BasicImage(opacity=0.6);
+	position:absolute;
+	width:206px;
+	height:25px;
+	top:120px;
+	left:0}		
+.up_font_bg{
+	width:196px;
+	height:25px;
+	line-height:25px;
+	color:#fff;
+	position:absolute;
+	top:120px;
+	left:5px}
+.up_img_name{
+	overflow:hidden;
+	float:left;
+	width:206px;
+	height:40px;
+	font-size:14px;
+	line-height:18px;
+	margin-top:5px;}
+.up_img_name a:hover{
+	text-decoration:underline;}	
+.cp_yuding{
+	float:left;
+	width:206px;
+	height:25px;
+	color:#f60}
+.cp_yuding .rmb_1{
+	font-size:18px}
+.rmb_size{
+	font-size:18px;
+	font-weight:bold}	
+.show_mid .raider_dl{
+	float:left;
+	width:940px;
+	height:auto;
+	display:inline;
+	margin:50px 5px 0 25px}	
+.show_mid .raider_dt{
+	float:left;
+	width:206px;
+	height:145px;
+	margin-bottom:10px}	
+.show_mid .raider_dd{
+	float:left;
+	width:198px;
+	height:14px;
+	padding-left:8px;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	background:url(../images/pint.gif) left no-repeat}	
+.show_bot{
+	float:left;
+	height:20px;
+	width:980px;
+	background:url(../images/specialtopic.png) no-repeat 0 -95px}
+.show_mid .help_dl{
+	float:left;
+	width:160px;
+	margin:0 5px 0 25px}
+.show_mid .help_dt{
+	font-weight:bold;
+	margin-bottom:10px}	
+.show_mid .help_dt a{
+	color:#c77726}	
+.show_mid .help_dd{
+	height:20px;
+	line-height:20px;}	
+.show_mid .help_dd a{
+	color:#c77726}	
+#footer{
+	border-top:3px solid #fff}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

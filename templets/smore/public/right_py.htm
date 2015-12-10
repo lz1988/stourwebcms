@@ -1,0 +1,44 @@
+<!--边栏满意度开始-->
+        <div class="dos">
+          <div class="dos_pic">
+            <p>客户满意度</p>
+            <span><s style=" width:100%"></s></span>
+          </div>
+          <div class="peo_data">已为<span>3008374</span>位客户提供旅游服务！</div>
+          <div class="fl"><img src="{sline:global.cfg_templets_skin/}/images/serve_pic.png" alt="" title="" /></div>
+          <div class="dis_list">
+            {sline:getcommentlist flag='all' row='6'}
+              <dl>
+                <dt><b>[field:nickname/]</b><strong>满意度：</strong><span class="comment_star" data-score="[field:score/]"></span></dt>
+                <dd>[field:content/]</dd>
+              </dl>
+            {/sline:getcommentlist}
+            
+          </div>
+        </div>
+        <!--边栏满意度结束-->
+      <script language="javascript">
+	    $(function(){
+		   //评分星级显示
+		   var FilesArray=['./raty/jquery.raty.min.js']
+			   Loader.loadFileList(FilesArray,function(){
+				  
+				   $('.comment_star').raty({
+					  size:6,
+					  path:siteUrl+'templets/smore/js/raty/img/',
+					  readOnly : true,
+					  width:100,
+					  hints: ['极差','不好','一般','很好','非常好'],
+					  score:function(){
+						return $(this).attr('data-score');
+					  }
+					  
+					   
+			
+				  });
+				  
+		   
+			  });
+		  
+		})
+	  </script>

@@ -1,0 +1,223 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{sline:field.seotitle/}-{sline:global.cfg_webname/}</title>
+    {sline:field.seokeyword/}
+    {sline:field.seodescription/}
+    <meta name="author" content="{sline:global.cfg_webname/}" />
+{sline:php}Helper_Archive::getCss('base.css,destination.css','2014.02.24');{/sline:php}
+{sline:php}Helper_Archive::getScript('jquery-1.8.3.min.js,common.js');{/sline:php}
+</head>
+
+<body>
+	{sline:include file='public/header.htm'/}
+  
+  <!-- 中间内容开始 -->
+  <div class="big">
+  	<div class="width_1210">
+    	<!-- 面包屑and订单开始 -->
+    	<div class="top_first">
+      	<!-- 面包屑and订单开始 -->
+    	<div class="crumbs"><a href="{sline:global.cfg_basehost/}">{sline:global.cfg_indexname/}</a> &raquo; <a href="{sline:global.cfg_cmsurl/}/destination/">{sline:field.typename/}</a> </div>
+        {sline:include file='public/scroll_order.htm'/}
+
+      </div>
+      <!-- 面包屑and订单结束 -->
+
+      <div class="mdd_con_left">
+        <div class="mdd_top">
+        	<div class="m_t_left">
+          	<div class="m_t_search">
+            	<h3>你好，世界！</h3>
+              <div class="s1"><input type="text" id="destname" class="search_txt" value="请输入目的地拼音" datadef="请输入目的地拼音" /><input type="button" class="search_btn mdd_btn" value="GO" /></div>
+              <div class="s2">
+                <span class="fl">热门目的地：</span>
+                {sline:getdest flag='hot' row='9'}
+                 <a href="[field:url/]" target="_blank">[field:title/]</a>
+                {/sline:getdest}
+              </div>
+            </div>
+            <div class="dw_pic_1">
+              {sline:singlead name='DestIndexAd1'}
+               <a href="[field:linkurl/]" target="_blank"><img class="fl" src="[field:picurl/]" width="190" height="401" alt="[field:linktext/]" /></a><a class="tit_1" href="[field:linkurl/]">[field:linktext/]</a>
+              {/sline:singlead}
+              
+            </div>
+            <div class="dw_pic_2">
+              {sline:singlead name='DestIndexAd2'}
+               <a href="[field:linkurl/]" target="_blank"><img class="fl" src="[field:picurl/]" width="379" height="195" alt="[field:linktext/]" /></a><a class="tit_2" href="[field:linkurl/]">[field:linktext/]</a>
+              {/sline:singlead}
+             
+            </div>
+            <div class="dw_pic_3">
+               {sline:singlead name='DestIndexAd3'}
+               <a href="[field:linkurl/]" target="_blank"><img class="fl" src="[field:picurl/]" width="188" height="202" alt="[field:linktext/]" /></a><a class="tit_3" href="[field:linkurl/]">[field:linktext/]</a>
+              {/sline:singlead}
+            </div>
+            <div class="dw_pic_4">
+               {sline:singlead name='DestIndexAd4'}
+               <a href="[field:linkurl/]" target="_blank"><img class="fl" src="[field:picurl/]" width="187" height="202" alt="[field:linktext/]" /></a><a class="tit_4" href="[field:linkurl/]">[field:linktext/]</a>
+              {/sline:singlead}
+              
+            </div>
+          </div>
+          <div class="m_t_rig">
+          	<div class="dw_pic_5">
+              {sline:singlead name='DestIndexAd5'}
+               <a href="[field:linkurl/]" target="_blank"><img class="fl" src="[field:picurl/]" width="189" height="394" alt="[field:linktext/]" /></a><a class="tit_5" href="[field:linkurl/]">[field:linktext/]</a>
+              {/sline:singlead}
+             </div>
+            <div class="dw_pic_6">
+               {sline:singlead name='DestIndexAd6'}
+               <a href="[field:linkurl/]" target="_blank"><img class="fl" src="[field:picurl/]" width="190" height="195" alt="[field:linktext/]" /></a><a class="tit_6" href="[field:linkurl/]">[field:linktext/]</a>
+              {/sline:singlead}
+              
+            </div>
+            <div class="dw_pic_7">
+               {sline:singlead name='DestIndexAd7'}
+               <a href="[field:linkurl/]" target="_blank"><img class="fl" src="[field:picurl/]" width="190" height="195" alt="[field:linktext/]" /></a><a class="tit_7" href="[field:linkurl/]">[field:linktext/]</a>
+              {/sline:singlead}
+             
+            </div>
+            <div class="dw_pic_8">
+             {sline:singlead name='DestIndexAd8'}
+               <a href="[field:linkurl/]" target="_blank"><img class="fl" src="[field:picurl/]" width="383" height="203" alt="[field:linktext/]" /></a><a class="tit_8" href="[field:linkurl/]">[field:linktext/]</a>
+              {/sline:singlead}
+            </div>
+          </div>
+        </div>
+        <div class="mdd_list_con">
+          <div class="mdd_title">
+            <h3>快捷目的地</h3>
+            <div class="mdd_menu">
+              <a class="active" href="javascript:;" data-id="0">全部地区</a>
+              {sline:getdest flag='top'}
+               <a href="[field:url/]" target="_blank" data-id="[field:id/]">[field:title/]</a>
+              {/sline:getdest}
+            </div>
+          </div>
+          {sline:destlist}
+            <div class="list_on" id="mdd_{sline:field.kindid/}">
+              <h3>{sline:field.destname/}旅游目的地</h3>
+              {sline:getdest flag='next' row='100'}
+              <dl>
+                <dt><a href="[field:url/]">[field:kindname/] [field:pinyin/]</a></dt>
+                [field:id function="getDestChildHtml(@me)"/]
+              
+               
+              </dl>
+              {/sline:getdest}
+              
+            </div>
+          {/sline:destlist}
+          
+         
+          
+          
+        </div>
+      </div>
+
+      
+      <!--边栏开始-->
+    	<div class="mdd_con_rig">
+
+         {sline:getrightcontent pagename='boot'/}
+        
+      </div>
+      <!--边栏结束-->
+
+    </div>
+  </div>
+  <!-- 中间内容结束 -->
+  
+  
+  {sline:include file='public/help.htm'/}
+  
+  {sline:include file='public/footer.htm'/}
+  <script language="javascript">
+  
+   $(function(){
+	   
+	 //动态目的地
+    var FilesArray=['./powerfloat/jquery-powerFloat.js','./powerfloat/powerFloat.css']
+    Loader.loadFileList(FilesArray,function(){
+         $(".haschild").powerFloat({
+				   
+				    targetMode:"ajax",
+					eventType:"hover",
+					target:function(){
+						     var mddid = $(this).attr('data-id');
+							 var url = siteUrl+"ajax/ajax.php?dopost=getMddChild&dest_id="+mddid;
+							 return url;
+						},
+					showCall: function() { }
+
+				});
+	   
+    });
+	//目的地切换
+	$(".mdd_menu a").hover(function(){
+		var contain = "mdd_"+$(this).attr('data-id');
+		$(this).addClass('active').siblings().removeClass('active');
+		
+		$(".list_on").each(function(){
+		   var c = $(this).attr('id');
+		   
+		   if(c == contain){
+		      $(this).show();
+		   }
+		   else if(contain == 'mdd_0')
+		   {
+			  $(this).show();   
+		   }
+		   else{
+		      $(this).hide();
+		   }
+		})
+		
+	},function(){})
+	//目的城市选择
+		 var FilesArray=['./result/result.js','./result/result.css']
+			Loader.loadFileList(FilesArray,function(){
+
+			  $('#destname').Result({url:'../ajax/ajax.php',data:'getDest'});
+		   });
+	 //目的地搜索框
+	 $('#destname').focusEffect();
+	 //按目的地搜索
+	   $(".mdd_btn").click(function(){
+	       var destname = $("#destname").val();
+		   var pinyin = getDestPinYin(destname);
+		   if(pinyin!='')
+		   {
+			   var url = siteUrl+pinyin;
+		       window.open(url,'_self');
+		   }
+		   else{
+		      $("#destname").focus();
+		   }
+		   
+		   
+		   
+	   
+	   })
+	 //获取目的地id
+	  function getDestPinYin(destname)
+	  {
+		  var destid = 0;
+		  $.ajax({type:'POST',url:'/ajax/ajax.php',async:false,data:'dopost=getDestPinYin&destname='+destname,success:function(data){
+		     
+			 destid=data;
+		  
+		  }})
+		  return destid;
+		  
+	  }
+      
+   
+   })
+  </script>
+
+</body>
+</html>

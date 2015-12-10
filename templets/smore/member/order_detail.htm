@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{sline:field.productname/}-{sline:global.cfg_webname/}</title>
+{sline:php}Helper_Archive::getCss('base.css,space.css','2014.02');{/sline:php}
+{sline:php}Helper_Archive::getScript('jquery-1.8.3.min.js,common.js,user.order.show.js','2014.02');{/sline:php}
+</head>
+
+<body>
+	{sline:include file='public/header.htm'/}
+  <!-- 中间内容开始 -->
+  <div class="big">
+  	<div class="width_1210">
+    	<!-- 面包屑and订单开始 -->
+    	<div class="top_first">
+      	  	<div class="crumbs"><a href="{sline:global.cfg_basehost/}">{sline:global.cfg_indexname/}</a> &gt; 订单查看</div>
+         {sline:include file='public/scroll_order.htm'/}
+      </div>
+      <!-- 面包屑and订单结束 -->
+    
+    	<!--用户空间开始-->
+			<div class="user_space_big">
+      	     {sline:include file='public/member_left_nav.htm'/}
+        
+        <!--用户空间内容开始-->
+        <form method="post" id="payfrm" action="?dopost=payonline">
+        <div class="user_con">
+          <div class="order_handle">
+          	<div class="order_zt"><label>订单号：{sline:field.ordersn/}</label><span><strong>状态：</strong>{sline:field.orderstatus/}<b></b></span></div>
+            <div class="order_cd">订单{sline:field.orderstatus/}，感谢您对 {sline:global.cfg_webname/} 的支持与信任！</div>
+          </div>
+          <!--载入订单详细-->
+           {sline:include file='member/order_line_detail.htm' if="$GLOBALS['typeid']==1"/}
+           {sline:include file='member/order_hotel_detail.htm' if="$GLOBALS['typeid']==2"/}
+           {sline:include file='member/order_car_detail.htm' if="$GLOBALS['typeid']==3"/}
+           {sline:include file='member/order_spot_detail.htm' if="$GLOBALS['typeid']==5"/}
+           {sline:include file='member/order_visa_detail.htm' if="$GLOBALS['typeid']==8"/}
+           {sline:include file='member/order_tuan_detail.htm' if="$GLOBALS['typeid']==13"/}
+          <!--载入订单详细结束-->
+          <div class="or_show">
+          	<h3>联系人资料</h3>
+            <dl>
+            	<dt>联 系 人：</dt>
+              <dd>{sline:field.linkman/}</dd>
+            </dl>
+            <dl>
+            	<dt>电话号码：</dt>
+              <dd>{sline:field.linktel/}</dd>
+            </dl>
+            <dl>
+            	<dt>常用邮箱：</dt>
+              <dd>{sline:field.linkemail/}</dd>
+            </dl>
+            <dl>
+            	<dt>QQ号码：</dt>
+              <dd>{sline:field.linkqq/}</dd>
+            </dl>
+          </div>
+            <div class="or_show">
+                <dl>
+                    <dt>支付方式：</dt>
+
+                    <dd>  <!--支付方式-->
+                        <div class="zhifu_fs">
+
+                            <div class="fs_con">
+                                {sline:field.id function="Helper_Archive::getPayTypeList()"/}
+                            </div>
+                        </div>
+                    </dd>
+                </dl>
+
+
+            </div>
+            <div class="order_txt xxinfo" style="display: none">
+                <h3 class="tit" id="xianxia">线下支付说明</h3>
+                <div class="txt_con">
+                    {sline:global.cfg_pay_xianxia/}
+                </div>
+            </div>
+          <div class="order_price">
+          	<ul>
+            	<li class="li_1">订单总金额：<span>&yen;{sline:field.totalprice/}</span>元</li>
+                {sline:if var='_has_jiefentprice'}
+                <li class="li_2"><label><span><strong>使用{sline:field.jifentprice/}积分抵现金</strong>(账户当前积分：{sline:field.jifen/}分)</span><input type="checkbox" /></label></li>
+                {/sline:if}
+              <li class="li_3"><input type="button" id="btn_payment" value="立即付款" /><span>应付总额：<strong>&yen;{sline:field.totalprice/}</strong>元{sline:if var='_has_dingjin'}(可支付定金:{sline:field.dingjin/}){/sline:if}</span></li>
+            </ul>
+          </div>
+          
+        </div>
+        <!--在线支付需要参数-->
+        <input type="hidden" name="subject" value="{sline:field.productname/}"/>
+        <input type="hidden" name="ordersn" value="{sline:field.ordersn/}"/>
+        <input type="hidden" name="orderid" value="{sline:field.id/}">
+        <input type="hidden" name="price" value="{sline:field.totalprice/}"/>
+        <input type="hidden" name="dingjin" value="{sline:field.dingjin/}"/>
+        <input type="hidden" name="orderstatus" value="{sline:field.orderstatus/}" id="orderstatus"/>
+        </form>
+        <!--用户空间内容结束-->
+      </div>
+      <!--用户空间结束-->
+    </div>
+  </div>
+  <!-- 中间内容结束 -->
+  
+  {sline:include file='public/help.htm'/}
+  {sline:include file='public/footer.htm'/}
+  <script>
+      if($('.zhifu_fs').find('input').length>=1)
+      {
+          $('.zhifu_fs').find('input').first().attr("checked",'checked');
+
+      }
+      //支付
+      $("#btn_payment").click(function(){
+         var v = $('.zhifu_fs').find('input:checked').val();
+         if(v==6){
+             $('.xxinfo').show();
+         }else{
+             $("#payfrm").submit();
+         }
+
+      })
+
+  </script>
+ 
+</body>
+</html>

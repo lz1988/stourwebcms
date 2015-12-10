@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>找回密码第二步-{sline:global.cfg_webname/}</title>
+{sline:php}Helper_Archive::getCss('base.css,space.css','2014.02');{/sline:php}
+{sline:php}Helper_Archive::getScript('jquery-1.8.3.min.js,common.js,jquery.validate.js,user.login.js','2014.01');{/sline:php}</head>
+<body>
+	{sline:include file='public/header.htm'/}
+  
+  <!-- 中间内容开始 -->
+  <div class="big">
+  	<div class="width_1210">
+    	<!-- 面包屑and订单开始 -->
+    	<div class="top_first">
+      	<div class="crumbs"><a href="{sline:global.cfg_basehost/}">{sline:global.cfg_indexname/}</a> &gt;  找回密码</div>
+         {sline:include file='public/scroll_order.htm'/}
+      </div>
+      <!-- 面包屑and订单结束 -->
+    
+    	<!--登陆开始-->
+			<div class="user_space_big">
+      	<div class="retrieve_con">
+					<div class="ret_left_con">
+          	<div class="ret_top_gy">
+            		<span >1.申请找回密码</span><s><img class="fl" src="{sline:global.cfg_templets_skin/}/images/zh_ico.png" /></s>
+              <span class="on">2.验证身份</span><s><img class="fl" src="{sline:global.cfg_templets_skin/}/images/zh_ico_1.png" /></s>
+              <span>3.设置新密码</span><s><img class="fl" src="{sline:global.cfg_templets_skin/}/images/zh_ico_1.png" /></s>
+              <span>4.重新登录</span>
+            </div>
+                        <div class="ret_middle">
+                            <dl>
+                                <dt>找回方式：</dt>
+                                <dd>邮箱</dd>
+                            </dl>
+                            <dl>
+                                <dt>邮箱：</dt>
+                                <dd><input type="text" class="text" disabled name="loginname" id="loginname" value="{sline:field.loginname/}"  /></dd>
+                            </dl>
+
+                        </div>
+            <div class="ret_bom">
+            	<p class="p1">*我们已将找回链接发送至您的注册邮箱内，请您登录邮箱并点击<a href="javascript:;">找回链接</a>！</p>
+              <p class="p2">若邮箱收件箱没有,可能被误判为广告邮件，请查看邮件 垃圾箱！</p>
+            </div>
+          </div>
+					<div class="reg_rig_con">
+          	<dl>
+            	<dt>已有帐号</dt>
+              <dd><a class="now_login" href="login.php">立即登录</a></dd>
+            </dl>
+            <dl>
+            	<dt>其他方式登录</dt>
+               <dd><a href="#"><img class="fl" src="{sline:global.cfg_templets_skin/}/images/call_qq.gif" alt="QQ" /></a></dd>
+              <dd><a href="#"><img class="fl" src="{sline:global.cfg_templets_skin/}/images/call_sina.gif" alt="新浪微博" /></a></dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+      <!--登陆结束-->
+      
+    </div>
+  </div>
+  <!-- 中间内容结束 -->
+  
+  {sline:include file='public/help.htm'/}
+  {sline:include file='public/footer.htm'/}
+</body>
+</html>

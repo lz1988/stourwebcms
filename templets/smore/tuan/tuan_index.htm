@@ -1,0 +1,194 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{sline:field.seotitle/}-{sline:global.cfg_webname/}</title>
+{sline:field.seokeyword/}
+{sline:field.seodescription/}
+
+{sline:php}GetCss('buying.css,base.css','2014.01');{/sline:php}
+{sline:php}GetScript('jquery-1.8.3.min.js,common.js,tuan.js,tuan.index.js','2014.01');{/sline:php}
+
+</head>
+
+<body>
+	 {sline:include file='public/header.htm'/}
+  
+  <!-- 中间内容 -->
+  <div class="big">
+  	<div class="width_1210">
+    
+    	<!-- 热门目的地开始 -->
+    	<div class="top_first">
+      	<div class="crumbs"><a href="/">{sline:global.cfg_indexname/}</a> &raquo;  <a href="/tuan/">{sline:field.typename/}</a>{sline:global.mianbao/}</div>
+        {sline:include file='public/scroll_order.htm'/}
+      </div>
+      
+      <!-- 大图展示产品开始 -->
+      <div class="buy_top">
+      	<div class="buy_t_left slides" id="slides">
+            {sline:rollingad name='TuanRollingAd'}
+        	<a href="[field:linkurl/]" target="_blank"><img src="[field:picurl/]" width="960" height="342" title="[field:linktext/]" alt="[field:linktext/]" /></a>
+            {/sline:rollingad}
+        </div>
+        <div class="buy_t_rig">
+          <!--边栏满意度开始-->
+          <div class="dos">
+            <div class="dos_pic">
+              <p>客户满意度</p>
+              <span><s style=" width:100%"></s></span>
+            </div>
+            <div class="peo_data">已为<span>{sline:global.booknum/}</span>位客户提供旅游服务！</div>
+            <div class="fl"><img src="{sline:global.cfg_templets_skin/}/images/serve_pic.png" alt="" title="" /></div>
+            <div class="dis_list">
+            {sline:getcommentlist flag='tuan' row='5'}
+              <dl>
+                <dt><b>[field:nickname/]</b><strong>满意度：</strong><span><s style=" width:[field:percent/]"></s></span></dt>
+                <dd>[field:content/]</dd>
+              </dl>
+             {/sline:getcommentlist} 
+            </div>
+          </div>
+          <!--边栏满意度结束-->
+        </div>
+      </div>
+      <!-- 大图展示产品结束 -->
+      
+      <div class="buy_nav_list">
+      	<!--团购筛选导航开始-->
+      	<div class="serach_menu">
+        	<div class="search_bt"></div>
+        	<dl>
+          	<dt>目的地：</dt>
+            <dd>
+            	<span class="sp_1"><a class="{sline:global.dest_id runphp='yes'}if(empty(@me)) @me='on';else @me='';{/sline:global.dest_id}"
+                 href="{sline:global.destid function=getTuanUrl('all','dest_id')/}">全部</a></span>
+              <span class="sp_2">                              
+
+                 {sline:vlist name="destlist"}
+                <a href="[field:id function=getTuanUrl(@me,'dest_id')/]"  class="[field:id function=Helper_Archive::getParamUrlCls('on','dest_id',@me) /]">[field:kindname/]</a>      
+              {/sline:vlist}
+              </span>
+               
+            </dd>
+          </dl>
+          {sline:attrgrouplist typeid="13"}
+          <dl>
+         	<dt>{sline:field.groupname/}：</dt>
+            <dd>
+            	<span class="sp_1"><a class="{sline:field.attrid function=getTuanAttrUrlCls('on',null,@me)/}" href="{sline:field.attrid function=getTuanUrl(null,null,@me)/}">全部</a></span>
+              <span class="sp_2">                              
+                {sline:getattrbygroup typeid="13"}
+                 <a href="[field:attrid function=getTuanUrl(@me,'attrid')/]" class="[field:attrid function=getTuanAttrUrlCls('on',@me)/]" >[field:title/]</a>
+               {/sline:getattrbygroup}
+              </span>
+               
+            </dd>
+          </dl>
+          {/sline:attrgrouplist}
+          <dl>
+            <dt>当前状态：</dt>
+            <dd>
+              <span class="sp_2">                              
+                <a href="{sline:global.status function=getTuanUrl(0,'status')/}"  class="{sline:global.status function=Helper_Archive::getParamUrlCls('on','status',0) /}">进行中</a> 
+                <a href="{sline:global.status function=getTuanUrl(1,'status')/}"  class="{sline:global.status function=Helper_Archive::getParamUrlCls('on','status',1) /}">未开始</a>
+              </span>
+               
+            </dd>
+          </dl>
+        </div>
+
+        
+      	<!--团购筛选导航开始-->
+        
+        <!--团购列表开始-->
+        <div class="{sline:global.status runphp="yes"}if(@me) @me='beginstar';else @me='underway';{/sline:global.status}">
+                <dl>
+                  <dt><span>{sline:global.status runphp="yes"}if(@me) @me='未开始';else @me='进行中';{/sline:global.status}</span></dt>
+                  {sline:list}
+                  <dd class="[field:global.autoindex runphp='yes'] if(@me%3==0) @me='mr_0';else @me=''; [/field:global.autoindex]">
+                    <p class="p1"><a class="fl" href="[field:url runphp="yes"]if($GLOBALS['status']==1) @me='javascript:void(0)';else @me;[/field:url]"><img class="fl" src="[field:litpic/]" alt="[field:title/]" title="[field:title/]" /></a></p>
+                    <p class="p2"><a href="[field:url runphp="yes"]if($GLOBALS['status']==1) @me='javascript:void(0)';else @me;[/field:url]">[field:title/]</a></p>
+                    <p class="p3">
+                      <span>&yen;<b>[field:price/]</b></span>
+                      <del>&yen;[field:sellprice/]</del>
+                      <em>[field:array runphp="yes"]
+                          @me=floor(@me['price']/@me['sellprice']*100)/10; 
+                      [/field:array]折</em>
+                    </p>
+                    <p class="p4">
+                      [field:array runphp="yes"]if($GLOBALS['status']==1) @me='<span>即将开始</span>';else @me='<span class="dao" id="tick'.$GLOBALS['autoindex'].'"><strong class="RemainD"></strong>天<strong class="RemainH"></strong>时<strong class="RemainM"></strong>分<strong class="RemainS"></strong>秒</span><a href="'.@me['url'].'">马上抢购</a><input type="hidden" class="ticktime" rel="tick'.$GLOBALS['autoindex'].'" value="'.date('Y/m/d H:i:s',@me['endtime']).'">';[/field:array]
+                    </p>
+                  </dd>
+               {/sline:list}
+                </dl>
+              </div>
+        <!--团购列表结束-->
+        
+        <!--分页代码状态开始-->
+        <div class="main_mod_page clear" id="pageinfo">
+			 {sline:pagelist isstatic='1'/}
+        </div>
+       
+        <!--分页代码状态结束-->
+      </div>
+      
+      
+    </div>
+  </div>
+  <!-- 中间内容 -->
+
+  
+
+    <!--底部开始-->
+    {sline:include file='public/help.htm'/}
+  
+  {sline:include file='public/footer.htm'/}
+  
+  {sline:include file='public/flink.htm'/}
+  <!-- 底部结束 -->
+  
+
+<script type="text/javascript">
+	/*var startTime = new Date();
+	startTime.setFullYear(2014, 0, 31);
+	startTime.setHours(23);
+	startTime.setMinutes(59);
+	startTime.setSeconds(59);
+	startTime.setMilliseconds(999);
+	var EndTime=startTime.getTime();
+	function GetRTime(){
+		var NowTime = new Date();
+		var nMS = EndTime - NowTime.getTime();
+		var nD = Math.floor(nMS/(1000 * 60 * 60 * 24));
+		var nH = Math.floor(nMS/(1000*60*60)) % 24;
+		var nM = Math.floor(nMS/(1000*60)) % 60;
+		var nS = Math.floor(nMS/1000) % 60;
+		if (nMS < 0){
+			$(".dao").hide();
+			$(".daoend").show();
+		}else{
+		   $(".dao").show();
+		   $(".daoend").hide();
+		   $(".RemainD").text(nD);
+		   $(".RemainH").text(nH);
+		   $(".RemainM").text(nM);
+		   $(".RemainS").text(nS); 
+		}
+	}
+	
+	$(document).ready(function () {
+		var timer_rt = window.setInterval("GetRTime()", 1000);
+	});
+	*/	
+  $(function(){
+    $(".underway dl dd .p4").hover(function(){
+        $(this).animate({height:"90px"})
+    },function(){
+        $(this).animate({height:"40px"})
+    })  
+  })
+</script>
+
+</body>
+</html>

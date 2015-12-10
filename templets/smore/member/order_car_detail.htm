@@ -1,0 +1,42 @@
+
+          
+          <div class="or_show">
+          	<h3>订单详细</h3>
+            <dl>
+            	<dt>产品名称：</dt>
+              <dd>{sline:field.productname/}</dd>
+            </dl>
+           
+            <dl>
+            	<dt>产品数量：</dt>
+              <dd><span class="color_f">{sline:field.dingnum/}辆</span></dd>
+            </dl>
+            <dl>
+            	<dt>用车日期：</dt>
+              <dd><span class="color_f">{sline:field.usedate/}</span></dd>
+            </dl>
+            <dl>
+            	<dt>订单金额：</dt>
+              <dd><span class="color_f">&yen;{sline:field.totalprice/}元({sline:field.orderstatus/})</span></dd>
+            </dl>
+            {sline:if var='_has_jiefentprice'}
+            <dl>
+            	<dt>积分抵现金：</dt>
+              <dd><span class="color_f">{sline:field.jifentprice/}</span>&nbsp;&nbsp;分</dd>
+            </dl>
+            {/sline:if}
+            {sline:if var='_has_jiefenbook'}
+            <dl>
+            	<dt>预订送积分：</dt>
+              <dd><span class="color_f">{sline:field.jifenbook/}</span>&nbsp;&nbsp;分</dd>
+            </dl>
+            {/sline:if}
+            {sline:if var='_has_jiefencomment'}
+            <dl>
+            	<dt>评论送积分：</dt>
+              <dd><span class="color_f">{sline:field.jifencomment/}</span>&nbsp;&nbsp;分</dd>
+            </dl>
+            {/sline:if}
+          </div>
+          
+ 

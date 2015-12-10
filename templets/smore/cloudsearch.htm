@@ -1,0 +1,169 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{sline:field.pageno/}{sline:global.keyword/}相关搜索结果列表-{sline:global.cfg_webname/}</title>
+{sline:php}Helper_Archive::getCss('base.css,cloudsearch.css');{/sline:php}
+{sline:php}Helper_Archive::getScript('jquery-1.8.3.min.js,common.js');{/sline:php}
+</head>
+
+
+
+<body>
+	{sline:include file='public/header.htm'/}
+  
+  <!-- 中间内容 -->
+  <div class="big">
+  	<div class="width_1210">
+    
+    	<!-- 面包屑AND订单开始 -->
+    	<div class="top_first">
+      	<!-- 面包屑开始 -->
+      	<div class="crumbs"><a href="{sline:global.cfg_basehost/}">{sline:global.cfg_indexname/}</a>&gt; {sline:global.keyword/}相关搜索结果</div>
+        <!-- 面包屑结束 -->
+        
+       {sline:include file='public/scroll_order.htm'/}
+      </div>
+      <!-- 面包屑AND订单结束 -->
+      
+      <!--云搜索 TEXT开始-->
+      <div class="cloud_block" id="aaa">
+      	<div class="search_us">
+        	<input name="search_txt" class="search_txt" value="{sline:global.keyword runphp='yes'}if(empty(@me) $str='请输入关键词'; else $str=@me; echo $str;){/sline:global.keyword}" datadef="请输入关键词" type="text" />
+        	<input name="search_btn" class="search_btn" value="搜 索" type="button" />
+        </div>
+      </div>
+      <!--云搜索 TEXT结束-->
+      
+      <!--边栏菜单开始-->
+      <div class="side_menu">
+      	<ul>
+            {sline:vlist name='leftnavinfo'}
+              [field:array runphp='yes']
+                if(@me['num']>0){
+                  if($GLOBALS['typeid']==@me['typeid']){
+                    @me='<li class="active"><a href="?keyword='.$GLOBALS["keyword"].'&typeid='.@me["typeid"].'">'.@me["channelname"].'（'.@me["num"].'）</a></li>';
+                  }else{
+                    @me='<li><a href="?keyword='.$GLOBALS["keyword"].'&typeid='.@me["typeid"].'">'.@me["channelname"].'（'.@me["num"].'）</a></li>';
+                  }
+                }else{
+                  @me='';
+                }
+              [/field:array]
+        	     
+            {/sline:vlist}
+        	
+        </ul>
+      </div>
+      <!--边栏菜单结束-->
+      
+      <!--搜索内容开始-->
+      <div class="search_con_rig">
+      	<div class="ser_title">相关<span>"{sline:global.keyword/}"</span>的内容：</div>
+        <!--搜索列表开始-->
+        <div class="cloud_list">
+            {sline:list}
+        	<ul class="list_child">
+             [field:array function="getLitPicHtml(@me)"/]
+          	
+          	<li class="li_title"><span>[[field:channelname/]]</span><a href="[field:array function='getSearchUrl(@me)'/]">[field:title/]</a></li>
+          	<li class="li_txt">[field:description function="cutstr_html(@me,130)"/]</li>
+          </ul>
+          {/sline:list}
+          
+        </div>
+        <!--搜索列表结束-->
+        
+        <!--分页代码开始-->
+        <div class="main_mod_page clear">
+           {sline:pagelist/}
+        </div>
+        <!--分页代码结束-->
+      </div>
+      <!--搜索内容结束-->
+      
+    </div>
+  </div>
+  <!-- 中间内容 -->
+
+  
+  {sline:include file='public/footer.htm'/}
+
+</body>
+<script type="text/javascript">
+(function($){	
+	$.fn.staticScrool = function(options) { 
+      var defaults = {			
+			toppx : 0
+			
+		};
+	  var options = $.extend(defaults,options);
+	  return this.each(function(){_initialize(this)});
+	
+	
+	  function _initialize(obj)
+	  {
+		  
+		  //获取要定位元素距离浏览器顶部的距离
+		  var navH = $(obj).offset().top;
+		  
+		  //滚动条事件
+		  $(window).scroll(function(){
+			  //获取滚动条的滑动距离
+			  var scroH = $(document).scrollTop();
+			 
+			  //console.log(options.toppx);
+			  //滚动条的滑动距离大于等于定位元素距离浏览器顶部的距离，就固定，反之就不固定
+			  if(scroH>=navH+options.toppx){
+				  $(obj).css({"position":"fixed","z-index":"999","top":options.toppx});
+			  }else if(scroH<navH){
+				  $(obj).css({"position":"static"});
+			  }
+			  
+		  })
+		  
+	  }
+	
+	}
+	//闭包结束
+})(jQuery);
+
+$(function(){
+   $(".side_menu").staticScrool({'toppx':80});
+   $(".cloud_block").staticScrool();
+   //搜索
+   $(".search_txt").focusEffect();
+   
+   $(".search_btn").click(function(){
+       var keyword = $(".search_txt").val();
+	   if(keyword == '' || keyword == $('.search_txt').attr('datadef'))
+	   {
+		   $(".search_txt").focus();
+	   }
+	   else
+	   {
+		  var url = siteUrl+'/cloudsearch.php?keyword='+keyword;
+		  window.open(url,'_self');   
+	   }
+   })
+   
+   
+   $(".li_title a").each(function(index, element) {
+	   
+	     var words={sline:global.words function="json_encode(@me)"/};
+		 var text=$(element).text();
+		 for(var i in words)
+		 {
+			 text=text.replace(words[i],"<font color='red'>"+words[i]+"</font>");
+		 }
+		 
+		 $(element).html(text);
+		 
+		 
+	   
+});
+
+
+})
+</script>
+</html>

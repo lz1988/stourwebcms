@@ -1,0 +1,350 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>提交结伴需求-{sline:global.cfg_webname/}</title>
+    {sline:php}Helper_Archive::getCss('base.css,jieban.css','2015.03');{/sline:php}
+    {sline:php}Helper_Archive::getScript('jquery-1.8.3.min.js,jquery.cookie.js,common.js,jquery-tabs.js,xuqiu.js','2015.03');{/sline:php}
+<script>
+	$(function(){
+		$("#jb_list_con").switchTab();	
+		$(".side_box .side_con .fabu_ul").find("li").last().addClass("bor_0")
+		$(".jb_list_con dd").each(function() {
+				$(this).find(".search_tj p").last().addClass("mb_0")
+    });
+		$(".search_tj p i").toggle(function(){
+				$(this).prev().children(".m-list").show();
+				$(this).text("收起");
+				$(this).addClass("up")
+		},function(){
+				$(this).prev().children(".m-list").hide();
+				$(this).text("展开");
+				$(this).removeClass("up")
+		});
+	})
+</script>
+</head>
+
+<body>
+  {sline:include file='public/header.htm'/}
+  <div class="width_1120">
+      <!-- 面包屑and订单开始 -->
+      <div class="top_first">
+          <div class="crumbs"><a href="{sline:global.cfg_basehost/}">{sline:global.cfg_indexname/}</a> &raquo; <a href="{sline:global.cfg_cmsurl/}/jieban/">{sline:field.typename/}</a> &raquo; 旅游定制</div>
+          {sline:include file='public/scroll_order.htm'/}
+      </div>
+      <!-- 面包屑and订单结束 -->
+  </div>
+
+  <div class="big box_bg">
+  	<div class="width_1120">
+
+        <div class="zdy_box">
+
+        <div class="im-box">
+        <div class="im-wrap" id="im_scroll">
+        <div class="im-field">
+        <ul id="trip_order" class="im-list clearfix">
+        <li class="im-item me" id="pg1" style="display: none">
+            <div class="fl"><img class="kfimg" src="/templets/smore/images/dailogkefu.png" width="54" height="54"/></div>
+            <div class="im-content">
+                <div class="arrow-ico-l"></div>
+                <div class="im-title">您准备去什么地方旅游？</div>
+                <div class="mdd-box-con" id="destlist">
+
+                </div>
+            </div>
+        </li>
+        <li class="im-item you" id="pg1_ans" style="display:none">
+            <div class="im-content">
+                <div class="im-info">
+                    <p class="im-you-txt"></p>
+                </div>
+                <span class="chat-triangle"></span>
+            </div>
+        </li>
+        <li class="im-item me" id="pg2" style="display: none">
+            <div class="fl"><img class="kfimg" src="/templets/smore/images/dailogkefu.png" width="54" height="54"/></div>
+            <div class="im-content">
+                <div class="arrow-ico-l"></div>
+                <div class="im-title">选择要去这个区域的目的地</div>
+                <div class="mdd-box-con" id="subdestlist">
+
+                </div>
+                <div class="other-ds">
+                    <span>没有想去的？直接说您想去哪里</span>
+                    <input type="text" class="" id="userplace"/>
+                    <a href="javascript:;" class="btn_confirm">确定</a>
+                </div>
+            </div>
+        </li>
+        <li class="im-item you" id="pg2_ans" style="display:none">
+            <div class="im-content">
+                <div class="im-info">
+                    <p class="im-you-txt">我的目的地是：西藏</p>
+                </div>
+                <span class="chat-triangle"></span>
+            </div>
+        </li>
+
+        <li class="im-item me" id="pg11" style="display: none">
+            <div class="fl"><img class="kfimg" src="/templets/smore/images/dailogkefu.png" width="54" height="54"/></div>
+            <div class="im-content">
+                <div class="arrow-ico-l"></div>
+                <div class="im-title">填写醒目的活动标题</div>
+
+                <div class="other-ds" style="margin-top: 10px" >
+                    <span>活动标题</span>
+                    <input type="text" style="width:330px" id="title"/>
+                    <a href="javascript:;" class="btn_confirm">确定</a>
+                </div>
+            </div>
+        </li>
+        <li class="im-item you" id="pg11_ans" style="display:none">
+            <div class="im-content">
+                <div class="im-info">
+                    <p class="im-you-txt">我的活动标题：西藏</p>
+                </div>
+                <span class="chat-triangle"></span>
+            </div>
+        </li>
+
+
+        <li class="im-item me" id="pg3" style="display: none">
+            <div class="fl"><img class="kfimg" src="/templets/smore/images/dailogkefu.png" alt="as" width="54" height="54"/></div>
+            <div class="im-content">
+                <div class="arrow-ico-l"></div>
+                <div class="im-title">计划旅行时间</div>
+                <div class="date-box-con">
+                    <dl>
+                        <dt>出发日期：</dt>
+                        <dd><input type="text" class="startdate" placeholder="请选择您的出发日期"/></dd>
+                    </dl>
+                    <dl>
+                        <dt>允许机动时间：</dt>
+
+                        <dd><input type="text" class="vartime" onkeyup="this.value=this.value.replace(/[^\d]/g,'')" onafterpaste="this.value=this.value.replace(/[^\d]/g,'')" placeholder="出发日期可以早或晚多少天"/>天 （时间不能改可不填）</dd>
+                    </dl>
+                    <dl>
+                        <dt>出行天数：</dt>
+                        <dd><input type="text" class="day" onkeyup="this.value=this.value.replace(/[^\d]/g,'')" onafterpaste="this.value=this.value.replace(/[^\d]/g,'')" placeholder="请输入您的出行天数"/>天</dd>
+                    </dl>
+                    <div class="sure_btn"><a href="javascript:;" class="btn_confirm">确定</a></div>
+                </div>
+            </div>
+        </li>
+        <li class="im-item you" id="pg3_ans" style="display: none">
+            <div class="im-content">
+                <div class="im-info">
+                    <p class="im-you-txt">计划出发日期：</p>
+                </div>
+                <span class="chat-triangle"></span>
+            </div>
+        </li>
+        <li class="im-item me" id="pg4" style="display: none">
+            <div class="fl"><img class="kfimg" src="/templets/smore/images/dailogkefu.png" width="54" height="54"/></div>
+            <div class="im-content">
+                <div class="arrow-ico-l"></div>
+                <div class="im-title">出行人数</div>
+                <div class="pop-box-con">
+                    <dl>
+                        <dt>成人：</dt>
+                        <dd>
+                            <span class="prve-btn adultprev">-</span>
+                            <input type="text" class="adultnum" placeholder="1" value="1"/>
+                            <span class="next-btn adultnext">+</span>
+                            &nbsp;&nbsp;名
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>儿童：</dt>
+                        <dd>
+                            <span class="prve-btn childprev">-</span>
+                            <input type="text" class="childnum" placeholder="0" value="0"/>
+                            <span class="next-btn childnext">+</span>
+                            &nbsp;&nbsp;名 （0 - 11岁）
+                        </dd>
+                    </dl>
+                    <div class="sure_btn"><a href="javascript:;" class="btn_confirm">确定</a></div>
+                </div>
+            </div>
+        </li>
+        <li class="im-item you" id="pg4_ans" style="display: none">
+            <div class="im-content">
+                <div class="im-info">
+                    <p class="im-you-txt">成人一名</p>
+                </div>
+                <span class="chat-triangle"></span>
+            </div>
+        </li>
+        <li class="im-item me" id="pg5" style="display: none">
+            <div class="fl"><img class="kfimg" src="/templets/smore/images/dailogkefu.png" alt="as" width="54" height="54"/></div>
+            <div class="im-content">
+                <div class="arrow-ico-l"></div>
+                <div class="im-title">我们为您推荐了<span id="linenum"></span>个参考行程</div>
+                <div class="pro-box-con">
+                    <div id="linelist">
+
+                    </div>
+
+                    <div class="sure_btn">
+                        <a class="bg_5bb btn_confirm" href="javascript:;">确定</a>
+                        <a class="bg_ff6 btn_designmyself" href="javascript:;">不满意，我自己规划</a>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="im-item you" id="pg5_ans" style="display: none">
+            <div class="im-content">
+                <div class="im-info">
+                    <p class="im-you-txt">不满意，我自己规划</p>
+                </div>
+                <span class="chat-triangle"></span>
+            </div>
+        </li>
+        <li class="im-item me" id="pg6" style="display: none">
+            <div class="fl"><img class="kfimg" src="/templets/smore/images/dailogkefu.png" width="54" height="54"/></div>
+            <div class="im-content">
+                <div class="arrow-ico-l"></div>
+                <div class="im-title">您的行程需求（可多选）</div>
+                <div class="mdd-box-con" id="themelist">
+
+                </div>
+                <div class="other-ds">
+                    <span>以上都没有，自己写行程需求（多个需求用；分号隔开）</span>
+                    <input type="text" id="usertheme" class="wid410 ml_0"/>
+                    <a href="javascript:;" class="btn_confirm">确定</a>
+                </div>
+            </div>
+        </li>
+        <li class="im-item you" id="pg6_ans" style="display: none">
+            <div class="im-content">
+                <div class="im-info">
+                    <p class="im-you-txt"></p>
+                </div>
+                <span class="chat-triangle"></span>
+            </div>
+        </li>
+        <li class="im-item me" id="pg7" style="display: none">
+            <div class="fl"><img class="kfimg" src="/templets/smore/images/dailogkefu.png" alt="as" width="54" height="54"/></div>
+            <div class="im-content">
+                <div class="arrow-ico-l"></div>
+                <div class="im-title">您的行程安排</div>
+                <div class="yours_ap_box">
+                    {sline:php}session_start();echo Helper_Archive::getEditor('memo',$_SESSION['u_memo'],520,200,'Line');{/sline:php}
+                </div>
+                <div class="other-ds">
+                    <a href="javascript:;" class="btn_confirm">提交</a>
+                </div>
+            </div>
+        </li>
+        <li class="im-item you" id="pg7_ans" style="display: none">
+            <div class="im-content">
+                <div class="im-info">
+                    <p class="im-you-txt">收到您的行程安排</p>
+                </div>
+                <span class="chat-triangle"></span>
+            </div>
+        </li>
+        <li class="im-item me" id="pg8" style="display: none">
+            <div class="fl"><img class="kfimg" src="/templets/smore/images/dailogkefu.png" width="54" height="54"/></div>
+            <div class="im-content">
+                <div class="arrow-ico-l"></div>
+                <div class="im-title">请输入你的手机号码</div>
+                <div class="user-box-con">
+
+                    <dl class="msgcode_phone">
+                        <dt>手机号：</dt>
+                        <dd><input type="text" id="phone1" class="phone1"><span id="btn_sendmsgcode">发送验证码</span><b id="time" style="display: none;">60秒后可重发</b></dd>
+                    </dl>
+                    <dl class="msgcode_phone">
+                        <dt>验证码：</dt>
+                        <dd><input type="text" class="checkcode1" id="checkcode1" placeholder="输入您收到的6位验证码"></dd>
+                    </dl>
+                    <dl class="txtcode_phone">
+                        <dt>手机号：</dt>
+                        <dd><input type="text" id="phone2" class="phone2"></dd>
+                    </dl>
+                    <dl class="txtcode_phone">
+                        <dt>验证码：</dt>
+                        <dd><input type="text" class="checkcode2" id="checkcode2" placeholder="输入验证码"><img class="yz_img" src="{sline:global.cfg_cmsurl/}/include/vdimgck.php" style="cursor:pointer" onclick="this.src=this.src+'?'" title="点击我更换图片" alt="点击我更换图片"/></dd>
+                    </dl>
+                    <dl>
+                        <dt>昵称：</dt>
+                        <dd><input type="text" class="nickname" id="nickname"/></dd>
+                    </dl>
+                    <div class="sure_btn">
+                        <a class="bg_5bb btn_confirm" href="javascript:;">确定</a>
+                        <input type="hidden" id="msgtype" value="0"/>
+
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="im-item you" id="pg8_ans" style="display: none">
+            <div class="im-content">
+                <div class="im-info">
+                    <p class="im-you-txt">我的昵称: 手机号是:</p>
+                </div>
+                <span class="chat-triangle"></span>
+            </div>
+        </li>
+        <li class="im-item me" id="pg9" style="display: none">
+            <div class="fl"><img class="kfimg" src="/templets/smore/images/dailogkefu.png" alt="as" width="54" height="54"/></div>
+            <div class="im-content">
+                <div class="arrow-ico-l"></div>
+                <div class="im-title">结伴信息发布成功</div>
+                <div class="user-box-con">
+                    <p class="chat-text pt20 pb20">你的结伴信息发布成功,我们会在工作时间和您电话沟通细节和初步行程报价,请注意接听。</p>
+                </div>
+            </div>
+        </li>
+
+        </ul>
+        </div>
+
+        </div>
+        <div id="mask_disable" class="mask-disable" style="display: none">
+            <div class="mask-box"></div>
+            <div class="mask-tips">
+                <div class="mask-tips-txt">
+                    <p class="tc f18">您已经有一个咨询是否继续？</p>
+
+                    <div class="mask-tips-opr"><span class="btn-base mk-cancel-chat mr20" onclick="jieban.newChat();">重新咨询</span> <span class="btn-base mk-goahead-chat" onclick="jieban.continueChat();">继续上次咨询</span></div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="step_box" style=" margin-left:20px">
+            <dl class="pt_step">
+                <dt>轻松四步定制结伴速拼</dt>
+                <dd class="txt"><em>1</em>3分钟发布结伴需求</dd>
+                <dd class="ico"></dd>
+                <dd class="txt"><em>2</em>坐等结伴小伙伴加入</dd>
+                <dd class="ico"></dd>
+                <dd class="txt"><em>3</em>旅游顾问为您定制方案</dd>
+                <dd class="ico"></dd>
+                <dd class="txt"><em>4</em>轻松愉快的去旅行</dd>
+            </dl>
+            <div class="jeban-btn">
+                <a href="/jieban/xuqiu.php">我要结伴</a>
+            </div>
+        </div>
+       
+       </div>
+
+      
+    </div>
+  </div>
+  <script src="/templets/smore/js/layer/layer.min.js"></script>
+  <script src="/templets/smore/js/DatePicker/WdatePicker.js"></script>
+  <input type="hidden" id="loginstatus" value="{sline:field.loginstatus/}"/>
+  <input type="hidden" id="cftoken" value="{sline:global.cftoken/}">
+
+  {sline:include file='public/footer.htm'/}
+  <script>
+      $('.kfimg').attr('src',"{sline:field.kefuimage/}");
+  </script>
+</body>
+</html>

@@ -1,0 +1,323 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>用户中心-{sline:global.cfg_webname/}</title>
+{sline:php}Helper_Archive::getCss('base.css,space.css','2014.02');{/sline:php}
+{sline:php}Helper_Archive::getScript('jquery-1.8.3.min.js,common.js,ajax.member.search.js','2014.02');{/sline:php}
+</head>
+
+<body>
+	{sline:include file='public/header.htm'/}
+  
+  <!-- 中间内容开始 -->
+  <div class="big">
+  	<div class="width_1210">
+    	<!-- 面包屑and订单开始 -->
+    	<div class="top_first">
+      		<div class="crumbs"><a href="{sline:global.cfg_basehost/}">{sline:global.cfg_indexname/}</a> &gt; 用户中心</div>
+         {sline:include file='public/scroll_order.htm'/}
+      </div>
+      <!-- 面包屑and订单结束 -->
+    
+    	<!--用户空间开始-->
+			<div class="user_space_big">
+      	<!--导航菜单开始-->
+      {sline:include file='public/member_left_nav.htm'/}
+        <!--导航菜单结束-->
+        
+        <!--用户空间内容开始-->
+        <div class="user_con">
+        	<!--用户信息开始-->
+        	<div class="user_js">
+          	<div class="user_head_img"><img src="{sline:field.litpic/}" width="84" height="84" alt="会员头像" title="会员头像" /></div>
+            <div class="user_msg_con">
+            	<dl>
+              	<dt><span>{sline:field.nickname/}</span>欢迎您！</dt>
+                <dd class="dd_1">我的积分：<b>{sline:field.jifen/}分</b></dd>
+                <dd class="dd_2">订单提醒：
+                    <span class="false" style="cursor: pointer" id="link_unpay">未付款({sline:field.unpay/})</span>
+                    <span class="false" style="cursor: pointer" id="link_unpl">未评论({sline:field.unpinlun/})</span>
+                    <span class="true"  style="cursor: pointer" id="link_wancheng">已完成({sline:field.complete/})</span>
+                    <span class="fb_yj_btn"><!--<a href="#">发布游记</a>--></span></dd>
+              </dl>
+            </div>
+          </div>
+        	<!--用户信息结束-->
+          
+          <!--订单统计开始-->
+          <div id="clicktab" class="statistics">
+          	<div class="st_order_menu">
+            	<a class="current" href="javascript:void(0)" data-id="0" data-dopost="monthorder">最近一月订单</a>
+            	<a href="javascript:void(0)" id="unpl_list" data-id="1" data-dopost="unpinlun">未点评订单</a>
+                <a href="javascript:void(0)" id="unpay_list" data-id="2" data-dopost="unpay">未付款订单</a>
+                <a href="javascript:void(0)" id="wancheng_list" data-id="4" data-dopost="wancheng">已完成订单</a>
+            </div>
+            <div class="st_order_con">
+            	
+            </div>
+           
+            
+          </div>
+          <!--订单统计结束-->
+          <!--分页代码开始-->
+            <div class="main_mod_page clear" id="pageinfo">
+             
+            </div>
+            <div style="clear:both"></div>
+            <!--分页代码结束-->
+          
+        </div>
+        <!--用户空间内容结束-->
+      </div>
+      <!--用户空间结束-->
+      
+    </div>
+  </div>
+  <input type="hidden" id="currentpage" value="1" />
+  <!-- 中间内容结束 -->
+  {sline:include file='public/help.htm'/}
+  {sline:include file='public/footer.htm'/}
+
+ <script type="text/javascript">
+  
+//tab plugins 插件
+$(function(){
+	
+	 //查询通用配置
+			    
+				
+	
+	//选项卡切换
+	$(".st_order_menu a").click(function(){
+		
+		$("#currentpage").val(1);//设置当前页
+	    var cur = $(this).attr('data-id');
+		
+		var action = $(this).attr('data-dopost');
+	    var content = $(this).parent(".st_order_menu").data(cur);
+	    var that = $(this);
+		$(this).addClass('current').siblings().removeClass('current');
+	    if(content)
+		{
+		
+		 $(this).parent().parent().find(".st_order_con").html(content);
+	    }
+		else
+		{
+			$(this).parent().parent().find(".st_order_con").html('<img src="{sline:global.cfg_templets_skin/}/images/loading.gif" style="display:block;width:28px;height:28px;margin:160px auto 157px auto;">');
+		  
+		    var config={
+					  pageSize:6,
+					  ajaxUrl:'member/ajax.php',
+					  dopost:action
+				  
+				  };
+		     $.AjaxSearch(
+				   config,
+				   function(data){
+					   
+					   that.parent().parent().find(".st_order_con").html(data.list);
+					   that.parent(".st_order_menu").data(cur,data.list);
+					    if($('.btn_pinlun').length){
+					      setPlEvent();//点评事件
+					   }
+					   $("#pageinfo").html(data.pageinfo);
+				   }
+				 );
+			
+		  
+        }
+	
+	})
+
+    //初始化时选择的项
+	var chooseitem = '{sline:global.chooseitem/}';
+    if(chooseitem =='')
+    {
+        //选择第一个.
+        $('#clicktab .st_order_menu a').eq(0).trigger("click");
+    }
+    else
+    {
+       $("#"+chooseitem+"_list").trigger("click");
+    }
+    //未付款,未评论,已完成点击
+    $("#link_unpay").click(function(){
+        $("#unpay_list").trigger('click');
+
+    });
+    $("#link_unpl").click(function(){
+        $("#unpl_list").trigger('click');
+
+    });
+    $("#link_wancheng").click(function(){
+        $("#wancheng_list").trigger('click');
+
+    });
+
+	
+});
+//点评事件
+function setPlEvent()
+{
+	//点评点击
+	$(".btn_pinlun").unbind('click').click(function(){
+		$('.pop_box').hide();//隐藏所有
+		$(this).next().show();
+	});
+	//点评关闭
+    $(".closed").unbind('click').click(function(){
+		  $(this).parent(".pop_box").hide();
+	})
+	 //点评按钮点击
+    $(".submit_btn").click(function(){
+	   
+       var productid  = $(this).attr('data-productid');
+	   var typeid = $(this).attr('data-typeid');
+	   var orderid = $(this).attr('data-orderid');
+	   
+	   var msg = $("#msg_"+orderid).val();
+	   
+	   var score1 = $("#score_1_"+orderid).val();//评分1
+	   var score2 = $("#score_2_"+orderid).val();//评分2
+	   var score3 = $("#score_3_"+orderid).val();//评分3
+	   var score4 = $("#score_4_"+orderid).val();//评分4
+	  
+	   
+	   if(msg=='' ){
+	      alert('你还没有写评论内容呢');return;
+	   }
+	   
+	   var frmdata = "dopost=savepinlun&typeid="+typeid+"&orderid="+orderid+"&productid="+productid+"&score1="+score1+"&score2="+score2+"&score3="+score3+"&score4="+score4+"&msg="+encodeURIComponent(msg);
+	 $.ajax({
+		type:'POST',
+		url:siteUrl+'/member/ajax.php',
+		data:frmdata,
+		dataType:'json',
+		success:function(data){
+		  
+		  
+		  if(data.status){
+			
+		   alert('评价成功!');
+		   $('.st_order_menu a').each(function(){
+		       if($(this).attr('data-dopost') == 'unpinlun'){
+				   var key = $(this).attr('data-id');
+			      $(this).parent().removeData(key);
+				  $(this).trigger('click');
+			   }
+		   
+		   })
+		   
+			
+		  }
+		},
+		error:function(a,b,c){
+		   
+		
+		}
+		})
+	   
+   
+   })
+	//星星评分事件
+	var FilesArray=['./raty/jquery.raty.min.js']
+   Loader.loadFileList(FilesArray,function(){
+	  //评分1
+	  $('.score_1').raty({
+ 
+           size:16,
+		   path:siteUrl+'/templets/smore/js/raty/img/',
+		   half:true,
+		   hints: ['极差', '不好', '一般', '很好', '非常好'],
+		   click: function (score, evt) {
+ 
+                //var class = $(this).attr('class');
+				$("#"+$(this).attr('class')+"_"+$(this).attr('data-orderid')).val(score);
+            },
+		
+		   
+		   
+
+      });
+	  //评分2
+	   $('.score_2').raty({
+ 
+           size:16,
+		   path:siteUrl+'/templets/smore/js/raty/img/',
+		   half:true,
+		   hints: ['极差', '不好', '一般', '很好', '非常好'],
+		   click: function (score, evt) {
+ 
+               	$("#"+$(this).attr('class')+"_"+$(this).attr('data-orderid')).val(score);
+
+            }
+
+      });
+	  //评分3
+	   $('.score_3').raty({
+ 
+           size:16,
+		   path:siteUrl+'/templets/smore/js/raty/img/',
+		   half:true,
+		   hints: ['极差', '不好', '一般', '很好', '非常好'],
+		   click: function (score, evt) {
+ 
+                	$("#"+$(this).attr('class')+"_"+$(this).attr('data-orderid')).val(score);
+
+            }
+
+      });
+	  //评分4
+	   $('.score_4').raty({
+          size:16,
+		  path:siteUrl+'/templets/smore/js/raty/img/',
+		  half:true,
+		  hints: ['极差', '不好', '一般', '很好', '非常好'],
+		  click: function (score, evt) {
+  
+					$("#"+$(this).attr('class')+"_"+$(this).attr('data-orderid')).val(score);
+  
+			}
+           
+
+      });
+	  
+	 
+   });
+	
+}
+
+//删除未付款订单
+  function delOrder(obj,id)
+  {
+	  
+	   if(!confirm('确定删除该订单？'))
+	   {
+		   return;
+	   }
+	   $.ajax({
+             type: "post",
+             url: "/member/ajax.php?dopost=delorder",
+             data: {orderid:id},
+             dataType: "html",
+             success: function(data){
+                   if(data=='ok')
+				   {
+				       $(obj).parents('tr:first').remove();	   
+				   }
+				   else
+				   {
+					   alert("删除订单失败，请重试");
+				   }
+				      
+               }
+         });  
+  }
+</script>
+
+
+
+</body>
+</html>

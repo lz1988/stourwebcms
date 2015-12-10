@@ -1,0 +1,40 @@
+ 	<div class="user_side_menu">
+        	<ul>
+          	<li class="li_0"><a {sline:global.pagename runphp='yes'} if(empty(@me))@me='class="active"';{/sline:global.pagename} href="index.php"><b></b><s></s><span>会员中心</span></a></li>
+            <li class="li_1"><a  href="?dopost=orderlist&typeid=1"><b></b><s></s><span class="order_center">订单中心</span></a></li>
+
+            <li class="li_none"><a {sline:global.typeid runphp='yes'} if(@me=='1')@me='class="active"';{/sline:global.typeid} href="?dopost=orderlist&typeid=1"><b></b><s></s><span>线路订单</span></a></li>
+            <li  class="li_none"><a {sline:global.typeid runphp='yes'} if(@me=='2')@me='class="active"';{/sline:global.typeid} href="?dopost=orderlist&typeid=2"><b></b><s></s><span>酒店订单</span></a></li>
+            <li class="li_none" ><a {sline:global.typeid runphp='yes'} if(@me=='5')@me='class="active"';{/sline:global.typeid} href="?dopost=orderlist&typeid=5"><b></b><s></s><span>门票订单</span></a></li>
+            <li class="li_none" ><a {sline:global.typeid runphp='yes'} if(@me=='3')@me='class="active"';{/sline:global.typeid} href="?dopost=orderlist&typeid=3"><b></b><s></s><span>租车订单</span></a></li>
+            <li class="li_none" ><a {sline:global.typeid runphp='yes'} if(@me=='8')@me='class="active"';{/sline:global.typeid} href="?dopost=orderlist&typeid=8"><b></b><s></s><span>签证订单</span></a></li>
+            <li class="li_none" ><a {sline:global.typeid runphp='yes'} if(@me=='13')@me='class="active"';{/sline:global.typeid} href="?dopost=orderlist&typeid=13"><b></b><s></s><span>团购订单</span></a></li>
+             {sline:php}
+                $moduleinfo = getTongYongInfo();
+                foreach($moduleinfo as $row)
+                {
+                   $class = $typeid == $row['id'] ? 'active' : '';
+                   echo '<li class="li_none"><a class="'.$class.'" href="?dopost=orderlist&typeid='.$row['id'].'"><b></b><s></s><span>'.$row['modulename'].'订单</span></a></li>';
+                }
+             {/sline:php}
+
+            <li class="li_7"><a {sline:global.pagename runphp='yes'} if(@me=='myquestion')@me='class="active"';{/sline:global.pagename}  href="?dopost=myquestion"><b></b><s></s><span>我的咨询</span></a></li>
+            <li class="li_9"><a {sline:global.pagename runphp='yes'} if(@me=='jifenlog')@me='class="active"';{/sline:global.pagename} href="?dopost=jifenlog"><b></b><s></s><span>积分记录</span></a></li>
+         <!-- <li class="li_9"><a href="#"><b></b><s></s><span>我的收藏</span></a></li>-->
+        <li class="li_10"><a {sline:global.pagename runphp='yes'} if(@me=='userinfo')@me='class="active"';{/sline:global.pagename} href="?dopost=userinfo"><b></b><s></s><span>账号资料</span></a></li>
+            <li class="li_11"><a {sline:global.pagename runphp='yes'} if(@me=='changepass')@me='class="active"';{/sline:global.pagename} href="?dopost=changepass"><b></b><s></s><span>修改密码</span></a></li>
+          </ul>
+    </div>
+  <script>
+      $(function(){
+          var tid = "{sline:global.typeid/}";
+          if(tid==''){
+              $('.li_none').hide();
+          }
+
+          $('.order_center').click(function(){
+              $('.li_none').toggle()
+          })
+
+      })
+  </script>

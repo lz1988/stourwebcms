@@ -1,0 +1,18 @@
+/* CSS Document */
+#slides{ display:none; position:relative;  overflow:hidden;}
+#slides .slidesjs-control{ position:relative; height:250px; z-index:1;}
+#slides .slidesjs-pagination{position:absolute;bottom:20px;right:20px;float:right;z-index:100}
+#slides .slidesjs-pagination li{width:12px;background:#fff;float:left;height:12px;font-size:0px;overflow:hidden;cursor:pointer;margin-right:6px;-webkit-border-radius:7px;-moz-border-radius:7px;border-radius:7px}
+#slides .slidesjs-pagination li:hover{background:#46ba00;}
+#slides .slidesjs-pagination li a{display:block;width:13px;height:0;padding-top:13px;float:left;overflow:hidden}
+#slides .slidesjs-pagination li a.active{background:#46ba00;cursor:default}
+#slides a.slidesjs-next,#slides a.slidesjs-previous{ display:none; position:absolute; top:40%; width:26px; height:70px; z-index:99;}
+#slides a.slidesjs-previous{ left:0;}
+#slides a.slidesjs-next{ right:0;}
+#slides a.slidesjs-previous b{ position:absolute; top:0; left:0; width:26px; height:70px; background:#000; filter:alpha(opacity=30); -khtml-opacity:0.3; -moz-opacity:0.3; opacity:0.3; overflow:hidden; z-index:100;}
+#slides a.slidesjs-previous i{ position:absolute; top:22px; left:5px; width:14px; height:26px; background:url(btn_slide_home.png); overflow:hidden; z-index:100;}
+#slides a.slidesjs-next b{ position:absolute; top:0; right:0; width:26px; height:70px; background:#000; filter:alpha(opacity=30); -khtml-opacity:0.3; -moz-opacity:0.3; opacity:0.3; overflow:hidden; z-index:100;}
+#slides a.slidesjs-next i{ position:absolute; top:22px; right:5px; width:14px; height:26px; background:url(btn_slide_home.png) 0 -26px; overflow:hidden; z-index:100;}
+#slides a.slidesjs-previous:hover b,#slides a.slidesjs-next:hover b{ background:#000; filter:alpha(opacity=60); -khtml-opacity:0.6; -moz-opacity:0.6; opacity:0.6;}
+
+

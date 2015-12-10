@@ -1,0 +1,14 @@
+{sline:plugincheck identify='usernav'}
+ <div id="zdy_nav">
+  	<h3>热门导航</h3>
+    <ul>
+     {sline:pluginusernavlist}
+       <li><span>{sline:field.navname/}：</span>
+         {sline:plugingetusernav}
+           <a href="[field:url/]">[field:navname/]</a>
+         {/sline:plugingetusernav}
+        </li>   
+     {/sline:pluginusernavlist}
+    </ul>
+ </div>
+{/sline:plugincheck}

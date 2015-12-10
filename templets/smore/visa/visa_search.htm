@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{sline:field.searchtitle/}_{sline:global.cfg_webname/}</title>
+<meta name="author" content="{sline:global.cfg_webname/}" />
+{sline:php}Helper_Archive::getCss('base.css,visa.css','2014.01');{/sline:php}
+{sline:php}Helper_Archive::getScript('jquery-1.8.3.min.js,common.js,visa.js,visa.search.js','2014.01');{/sline:php}
+</head>
+
+<body>
+	{sline:include file='public/header.htm'/}
+  
+  <!-- 中间内容开始 -->
+  <div class="big">
+  	<div class="width_1210">
+    	<!-- 面包屑and订单开始 -->
+    	<div class="top_first">
+      	<div class="crumbs"><a href="{sline:global.cfg_cmsurl/}/" rel="nofollow">{sline:global.cfg_indexname/}</a> &raquo; <a href="{sline:global.cfg_cmsurl/}/visa/" rel="nofollow">{sline:field.typename/}</a> &raquo; {sline:field.navtitle/}</div>
+        {sline:include file='public/scroll_order.htm'/}
+      </div>
+      <!-- 面包屑and订单结束 -->
+    
+      <div class="visa_side_left">
+      
+       {sline:getrightcontent pagename='search'/}
+        
+      </div>
+      
+      <div class="visa_rig_con">
+      	<!--搜索条件开始-->
+      	<div class="serach_menu">
+        	<div class="search_bt"></div>
+          <dl>
+          	<dt>签证类型：</dt>
+            <dd id="visatype_list">
+              <span class="sp_1"><a class="on" href="{sline:global.visatypeid function=getSearchUrl(0,'visatypeid')/}" data-field="visatypeid" data-value="0">全部</a></span>
+              <span class="sp_2">
+                {sline:visatype flag='kind'}
+              	 <a href="[field:id function=getSearchUrl(@me,'visatypeid')/]" data-field="visatypeid" data-value="[field:id/]">[field:title/]</a>
+                {/sline:visatype}
+              	
+              </span>
+            </dd>
+          </dl>
+          <dl>
+          	<dt>签证国家：</dt>
+            <dd id="visacountry_list">
+              <span class="sp_1"><a class="on" href="{sline:global.countryid function=getSearchUrl(0,'countryid')/}" data-field="countryid" data-value="0">全部</a></span>
+              <span class="sp_2">
+                {sline:visatype flag='country'}
+              	 <a href="[field:id function=getSearchUrl(@me,'countryid')/]" data-field="countryid" data-value="[field:id/]">[field:title/]</a>
+                {/sline:visatype}
+              	
+              </span>
+            </dd>
+          </dl>
+          <dl class="bor_bot_0">
+          	<dt>签发城市：</dt>
+            <dd id="visacity_list">
+            	<span class="sp_1"><a class="on" href="{sline:global.cityid function=getSearchUrl(0,'cityid')/}" data-field="cityid" data-value="0">全部</a></span>
+              <span class="sp_2">
+              	{sline:visatype flag='city'}
+              	 <a href="[field:id function=getSearchUrl(@me,'cityid')/]" data-field="cityid" data-value="[field:id/]">[field:title/]</a>
+                {/sline:visatype}
+              </span>
+            </dd>
+          </dl>
+        </div>
+        <!--搜索条件结束-->
+        
+        <div class="visa_con_list">
+        	<table width="958" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <th width="420" height="30" align="left" scope="col"><label>签证名称</label></th>
+              <th width="135" height="30" scope="col">签证类型</th>
+              <th width="135" height="30" scope="col">面试</th>
+              <th width="135" height="30" scope="col">签证价格</th>
+              <th width="133" height="30" scope="col">操作</th>
+            </tr>
+           {sline:list}
+            <tr class="last_bor_none">
+              <td height="58" align="left"><label>[field:title/]</label></td>
+              <td height="58" align="center">[field:visatype function="getVisaType(@me)"/]</td>
+              <td height="58" align="center">[field:interview/]</td>
+              <td height="58" align="center">&yen;[field:price/]/人</td>
+              <td height="58" align="center"><a class="visa_btn" href="show_[field:aid/].html">立即办理</a></td>
+            </tr>
+           {/sline:list}
+          </table>
+        </div>
+        
+        <!--分页代码样式开始-->
+        <div class="main_mod_page clear">
+       
+         {sline:pagelist listitem="info,index,end,pre,next,pageno,option" listsize="5" isstatic="1"/}
+        </div>
+        <div style="clear:both"></div>
+        <!--分页代码样式结束-->
+      </div>
+      
+    </div>
+  </div>
+  <!-- 中间内容结束 -->
+  
+  <!-- 中间内容结束 -->
+  
+   {sline:include file='public/help.htm'/}
+  
+  <!-- 底部介绍开始 -->
+   {sline:include file='public/footer.htm'/}
+  <!-- 底部介绍结束 -->
+   <!--隐藏域-->
+  <input type="hidden" id="cityid" value="{sline:global.cityid/}"/>
+  <input type="hidden" id="countryid" value="{sline:global.countryid/}"/>
+  <input type="hidden" id="visatypeid" value="{sline:global.visatypeid/}"/>
+
+  <script language="javascript">
+    var cityid ="{sline:global.cityid/}";
+	var countryid ="{sline:global.countryid/}";
+	var visatypeid ="{sline:global.visatypeid/}";
+  </script>
+
+
+</body>
+</html>

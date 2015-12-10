@@ -1,0 +1,292 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+    <title>{sline:field.pageno/}{sline:field.seotitle/}-{sline:global.cfg_webname/}</title>
+    {sline:field.seokeyword/}
+    {sline:field.seodescription/}
+    <meta name="author" content="{sline:global.cfg_webname/}" />
+    {sline:php}GetCss('base.css,jieban.css','2015.01');{/sline:php}
+    {sline:php}GetScript('jquery-1.8.3.min.js,common.js,jquery-tabs.js,SuperSlide.js','');{/sline:php}
+
+<script>
+	$(function(){
+		$("#jb_list_con").switchTab();
+		$(".side_box .side_con .fabu_ul").find("li").last().addClass("bor_0")
+		$(".jb_list_con dd").each(function() {
+				$(this).find(".search_tj p").last().addClass("mb_0")
+    });
+		$(".search_tj p i").toggle(function(){
+
+				$(this).parents('p').first().find('.a-list').attr('style','height:auto');
+				$(this).text("收起");
+				$(this).addClass("up")
+		},function(){
+                $(this).parents('p').first().find('.a-list').attr('style','height:35');
+				$(this).text("展开");
+				$(this).removeClass("up")
+		});
+	})
+
+</script>
+</head>
+
+<body>
+	
+  {sline:include file='public/header.htm'/}
+  
+  <div class="jieba_box">
+  	<a href="/jieban/xuqiu.php">我要结伴</a>
+  </div>
+  
+  <div class="big">
+  	<div class="width_1120">
+    	
+      <div class="jieban_list_box">
+      	<dl class="jb_list_con" id="jb_list_con">
+        	<dt>
+          	<h3>正在进行的结伴活动</h3>
+            <p>
+              <span>正在进行中</span>
+              <span>历史活动</span>
+            </p>
+          </dt>
+          <dd>
+          	<div class="search_tj">
+            	<p>
+              	<em>目的地：</em>
+                <span class="a-list" id="destid_list">
+                  <a class="on" href="{sline:global.destid function=Jieban::getSearchUrl(0,'dest_id')/}">不限</a>
+                    {sline:vlist name="destlist"}
+                               <a href="[field:id function=Jieban::getSearchUrl(@me,'dest_id')/]" data-field="destid" data-value="[field:id/]">[field:kindname/]</a>
+                    {/sline:vlist}
+                </span>
+
+                    <i>展开</i>
+              </p>
+            	<p>
+              	<em>出行月份：</em>
+
+                <span class="a-list" id="month_list">
+                    <a href="{sline:global.monthid function=Jieban::getSearchUrl(0,'monthid')/}" data-field="monthid" data-value="0">不限</a>
+                    <a href="{sline:global.monthid function=Jieban::getSearchUrl(1,'monthid')/}" data-field="monthid" data-value="1" >一月</a>
+                    <a href="{sline:global.monthid function=Jieban::getSearchUrl(2,'monthid')/}" data-field="monthid" data-value="2" >二月</a>
+                    <a href="{sline:global.monthid function=Jieban::getSearchUrl(3,'monthid')/}" data-field="monthid" data-value="3" >三月</a>
+                    <a href="{sline:global.monthid function=Jieban::getSearchUrl(4,'monthid')/}" data-field="monthid" data-value="4" >四月</a>
+                    <a href="{sline:global.monthid function=Jieban::getSearchUrl(5,'monthid')/}" data-field="monthid" data-value="5" >五月</a>
+                    <a href="{sline:global.monthid function=Jieban::getSearchUrl(6,'monthid')/}" data-field="monthid" data-value="6" >六月</a>
+                    <a href="{sline:global.monthid function=Jieban::getSearchUrl(7,'monthid')/}" data-field="monthid" data-value="7" >七月</a>
+                    <a href="{sline:global.monthid function=Jieban::getSearchUrl(8,'monthid')/}" data-field="monthid" data-value="8" >八月</a>
+                    <a href="{sline:global.monthid function=Jieban::getSearchUrl(9,'monthid')/}" data-field="monthid" data-value="9" >九月</a>
+                    <a href="{sline:global.monthid function=Jieban::getSearchUrl(10,'monthid')/}" data-field="monthid" data-value="10" >十月</a>
+                    <a href="{sline:global.monthid function=Jieban::getSearchUrl(11,'monthid')/}" data-field="monthid" data-value="11" >十一月</a>
+                    <a href="{sline:global.monthid function=Jieban::getSearchUrl(12,'monthid')/}" data-field="monthid" data-value="12" >十二月</a>
+
+                </span>
+                <i>展开</i>
+              </p>
+            	<p>
+              	<em>出行天数：</em>
+                <span class="a-list" id="day_list">
+                  <a href="{sline:global.dayid function=Jieban::getSearchUrl(0,'dayid')/}" data-field="dayid" data-value="0">不限</a>
+                  <a href="{sline:global.dayid function=Jieban::getSearchUrl('1_2','dayid')/}" data-field="dayid" data-value="1_2" >1-2天</a>
+                  <a href="{sline:global.dayid function=Jieban::getSearchUrl('3_5','dayid')/}" data-field="dayid" data-value="3-5">3-5天</a>
+                  <a href="{sline:global.dayid function=Jieban::getSearchUrl('6_8','dayid')/}" data-field="dayid" data-value="6_8">6-8天</a>
+                  <a href="{sline:global.dayid function=Jieban::getSearchUrl('9_11','dayid')/}" data-field="dayid" data-value="9_11">9-11天</a>
+                  <a href="{sline:global.dayidfunction=Jieban::getSearchUrl('12_15','dayid')/}" data-field="dayid" data-value="12_15">12-15天</a>
+                  <a href="{sline:global.dayid function=Jieban::getSearchUrl('16_99','dayid')/}" data-field="dayid" data-value="16_99">15天以上</a>
+
+                </span>
+               <!-- <i>展开</i>-->
+              </p>
+            	<p>
+              	<em>行程主题：</em>
+                <span class="a-list  attr_list">
+                  <a class="on" href="{sline:global.attrid function=Jieban::getSearchUrl(0,attrid)/}" data-field="attrid" data-value="0">不限</a>
+                 {sline:attrgrouplist typeid='11'}
+                          {sline:getattrbygroup}
+                            <a href="[field:attrid function=Jieban::getSearchUrl(@me,'attrid')/]" data-field="attrid" data-value="[field:attrid/]">[field:title/]</a>
+                          {/sline:getattrbygroup}
+                {/sline:attrgrouplist}
+
+                </span>
+                <i>展开</i>
+              </p>
+            </div>
+            <div class="fbxc_list">
+            	<!--列表开始-->
+                {sline:list}
+            	  <div class="xc_list_con">
+              	<ul>
+                  <li class="li_day color_5bb"><span><em>[field:day/]</em>day</span></li>
+                  <li class="li_con">
+                  	<p class="p1">
+                    	<a href="/jieban/show_[field:id/].html" target="_blank">[field:array function=Jieban::getJiebanTitle(@me)/]&nbsp;[field:iconlist function=Helper_Archive::getIconList(@me)/]</a>
+                      <span>[field:addtime function="Mydate('Y-m-d',@me)"/]</span>
+                    </p>
+                    <p class="p2">
+                    	<span class="sp_time">[field:startdate/]  出发 ±[field:vartime/] 天</span>
+                      <span class="sp_mdd">[field:array function=Jieban::getKindnameList(@me,'-')/]</span>
+                    </p>
+                    <p class="p3">
+                        [field:attrid function=Jieban::getAttrList(@me)/]
+                    </p>
+                    <p class="p4">
+                    	<span class="sp_l"><em>[field:memberid function=Jieban::getMemberName(@me)/]</em>的速拼结伴</span>
+                      <span class="sp_r">
+                      	<em><b>[field:id function=Jieban::getJoinNumber(@me)/]人</b>已加入</em>
+
+                        <a class="join" href="/jieban/show_[field:id/].html" target="_blank">+加入</a>
+                      </span>
+                    </p>	
+                  </li>
+                </ul>
+                      [field:array function=jieban::getPicture(@me)/]
+
+              </div>
+                {/sline:list}
+
+            	<!--列表结束-->
+              <!--分页代码开始-->
+              <div class="main_mod_page clear">
+                  {sline:pagelist isstatic='1'/}
+              </div>
+              <!--分页代码结束-->
+            </div>
+          </dd>
+          <dd>
+
+            <div class="fbxc_list">
+            	<!--列表开始-->
+                {sline:getjieban flag='finish' row='5'}
+            	<div class="xc_list_con">
+              	<ul>
+                	<li class="li_day color_bcb"><span><em>[field:day/]</em>day</span></li>
+                  <li class="li_con">
+                  	<p class="p1">
+                    	<a href="[field:url/]" target="_blank">[field:title/]</a>
+                      <span>[field:addtime function="Mydate('Y-m-d',@me)"/]</span>
+                    </p>
+                    <p class="p2">
+                    	<span class="sp_time">[field:startdate/]  出发 ±[field:vartime/] 天</span>
+                      <span class="sp_mdd">[field:kindnamelist/]</span>
+                    </p>
+                    <p class="p3">
+                    	[field:attrlist/]
+                    </p>
+                    <p class="p4">
+                    	<span class="sp_l"><em>[field:membername/]</em>的速拼结伴</span>
+                      <span class="sp_r">
+                      	<em><b>[field:joinnum/]人</b>已加入</em>
+
+                        <a class="unjoin" href="[field:url/]" target="_blank">+加入</a>
+                      </span>
+                    </p>	
+                  </li>
+                </ul>
+              </div>
+                {/sline:getjieban}
+
+            	<!--列表结束-->
+
+            </div>
+          </dd>
+        </dl>
+      </div>
+      
+      <div class="jieban_side mt70">
+      
+      	<div class="step_box">
+        	<dl class="pt_step">
+          	<dt>轻松四步定制结伴速拼</dt>
+            <dd class="txt"><em>1</em>3分钟发布结伴需求</dd>
+            <dd class="ico"></dd>
+            <dd class="txt"><em>2</em>坐等结伴小伙伴加入</dd>
+            <dd class="ico"></dd>
+            <dd class="txt"><em>3</em>旅游顾问为您定制方案</dd>
+            <dd class="ico"></dd>
+            <dd class="txt"><em>4</em>轻松愉快的去旅行</dd>
+          </dl>
+          <div class="jeban-btn">
+          	<a href="/jieban/xuqiu.php">我要结伴</a>
+          </div>
+        </div>
+
+        
+        <div class="side_box">
+        	<h3 class="new_tit">最新发布</h3>
+          <div class="side_con">
+            <ul class="fabu_ul">
+             {sline:getjieban flag='new' row='5'}
+              <li>
+              	<p class="p1">
+                  <span><b>[field:membername/]</b>发布了</span>
+                  <em>[field:posttime/]</em>
+                </p>
+                <p class="p2"><a href="[field:url/]">[field:title/]</a></p>
+                <p class="p3">[field:kindnamelist/]</p>
+              </li>
+             {/sline:getjieban}
+
+            </ul>
+          </div>
+        </div>
+        
+      </div>
+      
+    </div>
+  </div>
+  {sline:include file='public/footer.htm'/}
+  <input type="hidden" id="destid" value="{sline:global.dest_id/}"/>
+  <input type="hidden" id="attrid" value="{sline:global.attrid/}"/>
+  <input type="hidden" id="monthid" value="{sline:global.monthid/}"/>
+  <input type="hidden" id="dayid" value="{sline:global.dayid/}"/>
+  <script>
+      $(function(){
+          //目的地天数选中
+
+          var attrid = $("#attrid").val();
+
+          var destid = $("#destid").val();
+
+          var monthid = $("#monthid").val();
+
+          var dayid = $("#dayid").val();
+
+
+          //$.STOURWEB.search_item_selected("#destid_list","a",destid,'on');
+
+          $.STOURWEB.search_item_selected("#month_list","a",monthid,'on');
+
+          $.STOURWEB.search_item_selected("#day_list","a",dayid,'on');
+
+          $.STOURWEB.search_item_selected(".attr_list","a",attrid,'on');
+          //属性选中
+          var attrArr = attrid.split('_');
+          for(i=0;i<attrArr.length;i++)
+          {
+
+              $.STOURWEB.search_attr_selected(".attr_list","a",attrArr[i],'on');
+          }
+
+          if(attrid!=0){
+              $('.attr_list').next().trigger('click');
+          }
+          if(monthid!=0){
+              $('#month_list').next().trigger('click');
+          }
+
+          $(".slidepic").slide({
+                      titCell:".hd ul",
+                      mainCell:".bd ul",
+                      autoPage:true,
+                      effect:"left",
+                      autoPlay:false,
+                      vis:4
+                  }
+          );
+
+      })
+  </script>
+</body>
+</html>

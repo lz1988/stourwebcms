@@ -1,0 +1,172 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={sline:global.cfg_soft_lang/}" />
+<title>{sline:field.seotitle/}-{sline:global.cfg_webname/}</title>
+<meta name="keywords" content="{sline:field.seokeyword/}"/>
+<meta name="description" content="{sline:field.seodescription/}"/>
+<meta name="author" content="{sline:global.cfg_webname/}" />
+{sline:php}Helper_Archive::getCss('base.css,visa.css','2014.01');{/sline:php}
+{sline:php}Helper_Archive::getScript('jquery-1.8.3.min.js,common.js,visa.index.js','2014.01');{/sline:php}
+
+</head>
+
+<body>
+	{sline:include file='public/header.htm'/}
+  
+  <!-- 中间内容开始 -->
+  <div class="big">
+  	<div class="width_1210">
+    	<!-- 面包屑and订单开始 -->
+    	<div class="top_first">
+      	<div class="crumbs"><a href="{sline:global.cfg_cmsurl/}/" rel="nofollow">{sline:global.cfg_indexname/}</a> &raquo; {sline:field.typename/}</div>
+        {sline:include file='public/scroll_order.htm'/}
+       
+      </div>
+      <!-- 面包屑and订单结束 -->
+ 
+      <div class="visa_top">
+      	<!--签证筛选开始-->
+      	<div class="visa_sx">
+        	<h3 class="visa_title">签证查询</h3>
+        	<ul class="nr_ul">
+            <li>
+            	<label>证件类型</label>
+              <div class='diy_select'>
+                <input type="hidden" name="visatype"  class='diy_select_input'/>
+                <div class="diy_select_txt">全部</div>
+                <div class="diy_select_btn"></div>
+                <ul class="diy_select_list choose">
+                  {sline:visatype flag='kind'}
+                    <li data-value="[field:id/]" data-field="visatype">[field:title/]</li>
+                  {/sline:visatype}
+                </ul>
+              </div>
+            </li>
+            <li>
+            	<label>签发城市</label>
+              <div class='diy_select'>
+                <input type="hidden" name="visacity"  class='diy_select_input'/>
+                <div class="diy_select_txt">全部</div>
+                <div class="diy_select_btn"></div>
+                <ul class="diy_select_list choose">
+                  {sline:visatype flag='city'}
+                    <li data-value="[field:id/]" data-field="visacity">[field:title/]</li>
+                  {/sline:visatype}
+                </ul>
+              </div>
+            </li>
+            <li>
+            	<label>签证国家</label>
+              <div class='diy_select'>
+                <input type="hidden" name="visacountry" class='diy_select_input'/>
+                <div class="diy_select_txt">国家</div>
+                <div class="diy_select_btn"></div>
+                <ul class="diy_select_list choose">
+                  {sline:visatype flag='country'}
+                    <li data-value="[field:id/]" data-field="visacountry">[field:title/]</li>
+                  {/sline:visatype}
+                </ul>
+              </div>
+            </li>
+          </ul>
+          <!--隐藏域-->
+          <input type="hidden" id="visatype" value="0"/>
+          <input type="hidden" id="visacity" value="0"/>
+          <input type="hidden" id="visacountry" value="0"/>
+          <div class="hotel_cx"><a href="javascript:;" class="btn_search">立即查询</a></div>
+          <dl class="nr_dl">
+          	<dt>热门搜索：</dt>
+            <dd>
+               {sline:visatype flag='country'}
+                    <a href="/visa/[field:id/]-0-0-0">[field:title/]</a>
+               {/sline:visatype}
+		
+            </dd>
+          </dl>
+        </div>
+        <!--签证筛选结束-->
+        
+        <!--签证轮播图开始-->
+        <div class="visa_foucs slides" id="slides">
+          {sline:rollingad name='VisaRollingAd'}
+        	<a href="[field:linkurl/]" target="_blank"><img src="[field:picurl/]" width="745" height="325" title="[field:linktext/]" alt="[field:linktext/]" /></a>
+          {/sline:rollingad}
+        
+        </div>
+        <!--签证轮播图结束-->
+        
+        <div class="flow_path">
+        	<img src="{sline:global.cfg_templets_skin/}/images/flow_path.jpg" />
+        </div>
+        
+      </div>
+      
+      <div class="visa_con">
+      	   <!--边栏满意度开始-->
+          <div class="dos">
+          <div class="dos_pic">
+            <p>客户满意度</p>
+            <span><s style=" width:90%"></s></span>
+          </div>
+          <div class="peo_data">已为<span>3008374</span>位客户提供旅游服务！</div>
+          <div class="fl"><img src="{sline:global.cfg_templets_skin/}/images/serve_pic.png" alt="" title="" /></div>
+          <div class="dis_list">
+            {sline:getcommentlist flag='visa' row='6'}
+              <dl>
+                <dt><b>[field:nickname/]</b><strong>满意度：</strong><s style=" width:[field:percent/]"></s></dt>
+                <dd>[field:content/]</dd>
+              </dl>
+            {/sline:getcommentlist}
+            
+          </div>
+        </div>
+        <!--边栏满意度结束-->
+        
+        <div class="visa_country">
+        	<h3>热门签证</h3>
+          <ul class="visa_list">
+            {sline:getvisalist row='18' flag='hot'}
+              <li>
+                  <a class="fl" href="[field:url/]" target="_blank"><img class="fl" src="[field:litpic/]" width="48" height="28" title="[field:title/]" alt="[field:title/]" /></a>
+                <span class="sp_1"><a href="[field:url/]" target="_blank">[field:title/]</a></span>
+                <span class="sp_2">&yen;<b>[field:price/]</b></span>
+              </li>
+            {/sline:getvisalist}
+          </ul>
+        </div>
+        
+      </div>
+      
+      <div class="visa_atc">
+       {sline:arclist flag='attrlist' groupname='签证攻略'}
+      	<div class="article_list {sline:global.itemindex runphp='yes'}if(@me%4==0)@me='mr_0';else @me='';{/sline:global.itemindex}">
+          <h3>{sline:field.kindname/}</h3>
+          <ul>
+            {sline:getarclist flag='attr' row='6'}
+              <li><a href="[field:url/]" target="_blank">[field:title/]</a></li>
+            {/sline:getarclist}
+          
+          </ul>
+        </div>
+      {/sline:arclist}
+        
+      </div>
+      
+    </div>
+  </div>
+  <!-- 中间内容结束 -->
+  
+   {sline:include file='public/help.htm'/}
+  
+  <!-- 底部介绍开始 -->
+   {sline:include file='public/footer.htm'/}
+  <!-- 底部介绍结束 -->
+  
+  <!-- 友情链接开始 -->
+   {sline:include file='public/flink.htm'/}
+  <!-- 友情链接结束 -->
+ <script language="javascript" src="/templets/smore/js/list_box.js"></script>
+
+</body>
+</html>

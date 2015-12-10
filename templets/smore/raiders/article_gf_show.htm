@@ -1,0 +1,450 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{sline:field.title/}-{sline:global.cfg_webname/}</title>
+    {sline:field.keyword/}
+    {sline:field.description/}
+    <meta name="author" content="{sline:global.cfg_webname/}" />
+    {sline:php}GetCss('base.css,article_gf.css','2015.02');{/sline:php}
+    {sline:php}GetScript('jquery-1.8.3.min.js,common.js,comment.js,jquery.qrcode.min.js','2015.02');{/sline:php}
+</head>
+
+<body>
+<!-- 顶部介绍开始 -->
+{sline:include file='public/header.htm'/}
+<!-- 导航结束 -->
+<div class="big">
+    <div class="width_1210">
+        <!-- 面包屑and订单开始 -->
+        <div class="top_first">
+            <div class="crumbs"><a href="/">{sline:global.cfg_indexname/}</a> &raquo; <a href="/raiders/">{sline:field.typename/}</a>  {sline:field.pkname/}</div>
+            {sline:include file='public/scroll_order.htm'/}
+        </div>
+    </div>
+</div>
+
+<div class="gf_menu_box">
+    <div class="gf_menu_con" style="position: static; z-index: 999; top: 0px;">
+        <ul>
+            <li class="li_1"><a href="/{sline:field.pinyin/}/" target="_blank"><span>目的地</span></a></li>
+            <li class="li_2"><a href="/lines/{sline:field.pinyin/}/" target="_blank"><span>线路</span></a></li>
+            <li class="li_3"><a href="/spots/{sline:field.pinyin/}/" target="_blank"><span>景点门票</span></a></li>
+            <li class="li_4"><a href="/hotels/{sline:field.pinyin/}/" target="_blank"><span>酒店</span></a></li>
+            <li class="li_7"><a href="/tuan/{sline:field.pinyin/}/" target="_blank"><span>团购</span></a></li>
+            <li class="li_8"><a href="/photos/{sline:field.pinyin/}" target="_blank"><span>相册</span></a></li>
+            <li class="li_9"><a href="/{sline:field.pinyin/}/raiders/" target="_blank"><span>攻略</span></a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="big">
+<div class="width_1210">
+
+<div class="articel_con_show">
+<!--文章内容开始-->
+<div class="show_con">
+<div class="show_mid">
+
+<div class="bk_box_con">
+    <div class="bk_picwen">
+        <h1>{sline:field.title/}</h1>
+
+        <div class="gf_box">
+
+            <!--滚动焦点图开始-->
+            <div class="focus_img">
+                <div id="_banners" class="banners">
+                   {sline:vlist name='picturelist'}
+                    <div class="banner banner">
+                        <a href="javascript:;" target="_blank"><img width="558" height="350" src="[field:litpic/]" alt="[field:title/]" title="[field:title/]" /></a>
+                    </div>
+                   {/sline:vlist}
+
+                </div>
+                <div id="_focus" class="focus">
+                    {sline:vlist name='picturelist'}
+                     <a data-index="[field:global.step runphp='yes']@me=@me-1;[/field:global.step]"  href="javascript:void(0);" ><span class="bg-b"></span><span class="inner"></span></a>
+                    {/sline:vlist}
+
+                </div>
+            </div>
+            <!--滚动焦点图结束-->
+
+            <div class="rig_msg">
+                <div class="msg_top">
+                    <dl>
+                        <dt>攻略作者</dt>
+                        <dd>{sline:field.author/}</dd>
+                    </dl>
+                    <dl>
+                        <dt>发布时间</dt>
+                        <dd>{sline:field.addtime function="MyDate('Y-m-d',@me)"/}</dd>
+                    </dl>
+                    <dl>
+                        <dt>所属分类</dt>
+                        <dd>
+                            {sline:field.attrlist runphp='yes'}
+                            $k=0;
+                            foreach(@me as $k=>$v)
+                            {
+                            if($k<3)
+                            {
+                            $str.=" <a target=\"_blank\" href=\"/raiders/all-{$v['id']}\">{$v['attrname']}</a>";
+                            }
+                            $k++;
+
+
+                            }
+                            @me=$str;
+                            {/sline:field.attrlist}
+
+                        </dd>
+                    </dl>
+                </div>
+                <div class="msg_btm">
+                    <div class="data_con">
+                        <span class="ln"><em>{sline:field.shownum/}</em>人浏览</span>
+                        <span class="xz"><em>{sline:field.downnum/}</em>次下载</span>
+                    </div>
+                    {sline:if var='_hasattachment'}
+                    <div class="down_box">
+                        <a class="down_btn" href="javascript:;" target="_blank">下载攻略</a>
+                        <span class="ewm_pic" id="small_qrcode"></span>
+                        <div class="yc_ewm_box" id="big_qrcode">
+
+                        </div>
+                    </div>
+                    {/sline:if}
+                    <div class="bd_fx">
+                        <div class="bdsharebuttonbox">
+                            <a href="#" class="bds_more" data-cmd="more"></a>
+                            <a href="#" class="bds_qzone" data-cmd="qzone"></a>
+                            <a href="#" class="bds_tsina" data-cmd="tsina"></a>
+                            <a href="#" class="bds_tqq" data-cmd="tqq"></a>
+                            <a href="#" class="bds_renren" data-cmd="renren"></a>
+                            <a href="#" class="bds_weixin" data-cmd="weixin"></a>
+                        </div>
+                        <script>
+                            window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="all_js">
+            <p>{sline:field.summary/}</p>
+        </div>
+
+        <div class="lanmu_box">
+            <div class="left_con_tit">
+                <span style="display: block">目录</span>
+            </div>
+
+            <div class="right_con_list">
+               <div class="rig_con_list">
+                {sline:field.directory/}
+
+            </div>
+
+            </div>
+        </div>
+        <div class="all_duan">
+            {sline:field.content/}
+        </div>
+
+
+
+    </div>
+</div>
+
+<div class="today-hot">
+    <div class="tit"><span>今日优惠</span><a href="/lines/">更多优惠&gt;&gt;</a></div>
+    <ul>
+        {sline:getlinelist flag='recommend' row='6'}
+        <li>
+            <s>优惠</s>
+            <a class="fl" href="[field:url/]" target="_blank"><img src="[field:lit160/]" alt="[field:title/]" title="[field:title/]" /></a>
+            <p class="p1"></p>
+            <p class="p2">&yen;[field:sellprice/]</p>
+            <p class="p3"><a href="[field:url/]" target="_blank">[field:title/]</a></p>
+        </li>
+        {/sline:getlinelist}
+
+    </ul>
+</div>
+<div class="page_menu">
+    <div class="prev">{sline:field.pre/}</div>
+    <div class="next">{sline:field.next/}</div>
+</div>
+<div class="xg_news">
+    <dl>
+        <dt>相关阅读</dt>
+        {sline:getarclist flag='relative' row='4'}
+        <dd>
+            <a class="fl" href="[field:url/]" target="_blank"><img src="[field:lit160/]" title="[field:title/]" alt="[field:title/]" /></a>
+            <p><a href="[field:url/]" target="_blank">[field:title/]</a></p>
+            <p class="p2">[field:content function="cutstr_html(@me,60)"/]</p>
+        </dd>
+        {/sline:getarclist}
+    </dl>
+
+</div>
+</div>
+
+</div>
+<!--文章内容结束-->
+<div class="atc-banner">
+    {sline:myad name='RaiderShowAd2'/}
+</div>
+<!--评论内容开始-->
+<div class="comment_on">
+    <h3>参与评论</h3>
+    <form action="/comment/comment.php" method="post">
+        <div class="text_box">
+            <textarea name="content" cols="" rows="" onClick="togHint(this,'请使用文明语言!')">请使用文明语言!</textarea>
+        </div>
+        <div class="login_pl_btn">
+            <input class="fb_btn" type="button" onClick="sendComment(this,'请使用文明语言!')"  value="发表评论">
+            <span class="login_cm"><a href="javascript:;" onClick="commentLogin(this)" >登录</a></span>
+            <span class="nim"><input type="checkbox" class="niming"  value="1"/></span>
+
+            <span>匿名</span>
+
+            <span class="checkcode"><img onClick="commentCheck(this)" src="/include/vdimgck.php?word_type=3"/></span>
+            <span>验证码：<input type="text" name="checkcode" size="4"/></span>
+        </div>
+        <input type="hidden" name="articleid" value="{sline:field.id/}"/>
+        <input type="hidden" name="typeid" value="4"/>
+    </form>
+</div>
+
+<div class="comment_list">
+    <h3>他们说...</h3>
+    <div class="comment_nr_con">
+        {sline:commentlist typeid="4"}
+        <div class="nr_pl_list">
+            <dl class="nr_dl">
+                <dt class="nr_dt"><img class="fl" src="{sline:field.litpic/}" width="45" height="45"></dt>
+                <dd class="nr_dd">
+                    <h4>{sline:field.nickname/}</h4>
+                    <div class="nr_pl_con">{sline:field.content/}</div>
+                    <div class="nr_pl_hf"><a href="javascript:;" onClick="funaddCommDiv(this,{sline:field.articleid/},{sline:field.id/},{sline:field.id/},4,0)">回复</a></div>
+
+                </dd>
+            </dl>
+            <div class="hf_con_div">
+                {sline:getchildcomment typeid="4"}
+                <dl class="hf_dl">
+                    <dt class="hf_dt"><img class="fl" src="[field:litpic/]" width="45" height="45"></dt>
+                    <dd class="hf_dd">
+                        <h4>[field:nickname/]</h4>
+                        <div class="nr_hf_con">回复<span>@[field:replynickname/]</span>：[field:content/]</div>
+                        <div class="nr_hf_hf"><a href="javascript:;" onClick="funaddCommDiv(this,[field:articleid/],[field:id/],[field:dockid/],4,1)">回复</a></div>
+
+                    </dd>
+                </dl>
+                {/sline:getchildcomment}
+            </div>
+        </div>
+        {/sline:commentlist}
+
+
+    </div>
+
+    <div style="clear:both"></div>
+
+</div>
+</div>
+
+<div class="line_con_rig">
+    {sline:getrightcontent pagename='show'/}
+
+</div>
+
+
+</div>
+</div>
+<!--帮助流程开始-->
+{sline:include file='public/help.htm'/}
+
+{sline:include file='public/footer.htm'/}
+
+{sline:include file='public/flink.htm'/}
+<input type="hidden" id="articleid" value="{sline:field.id/}"/>
+<!-- 友情链接结束 -->
+
+</body>
+<script>
+
+    $(document).ready(function(e) {
+
+
+        var glume = function(banners_id, focus_id){
+            this.$ctn = $('#' + banners_id);
+            this.$focus = $('#' + focus_id);
+            this.$adLis = null;
+            this.$btns = null;
+            this.switchSpeed = 5;//自动播放间隔(s)
+            this.defOpacity = 1;
+            this.crtIndex = 0;
+            this.adLength = 0;
+            this.timerSwitch = null;
+            this.init();
+        };
+
+        glume.prototype = {
+            fnNextIndex:function(){
+                return (this.crtIndex >= this.adLength-1)?0:this.crtIndex+1;
+            },
+            //动画切换
+            fnSwitch:function(toIndex){
+                if(this.crtIndex==toIndex){return;}
+                this.$adLis.css('zIndex', 0);
+                this.$adLis.filter(':eq('+this.crtIndex+')').css('zIndex', 2);
+                this.$adLis.filter(':eq('+toIndex+')').css('zIndex', 1);
+                this.$btns.removeClass('on');
+                this.$btns.filter(':eq('+toIndex+')').addClass('on');
+                var me = this;
+
+                $(this.$adLis[this.crtIndex]).animate({
+                    opacity: 0
+                }, 1000, function() {
+                    me.crtIndex = toIndex;
+                    $(this).css({
+                        opacity: me.defOpacity,
+                        zIndex: 0
+                    });
+                });
+            },
+            fnAutoPlay:function(){
+                this.fnSwitch(this.fnNextIndex());
+            },
+            fnPlay:function(){
+                var me = this;
+                me.timerSwitch = window.setInterval(function() {
+                    me.fnAutoPlay();
+                },me.switchSpeed*1000);
+            },
+            fnStopPlay:function(){
+                window.clearTimeout(this.timerSwitch);
+                this.timerSwitch = null;
+            },
+
+            init:function(){
+                this.$adLis = this.$ctn.children();
+                this.$btns = this.$focus.children();
+                this.adLength = this.$adLis.length;
+
+                var me = this;
+                //点击切换
+                this.$focus.on('click', 'a', function(e) {
+                    e.preventDefault();
+                    var index = parseInt($(this).attr('data-index'), 10)
+                    me.fnSwitch(index);
+                });
+                this.$adLis.filter(':eq('+ this.crtIndex +')').css('zIndex', 2);
+                this.fnPlay();
+
+                //hover时暂停动画
+                this.$ctn.hover(function() {
+                    me.fnStopPlay();
+                }, function() {
+                    me.fnPlay();
+                });
+
+                if($.browser.msie && $.browser.version < 7) {
+                    this.$btns.hover(function() {
+                        $(this).addClass('hover');
+                    },function() {
+                        $(this).removeClass('hover');
+                    });
+                }
+            }
+        };
+        var player1 = new glume('_banners', '_focus');
+
+        $("#small_qrcode").qrcode({
+            render: "table", //table方式
+            width: 35, //宽度
+            height:35, //高度
+            text: "{sline:field.attachment/}" //任意内容
+        });
+        $("#big_qrcode").qrcode({
+            render: "table", //table方式
+            width: 168, //宽度
+            height:168, //高度
+            text: "{sline:field.attachment/}" //任意内容
+        });
+        //二维码显示
+        $(".msg_btm .down_box .ewm_pic").hover(function(){
+            $(".msg_btm .down_box .yc_ewm_box").show()
+        },function(){
+            $(".msg_btm .down_box .yc_ewm_box").hide()
+        })
+        //下载
+        $('.down_btn').click(function(){
+            var articleid = $("#articleid").val();
+            var attachment = "{sline:field.attachment/}";
+            $.ajax({
+                type:'POST',
+                url:siteUrl+'raiders/ajax.raider.php',
+                data:{action:'adddownnum',articleid:articleid},
+                success:function(data){
+
+
+                }
+
+            })
+            $downloadurl = "/raiders/down.php?file={sline:field.attachment/}";
+            window.open($downloadurl);
+        })
+        $('.gf_menu_con').staticScrool({left:345});
+
+
+
+    });
+    (function($){
+        $.fn.staticScrool = function(options) {
+            var defaults = {
+                toppx : 0,
+                left:0
+
+            };
+            var options = $.extend(defaults,options);
+            return this.each(function(){_initialize(this)});
+
+
+            function _initialize(obj)
+            {
+
+                //获取要定位元素距离浏览器顶部的距离
+                var navH = $(obj).offset().top;
+
+                //滚动条事件
+                $(window).scroll(function(){
+                    //获取滚动条的滑动距离
+                    var scroH = $(document).scrollTop();
+
+                    //console.log(options.toppx);
+                    //滚动条的滑动距离大于等于定位元素距离浏览器顶部的距离，就固定，反之就不固定
+                    if(scroH>=navH+options.toppx){
+                        $(obj).css({"position":"fixed","z-index":"999","top":options.toppx,"left":options.left});
+
+                    }else if(scroH<navH){
+                        $(obj).css({"position":"static"});
+
+                    }
+
+                })
+
+            }
+
+        }
+        //闭包结束
+    })(jQuery);
+
+
+</script>
+</html>

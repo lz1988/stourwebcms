@@ -1,0 +1,317 @@
+@charset "utf-8";
+.top_1210{
+	width:1210px;
+	margin:0 auto}
+.top_mt{
+	float:left;
+	width:1210px;
+	position:relative}	
+.logo{
+	float:left;
+	padding:20px 0}	
+.all_search{
+	float:right;
+	width:650px;
+	position:absolute;
+	top:50%;
+	right:0;
+	margin-top:-28px}
+.top_search{
+	float:left;
+	width:400px;}
+.top {
+	float:left;
+	height:32px;
+	line-height:32px;
+	width:100%;
+	background:#f1f1f1}
+.top ul {
+	width:1210px;
+	height:32px;
+	margin:auto;
+	position:relative}
+.top ul li.txt{
+	width:580px;
+	height:32px;
+	overflow:hidden;
+	text-overflow:ellipsis}
+.top ul li a {
+	color:#666;
+	display:inline-block;
+	margin-left:10px}
+.top ul li a:hover {
+	color:#f60}
+.top ul li .my-booking{
+	display:inline-block;
+	position:relative;
+	width:85px;
+	text-align:center;
+	border-left:1px solid #f1f1f1;
+	border-right:1px solid #f1f1f1}	
+.top ul li .my-booking .mb-a{
+	display:block;
+	margin-left:0}
+.top ul li .my-booking .mb-hide{
+	display:none;
+	position:absolute;
+	left:-1px;
+	top:32px;
+	width:85px;
+	background:#fff;
+	border:1px solid #e6e5e5;
+	border-top:0;
+	z-index:9}
+.top ul li .my-booking .mb-hide a{
+	display:block;
+	width:75px;
+	height:28px;
+	line-height:28px;
+	margin-left:0;
+	padding:0 5px;
+	text-align:left;
+	border-top:1px solid #e6e5e5}
+.top ul li .my-booking .mb-hide a.bk_ico1 s{
+	float:left;
+	display:inline-block;
+	width:12px;
+	height:12px;
+	margin:8px 5px 0 0;
+	background:url(../images/booking_ico1.gif) left no-repeat}
+.top ul li .my-booking .mb-hide a.bk_ico2 s{
+	float:left;
+	display:inline-block;
+	width:12px;
+	height:12px;
+	margin:8px 5px 0 0;
+	background:url(../images/booking_ico2.gif) left no-repeat}
+.top ul li .my-booking .mb-hide a.bk_ico3 s{
+	float:left;
+	display:inline-block;
+	width:12px;
+	height:12px;
+	margin:8px 5px 0 0;
+	background:url(../images/booking_ico3.gif) left no-repeat}
+.top ul li a.wb_ico{
+	padding-left:20px;
+	background:url(../images/weibo_ico.png) left no-repeat}
+.top ul li a.wx_ico{
+	padding-left:20px;
+	background:url(../images/weixin_ico.png) left no-repeat}
+.top ul li a.web_nav_ico{
+	padding-left:10px;
+	padding-right:10px;
+	margin:0;
+	position:relative;
+	z-index:99999}
+.top ul li a.web_nav_ico s{
+	float:left;
+	width:10px;
+	height:10px;
+	margin:11px 5px 0 0;
+	background:url(../images/web_nav_ico.png) left no-repeat}
+.wx_img{
+	display:none;
+	width:143px;
+	height:176px;
+	position:absolute;
+	top:32px;
+	right:40px;
+	z-index:9999;
+	background:url(../images/sao_wx_bg.png) left no-repeat}
+.wx_img p{
+	width:124px;
+	height:125px;
+	overflow:hidden;
+	margin:15px 0 0 10px}
+.w_nav_map{
+	display:none;
+	position:absolute;
+	top:31px;
+	right:0;
+	z-index:9999;
+	border:1px solid #e6e5e5;
+	width:148px;
+	background:#fff}
+.w_nav_map a{
+	width:60px;}
+.top_web_map{
+	display:inline-block;
+	border-left:1px solid #f1f1f1;
+	border-right:1px solid #f1f1f1}
+.s_txt{
+	float:left;
+	width:240px;
+	height:28px;
+	line-height:28px;
+	color:#ccc;
+	border:2px solid #fd7715;
+	border-right:0;
+	border-left:0}
+.top_search s{
+	float:left;
+	display:block;
+	width:14px;
+	height:14px;
+	padding:7px;
+	border:2px solid #fd7715;
+	border-right:0;}
+.s_btn{
+	float:left;
+	width:66px;
+	height:32px;
+	line-height:32px;
+	border:0;
+	cursor:pointer;
+	color:#fff;
+	font-family:"微软雅黑";
+	font-size:14px;
+	background:#fd7715}
+.searcg_hot{
+	float:left;
+	width:400px;
+	padding-top:10px;
+	overflow:hidden}
+.searcg_hot span{
+	float:left;
+	color:#555}
+.searcg_hot a{
+	float:left;
+	color:#555;
+	margin-right:10px}
+.h_phone_num{
+	float:right;
+	width:180px;
+	height:46px;
+	padding:10px 0 0 70px;
+	background:url(../images/24hour.png) left no-repeat}
+.h_phone_num span{
+	float:left;
+	color:#555;
+	width:180px;
+	height:20px;}
+.h_phone_num p{
+	float:left;
+	color:#ff7200;
+	width:180px;
+	font-size:22px;
+	font-family:Arial}
+.nav{
+	float:left;
+	width:100%;
+	height:40px;
+	background:url(../images/top_menu_bg.gif) left repeat-x}
+.menu{
+	margin:0 auto;
+	width:1210px;
+	height:40px;
+	line-height:40px}
+.menu .global_nav{
+	float:left;
+	position:relative;
+	z-index:999999999;
+	background:#ff9600}
+.menu .global_nav .mc{
+	border:1px solid #fd6a15;
+	border-top:0}	
+.menu .global_nav .kj_tit{
+	color:#fff;
+	width:200px;
+	height:40px;
+	line-height:40px;
+	text-align:center;
+	font-size:14px;
+	cursor:pointer;
+	background:url(../images/m_n_ico.png) no-repeat right 12px}
+.menu .global_nav .tall{
+	position:relative;
+	background:#fff;
+	border-top:1px solid #fff;
+	border-bottom:1px dotted #ddd}
+.menu .global_nav .hover{
+	border-top:1px solid #fd6a15;
+	border-bottom:1px solid #fd6a15}
+.menu .global_nav .tit_bt{
+	display:block}
+.menu .global_nav .tall .tit_bt s{
+	float:left;
+	width:11px;
+	height:16px;
+	margin:10px 0 0 20px;
+	background:url(../images/m_n_ico.png) no-repeat 0 0}
+.menu .global_nav .hover .tit_bt s{
+	background:url(../images/m_n_ico.png) no-repeat -11px 0}
+.menu .global_nav .tall .tit_bt h3{
+	margin-left:45px;}
+.menu .global_nav .hover .tit_bt h3{
+	margin-right:-1px;
+	margin-left:45px;
+	background:#fff;
+	position:relative;
+	z-index:999999}
+.menu .global_nav .tit_bt h3 a{
+	color:#666;
+	display:block;
+	font-weight:500}	
+.menu .global_nav .gl_nav_con{
+	position:absolute;
+	left:198px;
+	top:-1px}
+.menu .global_nav .subitem{
+	float:left;
+	width:760px;
+	border:1px solid #fd6a15;
+	background:#fff}
+.menu .global_nav .subitem dl{
+	float:left;
+	margin:10px}	
+.menu .global_nav .subitem dl dt{
+	float:left;
+	color:#f60;
+	width:80px;
+	height:24px;
+	line-height:24px;
+	font-weight:600;
+	overflow:hidden}	
+.menu .global_nav .subitem dl dd{
+	float:left;
+	width:650px}	
+.menu .global_nav .subitem dl dd a{
+	float:left;
+	color:#999;
+	height:24px;
+	line-height:24px;
+	margin-right:15px}
+.menu .global_nav .subitem dl dd a:hover{
+	color:#f60}
+.menu .main_nav_list{
+	float:left}
+.menu .main_nav_list a{
+	float:left;
+	display:block;
+	height:40px;
+	line-height:40px;
+	font-family:"微软雅黑";
+	font-size:16px;
+	color:#fff;
+	padding:0 15px;
+	position:relative;
+	background:url(../images/dh_bg.gif) right no-repeat}
+.menu .main_nav_list a.bnone{
+	background:none}	
+.menu .main_nav_list a:hover{
+	color:#fff}
+.menu .main_nav_list a.active{
+	color:#fff;
+	background:#f24300}
+.menu .main_nav_list a s{
+	display:block;
+	width:19px;
+	height:23px;
+	position:absolute;
+	top:-15px;
+	right:0}
+.menu .main_nav_list a s.ico_hot{
+	background:url(../images/hot_ico.gif) left no-repeat}
+.menu .main_nav_list a s.ico_new{
+	background:url(../images/new_ico.gif) left no-repeat}	
+

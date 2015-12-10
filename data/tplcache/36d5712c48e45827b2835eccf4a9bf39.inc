@@ -1,0 +1,1 @@
+<li><span>[field:global.cfg_webname/]</span>[field:addtime function="Helper_Archive::formatAddTime(@me)"/]发表了<a href="[field:url/]">[field:title/]</a></li>

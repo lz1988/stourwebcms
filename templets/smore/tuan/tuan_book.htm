@@ -1,0 +1,210 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>团购订单</title>
+{sline:php}GetCss('base.css','2012.03');{/sline:php}
+{sline:php}GetScript('jquery-1.8.3.min.js,common.js,jquery.validate.js,book.js','2014.01');{/sline:php}
+<script src="{sline:global.cfg_templets_skin/}/js/DatePicker/WdatePicker.js"></script>
+</head>
+
+<body>
+	{sline:include file='public/header.htm'/}
+  
+  <!-- 中间内容开始 -->
+  <div class="big">
+  	<div class="width_1210">
+    	<!-- 面包屑and滚动订单开始 -->
+    	<div class="top_first">
+      	<div class="top_first">
+      	<div class="crumbs"><a href="/">首页</a> &gt; <a href="/tuan/">团购</a> &gt; 团购订单</div>
+              {sline:include file='public/scroll_order.htm'/}
+      </div>
+      <!-- 面包屑and滚动订单结束 -->
+
+      <div class="order_con">
+      <form id="dingfrm" method="post" action="/tuan/book.php?dopost=save">
+      	<div class="order_handle">
+          <div class="order_zt"><label>团购编号：{sline:field.tuannumber/}</label><span>(支持订金)</span></div>
+          <div class="order_cd">感谢您对 {sline:global.cfg_webname/} 的支持与信任！</div>
+        </div>
+        <div class="jindu"></div>
+        <div class="or_show or_bg_1">
+          <h3>订单详细</h3>
+          <dl>
+            <dt>产品名称：</dt>
+            <dd>{sline:field.title/}</dd>
+          </dl>
+          <dl>
+            <dt>报名人数：</dt>
+            <dd><input type="text" class="team_num" id="dingnum" name="dingnum" value="1" /></dd>
+          </dl>
+        </div>
+        <div class="or_show or_bg_2">
+          <h3>优惠信息</h3>
+          <dl>
+          	<dt>积分可抵现金：</dt>
+            <dd>{sline:field.jifentprice/}</dd>
+          </dl>
+          <dl>
+          	<dt>购买送积分：</dt>
+            <dd>{sline:field.jifenbook/}</dd>
+          </dl>
+          <dl>
+          	<dt>评论送积分：</dt>
+            <dd>{sline:field.jifencomment/}</dd>
+          </dl>
+        </div>
+        <div class="or_show or_bg_3">
+          <h3>联系人资料</h3>
+          <dl>
+            <dt>联 系 人：</dt>
+            <dd><input type="text" class="data_text" name="linkman" value="{sline:field.linkman/}" /></dd>
+          </dl>
+          <dl>
+            <dt>电话号码：</dt>
+            <dd><input type="text" class="data_text" name="linktel" value="{sline:field.mobile/}" /></dd>
+          </dl>
+          <dl>
+            <dt>常用邮箱：</dt>
+            <dd><input type="text" class="data_text" name="linkemail" value="{sline:field.email/}" /></dd>
+          </dl>
+          <dl>
+            <dt>QQ号码：</dt>
+            <dd><input type="text" class="data_text" name="linkqq" value="{sline:field.qq/}" /></dd>
+          </dl>
+        </div>
+          {sline:if var='_has_jifentprice'}
+          <div class="jifenprice" style="line-height: 20px;margin-left: 20px;padding-top:15px;float: left;border-top: 1px solid #e5e5e5;width:1000px">
+              <input type="checkbox" name="jifenchoose" {sline:field.exopen runphp='yes'}if(empty(@me))@me="disabled='disabled'";else @me='';{/sline:field.exopen}  id="jifenchoose">{sline:field.jifenpricemsg/}</div>
+          {/sline:if}
+          <div class="or_show paylist">
+              <dl>
+                  <dt>支付方式：</dt>
+
+                  <dd>{sline:field.id function="Helper_Archive::getPayTypeList()"/}</dd>
+              </dl>
+
+
+          </div>
+        <div class="order_price">
+          <ul>
+            <li class="li_1">订单总金额：&yen;<span id="totalprice">{sline:field.price/}</span>元</li>
+            <li class="li_2"><strong>支付订金：<b>&yen;{sline:field.dingjin/}</b>元</strong><span>(支持订金订单，付款时仅需在线支付订金报名即可，剩余金额签约付款)</span></li>
+            <li class="li_3"><input type="hidden" name="tuanid" value="{sline:field.id/}"/><input id="singleprice" type="hidden" value="{sline:field.price/}"/><input type="submit" name="" value="提交订单" /></li>
+          </ul>
+            <input type="hidden" name="jifentprice" id="jifentprice" value="{sline:field.jifentprice/}"/>
+            <input type="hidden" name="paytype" value="{sline:field.paytype/}"/>
+            <input type="hidden" name="usedate" value="{sline:field.usedate/}">
+            <input type="hidden" name="usejifen" id="usejifen" value="0">
+        </div>
+      </div>
+      </form>
+    </div>
+  </div>
+  <script>
+      $(function(){
+          if($('.paylist').find('input').length>=1)
+          {
+              $('.paylist').find('input').first().attr("checked",'checked');
+
+          }
+      })
+      $("#dingnum").blur(function(e) {
+         var sprice=$("#singleprice").val();
+
+          var num = $(this).val();
+          var total = sprice*num;
+          var minusprice = $("#jifentprice").val();
+          var usejifen = $("#usejifen").val();
+
+          if(usejifen == 1){
+
+              total = total-minusprice;
+          }
+		 $("#totalprice").text(total);
+    });
+      //使用积分
+      if($("#jifenchoose").length>0){
+          $("#jifenchoose").click(function(){
+              var status = $(this).attr('checked');
+              if(status=='checked'){
+                  $("#usejifen").val(1);
+              }
+              else{
+                  $("#usejifen").val(0);
+              }
+              $("#dingnum").trigger('blur');
+          })
+      }
+	
+	  $("#dingfrm").validate({ 
+			submitHandler:function(form){  
+              
+				var flag = ST.User.isLogin();
+				
+				if(flag == 0)
+				{
+				   ST.User.showLogin(function(){ var param=$("#dingfrm").serialize();
+					bookSubmit(param,"/tuan/book.php?dopost=save");
+					BOX.getBoxClose();
+					})	
+				} 
+				else
+				{
+				  	 var param=$("#dingfrm").serialize();
+					bookSubmit(param,"/tuan/book.php?dopost=save");
+				}
+				return false;
+				
+             } , 
+			rules: { 
+			     
+				  dingnum: { 
+				   required: true
+				  },
+				 
+				  usedate:{
+				   required: true
+				  }/*,
+				  
+				  linkman:{
+				   required: true
+				  },
+				  linktel:{
+				   required: true
+				  }*/
+				 
+				}, 
+				messages: { 
+				  
+				   dingnum:{
+				    required:"请填写成人数量"
+						
+				   }/*,
+				   linkman:{
+				    required:"请填写联系人信息"
+					
+				   },
+				   linktel:{
+					required:"请填写联系电话"
+				   }*/
+				 
+				}
+
+				
+	     });
+
+  </script>
+  <!-- 中间内容结束 -->
+  
+ <!-- 中间内容结束 -->
+ <!--底部开始-->
+    {sline:include file='public/help.htm'/}
+  
+  {sline:include file='public/footer.htm'/}
+  
+  {sline:include file='public/flink.htm'/}
+  <!-- 底部结束 -->
+</body>
+</html>

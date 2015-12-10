@@ -1,0 +1,186 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{sline:field.seotitle/}-{sline:global.cfg_webname/}</title>
+<meta name="author" content="{sline:global.cfg_webname/}" />
+{sline:field.seokeyword/}
+{sline:field.seodescription/}
+{sline:php}Helper_Archive::getCss('base.css,destination.css','2014.02.24');{/sline:php}
+{sline:php}Helper_Archive::getScript('jquery-1.8.3.min.js,common.js');{/sline:php}
+</head>
+
+<body>
+	{sline:include file='public/header.htm'/}
+  
+  <!-- 中间内容开始 -->
+  <div class="big">
+  	<div class="width_1210">
+    	<!-- 面包屑and滚动订单开始 -->
+    	<div class="top_first">
+      	<div class="crumbs">当前位置：<a href="{sline:global.cfg_basehost/}">{sline:global.cfg_indexname/}</a> &gt; <a href="{sline:global.cfg_cmsurl/}/destination/">目的地</a> &gt; <a href="{sline:global.cfg_cmsurl/}/{sline:global.destpy/}">{sline:field.kindname/}</a> </div>
+        {sline:include file='public/scroll_order.htm'/}
+        <!-- 面包屑and订单结束 -->
+      </div>
+      
+
+      <div class="mdd_con_left">
+        
+        <!--线路模块开始-->
+        {sline:if var='_hasline'}
+        <div class="mdd_line">
+        	<div class="title"><h3>{sline:field.kindname/}-线路</h3><a href="/lines/search.php?dest_id={sline:field.destid/}">更多&gt;&gt;</a></div>
+          <div class="line_list">
+            {sline:getlinelist type='mdd' flag='recommend' row='6'}
+              <dl [field:global.autoindex runphp='yes']if(@me%2==0)@me="class='mr_0'";else @me='';[/field:global.autoindex]>
+                  <dt><a href="[field:url/]" target="_blank"><img src="[field:lit160/]" width="80" height="60" alt="[field:title/]" /></a></dt>
+                <dd class="dd_1"><a href="[field:url/]">[field:title/]</a><span>¥[field:sellprice/]起</span></dd>
+                <dd class="dd_2">产品卖点：[field:sellpoint/]</dd>
+                <dd class="dd_3"><!--<span>客户评价：</span>--><span>已售：[field:sellnum/]人购买</span><span>点评：[field:commentnum/]条</span></dd>
+              </dl>
+            {/sline:getlinelist}
+           
+          </div>
+        </div>
+        {/sline:if}
+        <!--线路模块结束-->
+        
+        <!--酒店模块开始-->
+        {sline:if var='_hashotel'}
+        <div class="mdd_hotel">
+        	<div class="title"><h3>{sline:field.kindname/}-酒店</h3><a href="/hotels/search.php?dest_id={sline:field.destid/}">更多&gt;&gt;</a></div>
+          <div class="hotel_con">
+          	<div class="left_list">
+              {sline:gethotellist type='mdd' flag='recommend' row='2'}
+                
+            	<dl [field:global.autoindex runphp='yes']if(@me%2==0)@me="class='mr_0'";else @me='';[/field:global.autoindex]>
+              	 <dt><a class="fl" href="[field:url/]" target="_blank"><img class="fl" src="[field:lit240/]" width="190" height="170" alt="[field:hotelname/]" /></a></dt>
+                 <dd class="tit"><a href="[field:url/]" target="_blank">[field:title/]</a></dd>
+                 <dd class="txt">优惠价：[field:price2/]<!--<span>58</span>--></dd>
+                </dl>
+              {/sline:gethotellist}
+            </div>
+            <div class="rig_list">
+            	<ul>
+                {sline:gethotellist type='mdd' flag='recommend' row='8' limit='2'}
+              	 <li><a href="[field:url/]" target="_blank">[field:title/]</a><span class="star">[field:hotelrank/]</span><span class="price">优惠价：[field:price2/]</span></li>
+                {/sline:gethotellist}
+               
+              </ul>
+            </div>
+          </div>
+        </div>
+        {/sline:if}
+        <!--酒店模块结束-->
+        
+        <!--租车模块开始-->
+        {sline:if var='_hascar'}
+        <div class="mdd_car">
+        	<div class="title"><h3>{sline:field.kindname/}-租车</h3><a href="/cars/search.php">更多&gt;&gt;</a></div>
+          <div class="car_con">
+            {sline:getcarlist flag='recommend' row='4'}
+              <dl [field:global.autoindex runphp='yes']if(@me%4==0)@me="class='mr_0'";else @me='';[/field:global.autoindex]>
+                <dt><a class="fl" href="[field:url/]" target="_blank"><img class="fl" src="[field:lit240/]" width="190" height="170" alt="[field:title/]" /></a></dt>
+                <dd class="tit"><a href="[field:url/]" target="_blank">[field:title/]</a></dd>
+                <dd class="txt">优惠价[field:price/]<!--<span></span>--></dd>
+              </dl>
+           {/sline:getcarlist}
+          </div>
+        </div>
+        {/sline:if}
+        <!--租车模块结束-->
+        
+        <!--相册模块开始-->
+        {sline:if var='_hasphoto'}
+        <div class="mdd_photo">
+        	<div class="title"><h3>{sline:field.kindname/}-相册</h3><a href="/photos/?dest_id={sline:field.destid/}">更多&gt;&gt;</a></div>
+          <div class="mp_top">
+           {sline:getphotolist flag='recommend' type='mdd' row='1'}
+          	<div class="mt_1">
+              <a class="fl" href="[field:url/]" target="_blank"><img class="fl" src="[field:litpic/]" width="610" height="340" alt="[field:photoname/]" /></a>
+              <div class="con">
+              	<h3><a href="[field:url/]" target="_blank">[field:title/]</a></h3>
+                <div class="txt">[field:imginfo/]</div>
+              </div>
+            </div>
+           {/sline:getphotolist}
+               {sline:getphotolist flag='recommend' type='mdd' row='1' limit='1'}
+          	<div class="mt_2"><a href="[field:url/]" target="_blank"><img class="fl" src="[field:litpic/]" width="318" height="195" alt="[field:photoname/]" /></a><span><a href="[field:url/]" target="_blank">[field:title/]</a></span></div>
+            {/sline:getphotolist}
+            <div class="mt_3">美景 . 故事</div>
+             {sline:getphotolist flag='recommend' type='mdd' row='2' limit='2'}
+          	   <div class="mt_[field:global.autoindex runphp='yes']if(@me==1)@me=4;else@me=5;[/field:global.autoindex]"><a href="[field:url/]" target="_blank"><img class="fl" src="[field:litpic/]" width="154" height="95" alt="[field:title/]" /></a><span><a href="[field:url/]" target="_blank">[field:title/]</a></span></div>
+            {/sline:getphotolist}
+          
+          </div>
+          <div class="mp_bom">
+          	<ul>
+              {sline:getphotolist flag='recommend' type='mdd' row='4' limit='4'}
+              <li [field:global.autoindex runphp='yes']if(@me%4==0)@me="class='mr_0'";else @me='';[/field:global.autoindex]><a href="[field:url/]" target=""><img class="fl" src="[field:lit240/]" width="227" height="147" alt="[field:title/]" /></a><span><a href="[field:url/]">[field:title/]</a></span></li>
+              {/sline:getphotolist}
+            
+            </ul>
+          </div>
+        </div>
+        {/sline:if}
+        <!--相册模块结束-->
+        
+        <!--攻略模块开始-->
+        {sline:if var='_hasraider'}
+        <div class="mdd_gl">
+        	<div class="title"><h3>{sline:field.kindname/}-攻略-分享</h3><a href="/raiders/search.php?dest_id={sline:field.destid/}">更多&gt;&gt;</a></div>
+          <div class="gl_con">
+          	<div class="gc_1">
+             {sline:getarclist type='mdd' flag='recommend' row='1'}
+            	<dl>
+              	<dt><a href="[field:url/]" target="_blank">[field:title/]</a></dt>
+                <dd>[field:content function="cutstr_html(@me,20)"/]</dd>
+              </dl>
+             {/sline:getarclist}
+              <ul>
+                {sline:getarclist type='mdd' flag='recommend' row='5' limit='1'}
+              	 <li><a href="[field:url/]" target="_blank">[field:title/]</a></li>
+                {/sline:getarclist}
+              
+              </ul>
+            </div>
+            {sline:getarclist type='mdd' flag='recommend' row='1' limit='6'}
+          	  <div class="gc_2"><a class="fl" href="[field:url/]"><img class="fl" src="[field:litpic/]" width="300" height="250" alt="[field:title/]" /></a><span><a href="[field:url/]" target="_blank">[field:title/]</a></span></div>
+            {/sline:getarclist}
+          	<div class="gc_3">
+               {sline:getarclist type='mdd' flag='recommend' row='2' limit='7'}
+            	<dl>
+              	<dt><a href="[field:url/]" target="_blank">[field:title/]</a></dt>
+                <dd class="dd_1">[field:content function="cutstr_html(@me,36)"/]</dd>
+                <dd class="dd_2"><label>作者：<span>[field:author/]</span></label><label>查看：<span>[field:shownum/]</span></label></dd>
+              </dl>
+              {/sline:getarclist}
+            </div>
+          </div>
+        </div>
+        {/sline:if}
+        <!--攻略模块结束-->
+        
+      </div>
+
+      
+      <!--边栏开始-->
+    	<div class="mdd_con_rig">
+        
+          {sline:getrightcontent pagename='index'/}
+        
+       
+        
+      </div>
+      <!--边栏结束-->
+
+    </div>
+  </div>
+  <!-- 中间内容结束 -->
+  
+  {sline:include file='public/help.htm'/}
+  
+  {sline:include file='public/footer.htm'/}
+
+</body>
+</html>

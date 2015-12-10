@@ -1,0 +1,465 @@
+@charset "utf-8";
+/* CSS Document */
+.buy_top{
+	float:left;
+	width:1210px}
+.buy_t_left{
+	float:left;
+	width:960px;
+	height:342px}
+.buy_t_rig{
+	float:right;
+	width:240px}
+.buy_t_rig .dos{
+	margin-top:0;
+	height:340px;
+	overflow:hidden}
+.buy_nav_list{
+	float:left;
+	width:1208px;
+	margin-top:10px;
+	height:auto}
+.serach_menu{
+	float:left;
+	width:1208px;
+	margin-top:15px;
+	position:relative;
+	border-top:2px solid #ff7f00;
+	border-right:1px solid #e5e5e5;
+	border-bottom:1px solid #e5e5e5;
+	border-left:1px solid #e5e5e5}
+.search_bt{
+	width:28px;
+	height:26px;
+	position:absolute;
+	left:10px;
+	top:-15px;
+	background:url(../images/body_bg.png) no-repeat left -591px}
+.serach_menu dl{
+	float:left;
+	width:1188px;
+	line-height:24px;
+	margin:10px 10px 0;
+	padding-bottom:10px;
+	border-bottom:1px solid #ddd}
+.serach_menu dl.bor_bot_0{
+	border-bottom:0}	
+.serach_menu dl dt{
+	float:left;
+	width:78px;
+	height:24px;
+	line-height:24px;
+	font-size:14px;
+	text-align:right}
+.serach_menu dl dd{
+	float:left;
+	width:1100px}
+.serach_menu dl dd span{
+	float:left}
+.serach_menu dl dd .sp_2{
+	width:1050px}	
+.serach_menu dl dd span a.on{
+	color:#fff;
+	background:#f60}	
+.serach_menu dl dd a{
+	float:left;
+	height:24px;
+	line-height:24px;
+	padding:0 10px;}
+.list_con{
+	float:left;
+	width:1210px;
+	height:auto;
+	font-family:"微软雅黑"}
+.tit_bt_h{
+	float:left;
+	width:1210px;
+	margin-top:20px}
+.tit_bt_h h3{
+	float:left;
+	color:#78aa13;
+	height:30px;
+	line-height:30px;
+	font-size:18px;
+	font-weight:bold;
+	padding-left:35px;
+	background:url(../images/tuan-ico.png) no-repeat 0 -45px}
+.tit_bt_h span{
+	float:left;
+	height:30px;
+	margin-left:50px}
+.tit_bt_h span a{
+	float:left;
+	color:#333;
+	height:30px;
+	line-height:30px;
+	font-size:14px;
+	padding:0 20px}
+.tit_bt_h span a:hover,
+.tit_bt_h span a.on{
+	color:#fff;
+	background:#65b71f}
+.underway,
+.beginstar,
+.engway{
+	float:left;
+	width:1210px;
+	margin-top:20px}
+.underway dl,
+.beginstar dl,
+.engway dl{
+	float:left;
+	width:1210px;}
+.underway dl dt,
+.beginstar dl dt,
+.engway dl dt{
+	float:left;
+	width:1210px;
+	height:30px;
+	line-height:30px;
+	position:relative;
+	margin-bottom:20px;
+	border-bottom:1px dashed #e5e5e5}
+.underway dl dt span,
+.beginstar dl dt span,
+.engway dl dt span{
+	color:#333;
+	position:absolute;
+	top:15px;
+	left:50%;
+	margin:0 0 0 -70px;
+	display:block;
+	width:140px;
+	height:30px;
+	line-height:30px;
+	text-align:center;
+	font-size:18px;
+	padding-left:30px;
+	background:url(../images/tuan-ico.png) no-repeat 30px -99px #fff}
+.beginstar dl dt span{
+	background:url(../images/tuan-ico.png) no-repeat 30px -158px #fff}
+.engway dl dt span{
+	background:url(../images/tuan-ico.png) no-repeat 30px -216px #fff}
+.underway dl dd,
+.beginstar dl dd,
+.engway dl dd{
+	float:left;
+	width:364px;
+	height:380px;
+	padding:10px;
+	margin:26px 26px 0 0;
+	position:relative;
+	overflow:hidden;
+	box-shadow:0px 0px 8px #f3f3f3;
+	border:1px solid #f3f3f3;
+	border-radius:3px;
+	-moz-border-radius:3px;
+	-ms-border-radius:3px;
+	-webkit-border-radius:3px}
+/*.underway dl dd:hover,
+.beginstar dl dd:hover,
+.engway dl dd:hover{
+	border:1px solid #f60}*/
+.underway dl dd.mr_0,
+.beginstar dl dd.mr_0,
+.engway dl dd.mr_0{
+	margin-right:0}
+.underway dl dd p,
+.beginstar dl dd p,
+.engway dl dd p{
+	float:left;
+	width:364px}
+.underway dl dd .p1,
+.beginstar dl dd .p1,
+.engway dl dd .p1{
+	height:236px;
+	overflow:hidden;}
+.underway dl dd .p1 a,
+.underway dl dd .p1 img,
+.beginstar dl dd .p1 a,
+.beginstar dl dd .p1 img,
+.engway dl dd .p1 a,
+.engway dl dd .p1 img{
+	width:100%;
+	height:auto}
+.underway dl dd .p2,
+.beginstar dl dd .p2,
+.engway dl dd .p2{
+	margin-top:10px}
+.underway dl dd .p2 a,
+.beginstar dl dd .p2 a,
+.engway dl dd .p2 a{
+	color:#333;
+	float:left;
+	display:block;
+	width:100%;
+	max-height:48px;
+	line-height:24px;
+	font-size:16px;
+	overflow:hidden}
+.underway dl dd .p2 a:hover,
+.beginstar dl dd .p2 a:hover,
+.engway dl dd .p2 a:hover{
+	color:#f60;
+	text-decoration:underline}
+.underway dl dd .p3,
+.beginstar dl dd .p3,
+.engway dl dd .p3{
+	position:relative;
+	margin-top:10px}
+.underway dl dd .p3 span,
+.beginstar dl dd .p3 span,
+.engway dl dd .p3 span{
+	color:#ec3131;
+	float:left;
+	width:130px;
+	height:40px;
+	line-height:40px;
+	font-size:20px;
+	font-weight:bold}
+.underway dl dd .p3 span b,
+.beginstar dl dd .p3 span b,
+.engway dl dd .p3 span b{
+	font-size:30px;
+	font-weight:bold}
+.underway dl dd .p3 del,
+.beginstar dl dd .p3 del,
+.engway dl dd .p3 del{
+	color:#999;
+	float:left;
+	height:20px;
+	line-height:20px;
+	margin-top:16px;
+	font-size:14px}
+.underway dl dd .p3 em,
+.beginstar dl dd .p3 em,
+.engway dl dd .p3 em{
+	position:absolute;
+	right:0;
+	top:0;
+	color:#fff;
+	display:block;
+	width:65px;
+	height:35px;
+	font-size:18px;
+	text-align:center;
+	font-style:normal;
+	background:url(../images/tuan-ico.png) no-repeat 0 bottom}
+.underway dl dd .p4,
+.beginstar dl dd .p4,
+.engway dl dd .p4{
+	position:absolute;
+	left:0;
+	bottom:0;
+	width:100%;
+	height:40px;
+	background:#ec3131}
+.beginstar dl dd .p4{
+	background:#61af20}
+.engway dl dd .p4{
+	background:#5a5a5a}
+.underway dl dd .p4 span,
+.beginstar dl dd .p4 span,
+.engway dl dd .p4 span{
+	display:block;
+	color:#fff;
+	width:100%;
+	height:40px;
+	line-height:40px;
+	padding-left:20px;
+	font-size:18px;
+	text-align:center;
+	background:url(../images/tuan-ico.png) no-repeat 100px 11px}
+.beginstar dl dd .p4 span{
+	background:url(../images/tuan-ico.png) no-repeat 150px 12px}
+.engway dl dd .p4 span{
+	background:url(../images/tuan-ico.png) no-repeat 150px 12px}
+.underway dl dd .p4 a{
+	display:block;
+	color:#f72862;
+	width:100px;
+	height:32px;
+	line-height:32px;
+	text-align:center;
+	margin:5px auto;
+	font-size:16px;
+	background:url(../images/tuan-ico.png) no-repeat 0 -274px}
+.buy_show_yop{
+	float:left;
+	width:1170px;
+	height:auto;
+	padding:15px;
+	display:inline;
+	border:5px solid #dfdfdf}
+.buy_show_yop h1{
+	color:#333;
+	font-size:28px;
+	font-family:"微软雅黑";
+	font-weight:500;
+	margin-bottom:10px}	
+.b_show_left{
+	float:left;
+	width:570px}	
+.b_show_left .p1{
+	float:left;
+	color:#ff7f00;
+	width:570px;
+	height:40px;
+	line-height:40px;
+	font-family:"微软雅黑";
+	font-size:20px}
+.b_show_left .p1 strong{
+	font-weight:500}
+.b_show_left .p2{
+	float:left;
+	color:#555;
+	width:570px;
+	height:125px;
+	line-height:30px;
+	font-family:"微软雅黑";
+	font-size:20px;
+	overflow:hidden}
+.b_show_left .buy_price_d{
+	float:left;
+	width:570px;
+	height:105px;
+	margin-top:10px;
+	background:#fff1ea;
+	border:1px dashed #f7d4b9}	
+.buy_price_d .sp1{
+	float:left;
+	color:#f50;
+	font-size:40px;
+	margin:25px 0 0 30px;
+	font-family:"微软雅黑";
+	font-weight:500}	
+.buy_price_d .sp2{
+	float:left;
+	color:#333;
+	margin:50px 0 0 10px;
+	font-size:14px;
+	position:relative;
+	font-family:"微软雅黑"}	
+.buy_price_d .sp2 s{
+	display:block;
+	color:#fff;
+	width:51px;
+	height:30px;
+	text-align:center;
+	position:absolute;
+	top:-30px;
+	left:20px;
+	background:url(../images/body_bg.png) no-repeat -949px -830px}
+.buy_price_d .sp3{
+	float:left;
+	width:154px;
+	color:#333;
+	margin:25px 0 0 85px;
+	font-size:14px;
+	font-family:"微软雅黑"}
+.buy_price_d .sp3 a{
+	float:left;
+	color:#fff;
+	width:154px;
+	height:38px;
+	line-height:38px;
+	font-size:16px;
+	text-align:center;
+	font-family:"微软雅黑";
+	background:url(../images/body_bg.png) no-repeat 0 -820px}	
+.buy_price_d .sp3 b{
+	float:left;
+	color:#018295;
+	width:154px;
+	height:30px;
+	line-height:30px;
+	text-align:center}
+.b_show_rig{
+	float:right;
+	width:580px;
+	height:385px}	
+
+.buy_fkfs{
+	float:left;
+	width:570px;
+	height:auto;
+	margin-top:10px}
+.buy_fkfs span{
+	float:left;
+	height:30px;
+	line-height:30px}
+.buy_fkfs p{
+	float:left;
+	width:510px}
+.buy_fkfs p img{
+	float:left;
+	margin:0 5px 5px 0}
+
+.show_lm_rig{
+	float:right;
+	width:240px;
+	margin-top:15px}
+.b_side_list{
+	float:left;
+	width:240px}
+.b_side_list h3 {
+	float:left;
+	color:#009eb6;
+	width:240px;
+	height:35px;
+	line-height:35px;
+	font-weight:500;
+	font-family:"微软雅黑";
+	font-size:18px;
+	background:url(../images/body_bg.png) no-repeat left bottom}
+.b_side_list h3 s {
+	float:left;
+	width:24px;
+	height:24px;
+	margin:5px 5px 0 0;
+	background:url(../images/body_bg.png) no-repeat right -341px}
+.b_side_con{
+	float:left;
+	width:238px;
+	height:auto;
+	border:1px solid #ddd}
+.b_side_con ul li{
+	float:left;
+	width:218px;
+	margin:10px 10px 0;
+	padding-bottom:10px;
+	border-bottom:1px dashed #ddd}
+.b_side_con ul li .p1{
+	float:left;
+	width:218px}
+.b_side_con ul li .p2{
+	float:left;
+	color:#555;
+	width:218px;
+	height:60px;
+	overflow:hidden;
+	line-height:20px;
+	margin:10px 0}
+.b_side_con ul li .p3{
+	float:left;
+	width:218px;
+	height:26px;}
+.b_side_con ul li .p3 span{
+	float:left;
+	height:26px;
+	line-height:26px;
+	color:#f60;
+	font-size:14px;
+	font-family:"微软雅黑"}
+.b_side_con ul li .p3 a{
+	float:right;
+	width:80px;
+	height:26px;
+	line-height:26px;
+	color:#fff;
+	text-align:center;
+	font-size:14px;
+	font-family:"微软雅黑";
+	background:#f60}
+.b_side_con ul li.bor_bot_0{
+	border-bottom:0}

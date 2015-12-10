@@ -1,0 +1,250 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>酒店弹出日历预订</title>
+{sline:php}Helper_Archive::getCss('base.css,hotel.css');{/sline:php}
+<script src="/templets/smore/js/jquery-1.8.3.min.js"></script>
+<script src="/templets/smore/js/common.js"></script>
+<style>
+   .kucun{
+       float: left;
+       color: #ccc;
+       width: 100%;
+       height: 20px;
+       line-height: 20px;
+       text-align: center;
+       font-weight: 400;
+   }
+</style>
+</head>
+
+<body>
+	<!-- 挑选房型开始 -->
+<div class="h_out_box">
+ 	
+    <div class="box_left" id="calendar">
+    	 
+      
+    </div>
+ 	<div class="box_right">
+   	<div class="txt">点击日期添加入住时间和天数</div>
+    <table width="355" border="1" cellspacing="0" cellpadding="0" id="choose_item">
+      <tr>
+        <th width="120" align="left" scope="col"><span class="ml_10">入住时间</span></th>
+        <th width="100" align="left" scope="col">房间数</th>
+        <th width="80" align="left" scope="col">金额</th>
+        <th width="50" scope="col"></th>
+      </tr>
+    </table>
+  </div>
+  <div class="box_btn">
+  	<input type="button" class="sure_btn" value="确 定" />
+  	<input type="button" class="cancel_btn" value="取 消" />
+  </div>
+  <!--隐藏域-->
+
+  <input type="hidden" id="month" value="0" />
+  <input type="hidden" id="year" value="0" />
+  <input type="hidden" id="isbookpage" value="{sline:global.bookpage/}"/>
+
+  <form method="post" id="frm" action="/hotels/booking.php">
+      <input type="hidden" name="dnum" id="dnum" value=""/>
+      <input type="hidden" name="dprice" id="dprice" value=""/>
+      <input type="hidden" name="udate" id="udate" value=""/>
+      <input type="hidden" name="roomid" id="roomid"  value="{sline:field.roomid/}" />
+      <input type="hidden" name="hotelid" id="hotelid"  value="{sline:field.hotelid/}" />
+
+  </form>
+  
+</div>
+  <!-- 挑选房型结束 -->
+<script language="javascript">
+    //读取日历
+    getCalender();
+ $(function(){
+
+	//提交
+	$(".sure_btn").click(function(){
+		var bookpage = Number($("#isbookpage").val());
+		if(!bookpage){
+		  addToFrm();
+		}
+		else{
+		  addToFrmBookPage(); 
+		}
+	   
+	})
+	//取消
+	$(".cancel_btn").click(function(){
+	 BOX.getBoxClose();
+	})
+ 
+ })
+ //获取日历
+ function getCalender(){
+    var roomid = $("#roomid").val();//房间号
+	var year = $("#year").val();//年份
+	var month = $("#month").val();//月份
+	var url = "/hotels/ajax.hotel.php";
+	$.ajax({
+		type:'POST',
+		url:url,
+		data:'dopost=getCalendar&roomid='+roomid+"&year="+year+"&month="+month,
+		success:function(data){
+			
+		   $("#calendar").html(data);
+		   setMonthEvent();
+		}
+		
+	})
+ 
+ }
+ //上月,下月点击事件
+ function setMonthEvent(){
+   $("#premonth").unbind('click').click(function(){
+      var year = $(this).attr('data-year');
+	  var month = $(this).attr('data-month');
+	  $("#year").val(year);
+	  $("#month").val(month);
+	  getCalender();
+   
+   })
+   
+   $("#nextmonth").unbind('click').click(function(){
+      var year = $(this).attr('data-year');
+	  var month = $(this).attr('data-month');
+	  $("#year").val(year);
+	  $("#month").val(month);
+	  getCalender();
+   
+   })
+ 
+ }
+ 
+ //添加操作
+ function checkAdd(num,usedate,price)
+ {
+	  var obj = $("#"+usedate);
+	  if(obj.length >= 1)
+	  {
+		        var itnums = parseFloat(obj.attr('data-num'))+1;
+				
+				var itmoney = itnums * parseFloat(price);
+               
+                obj.attr('data-num',itnums);
+
+                obj.find('.h_num').val(itnums);
+				
+				obj.find('.h_price').html("&yen;"+itmoney+"元");
+	
+	  }
+	  else
+	  {
+		    var str = '';
+			str='<tr class="choose_item" id="'+usedate+'" data-num="'+num+'" data-price="'+price+'">';
+			str+='<td height="30"><span class="ml_10">'+usedate+'</span></td>';
+			str+='<td height="30"><input type="text" class="h_num" data-price="'+price+'" value="1" onblur="getTotalPrice(this)" />间</td>';
+			str+='<td height="30" class="h_price">&yen;'+price+'元</td>';
+			str+='<td height="30" style="cursor:pointer" onclick="del(this)">删除</td>';
+			str+='</tr>';
+			$("#choose_item").append(str);
+		  
+	  }
+	  
+	
+	 
+ }
+ //获取价格和
+ function getTotalPrice(obj)
+ {
+    var price = $(obj).attr('data-price');
+	
+	var total = price * $(obj).val();
+	
+	$(obj).parents('.choose_item').first().attr('data-num',$(obj).val());
+	
+	$(obj).parent().next('.h_price').html("&yen;"+total+"元"); 
+ }
+ //删除
+ function del(obj)
+ {
+    $(obj).parents('.choose_item').first().remove();	 
+ }
+ 
+ //提交订单
+ function addToFrm()
+ {
+	 var siteUrl ="{sline:global.cfg_basehost/}";
+	 var roomid = $("#roomid").val();
+	 var hotelid = $("#hotelid").val();
+	 var udateArr =[];
+	 var dnumArr = [];
+	 var dpriceArr = [];
+	 if($(".choose_item").length <=0){
+	    alert("请选择预订时间");
+		return false;
+	 }
+	 $(".choose_item").each(function(){
+	     var ddate = $(this).attr('id');
+		 var dnum = $(this).find('.h_num').val();
+		 var dprice = $(this).attr('data-price');//报价
+		 udateArr.push(ddate);
+		 dnumArr.push(dnum);
+		 dpriceArr.push(dprice);
+	 })
+	 var udate=udateArr.join('|');
+	 var dnum = dnumArr.join('|');
+	 var dprice = dpriceArr.join('|');
+
+     $("#udate").val(udate);
+     $("#dnum").val(dnum);
+     $("#dprice").val(dprice);
+     $("#frm").submit();
+	 
+	 //var url = siteUrl+'/hotels/booking.php?udate='+udate+'&dnum='+dnum+'&dprice='+dprice+'&roomid='+roomid+'&hotelid='+hotelid;
+	 //window.open(url,'_self');
+	 
+ }
+ //预订页面添加
+ function addToFrmBookPage()
+ {
+	 var str = '';
+	 $(".choose_item").each(function(){
+	     var ddate = $(this).attr('id');
+		 var dnum = $(this).find('.h_num').val();
+		 var price = $(this).attr('data-price');
+		 
+		 var existobj = $("#book_"+ddate);
+		 if(existobj.length >= 1) //如果在预订页面已经添加
+		 {
+			 var num = Number(existobj.find('.d_num').val());
+			 num = num + Number(dnum);
+			 var totalprice = price * num;
+			 existobj.find('.d_num').val(num);
+			 existobj.find('.d_price').html("&yen;"+totalprice+'元');
+		 }
+		 else
+		 {
+		 
+			   str+=' <tr class="u_info_list" id="book_"'+ddate+'" data-dingdate="'+ddate+'" data-dingprice="'+price+'">';
+			   str+='              <td width="120" height="40">'+ddate+'</td>';
+			   str+='              <td width="200" height="40"><input type="text" class="time_text d_num required" rel="'+price+'" onblur="roomnumChange(this)" value="'+dnum+'" />间</td>';
+			   str+='              <td width="100" height="40" class="d_price">&yen;'+price+'元</td>';
+			   str+='              <td height="40"><a class="h_del" onclick="deltr(this)" href="javascript:;">删除</a></td>';
+			   str+='             </tr>';
+			   $("#table_ding_list").append(str);
+		 }
+		 
+	 });
+	 
+	 BOX.getBoxClose();
+	 countTotal();
+	 
+	
+	 
+ }
+
+</script>
+</body>
+</html>

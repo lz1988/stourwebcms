@@ -1,0 +1,1 @@
+<li><a href="/hotels/[field:pinyin/]/" target="_blank" data-id="[field:kindid/]">[field:title/]</a></li>

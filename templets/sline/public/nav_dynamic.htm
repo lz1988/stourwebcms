@@ -1,0 +1,58 @@
+<div class="menu">
+    {sline:include file='public/plugin_usernav.htm'/}
+    <div class="main_nav_list">
+       <a href="{sline:global.cfg_basehost/}{sline:global.cfg_cmsurl/}/">{sline:global.cfg_indexname/}</a>
+        {sline:global.destnavid runphp='yes'}
+          if(!empty(@me))
+		   {
+		 
+                global $dsql;
+                $sql = "SELECT id,shortname,url,typeid,linktitle,kind From `#@__nav` WHERE isopen=1 and pid=0 and webid='{$GLOBALS['sys_child_webid']}' and issystem=1 order by displayorder";
+                $all_nav=$dsql->getAll($sql);
+                $destid=@me;
+                $destname=$GLOBALS['destnavname'];
+                $destpy = $GLOBALS['destnavpy'];
+                $py = !empty($destpy) ? $destpy : $destid;
+                $typeid_url=array(
+                             '1'=>"/lines/",
+                             '2'=>"/hotels/",
+                             '3'=>"/cars/",
+                             '4'=>"/raiders/",
+                             '5'=>"/spots/",
+                             '6'=>"/photos/"
+                            );
+
+                foreach($all_nav as $nav)
+                {
+                  if($nav['kind']==1)
+                    {
+                       $ico = '<s class="ico_new"></s>';
+                    }
+                    else if($nav['kink']==2)
+                    {
+                       $ico = '<s class="ico_hot"></s>';
+                    }
+                    else
+                    {
+                       $ico = '';
+                    }
+                  if($nav['typeid']==1)
+                  {
+
+                   $str.="<a href=\"{$GLOBALS['cfg_basehost']}{$typeid_url[$nav['typeid']]}\">{$ico}{$nav['shortname']}</a>";
+                  }
+                  else if($nav['typeid']!=12)
+                  {
+                    $str.="<a href=\"{$GLOBALS['cfg_basehost']}{$typeid_url[$nav['typeid']]}\">{$ico}{$nav['shortname']}</a>";
+                   }
+                 
+                }
+                      
+              @me=$str;
+             }else
+               @me='';
+		{/sline:global.destnavid}
+
+    </div>
+     
+</div>

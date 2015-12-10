@@ -1,0 +1,1 @@
+<a href="[field:siteurl/]" title="[field:sitename/]" target="_blank">[field:sitename/]</a>

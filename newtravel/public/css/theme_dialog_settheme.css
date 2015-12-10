@@ -1,0 +1,44 @@
+/**
+ * Created by Administrator on 2015/6/24 0024.
+ */
+.s-main{
+}
+.confirm-btn{
+    background: #43AEE4;
+    -moz-border-radius: 5px;      /* Gecko browsers */
+    -webkit-border-radius: 5px;   /* Webkit browsers */
+    border-radius:5px;            /* W3C syntax */
+    line-height: 25px;
+    height: 25px;
+    padding: 0px 15px;
+    display: inline-block;
+    color:white;
+    cursor: pointer;
+    text-decoration: none;
+}
+.confirm-btn:hover{
+    background:#008ED8;
+    color:#fff;
+}
+.confirm-btn:active{
+    background: #F6B74D;
+}
+.theme-list .theme-item
+{
+    float:left;
+    margin-right: 20px;
+}
+.theme-list .theme-item .i-lb
+{
+    margin-left: 3px;
+}
+.theme-list .theme-item input{
+    vertical-align:middle;
+}
+.clear-both{
+    clear:both;
+}
+.s-main .save-con{
+    text-align: center;
+    padding: 20px;
+}

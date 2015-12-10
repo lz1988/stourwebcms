@@ -1,0 +1,15 @@
+.s-main .save-con{
+    padding:20px 0px;
+    text-align: center;
+}
+.main-body .s-item{
+    margin-right: 15px;
+    margin-bottom: 10px;
+    float:left;
+}
+.s-item .i-tit{
+    margin-left:3px;
+}
+.main-body .s-item .i-box{
+    vertical-align: middle;
+}

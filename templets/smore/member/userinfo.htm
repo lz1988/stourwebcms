@@ -1,0 +1,236 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>个人资料修改-{sline:global.cfg_webname/}</title>
+{sline:php}Helper_Archive::getCss('base.css,space.css','2014.02');{/sline:php}
+{sline:php}Helper_Archive::getScript('jquery-1.8.3.min.js,common.js,jquery.validate.js','2014.01');{/sline:php}
+</head>
+
+<body>
+	{sline:include file='public/header.htm'/}
+  
+  <!-- 中间内容开始 -->
+  <div class="big">
+  	<div class="width_1210">
+    	<!-- 面包屑and订单开始 -->
+    	<div class="top_first">
+      	<div class="crumbs"><a href="{sline:global.cfg_basehost/}">{sline:global.cfg_indexname/}</a> &gt;  个人资料</div>
+         {sline:include file='public/scroll_order.htm'/}
+      </div>
+      <!-- 面包屑and订单结束 -->
+    
+    	<!--用户空间开始-->
+			<div class="user_space_big">
+      	<!--导航菜单开始-->
+            {sline:include file='public/member_left_nav.htm'/}
+        <!--导航菜单结束-->
+        
+        <!--用户空间内容开始-->
+        <div class="user_con">
+          <div class="user_setup">
+          	<h3>会员资料设置</h3>
+            <div class="user_detailed">
+             <form id="userfrm" action="index.php?dopost=saveuserinfo" method="post">
+              <table class="fl" width="1018" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <th width="200" height="45" align="right" scope="row">注册帐号：</th>
+                  <td width="450">u{sline:field.jointime/}</td>
+                  <td width="368" rowspan="4" align="center"><div class="headimg"><img class="fl" id="face" src="{sline:field.face/}" width="160" height="160" alt="头像"  /></div></td>
+                </tr>
+                <tr>
+                  <th height="45" align="right" scope="row">我的昵称：</th>
+                  <td><input type="text" name="nickname" id="nickname" class="text" value="{sline:field.nickname/}" /><s>*<label class="tip"></label></s></td>
+                </tr>
+                <tr>
+                  <th height="45" align="right" scope="row">性别：</th>
+                  <td><a class="tab_xb {sline:field.sex runphp='yes'}if(@me=='男')@me='on';else @me='';{/sline:field.sex}" href="javascript:;">男</a><a class="tab_xb {sline:field.sex runphp='yes'}if(@me=='女')@me='on';else @me='';{/sline:field.sex}" href="javascript:;">女</a></td>
+                  <input type="hidden" name="sex" id="sex" value="{sline:field.sex/}"/>
+                </tr>
+                <tr>
+                  <th height="45" align="right" scope="row">E-mail：</th>
+                  <td><input type="text" id="email" name="email" class="text" {sline:if var='_regemail'}disabled="true"{/sline:if} value="{sline:field.email/}" /><s>*<label class="tip"></label></s></td>
+                </tr>
+                <tr>
+                  <th height="45" colspan="2" scope="row">*以下为本站保密信息，预订产品时做为身份验证，不会用作其他用途！</th>
+                  <td align="center"><a class="upload" href="#">上传头像</a></td>
+                  <input type="hidden" name="litpic" id="litpic" value="{sline:field.litpic/}"/>
+                </tr>
+                <tr>
+                  <th height="45" align="right" scope="row">联系手机：</th>
+                  <td><input type="text" class="text" name="mobile" id="mobile"  {sline:if var='_regphone'}disabled="true"{/sline:if} value="{sline:field.mobile/}" /><s>*<label class="tip"></label></s></td>
+                  <td>&nbsp;</td>
+                </tr>
+
+                <tr>
+                  <th height="45" align="right" scope="row">真实姓名：</th>
+                  <td><input type="text" class="text" id="truename" name="truename" value="{sline:field.truename/}" /><s>*<label class="tip"></label></s></td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <th height="45" align="right" scope="row">身份证号：</th>
+                  <td><input type="text" class="text" name="cardid" id="cardid" value="{sline:field.cardid/}" /><s></s></td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <th height="45" align="right" scope="row">常住地址：</th>
+                  <td><input type="text" class="text" name="address" id="address" value="{sline:field.address/}" /></td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <th height="45" align="right" scope="row">邮    编：</th>
+                  <td><input type="text" class="text" name="postcode" id="postcode" value="{sline:field.postcode/}"/></td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <th height="45" align="right" scope="row">&nbsp;</th>
+                  <td><a class="save" href="javascript:;">保存修改</a></td>
+                  <td>&nbsp;</td>
+                </tr>
+              </table>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!--用户空间内容结束-->
+      </div>
+      <!--用户空间结束-->
+      
+    </div>
+  </div>
+  <!-- 中间内容结束 -->
+  {sline:include file='public/help.htm'/}
+  {sline:include file='public/footer.htm'/}
+  <script language="javascript">
+    $(function(){
+	 
+	 $(".save").click(function(){
+	   $("#userfrm").submit();
+	 
+	 })  
+	 //上传点击
+	 $('.upload').click(function(){
+		 
+		
+	   if($("#upiframe").length<1)
+	   { 
+		var s_left=Math.abs($(window).width()/2-350); 
+		var s_top=$(window).scrollTop()+200; 
+	    ST.Util.createFade();//创建遮罩
+		var url = siteUrl+"/member/index.php?dopost=uploadfacepage";
+	    var imgdiv="<div id='upiframe' style='width:700px;height:500px;position:absolute;left:"+s_left+"px;top:"+s_top+"px;z-index:9999'> <iframe src='"+url+"' style='width:100%;height:100%;border:none;'></iframe></div>";
+	    $("body").append(imgdiv);
+		//fade点击
+		$(".fade").live('click',function(){
+		   ST.Util.closeFade();
+		   $("#upiframe").remove();//移除
+		 });
+	   }
+	   
+
+	 
+	 }) 
+	 //性别点击选择
+	 $(".tab_xb").click(function(){
+	    $("#sex").val($(this).html());
+		$(this).addClass('on').siblings().removeClass('on');
+	 })
+	 
+
+		
+		//表单验证
+
+     jQuery.validator.addMethod("mobile",function(value, element){
+            var pattern=/^1[0-9]{10}$/ig;
+            return pattern.test(value);
+        },"请输入正确的手机号");
+	 $("#userfrm").validate({ 
+			
+			rules: { 
+			     
+				  nickname: { 
+				   required: true
+				  },
+				  sex:{
+				   required: true
+				  },
+                {sline:if var='_regphone'} email:{
+				   required: true,
+				   email: true,
+                   remote:{
+                          url: siteUrl+"member/index.php?dopost=checkaccount",
+                          type:'post',
+                          data:{
+                              type:'email'
+                          }
+                      }
+				  },
+                {/sline:if}
+                    {sline:if var='_regemail'}
+                  mobile:{
+                    required:true,
+                    mobile:true,
+                    remote:{
+                          url: siteUrl+"member/index.php?dopost=checkaccount",
+                          type:'post',
+                          data:{
+                              type:'phone'
+                             }
+                          }
+                  },
+                    {/sline:if}
+				  truename:{
+				   required: true
+				  }
+				 
+				}, 
+				messages: { 
+				  
+				   nickname:{
+				    required:"请输入你的昵称"
+						
+				   },
+				   sex:{
+				    required:"请选择姓别"
+				   },
+				   email:{
+				    required:"请输入你的email地址",
+					email:"请输入正确的email地址"
+				   },
+                   mobile:{
+                       required:'请输入你的手机号码',
+                       mobile:'请输入正确的手机号码'
+                   },
+				   truename:{
+					required:"请输入你的姓名"
+				   }
+				 
+				},
+				errorPlacement: function(error, element) {
+					var errplace = $(element).parent().find('.tip');
+					errplace.html(error.text());
+					$(element).addClass('bor_color');
+					
+					
+				},
+				success:function(label,element){
+				   var obj = $(element).parent().find('.tip');
+				   obj.html('');
+				   $(element).removeClass('bor_color');
+				   
+				  
+				  
+				}
+				
+				
+				
+				
+	     });
+
+
+	
+	})
+  </script>
+
+</body>
+</html>

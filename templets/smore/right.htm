@@ -1,0 +1,481 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>右侧模块</title>
+<link type="text/css" rel="stylesheet" href="{sline:global.cfg_templets_skin/}/css/base.css" />
+    {sline:php}Helper_Archive::getScript('jquery-1.8.3.min.js');{/sline:php}
+</head>
+
+<body>
+	<div class="right">
+  
+    <!--边栏满意度(小)开始-->
+        <div class="dos">
+      <div class="dos_pic">
+        <p>客户满意度</p>
+        <span><s style=" width:100%"></s></span>
+      </div>
+      <div class="peo_data">已为<span>3008374</span>位客户提供旅游服务！</div>
+      <div class="dis_list">
+         {sline:getcommentlist flag='all' row='3'}
+            	<dl>
+              	<dt><b>[field:nickname/]</b><strong>满意度：</strong><span><s style=" width:[field:percent/]"></s></span></dt>
+                <dd>[field:content/]</dd>
+              </dl>
+         {/sline:getcommentlist}
+      </div>
+    </div>
+    <!--边栏满意度(小)结束-->
+    
+    <!--边栏满意度(大)开始-->
+       <div id="dos_vip" class="dos">
+      <div class="dos_pic">
+        <p>客户满意度</p>
+        <span><s style=" width:100%"></s></span>
+      </div>
+      <div class="peo_data">已为<span>3008374</span>位客户提供旅游服务！</div>
+      <div class="fl"><img src="{sline:global.cfg_templets_skin/}/images/serve_pic.png" alt="" title="" /></div>
+      <div class="dis_list">
+          {sline:getcommentlist flag='all' row='6'}
+            	<dl>
+              	<dt><b>[field:nickname/]</b><strong>满意度：</strong><span><s style=" width:[field:percent/]"></s></span></dt>
+                <dd>[field:content/]</dd>
+              </dl>
+            {/sline:getcommentlist}
+      </div>
+    </div>
+    <!--边栏满意度结束-->
+    
+    <!--热门团购产品开始-->                                 
+       <div class="hot_pro">
+      <h3>热门团购产品</h3>
+      <div class="side_plb_list tuan_list">
+        {sline:gettuanlist flag="hot" row="2"}
+          <dl class="dl_list">
+            	<dt><a class="fl" href="[field:url/]" target="_blank"><img class="fl" src="[field:litpic/]" width="218" height="130" alt="[field:litpic/]" /></a></dt>
+              <dd class="dd1"><a href="[field:url/]" target="_blank">[field:title/]</a></dd>
+              <dd class="dd2">
+              	<span class="sp_1">&yen;[field:price/]</span>
+                <span class="sp_2">[field:discount/]折</span>
+                <a href="/tuan/book_[field:aid/].html" target="_blank">抢购</a>
+              </dd>
+            </dl>
+        {/sline:gettuanlist}
+       
+      </div>
+      <script language="javascript">
+         $(function(){
+		     $(".tuan_list").find('.dl_list').last().addClass('bor_bot_0');
+		 })
+      </script>
+    </div>
+    <!--热门团购产品结束-->
+    
+    <!--推荐团购产品开始-->                                 
+        <div class="hot_pro">
+      <h3>推荐团购产品</h3>
+      <div class="side_plb_list tuan_list">
+        {sline:gettuanlist flag="recommend" row="2"}
+          <dl class="dl_list">
+            	<dt><a class="fl" href="[field:url/]" target="_blank"><img class="fl" src="[field:litpic/]" width="218" height="130" alt="[field:litpic/]" /></a></dt>
+              <dd class="dd1"><a href="[field:url/]" target="_blank">[field:title/]</a></dd>
+              <dd class="dd2">
+              	<span class="sp_1">&yen;[field:price/]</span>
+                <span class="sp_2">[field:discount/]折</span>
+                <a href="/tuan/book_[field:aid/].html" target="_blank">抢购</a>
+              </dd>
+            </dl>
+        {/sline:gettuanlist}
+       
+      </div>
+      <script language="javascript">
+         $(function(){
+		     $(".tuan_list").find('.dl_list').last().addClass('bor_bot_0');
+		 })
+      </script>
+    </div>
+    <!--推荐团购产品结束-->
+    
+    <!--最新团购产品开始-->                                 
+       <div class="hot_pro">
+      <h3>最新团购产品</h3>
+      <div class="side_plb_list tuan_list">
+        {sline:gettuanlist flag="new" row="2"}
+          <dl class="dl_list">
+            	<dt><a class="fl" href="[field:url/]" target="_blank"><img class="fl" src="[field:litpic/]" width="218" height="130" alt="[field:litpic/]" /></a></dt>
+              <dd class="dd1"><a href="[field:url/]" target="_blank">[field:title/]</a></dd>
+              <dd class="dd2">
+              	<span class="sp_1">&yen;[field:price/]</span>
+                <span class="sp_2">[field:discount/]折</span>
+                <a href="/tuan/book_[field:aid/].html" target="_blank">抢购</a>
+              </dd>
+            </dl>
+        {/sline:gettuanlist}
+       
+      </div>
+      <script language="javascript">
+         $(function(){
+		     $(".tuan_list").find('.dl_list').last().addClass('bor_bot_0');
+		 })
+      </script>
+    </div>
+    <!--最新团购产品结束-->
+    
+    <!--热卖线路产品开始-->
+    <div class="hot_pro">
+      <h3>热卖产品(线路)</h3>
+      <div class="side_plb_list line_hot_list">
+         {sline:getlinelist type="top" flag="hot" row="2"}
+            <dl class="dl_list">
+            	<dt><a class="fl" href="[field:url/]" target="_blank"><img class="fl" src="[field:litpic/]" width="218" height="130" alt="[field:title/]" /></a></dt>
+              <dd class="dd1"><a href="[field:url/]" target="_blank">[field:title/]</a></dd>
+            </dl>
+          {/sline:getlinelist} 
+      </div>
+        <script language="javascript">
+         $(function(){
+		     $(".line_hot_list").find('.dl_list').last().addClass('bor_bot_0');
+		 })
+      </script>
+    </div>
+    <!--热卖线路产品结束-->
+     <!--热卖酒店产品开始-->
+      <div class="hot_pro">
+      <h3>热卖产品(酒店)</h3>
+      <div class="side_plb_list hotel_hot_list">
+         {sline:gethotellist type="top" flag="hot" row="2"}
+            <dl class="dl_list">
+            	<dt><a class="fl" href="[field:url/]" target="_blank"><img class="fl" src="[field:lit240/]" width="218" height="130" alt="[field:title/]" /></a></dt>
+              <dd class="dd1"><a href="[field:url/]" target="_blank">[field:title/]</a></dd>
+            </dl>
+          {/sline:gethotellist} 
+      </div>
+        <script language="javascript">
+         $(function(){
+		     $(".hotel_hot_list").find('.dl_list').last().addClass('bor_bot_0');
+		 })
+        </script>
+    </div>
+    <!--热卖酒店产品结束-->
+    
+    
+    <!--产品好评开始-->
+      <div class="hot_pro">
+      <h3>好评产品排行</h3>
+      <div class="side_plb_list good_list">
+       {sline:getcommentlist flag='all' level='1'}
+        	<dl class="pro_ph">
+            	<dt><s>[field:global.autoindex/]</s>[field:productname/]</dt>
+              <dd><span>好评度：</span><b><s style=" width:[field:percent/]"></s></b>已售：[field:sellnum/]</dd>
+            </dl>
+       {/sline:getcommentlist}
+       <script language="javascript">
+         $(function(){
+		     $(".good_list").find('dl').last().addClass('bor_bot_0');
+		 })
+        </script>
+       
+      </div>
+    </div>
+    <!--产品好评结束-->
+    
+    <!--客户评论开始-->
+    <div class="discuss">
+      <h3>客户评论</h3>
+      <div class="dis_list">
+         {sline:getcommentlist flag='all' row='6'}
+              <dl>
+                <dt><b>[field:nickname/]</b><strong>满意度：</strong><span class="comment_star" data-score="[field:score/]"></span></dt>
+                <dd>[field:content/]</dd>
+              </dl>
+         {/sline:getcommentlist}
+       
+      </div>
+    </div>
+    <!--客户评论结束-->
+    
+    <!--推荐团购开始-->
+       <div class="b_side_list">
+      <h3><s></s>推荐团购</h3>
+      <div class="b_side_con">
+        <ul id="t_list">
+       
+         {sline:gettuanlist flag='recommend' row='6'}
+              <li>
+              	<p class="p1"><a class="fl" href="[field:url/]"><img class="fl" src="[field:litpic/]" width="218" height="135" alt="[field:title/]" title="[field:title/]" /></a></p>
+              	<p class="p2">[field:title/]</p>
+              	<p class="p3"><span>现价：&yen;[field:price/]</span><a href="/tuan/book_[field:aid/].html">立即抢购</a></p>
+              </li>
+            {/sline:gettuanlist}  
+             <script language="javascript">
+				 $(function(){
+					 $(".t_list").find('li').last().addClass('bor_bot_0');
+				 })
+             </script>
+        </ul>
+      </div>
+    </div>
+    <!--推荐团购结束-->
+    
+    <!--相关酒店开始-->
+    <div class="h_side_list">
+      <h3><s></s>相关酒店</h3>
+      <div class="h_side_con" id="r_h_list">
+        {sline:gethotellist flag='relative' row='4'}
+          	<dl>
+            	<dt><s>[field:global.autoindex/]</s><a href="[field:url/]" target="_blank">[field:title/]</a></dt>
+              <dd><p><label class="fl">星级:</label>[field:hotelrank/]</p><span><strong>&yen;[field:hotelprice/]</strong>起</span></dd>
+            </dl>
+        {/sline:gethotellist}
+         <script language="javascript">
+				 $(function(){
+					 $(".r_h_list").find('dl').last().addClass('bor_bot_none');
+				 })
+         </script>
+      </div>
+    </div>
+    <!--相关酒店结束-->
+    
+    <!--推荐景点开始-->
+    <div class="rig_side_list">
+      <h3>推荐景点</h3>
+      <div class="list_all">
+        {sline:getspotlist flag='recommend' row='6'}
+          <dl>
+            <dt><a class="fl" href="[field:url/]" target="_blank"><img class="fl" src="[field:lit160/]" width="80" height="60" alt="[field:title/]" /></a></dt>
+            <dd><a href="[field:url/]" target="_blank">[field:title/]</a></dd>
+            <dd>优惠价：[field:price/]</dd>
+          </dl>
+        {/sline:getspotlist}
+       
+      </div>
+    </div>
+    <!--推荐景点结束-->
+    
+    <!--推荐攻略结束-->
+    <div class="rig_list">
+      <h3>最新旅游攻略(图文)<s></s></h3>
+      <dl>
+        {sline:getarclist flag='new' row='1'}
+        <dt><a class="fl" href="[field:url/]" target="_blank"><img class="fl" src="[field:lit240/]" width="240" height="156" alt="[field:title/]" /></a><span></span><a class="img_title" href="[field:url/]" target="_blank">[field:title/]</a></dt>
+        {/sline:getarclist}
+        {sline:getarclist flag='new' row='7' limit='1'}
+          <dd><a class="a_mdd" href="/raiders/search.php?dest_id=[field:destid/]" target="_blank">[field:destname/]</a><a class="a_title" href="[field:url/]" target="_blank">[field:title/]</a></dd>
+        {/sline:getarclist}
+      </dl>
+    </div>
+    <!--推荐攻略结束-->
+  
+    <!--预定动态开始-->
+      <div class="now_book">
+      <h3>预订动态</h3>
+      <div class="book_con">
+        {sline:getorderlist flag='all' row='6'}
+          <dl>
+            <dt><span class="name">用户&nbsp;&nbsp;[field:nickname/]</span><span class="time">[field:dingtime/]</span>预定了</dt>
+            <dd>[field:productname/]</dd>
+          </dl>	
+        {/sline:getorderlist}
+      </div>
+    </div>
+    <!--预定动态结束-->
+    
+    <!--相关线路开始-->
+    <div class="l_side_list">
+      <h3><s></s>相关线路</h3>
+      <div class="l_side_con r_line">
+        {sline:getlinelist flag='relative' row='4'}
+        <dl>
+          <dt><a href="[field:url/]" target="_blank"><img src="[field:lit160/]" width="105" height="80" alt="[field:title/]" /></a></dt>
+          <dd class="dd_1"><a href="[field:url/]" target="_blank">[field:title/]</a>[field:sellpoint/]</dd>
+          <dd class="dd_2">[field:price/]</dd>
+        </dl>
+       {/sline:getlinelist}
+        <script language="javascript">
+				 $(function(){
+					 $(".r_line").find('dl').last().addClass('bor_bot_none');
+				 })
+         </script>
+      
+      </div>
+    </div>
+    <!--相关线路结束-->
+    
+    <!--客户咨询蓝色开始-->
+    <div class="k_side_list">
+      <h3>客户提问</h3>
+      <div class="k_side_con">
+        {sline:getquestion row='8'}
+          <dl>
+            <dt><strong class="yk">游客</strong>[field:content/]</dt>
+            <dd><strong class="kf">回复</strong>先生/小姐：您好！[field:replycontent/]</dd>
+          </dl>
+       {/sline:getquestion}
+      </div>
+    </div>
+    <!--客户咨询蓝色结束-->
+    
+    <!--客户咨询橙色开始-->
+    <div class="k_side_list2">
+      <h3>客户提问</h3>
+      <div class="k_side_con2">
+         {sline:getquestion row='8'}
+          <dl>
+            <dt><strong class="yk2">游客</strong>[field:content/]</dt>
+            <dd><strong class="kf2">回复</strong>先生/小姐：您好！[field:replycontent/]</dd>
+          </dl>
+       {/sline:getquestion}
+      </div>
+    </div>
+    <!--客户咨询橙色结束-->
+    
+    <!--租车文章开始-->
+    <div class="side_strategy">
+      <h3>租车信息</h3>
+      <dl>
+        {sline:getarclist flag='byattr' attrid='3' row='6'}
+          <dd><a href="[field:url/]" target="_blank">[field:title/]</a></dd>
+        {/sline:getarclist}
+      </dl>
+    </div>
+    <!--租车文章结束-->
+    
+    <!--签证文章开始-->
+    <div class="car_atc">
+      <h3>签证常见问题</h3>
+      <div class="atc_list">
+        <ul>
+          {sline:getarclist flag='byattr' attrid='7'}
+           <li><a href="[field:url/]">[field:title/]</a></li>
+          {/sline:getarclist}
+         
+        </ul>
+      </div>
+    </div>
+    <!--签证文章开始-->
+    
+     <!--签证新闻动态开始-->
+    <div class="car_atc">
+      <h3>签证新闻动态</h3>
+      <div class="atc_list">
+        <ul>
+          {sline:getarclist flag='byattr' attrid='8'}
+           <li><a href="[field:url/]">[field:title/]</a></li>
+          {/sline:getarclist}
+         
+        </ul>
+      </div>
+    </div>
+    <!--签证新闻动态开始-->
+    
+       <!--签证新闻动态开始-->
+    <div class="car_atc">
+      <h3>签证办理流程</h3>
+      <div class="atc_list">
+        <ul>
+          {sline:getarclist flag='byattr' attrid='9'}
+           <li><a href="[field:url/]">[field:title/]</a></li>
+          {/sline:getarclist}
+         
+        </ul>
+      </div>
+    </div>
+    <!--签证输程开始-->
+    
+    <!--右侧广告开始-->
+       
+  	<div class="adment">
+        {sline:myad name='GlobalRightA'/}
+    </div>
+    <!--右侧广告结束-->
+
+    <!--文章列表样式二开始-->
+    <div class="wz_list">
+        {sline:getarclist flag='new' row='3'}
+        <div>
+            <h4><a href="[field:url/]" target="_blank">[field:title/]</a></h4>
+            <a href="[field:url/]" target="_blank">[field:content function="cutstr_html(@me,60)"/]</a>
+        </div>
+       {/sline:getarclist}
+        <ul>
+           {sline:getarclist flag='new' row='4' limit='3'}
+            <li><a class="txt" href="/raiders/search.php?dest_id=[field:destid/]">[[field:destname/]]</a><a class="tit" href="[field:url/]">[field:title/]</a></li>
+           {/sline:getarclist}
+
+        </ul>
+    </div>
+    <!--文章列表结束-->
+
+    <!--右侧目的地开始-->
+    <div class="yc_menu">
+        <div class="mmd_option">
+            <h3>目的地导航：</h3>
+            <div class="diy_select">
+                <input type="hidden" name="" class="diy_select_input">
+                <div class="diy_select_txt">国内游</div>
+                <div class="diy_select_btn"></div>
+                <ul class="diy_select_list">
+                    {sline:getdest flag='top'}
+                    <li data-value="[field:pinyin/]">[field:title/]</li>
+                    {/sline:getdest}
+                </ul>
+            </div>
+        </div>
+        {sline:leftnav}
+        <div class="yc_menu_list {sline:field.pinyin/}">
+            {sline:getleftnav}
+            <dl>
+                <dt><a href="/[field:pinyin/]/">[field:categoryname/]</a></dt>
+                <dd>
+                   [field:childall/]
+                </dd>
+            </dl>
+            {/sline:getleftnav}
+
+        </div>
+        {/sline:leftnav}
+    </div>
+    {sline:php}Helper_Archive::getScript('list_box.js');{/sline:php}
+    <script>
+        //目的地切换
+        $(".yc_menu").find('li').click(function(){
+            var nav = $(this).attr('data-value');
+            $(".yc_menu_list").hide();
+            //$(".navname").text($(this).text());
+            $("."+nav).show();
+
+        })
+        //选中第一个
+        $(".yc_menu").find('li').first().trigger('click');
+
+        //最后一个增加class
+
+        if($(".yc_menu_list").each(function()
+        {
+
+            if($(this).find('dl').size()>1)
+            {
+                $(".yc_menu_list").find('dl').last().addClass('bor_bom_0');
+            }
+            else
+            {
+                $(".yc_menu_list").find('dl').first().addClass('bor_bom_0');
+            }
+        }));
+
+
+
+    </script>
+    <!--右侧目的地结束-->
+
+    <!--登陆注册模块开始-->
+    <div class="user_con">
+        <a class="register" href="/member/reg.php">注册</a>
+        <a class="login" href="/member/login.php">登录</a>
+    </div>
+    <!--登陆注册结束-->
+  
+  </div>
+</body>
+</html>

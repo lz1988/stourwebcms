@@ -1,0 +1,215 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+    <title>{sline:field.seotitle/}-{sline:global.cfg_webname/}</title>
+    {sline:field.seokeyword/}
+    {sline:field.seodescription/}
+    {sline:php}Helper_Archive::getCss('base.css,visa_new.css','2015.03');{/sline:php}
+    {sline:php}Helper_Archive::getScript('jquery-1.8.3.min.js,common.js,ks-switch.pack.js','2015.03');{/sline:php}
+</head>
+
+<body>
+  
+  <div class="big">
+      {sline:include file='public/header.htm'/}
+
+      <div class="width_1210">
+          <!-- 面包屑and订单开始 -->
+          <div class="top_first">
+              <div class="crumbs"><a href="{sline:global.cfg_cmsurl/}/" rel="nofollow">{sline:global.cfg_indexname/}</a>&raquo;<a href="{sline:global.cfg_cmsurl/}/visa/" rel="nofollow">{sline:field.typename/}</a></div>
+              {sline:include file='public/scroll_order.htm'/}
+
+          </div>
+          <!-- 面包屑and订单结束 -->
+			<div class="visa_show_top">
+      
+      	<a class="pic" href="#"><img src="{sline:field.litpic/}" alt="asd" width="450" height="298" /></a>
+        <div class="txt_con">
+          <h1>{sline:field.title/}</h1>
+          <ul>
+            <li class="li_c"><em>办理时长：</em>{sline:field.handleday/}</li>
+            <li class="li_d"><em>签证类型：</em>{sline:field.visatype/}</li>
+            <li class="li_d"><em>所属领区：</em>{sline:field.belongconsulate/}</li>
+            <li class="li_d"><em>停留时间：</em>{sline:field.partday/}</li>
+            <li class="li_d"><em>有效日期：</em>{sline:field.validday/}</li>
+            <li class="li_d"><em>面试需要：</em>{sline:field.interview/}</li>
+            <li class="li_d"><em>邀 请 函：</em>{sline:field.letter/}</li>
+            <li class="li_c"><em>受理范围：</em>{sline:field.handlerange/}</li>
+          </ul>
+          <p>{sline:field.sellpoint/}</p>
+        </div>
+        <div class="show_msg">
+        	<p class="price">优惠价：<span>&yen;<b>{sline:field.price/}</b></span></p>
+        	<p class="date"><input type="text" id="usedate" placeholder="请选择出行时间" readonly /></p>
+        	<p class="lx"><span>{sline:field.visatype/}<s></s></span></p>
+        	<p class="num">
+          	<em>预定数量：</em>
+            <span class="sub"></span>
+            <input type="text" id="dingnum" value="1" readonly />
+            <span class="add"></span>
+          </p>
+        	<p class="price">总价：<span>&yen;<b class="totalprice">{sline:field.price/}</b></span></p>
+        	<p class="now_btn"><a href="javascript:;" class="btn_yuding">立即预定</a></p>
+        </div>
+        
+      </div>
+     
+      <div class="visa_show_nr">
+        <div class="show_nav" id="tab2">
+            {sline:detailcontent typeid='8'}
+             <span>[field:chinesename/]</span>
+            {/sline:detailcontent}
+
+          <span>客户点评</span>
+          <span>在线咨询</span>
+        </div>
+        <div class="show_list_con">
+		 <div class="tabcon_list jieshao" >
+
+             {sline:detailcontent typeid='8'}
+                <div class="nr_list [field:global.autoindex runphp='yes']if(@me>1)@me='bor_0';else @me='';[/field:global.autoindex]">
+                  <div class="list_tit">[field:chinesename/]</div>
+                  <div class="list_con">
+                     [field:array function=VisaFunc::getVisaContent(@me)/]
+                  </div>
+                </div>
+             {/sline:detailcontent}
+
+
+             <div class="nr_list">
+                 <div class="dif_interaction">
+                     <h3 class="dif_title">客户点评</h3>
+                     {sline:getcommentlist flag="visa"}
+                     <div class="dz_lidt">
+                         <div class="head_pic_left">
+                             <img src="[field:litpic/]" width="50" height="50"  title="[field:nickname/]" />
+                         </div>
+                         <div class="body_con_rig">
+                             <div class="lp_ico"></div>
+                             <dl>
+                                 <dt><p class="p1"><span>会员：</span>[field:nickname/]</p><p class="p2">获得点评奖金 &yen;[field:jifencomment/]</p></dt>
+                                 <dd class="dd_1"><span>客户点评：</span>[field:content/]</dd>
+                                 <dd class="dd_2">
+                                     <p><b>服务态度：</b><span><s style=" width: [field:percent1/]"></s></span></p>
+                                     <p><b>办理流程：</b><span><s style=" width: [field:percent2/]"></s></span></p>
+                                     <p><b>办理速度：</b><span><s style=" width: [field:percent3/]"></s></span></p>
+                                     <p><b>性价比：</b><span><s style=" width: [field:percent4/]"></s></span></p>
+                                 </dd>
+                             </dl>
+                         </div>
+                     </div>
+                     {/sline:getcommentlist}
+
+
+                     <div class="dp_sm_con">
+                         <ul class="fl">
+                             <li class="li_1">
+                                 <p class="p1">{sline:field.satisfyscore/}</p>
+                                 <p class="p2">整体满意度</p>
+                             </li>
+                             <li class="li_2">
+                                 <p class="p1"><span>点评说明</span>在网站购买过旅游产品的注册会员</p>
+                                 <p class="p2">回程归来发表点评即可获赠积分，积分根据产品而定，获得的积分可在下次消费时抵用部分现金。</p>
+                             </li>
+                             <li class="li_3"><a href="/member/">我要点评</a></li>
+                         </ul>
+                     </div>
+
+                 </div>
+             </div>
+             <div class="nr_list">
+                 {sline:include file='public/question.htm'/}
+             </div>
+
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  {sline:include file='public/help.htm'/}
+
+  {sline:include file='public/footer.htm'/}
+
+  {sline:include file='public/flink.htm'/}
+  <script src="/templets/smore/js/DatePicker/WdatePicker.js"></script>
+  <script src="/templets/smore/js/layer/layer.min.js"></script>
+  <input type="hidden" id="price" value="{sline:field.price/}">
+  <script>
+      //计算总价格
+      function getTotal()
+      {
+          var num = $("#dingnum").val();
+          var price = $("#price").val();
+          var total = Number(num) * Number(price);
+          $(".totalprice").html(total);
+
+
+      }
+      $(function($){
+
+          //日期选择
+          $("#usedate").click(function(){
+              WdatePicker({skin:'whyGreen',dateFmt:'yyyy-MM-dd',minDate:'%y-%M-%d'})
+          })
+          //减少数量
+          $(".sub").click(function(){
+                var num = $("#dingnum").val();
+                num = Number(num)-1;
+                num = num==0 ? 1 : num;
+                $("#dingnum").val(num);
+                getTotal();
+          });
+          //添加数量
+          $(".add").click(function(){
+              var num = $("#dingnum").val();
+              num = Number(num)+1;
+              $("#dingnum").val(num);
+              getTotal();
+          })
+          //预订
+          $(".btn_yuding").click(function(){
+              var dingnum = $("#dingnum").val();
+              var usedate = $("#usedate").val();
+              if(usedate==''){
+                  layer.msg('请选择预订时间', 1,8);
+                  return false;
+              }else{
+                  var url = siteUrl+'visa/booking.php?usedate='+usedate+'&dingnum='+dingnum+'&visaid={sline:field.aid/}';
+                  window.location.href = url;
+              }
+
+          })
+
+          //签证内容，评论，咨询 菜单 切换
+          var FilesArray=['./floatmenu/floatmenu.js','./floatmenu/floatmenu.css']
+          Loader.loadFileList(FilesArray,function(){
+              $.floatMenu({
+                  menuContain : '#tab2',
+                  tabItem : 'span',
+                  chooseClass : 'on',
+                  contentContain : '.jieshao',
+                  itemClass : '.nr_list'});
+          });
+
+
+          //人群切换
+          $("#switchBox").find("dt span").each(function(i){
+                      $(this).click(function(){
+                                  $(this).addClass('on').siblings().removeClass('on');
+                                  var dataid=$(this).attr('data-id');
+                                  $("#"+dataid).show().siblings('dd').hide();
+                              }
+
+                      )
+                  }
+          )
+          $("#switchBox").find("dt span").first().trigger('click');
+
+      });
+  </script>
+
+
+</body>
+</html>

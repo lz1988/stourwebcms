@@ -1,0 +1,40 @@
+<div class="or_show">
+    <h3>订单详细</h3>
+    <dl>
+        <dt>产品名称：</dt>
+      <dd>{sline:field.productname/}</dd>
+    </dl>
+    
+    <dl>
+        <dt>入住时间：</dt>
+      <dd>
+        <table width="600" border="0" cellspacing="0" cellpadding="0">
+        {sline:vlist name='roomdinginfo'}
+          <tr>
+            <td width="200" height="40">[field:usedate/]</td>
+            <td width="200" height="40">[field:dingnum/]间</td>
+            <td width="200" height="40">&yen;[field:totalprice/]元</td>
+          </tr>
+        {/sline:vlist}
+        </table>
+      </dd>
+    </dl>
+    {sline:if var='_has_jiefentprice'}
+    <dl>
+        <dt>积分抵现金：</dt>
+      <dd><span class="color_f">{sline:field.jifentprice/}</span>&nbsp;&nbsp;分</dd>
+    </dl>
+    {/sline:if}
+    {sline:if var='_has_jiefenbook'}
+    <dl>
+        <dt>预订送积分：</dt>
+      <dd><span class="color_f">{sline:field.jifenbook/}</span>&nbsp;&nbsp;分</dd>
+    </dl>
+    {/sline:if}
+    {sline:if var='_has_jiefencomment'}
+    <dl>
+        <dt>评论送积分：</dt>
+      <dd><span class="color_f">{sline:field.jifencomment/}</span>&nbsp;&nbsp;分</dd>
+    </dl>
+    {/sline:if}
+  </div>

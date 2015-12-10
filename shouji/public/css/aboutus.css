@@ -1,0 +1,17 @@
+/*关于我们*/
+.about{
+    width:100%}
+.about ul li,
+.about_tit{
+    padding:10px;
+    border-bottom:1px solid #e5e5e5}
+.about ul li a,
+.about_tit em{
+    display:block;
+    padding-left:10px;
+    font-size:14px;
+    border-left:2px solid #4eb0e7}
+.about_show{
+    padding:10px 20px;}
+.about_show p{
+    margin-top:10px}

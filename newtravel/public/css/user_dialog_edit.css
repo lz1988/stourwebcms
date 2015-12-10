@@ -1,0 +1,43 @@
+.basic-con table tr{
+    height: 40px;
+}
+.basic-con table td{
+    line-height: 40px;
+}
+.basic-con table td.u-editor{
+    line-height: 16px;
+}
+.basic-con .des{
+    border:1px solid #dcdcdc;
+    width: 400px;
+    height: 70px;
+    margin-top:10px;
+    padding:5px;
+}
+.basic-con select{
+    border:1px solid #dcdcdc;
+    line-height: 25px;
+    height:25px;
+}
+.basic-con table .tit{
+    text-align: right;
+    padding-right: 10px;
+}
+.basic-con .un-blank{
+    color:red;
+    line-height: 26px;
+    padding: 0px 3px;
+    float:left;
+}
+.basic-con label.error{
+    color:red;
+    line-height: 26px;
+    float:left;
+    padding: 0px 3px;
+}
+.basic-con input.error{
+    border:1px solid red;
+}
+.save-con{
+    text-align:center
+}

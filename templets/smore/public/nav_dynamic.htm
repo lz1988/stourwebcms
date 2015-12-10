@@ -1,0 +1,67 @@
+<div class="menu">
+    {sline:include file='public/plugin_usernav.htm'/}
+    <div class="main_nav_list">
+       <a href="{sline:global.cfg_basehost/}{sline:global.cfg_cmsurl/}/">{sline:global.cfg_indexname/}</a>
+        {sline:global.destnavid runphp='yes'}
+          if(!empty(@me))
+		   {
+		 
+                global $dsql;
+                $sql = "SELECT id,shortname,url,typeid,linktitle,kind From `#@__nav` WHERE isopen=1 and pid=0 and webid=0 and issystem=1 order by displayorder";
+                $all_nav=$dsql->getAll($sql);
+                $destid=@me;
+                $destname=$GLOBALS['destnavname'];
+                $destpy = $GLOBALS['destnavpy'];
+                $py = !empty($destpy) ? $destpy : $destid;
+                $typeid_url=array(
+                             '1'=>"/lines/{$py}/",
+                             '2'=>"/hotels/{$py}/",
+                             '3'=>"/cars/?dest_id={$destid}",
+                             '4'=>"/{$destpy}/raiders/",
+                             '5'=>"/spots/{$py}/",
+                             '6'=>"/photos/{$py}/",
+                             '12'=>"/{$destpy}/",
+                             '8'=>"/visa/?dest_id={$destid}",
+                             '13'=>"/tuan/{$py}/",
+                             '14'=>"/customize/");
+		    
+ 
+                $str.="<a href=\"{$GLOBALS['cfg_basehost']}/{$destpy}/\">{$destname}</a>";
+                foreach($all_nav as $nav)
+                {
+                  if($nav['kind']==1)
+                    {
+                       $ico = '<s class="ico_new"></s>';
+                    }
+                    else if($nav['kink']==2)
+                    {
+                       $ico = '<s class="ico_hot"></s>';
+                    }
+                    else
+                    {
+                       $ico = '';
+                    }
+                  if($nav['typeid']==1)
+                  {
+
+                   $str.="<a href=\"{$GLOBALS['cfg_basehost']}{$typeid_url[$nav['typeid']]}\">{$ico}{$destname}{$nav['shortname']}</a></li>";
+                  }
+                  else if($nav['typeid']!=12)
+                  {
+                    $str.="<a href=\"{$GLOBALS['cfg_basehost']}{$typeid_url[$nav['typeid']]}\">{$ico}{$nav['shortname']}</a>";
+                   }
+                 
+                }
+                      
+              @me=$str;
+             }else
+               @me='';
+		{/sline:global.destnavid}
+       <!--<div class="skip">
+         <a href="/destination/">目的地</a>
+         <a href="#"><s>|</s>社区</a>
+         <a href="#"><s>|</s>活动</a>
+      </div>-->
+    </div>
+     
+</div>

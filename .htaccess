@@ -1,0 +1,152 @@
+RewriteEngine On
+RewriteBase /
+# Rewrite 系统规则请勿修改
+
+#RewriteCond %{HTTP_HOST} ^(.*\.)?lvyou.com$
+#RewriteCond %{HTTP_HOST} !^(www\.)lvyou\.com$
+#RewriteRule ^(.*)$ shouji/$1
+
+#目的地
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([0-9a-z]+)(/)?$ destination/main.php?destid=$1
+RewriteCond $1 !^(sline|min)
+RewriteRule ^([0-9a-z]+)/(lines|hotels|cars|spots|raiders|photos)(/)?$ destination/gather.php?destid=$1&type=$2
+
+#副导航
+RewriteRule ^servers/index_([0-9]+)+\.html$ servers/index.php?aid=$1
+RewriteRule ^servers/yqlj+\.html$ servers/yqlj.php
+RewriteRule ^servers/sitemap+\.html$ servers/sitemap.php
+
+#帮助
+RewriteRule ^help/index_([0-9]+)+\.html$ help/index.php?aid=$1
+RewriteRule ^help/show_([0-9]+)+\.html$ help/show.php?aid=$1
+
+#子站栏目首页跳转
+RewriteCond %{HTTP_HOST} ^(.*\.)?lvyou.com$
+RewriteCond %{HTTP_HOST} !^(www\.)lvyou\.com$
+#RewriteRule ^(lines|hotels|cars|spots|raiders|photos)(/)?$ $1/search.php
+#RewriteRule ^/(lines|hotels|cars|spots|raiders|photos)(/)?$ $1/search.php
+#RewriteRule ^(.*)$ shouji/$1
+
+
+RewriteRule ^cloudsearch_(.*)_([0-9]+)_([0-9]+)+\.html$ cloudsearch.php?keyword=$1&typeid=$2&pageno=$3
+
+#ErrorDocument 404 /404.php
+
+RewriteRule ^zhuanti/([0-9]+)\.html$  zhuanti/?tid=$1
+
+
+#相册
+RewriteRule ^photos/([a-z0-9]+)-([0-9_]+)$ photos/index.php?dest_id=$1&attrid=$2
+RewriteRule ^photos/([a-z0-9]+)-([0-9_]+)-([0-9]+)$ photos/index.php?dest_id=$1&attrid=$2&pageno=$3
+RewriteRule ^photos/([a-z0-9]+)(/)?$ photos/index.php?dest_id=$1
+
+#团购
+RewriteRule ^tuan/show_([0-9]+)+\.html$ tuan/show.php?aid=$1
+RewriteRule ^tuan/([a-z0-9]+)-([0-9]+)-([0-9_]+)$ tuan/index.php?dest_id=$1&status=$2&attrid=$3
+RewriteRule ^tuan/([a-z0-9]+)-([0-9]+)-([0-9_]+)-([0-9]+)$ tuan/index.php?dest_id=$1&status=$2&attrid=$3&pageno=$4
+RewriteRule ^tuan/([a-z0-9]+)(/)?$ tuan/index.php?dest_id=$1
+
+#线路部分
+RewriteRule ^lines/show_([0-9]+)+\.html$ lines/show.php?aid=$1
+RewriteRule ^lines/print_([0-9]+)+\.html$ lines/print.php?aid=$1
+RewriteRule ^lines/([a-z0-9]+)(/)?$ lines/search.php?dest_id=$1
+RewriteRule ^lines/([a-z0-9]+)-([0-9]+)-([0-9]+)-([0-9]+)-([^-]+)-([0-9_]+)?$ lines/search.php?dest_id=$1&day=$2&priceid=$3&sorttype=$4&keyword=$5&attrid=$6
+RewriteRule ^lines/([a-z0-9]+)-([0-9]+)-([0-9]+)-([0-9]+)-([^-]+)-([0-9_]+)-([0-9]+)?$ lines/search.php?dest_id=$1&day=$2&priceid=$3&sorttype=$4&keyword=$5&attrid=$6&pageno=$7
+RewriteRule ^lines/([a-z0-9]+)-0-0-([0-9]+)-([0-9]+)-([0-9]+)-([^-]+)-([0-9]+)-([0-9_]+)?$ lines/search.php?dest_id=$1&day=$2&priceid=$3&sorttype=$4&keyword=$5&startcity=$6&attrid=$7
+RewriteRule ^lines/([a-z0-9]+)-0-0-([0-9]+)-([0-9]+)-([0-9]+)-([^-]+)-([0-9]+)-([0-9_]+)-([0-9]+)?$ lines/search.php?dest_id=$1&day=$2&priceid=$3&sorttype=$4&keyword=$5&startcity=$6&attrid=$7&pageno=$8
+
+#酒店
+RewriteRule ^hotels/show_([0-9]+)+\.html$ hotels/show.php?aid=$1
+RewriteRule ^hotels/([a-z]+)_([0-9]+)+\.html$ hotels/gather.php?kid=$2
+RewriteRule ^hotels/([a-z0-9]+)(/)?$ hotels/search.php?dest_id=$1
+RewriteRule ^hotels/([a-z0-9]+)-([0-9]+)-([0-9]+)-([0-9]+)-([^-]+)-([0-9_]+)?$ hotels/search.php?dest_id=$1&rankid=$2&priceid=$3&sorttype=$4&keyword=$5&attrid=$6
+RewriteRule ^hotels/([a-z0-9]+)-([0-9]+)-([0-9]+)-([0-9]+)-([^-]+)-([0-9_]+)-([0-9]+)?$ hotels/search.php?dest_id=$1&rankid=$2&priceid=$3&sorttype=$4&keyword=$5&attrid=$6&pageno=$7
+
+#相册
+RewriteRule ^photos/show_([0-9]+)_([0-9]+)+\.html$ photos/show.php?id=$1&imgid=$2
+RewriteRule ^photos/show_([0-9]+)\.html$ photos/show.php?id=$1
+RewriteRule ^photos/([a-z0-9]+)-([0-9_]+)$ photos/index.php?dest_id=$1&attrid=$2
+RewriteRule ^photos/([a-z0-9]+)-([0-9_]+)-([0-9]+)$ photos/index.php?dest_id=$1&attrid=$2&pageno=$3
+RewriteRule ^photos/([a-z0-9]+)(/)?$ photos/index.php?dest_id=$1
+
+#景点搜索
+RewriteRule ^spots/show_([0-9]+)+\.html$ spots/show.php?aid=$1
+RewriteRule ^spots/([a-z0-9]+)(/)?$ spots/search.php?dest_id=$1
+RewriteRule ^spots/([a-z0-9]+)-([0-9]+)-([0-9]+)-([^-]+)-([0-9_]+)?$ spots/search.php?dest_id=$1&priceid=$2&sorttype=$3&keyword=$4&attrid=$5
+RewriteRule ^spots/([a-z0-9]+)-([0-9]+)-([0-9]+)-([^-]+)-([0-9_]+)-([0-9]+)?$ spots/search.php?dest_id=$1&priceid=$2&sorttype=$3&keyword=$4&attrid=$5&pageno=$6
+
+#租车
+#RewriteRule ^cars/show_([0-9]+)+\.html$ cars/show.php?aid=$1
+#RewriteRule ^cars/([0-9]+)-([0-9]+)-([0-9]+)-([0-9]+)-([0-9_]+)-([0-9a-z]+)-([0-9_]+)$ cars/search.php?startplaceid=$1&carkindid=$2&brandid=$3&priceid=$4&seatnum=$5&displayorder=$6&attrid=$7
+#RewriteRule ^cars/([0-9]+)-([0-9]+)-([0-9]+)-([0-9]+)-([0-9_]+)-([0-9a-z]+)-([0-9_]+)-([0-9]+)$ cars/search.php?startplaceid=$1&carkindid=$2&brandid=$3&priceid=$4&seatnum=$5&displayorder=$6&attrid=$7&pageno=$8
+
+#攻略
+RewriteRule ^raiders/([a-z0-9]+)-([0-9_]+)$ raiders/search.php?dest_id=$1&attrid=$2
+RewriteRule ^raiders/([a-z0-9]+)-([0-9_]+)-([0-9]+)$ raiders/search.php?dest_id=$1&attrid=$2&pageno=$3
+RewriteRule ^raiders/([a-z0-9]+)(/)?$ raiders/search.php?dest_id=$1
+RewriteRule ^raiders/show_([0-9]+)+\.html$ raiders/show.php?aid=$1
+RewriteRule ^raiders/([a-z]+)_([0-9]+)+\.html$ raiders/gather.php?kid=$2
+
+#签证
+RewriteRule ^visa/([0-9]+)-([0-9_]+)-([0-9]+)-0$ visa/search.php?countryid=$1&cityid=$2&visatypeid=$3
+RewriteRule ^visa/([0-9]+)-([0-9_]+)-([0-9]+)-0-([0-9]+)$ visa/search.php?countryid=$1&cityid=$2&visatypeid=$3&pageno=$4
+RewriteRule ^visa/show_([0-9]+)+\.html$ visa/show.php?aid=$1
+RewriteRule ^visa/country+\.html$ visa/country.php
+RewriteRule ^visa/([0-9]+)+\.html$ visa/fenlei.php?nationid=$1
+
+#农家乐
+RewriteRule ^nongjiale/([a-z0-9]+)(/)?$ tongyong/index.php?dest_id=$1
+RewriteRule ^nongjiale/([a-z0-9]+)-([0-9_]+)?$ tongyong/index.php?dest_id=$1&attrid=$2
+RewriteRule ^nongjiale/([a-z0-9]+)-([0-9_]+)-([0-9]+)?$ tongyong/index.php?dest_id=$1&attrid=$2&pageno=$3
+RewriteRule ^nongjiale/show_([0-9]+)+\.html$ tongyong/show.php?aid=$1
+
+
+
+#餐饮
+RewriteRule ^canying/([a-z0-9]+)(/)?$ canying/index.php?dest_id=$1
+RewriteRule ^canying/([a-z0-9]+)-([0-9_]+)?$ canying/index.php?dest_id=$1&attrid=$2
+RewriteRule ^canying/([a-z0-9]+)-([0-9_]+)-([0-9]+)?$ canying/index.php?dest_id=$1&attrid=$2&pageno=$3
+RewriteRule ^canying/show_([0-9]+)+\.html$ canying/show.php?aid=$1
+#导游
+RewriteRule ^daoyou/([a-z0-9]+)(/)?$ daoyou/index.php?dest_id=$1
+RewriteRule ^daoyou/([a-z0-9]+)-([0-9_]+)?$ daoyou/index.php?dest_id=$1&attrid=$2
+RewriteRule ^daoyou/([a-z0-9]+)-([0-9_]+)-([0-9]+)?$ daoyou/index.php?dest_id=$1&attrid=$2&pageno=$3
+RewriteRule ^daoyou/show_([0-9]+)+\.html$ daoyou/show.php?aid=$1
+
+#结伴
+RewriteRule ^jieban/([a-z0-9]+)(/)?$ jieban/index.php?dest_id=$1
+RewriteRule ^jieban/([a-z0-9]+)-([0-9]+)-([0-9_]+)-([0-9_]+)?$ jieban/index.php?dest_id=$1&monthid=$2&dayid=$3&attrid=$4
+RewriteRule ^jieban/([a-z0-9]+)-([0-9]+)-([0-9_]+)-([0-9_]+)-([0-9]+)?$ jieban/index.php?dest_id=$1&monthid=$2&dayid=$3&attrid=$4&pageno=$5
+RewriteRule ^jieban/show_([0-9]+)+\.html$ jieban/show.php?id=$1
+
+#新增加签证
+RewriteRule ^visa/([a-z]+)(/)?$ visa/country.php?countrypy=$1
+RewriteRule ^visa/([a-z]+)-([0-9]+)?$ visa/country.php?countryid=$1&countrypy=$1&cityid=$2
+RewriteRule ^visa/([a-z]+)-([0-9]+)-([0-9]+)?$ visa/country.php?countrypy=$1&cityid=$2&pageno=$3
+
+#租车搜索
+RewriteRule ^cars/show_([0-9]+)+\.html$ cars/show.php?aid=$1
+RewriteRule ^cars/([a-z0-9]+)(/)?$ cars/search.php?dest_id=$1
+RewriteRule ^cars/([a-z0-9]+)-([0-9]+)-([0-9]+)-([0-9]+)-([0-9_]+)?$ cars/search.php?dest_id=$1&startplaceid=$2&carkindid=$3&displayorder=$4&attrid=$5
+RewriteRule ^cars/([a-z0-9]+)-([0-9]+)-([0-9]+)-([0-9]+)-([0-9_]+)-([0-9]+)?$ cars/search.php?dest_id=$1&startplaceid=$2&carkindid=$3&displayorder=$4&attrid=$5&pageno=$6
+
+RewriteRule ^questions/show_([0-9]+)+\.html$ questions/show.php?id=$1
+RewriteRule ^questions/([0-9]+)(/)?$ questions/index.php?page=$1
+
+
+#缩略图
+RewriteRule ^(uploads/.*?_\d{2,}x\d{2,}.(jpg|gif|png))$ image/index.php?/$1
+
+
+
+#会议
+RewriteRule ^huiyi/([a-z0-9]+)(/)?$ huiyi/index.php?dest_id=$1
+RewriteRule ^huiyi/([a-z0-9]+)-([0-9_]+)?$ huiyi/index.php?dest_id=$1&attrid=$2
+RewriteRule ^huiyi/([a-z0-9]+)-([0-9_]+)-([0-9]+)?$ huiyi/index.php?dest_id=$1&attrid=$2&pageno=$3
+RewriteRule ^huiyi/show_([0-9]+)+\.html$ huiyi/show.php?aid=$1
+#导游
+RewriteRule ^daoyou/([a-z0-9]+)(/)?$ daoyou/index.php?dest_id=$1
+RewriteRule ^daoyou/([a-z0-9]+)-([0-9_]+)?$ daoyou/index.php?dest_id=$1&attrid=$2
+RewriteRule ^daoyou/([a-z0-9]+)-([0-9_]+)-([0-9]+)?$ daoyou/index.php?dest_id=$1&attrid=$2&pageno=$3
+RewriteRule ^daoyou/show_([0-9]+)+\.html$ daoyou/show.php?aid=$1

@@ -1,0 +1,21 @@
+CREATE TABLE `sline_tuan_booking` (
+  `id` int(3) NOT NULL AUTO_INCREMENT,
+  `webid` int(3) unsigned NOT NULL DEFAULT '0',
+  `tuanid` int(11) DEFAULT NULL,
+  `dingnum` varchar(100) DEFAULT NULL COMMENT '预订数量',
+  `price` varchar(255) DEFAULT NULL,
+  `info` varchar(255) DEFAULT NULL COMMENT '其它备注信息',
+  `dingname` varchar(255) DEFAULT NULL,
+  `sex` varchar(255) DEFAULT NULL COMMENT '性别',
+  `dingtel` varchar(255) DEFAULT NULL COMMENT '预订联系人电话',
+  `addtime` int(10) unsigned DEFAULT NULL COMMENT '添加时间',
+  `modtime` int(10) unsigned DEFAULT NULL COMMENT '处理时间',
+  `status` int(1) unsigned DEFAULT '0' COMMENT '处理状态',
+  `ordersn` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `qq` varchar(255) DEFAULT NULL,
+  `memberid` int(11) DEFAULT NULL COMMENT '会员ID',
+  `validdate` varchar(255) DEFAULT NULL COMMENT '有效期',
+  `ispay` int(1) unsigned DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC

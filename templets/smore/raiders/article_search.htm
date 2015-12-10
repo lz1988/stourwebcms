@@ -1,0 +1,203 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{sline:field.searchtitle/}-{sline:global.cfg_webname/}</title>
+{sline:field.keyword/}
+{sline:field.description/}
+<meta name="author" content="{sline:global.cfg_webname/}" />
+{sline:php}GetCss('base.css,article.css','2012.06');{/sline:php}
+{sline:php}GetScript('jquery-1.8.3.min.js,common.js,article.search.js','2012.06');{/sline:php}
+</head>
+
+<body>
+{sline:include file='public/header.htm'/}
+  
+  <!-- 中间内容开始 -->
+  <div class="big">
+  	<div class="width_1210">
+    	<!-- 面包屑and订单开始 -->
+    	<div class="top_first">
+      	<div class="crumbs"><a href="/">{sline:global.cfg_indexname/}</a> {sline:field.pkname/}</div>
+       {sline:include file='public/scroll_order.htm'/}
+      </div>
+      <!-- 面包屑and订单结束 -->
+      
+      <!--顶部介绍开始-->
+      <div class="art_top_menu">
+        <h1><span>{sline:global.destname/}攻略</span><s></s></h1>
+        <div class="serve_menu">
+          <span>{sline:global.destname/}更多服务：</span>
+          <a href="{sline:global.dest_url/}">目的地</a>
+          <a href="/hotels/{sline:global.dest_pinyin/}">酒店</a>
+          <a href="/cars/">租车</a>
+          <a href="/photos/{sline:global.dest_pinyin/}">相册</a>
+        </div>
+      </div>
+      <script>
+				$(document).ready(function() {
+					$(".art_top_menu h1 s").click(function(){
+						$(".sm_txt").toggle();	
+						})
+				});
+			</script>
+      
+      
+      <!--边栏开始-->
+    	<div class="line_con_rig">
+        
+        <!--热门团购产品开始-->
+        {sline:getrightcontent pagename='search'/}
+
+      </div>
+      <!--边栏结束-->
+      
+      <div class="articel_con_rig">
+      	<!--隐藏栏目介绍开始-->
+      	<div class="sm_txt">
+      		   {sline:field.destjieshao/}
+     	  </div>
+        <!--隐藏栏目介绍结束-->
+      	
+      	<!--搜索条件开始-->
+      	<div class="serach_menu">
+        	<div class="search_bt"><span>{sline:global.destname/}</span>  攻略筛选</div>
+        	<dl>
+          	<dt>目的地：</dt>
+            <dd class="destid_list">
+              <span class="sp_1"><a  href="{sline:global.dest_id function=getArticleUrl(0,'dest_id')/}" data-field="destid" data-value="0">全部</a></span>
+              <span class="sp_2">
+              	 {sline:vlist name="destlist"}
+                <a href="[field:id function=getArticleUrl(@me,'dest_id')/]" data-field="destid" data-value="[field:id/]" >[field:kindname/]</a>
+              {/sline:vlist}
+              </span>
+            </dd>
+          </dl>
+          {sline:attrgrouplist typeid="4"}
+          <dl>
+          	<dt>{sline:field.groupname/}：</dt>
+            <dd class="attr_list">
+            	<span class="sp_1"><a class="on"  data-field="attrid" data-value="0" href="{sline:field.attrid function=getArticleUrl(null,null,@me)/}">全部</a></span>
+              <span class="sp_2">
+                {sline:getattrbygroup typeid="4"}                
+            	  <a href="[field:id function=getArticleUrl(@me,'attrid')/]" data-field="attrid" data-value="[field:id/]">[field:title/]</a>
+          {/sline:getattrbygroup}
+          
+              </span>
+            </dd>
+          </dl>
+          {/sline:attrgrouplist}
+        </div>
+        <!--搜索条件结束-->
+
+				<!--文章列表开始-->
+        <div class="aretcel_lists">
+          {sline:list}
+        	<div class="list_child">
+          	<div class="rig_bor_bg"><img src="[field:global.cfg_templets_skin/]/images/border_bg.gif" /></div>
+          	<dl>
+            	<dt><a class="fl" href="[field:url/]" target="_blank"><img class="fl" src="[field:lit240/]" width="242" height="188" alt="[field:title/]" title="[field:title/]" /></a></dt>
+              <dd class="title"><a href="[field:url/]" target="_blank">[field:title/]</a></dd>
+              <dd class="attr"><span>[field:kindlist runphp='yes']
+                if(!empty(@me))
+                 {
+                 $destid=array_remove_value(@me);
+                  $pinyin=Helper_Archive::getDestPinyin($destid);
+                  $pinyin = !empty($pinyin) ? $pinyin : $destid;
+                 @me="[<a href=\"/raiders/{$pinyin}\">".Helper_Archive::getBelongDestName(@me)."</a>]";
+                 }
+                else
+                 @me=''; 
+                 
+            [/field:kindlist]</span> 
+              [field:attrid runphp='yes']
+                    $attrlist=getArticleAttrlist(@me);
+                   foreach($attrlist as $k=>$v)
+                   {
+                     $str.=" - [<a target=\"_blank\" href=\"/raiders/all-{$v['id']}\">{$v['attrname']}</a>]";
+                   }
+                   @me=$str;
+              [/field:attrid]</dd>
+              <dd class="txt">[field:content runphp='yes']
+                   @me=cutstr_html(@me,100).'...';
+                [/field:content]</dd>
+              <dd class="data">
+              	<div class="pl">
+                  [field:id runphp='yes']
+                     $comment=getArticleNewComment(@me);
+                     if(!empty($comment))
+                       @me='<s><img src="'.$comment['commentlitpic'].'" width="24" height="24" alt="作者" /></s><span>'.$comment['commentcontent'].'</span>';
+                     else
+                      @me='';  
+                  
+                  [/field:id]
+                
+                
+                </div>
+                <span class="sp_1">[field:commentnum/]</span>
+                <span class="sp_2">[field:shownum/]</span></dd>
+            </dl>
+          </div>
+          {/sline:list}
+         
+
+        </div>
+        <!--文章列表结束-->
+        
+        <!--分页代码样式开始-->
+        <div class="main_mod_page clear">
+          {sline:pagelist isstatic='1'/}
+        </div>
+        <div style="clear:both"></div>
+        <!--分页代码样式结束-->
+
+        
+      </div>
+      
+    </div>
+  </div>
+<!--隐藏域-->
+<input type="hidden" id="destid" value="{sline:global.dest_id/}"/>
+<input type="hidden" id="attrid" value="{sline:global.attrid/}"/>
+
+  <!-- 中间内容结束 -->
+  
+  {sline:include file='public/help.htm'/}
+  
+  {sline:include file='public/footer.htm'/}
+  
+  {sline:include file='public/flink.htm'/}
+<script>
+    $(document).ready(function() {
+        var attrid = $("#attrid").val();
+        var destid = $("#destid").val();
+
+        //目的地天数选中
+        $.STOURWEB.search_item_selected(".destid_list","a",destid,'on');
+        //属性选中
+        var attrArr = attrid.split('_');
+        for(i=0;i<attrArr.length;i++)
+        {
+
+            $.STOURWEB.search_attr_selected(".attr_list","a",attrArr[i],'on');
+        }
+        //鼠标移上改变边框颜色
+        $(".list_child").mouseover(function(){
+            $(this).css("border","1px solid #eda528");
+            //鼠标移上子元素背景图片隐藏
+            $(this).children(".rig_bor_bg").hide();
+        })
+        //鼠标移上恢复边框颜色
+        $(".list_child").mouseout(function(){
+            $(this).css("border","1px solid #dcdcdc");
+            //鼠标移上子元素背景图片显示
+            $(this).children(".rig_bor_bg").show();
+        })
+
+
+
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>环境检测-思途旅游CMS</title>
+<link type="text/css" rel="stylesheet" href="css/style.css" />
+<script language="javascript" src="js/jquery-1.8.3.min.js"></script>
+</head>
+
+<body>
+	<!--头部内容开始-->
+  <div class="header">
+    <div class="top_img">
+      <div class="con_img"><img class="fl" src="images/top_bg.gif" /></div>
+    </div>
+    <div class="top_logo">
+      <div class="con_logo">
+        <img class="fl" src="images/logo.gif" alt="思途旅游" />
+        <div class="txt">思途CMS v4.0</div>
+      </div>
+    </div>
+  </div>
+  <!--头部内容结束-->
+  
+  
+  <!--正文内容开始-->
+  <div class="content">
+  	<div class="width_700">
+    	<div class="con_big">
+      	<div class="title">检查安装环境</div>
+      	<div class="check_hj">
+        	<table width="658" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <th width="120" height="35" align="left" scope="col">项目</th>
+              <th width="120" height="35" align="left" scope="col">思途CMS所需配置</th>
+              <th width="120" height="35" align="left" scope="col">思途CMS最佳</th>
+              <th width="218" height="35" align="left" scope="col">当前服务器</th>
+            </tr>
+            <tr>
+              <td height="35" align="left">操作系统</td>
+              <td height="35" align="left">windows/类Unix</td>
+              <td height="35" align="left">类Unix</td>
+              <td height="35" align="left"><?php echo $sys_os; ?></td>
+            </tr>
+            <tr>
+              <td height="35" align="left">PHP 版本</td>
+              <td height="35" align="left">5.0以上</td>
+              <td height="35" align="left">5.3</td>
+              <td height="35" align="left"><?php echo $sys_php; ?></td>
+            </tr>
+            <tr>
+              <td height="35" align="left">附件上传</td>
+              <td height="35" align="left">不限制</td>
+              <td height="35" align="left">2M</td>
+              <td height="35" align="left"><?php echo $sys_uploadsize; ?></td>
+            </tr>
+            <tr>
+              <td height="35" align="left">GD 库</td>
+              <td height="35" align="left">2.0</td>
+              <td height="35" align="left">2.0</td>
+              <td height="35" align="left"><?php echo $sys_gd ; ?></td>
+            </tr>
+            <tr>
+              <td height="35" align="left">磁盘空间</td>
+              <td height="35" align="left">50M</td>
+              <td height="35" align="left">不限制</td>
+              <td height="35" align="left"><?php echo $sys_diskspace ; ?></td>
+            </tr>
+          </table>
+        </div>
+        <div class="check_hj">
+        	<table width="658" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <th width="338" height="35" align="left" scope="col">目录检测</th>
+              <th width="130" height="35" align="left" scope="col">所需状态</th>
+              <th width="130" height="35" align="left" scope="col">当前状态</th>
+            </tr>
+           <?php
+            foreach($testdirs as $d)
+			{
+			?>
+			<tr>
+					<td height="35"><?php echo $d; ?></td>
+                    <td height="35"><img src="images/yes_ico.png" />可写</td>
+					<?php
+                      $fulld = SLINEROOT.str_replace('/*','',$d);
+                      $wsta = TestWrite($fulld) ? '<img src="images/yes_ico.png" />可写' : '<img src="images/no_ico.png" class="nopass" />不可写';
+                      echo "<td height='35'>$wsta</td>\r\n";
+                    ?>
+			</tr>
+	   <?php } ?>
+          </table>
+        </div>
+        <div class="check_hj">
+        	<table width="658" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <th width="338" height="35" align="left" scope="col">函数名称</th>
+              <th width="130" height="35" align="left" scope="col">检查结果</th>
+              <th width="130" height="35" align="left" scope="col">建议</th>
+            </tr>
+            <tr>
+              <td height="35">mysql_connect</td>
+                <td height="35">
+              <?php
+                 if(function_exists('mysql_connect'))
+                 {
+                   $msg = '<img src="images/yes_ico.png" />支持';
+                   $mysqlpass = 1;
+                 }
+                 else
+                 {
+                   $msg = '<img src="images/no_ico.png" class="nopass" />不支持';
+                   $mysqlpass = 0;
+                 }
+                  
+                 echo $msg;
+               ?>
+             
+              </td>
+              <td height="35"><?php if($mysqlpass == 1)echo '无'; else "请配置php.ini,支持mysql" ?></td>
+            </tr>
+            
+             <tr>
+                    <td height="35">fscoket</td>
+                    <td height="35">
+                        <?php
+                 if(function_exists('fsockopen'))
+                 {
+                   $msg = '<img src="images/yes_ico.png"  />支持';
+                        $socketpass = 1;
+                        }
+                        else
+                        {
+                        $msg = '<img src="images/no_ico.png" class="nopass" />不支持';
+                        $socketpass = 0;
+                        }
+
+                        echo $msg;
+                        ?>
+
+                    </td>
+                    <td height="35"><?php if($socketpass == 1)echo '无'; else echo "请配置php.ini中allow_url_fopen 选项开启"; ?></td>
+             </tr>
+                <tr>
+                    <td height="35">curl</td>
+                    <td height="35">
+                        <?php
+                 if(function_exists('curl_init'))
+                 {
+                   $msg = '<img src="images/yes_ico.png"  />支持';
+                        $curl = 1;
+                        }
+                        else
+                        {
+                        $msg = '<img src="images/no_ico.png" class="" />不支持';
+                        $curl = 0;
+                        }
+
+                        echo $msg;
+                        ?>
+
+                    </td>
+                    <td height="35"><?php if($curl == 1)echo '无'; else echo "请配置php.ini选项开启"; ?></td>
+                </tr>
+          
+          </table>
+        </div>
+      	<div class="agree">
+        	<input type="button" class="yes" value="下一步" onclick="goNext()" />
+        	<input type="button" class="no" value="返回" />
+        </div>
+      	<div class="copy">Copyright © 2008-2015 梦旅程网络科技有限公司</div>
+      </div>
+    </div>
+  </div>
+  <!--正文内容结束-->
+  <script language="javascript">
+     function goNext(){
+	    if($('.nopass').length>0){
+		   alert("服务器配置未通过检测,不能继续安装,请确认更改后,再点'下一步'");
+		   return false;
+		}
+		else{
+		   window.location.href="index.php?step=3";
+		}
+	 
+	 }
+  </script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{sline:field.pageno/}{sline:field.seotitle/}-{sline:global.cfg_webname/}</title>
+    {sline:field.seokeyword/}
+    {sline:field.seodescription/}
+    <meta name="author" content="{sline:global.cfg_webname/}" />
+    <link href="/templets/smore/js/artDialog/skins/default.css" rel="stylesheet" media="screen" type="text/css">
+    {sline:php}Helper_Archive::getCss('base.css,question.css');{/sline:php}
+    {sline:php}Helper_Archive::getScript('jquery-1.8.3.min.js,common.js,jqueryValidation/dist/jquery.validate.min.js,artDialog/artDialog.js,question.index.js');{/sline:php}
+</head>
+
+<body>
+{sline:include file='public/header.htm'/}
+	<div class="big">
+  	<div class="width_1210">
+    
+    	<div class="wd_list_box">
+      	<div class="wd_tit">
+        	<h3>在线问答</h3>
+          <p>共{sline:global.totalcount/}个问题，已回答{sline:global.count/}个 <a href="#ask">我要提问</a></p>
+        </div>
+        <div class="wd_con">
+        	
+          <div class="faq_list">
+            <ul>
+                {sline:vlist name="list"}
+            	<li>
+              	<div class="tw_box">
+                	<div class="wt">
+                  	<strong>问题：</strong>
+                    <p>[field:title/]</p>
+                    <span><em>[field:nickname/]</em>发表于&nbsp;&nbsp;[field:addtime function="date('Y-m-d',@me)"/]</span>
+                  </div>
+                  <div class="nr">[field:content/]</div>
+                </div>
+                <div class="hf">
+                	<strong>回复：</strong>
+                    <div class="re-con">[field:replycontent function="cutstr_html(@me,50)"/]<a href="/questions/show_[field:id/].html" class="xx">【详细】</a></div>
+
+                  <span>回复时间：[field:replytime function="date('Y-m-d',@me)"/]</span>
+                </div>
+              </li>
+             {/sline:vlist}
+            </ul>
+            <div class="le-page">
+            {sline:global.pagestr/}
+            </div>
+          </div>
+            <form method="post" action="/leave/save" id="leave_fm">
+          <div class="online_box">
+          	<div class="onlie_tit">在线提问<a name="ask"></a></div>
+            <div class="online_con">
+            	<dl>
+              	<dt>问题标题</dt>
+                <dd>
+                	<input type="text" name="title" class="def_txt w500" /><span class="bt">*</span>
+                </dd>
+              </dl>
+            	<dl>
+              	<dt>内容</dt>
+                <dd><textarea name="content" cols="" rows=""></textarea><span class="bt">*</span></dd>
+              </dl>
+            	<dl>
+              	<dt>称呼</dt>
+                <dd>
+                	<input type="text" name="leavename" class="def_txt w200" value="{sline:php} echo $userinfo['nickname']; {/sline:php}" />
+                  <label>匿名<input type="checkbox" name="ishidename" value="1" /></label>
+                </dd>
+              </dl>
+            </div>
+          </div>
+          
+          <div class="contact_box">
+
+          	<div class="contact_tit"><h3>联系方式</h3><span class="least-one">请至少填写一种联系方式</span><span class="bt one-hint">*</span></div>
+            <div class="contact_con">
+            	<dl>
+              	<dt>电话</dt>
+                <dd>
+                	<input type="text" name="phone" class="def_txt w300"  value="{sline:php} echo $userinfo['mobile']; {/sline:php}" />
+                </dd>
+              </dl>
+            	<dl>
+              	<dt>邮箱</dt>
+                <dd>
+                	<input type="text" name="email" class="def_txt w300" value="{sline:php} echo $userinfo['email']; {/sline:php}" />
+                </dd>
+              </dl>
+            	<dl>
+              	<dt>QQ</dt>
+                <dd>
+                	<input type="text" name="qq" class="def_txt w300" value="" />
+                </dd>
+              </dl>
+            	<dl>
+              	<dt>微信</dt>
+                <dd>
+                	<input type="text" name="weixin"  class="def_txt w300" value="" />
+                </dd>
+              </dl>
+            	<dl>
+              	<dt>验证码</dt>
+                <dd>
+                	<input type="text" name="checkcode" class="def_txt w200" />
+                    <img class="wd_yzm" src="/include/vdimgck.php" width="80" height="30"  onclick="this.src='/include/vdimgck.php?rand='+Math.random()" />
+                </dd>
+              </dl>
+              <div class="tj_btn"><a href="javascript:;" id="submit_btn">提交</a></div>
+            </div>
+
+          </div>
+            </form>
+        </div>
+      </div>
+    
+    </div>
+
+  </div>
+
+{sline:include file='public/footer.htm'/}
+</body>
+</html>

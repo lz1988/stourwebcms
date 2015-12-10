@@ -1,0 +1,191 @@
+﻿<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>思途CMS - 安装说明</title>
+    <style>
+        a:link
+        {
+            color: #000000;
+            text-decoration: none;
+        }
+        a:visited
+        {
+            color: #000000;
+            text-decoration: none;
+        }
+        a:active
+        {
+            color: #000000;
+            text-decoration: underline;
+        }
+        a:hover
+        {
+            color: #000000;
+            text-decoration: underline;
+        }
+        .home_top
+        {
+            border-top: 2px solid #4798ED;
+        }
+        .home_path
+        {
+            background: #4798ED;
+            padding-right: 10px;
+            color: #F0F0F0;
+            font-size: 14px;
+        }
+        td, th, caption
+        {
+            font-family: "宋体";
+            font-size: 14px;
+            color: #000000;
+            line-height: 165%;
+        }
+        .hrLine
+        {
+            margin: 0px 0px;
+            border-bottom: #807d76 1px dotted;
+        }
+    </style>
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="00">
+    <table width="960" cellspacing="0" cellpadding="3" class="home_top" align="center">
+        <tr>
+            <td width="74%" style='padding-top: 3px;'>
+                <a href="http://www.stourweb.com" target="_blank">
+                    <img src="install/images/logo.GIF" alt="思途CMS"></a>
+            </td>
+            <td width="26%" valign="bottom" style='padding-top: 3px;'>
+                <a href="http://www.stourweb.com" target="_blank">官方网站</a> &nbsp;&nbsp;<a href="http://www.stourweb.com/help/"
+                    target="_blank">帮助中心</a>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <hr class="hrline" size="1">
+            </td>
+        </tr>
+        <tr>
+            <td height="2" colspan="2" class="home_path" style='padding-left: 10px;'>
+            </td>
+        </tr>
+        <tr>
+            <td height="10" colspan="2" align="center" bgcolor="F3F3F3">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" bgcolor="F3F3F3">
+                <b><font size="3">&nbsp;《思途CMS网站管理系统》安装说明</font></b>
+                <br>
+                <div align="left">
+                    <br>
+                    <font color="#154BA0" size="3"><strong>一. 运行环境需求:</strong></font><font size="3">&nbsp;
+                    </font>
+                    <br>
+                </div>
+                <table width="92%" border="0" align="center" cellpadding="3" cellspacing="1">
+                    <tr>
+                        <td>
+                            <font color="#333333">PHP5.2、5.3、5.4，php.ini中register_globals 设置为 Off，并需要开启php扩展：php_curl、php_mbstring、php_gd2、php_mysql、php_zip<br />
+                                MYSQL5.0以上，需要开启MYIASM和InnoDB引擎支持<br />
+                                伪静态功能的开启：IIS系列服务器，请安装isapi_rewrite3扩展（<a href="http://update.souxw.com/installerrelease/common/isapi_rewrite3.rar"
+                                    target="_blank">下载组件</a>）（<a href="http://www.stourweb.com/peixun/fangfa-356"
+                                    target="_blank">配置教程</a>）<br />
+                                    apache系列服务器，请开启伪静态支持（<a href="http://www.cnblogs.com/xiaochaohuashengmi/archive/2011/02/20/1958926.html"
+                                    target="_blank">配置教程</a>）<br /></font>
+                        </td>
+                    </tr>
+                </table>
+                <br>
+                <font color="#154BA0" size="3"><strong>二. 安装步骤:</strong></font><br>
+                <strong><font size="2">第 1 步：上传</font></strong><br>
+                <table width="90%" border="0" align="center" cellpadding="3" cellspacing="1">
+                    <tr>
+                        <td>
+                            <font color="#333333">将安装包目录中的全部文件和目录结构上传到服务器的网站<span style="color: red">根目录</span>（注意是上传目录中的所有文件和目录）。</font>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <br>
+                            <font color="#666666">其他说明：要安装在80端口，否则不能正常升级和正版验证。</font>
+                        </td>
+                    </tr>
+                </table>
+                <br>
+                <font size="2"><strong>第 2 步：设置目录属性</strong></font><br>
+                <table width="90%" border="0" align="center" cellpadding="3" cellspacing="1">
+                    <tr>
+                        <td>
+                            设置目录权限可以使用以下方法：<br>
+                            <li>你可以使用ftp软件将所有目录及其子目录、文件属性设置为777。</li>
+                            <br>
+                            <li>linux平台下你有shell权限则通过执行chmod来修改目录权限。</li>
+                            <br>
+                            <li>windows平台下需要给目录分配IIS帐号读写权限。</li>
+                        </td>
+                    </tr>
+                </table>
+                <br>
+                <font size="2"><strong>第 3 步：执行安装脚本</strong></font>
+                <table width="90%" border="0" align="center" cellpadding="3" cellspacing="1">
+                    <tr>
+                        <td>
+                            <li>在执行网站之前，我们需要给当前网站的默认首页设置成<span style="color: red">index.php</span>。</li><br>
+                            <li>在浏览器中访问你的域名（网址）,如果默认首页index.php设置成功，域名（网址）会跳转到<br>
+                                <span style="color: red">&nbsp;http://你的域名（网址）/install/index.php</span></li><br>
+                            <li>安装脚本会检查您的服务器系统环境、数据库环境，并具备一定的纠错功能。如果您在之前某一步骤操作有问题，通常安装脚本会发现并作以提示，请您根据提示再对安装过程进行检查。如果没有提示出问题，请您按照其中的说明，完成最后的安装。</li>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <br>
+                            填写参数时注意以下几点：<br>
+                            <li>若不清楚mysql服务器地址，用户名，密码，数据库名可向虚拟空间提供商咨询。</li>
+                            <br>
+                            <li>填写管理员信息时设置一个安全且不易忘记的密码。</li>
+                        </td>
+                    </tr>
+                </table>
+                <br>
+                <br>
+                <font size="2"><strong>第 4 步：初始化设置</strong></font>
+                <table width="90%" border="0" align="center" cellpadding="3" cellspacing="1">
+                    <tr>
+                        <td>
+                            安装完成后，在浏览器中访问 http://你的域名(网址)/newtravel/ 页面，输入正确的用户名和密码就可登陆后台管理。
+                        </td>
+                    </tr>
+                </table>
+                <div align="center">
+                    <br>
+                    <img src="install/images/cms.png" style="width: 878px; height: 424px;">
+                    <br>
+                </div>
+                <p>
+                    <font color="#154BA0" size="3"><strong>三. 至此，思途CMS网站管理系统全部安装完毕。</strong></font>
+                    <br>
+                    <br>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td height="10" colspan="2" align="center" bgcolor="F3F3F3">
+            </td>
+        </tr>
+        <tr>
+            <td height="2" colspan="2" class="home_path" style='padding-left: 10px;'>
+            </td>
+        </tr>
+        <tr>
+            <td height="10" colspan="2" align="center">
+            </td>
+        </tr>
+        <tr>
+            <td height="24" colspan="2" align="center" valign="bottom" style="line-height: 150%">
+                成都梦旅程网络科技有限公司（荣誉产品）思途 旅游CMS系统 版权所有<br>
+                <font face="Arial, Helvetica, sans-serif">2007 - 2015 &copy; Stourweb 蜀ICP备 08009168号-6</font><br>
+                <br>
+            </td>
+        </tr>
+    </table>

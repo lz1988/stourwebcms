@@ -1,0 +1,277 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>{sline:field.seotitle/}-{sline:global.cfg_webname/}</title>
+    <meta name="keywords" content="{sline:field.seokeyword/}"/>
+    <meta name="description" content="{sline:field.seodescription/}"/>
+    <meta name="author" content="{sline:global.cfg_webname/}" />
+    {sline:php}Helper_Archive::getCss('base.css,ctripspot.css','2015.02');{/sline:php}
+    {sline:php}Helper_Archive::getScript('jquery-1.8.3.min.js,common.js');{/sline:php}
+</head>
+
+<body style="font-family:'微软雅黑','黑体','宋体'">
+{sline:include file='public/header.htm'/}
+<div class="big">
+	<div class="width_1210">
+		<div class="line_con_left">
+		  <div class="top_search2">
+            	<div class="top_search_left">
+            	  <a >门票查询</a>
+           	  	</div>
+              <div class="top_search_right">
+              <input class="search_txt" type="text" name="searchkey" placeholder="请输入目的地"  id="searchkey"  value="" />
+              <input class="search_button" type="button" id="btn_search" value="搜 索" >
+
+           	  </div>
+			</div>
+
+          <div class="serach_menu">
+
+              {sline:if var='_haskeyword'}
+              <div class="newse_filter" id="chosenFilterContainer">
+
+                  <div class="cate_select">
+                      <a href="/spots/ctrip.php" class="clear">全部清除</a>您已选择
+                       {sline:vlist name='keywordlist'}
+                        <a href="javascript:;"  data-item="[field:keywordtag/]" class="select"><span>
+            [field:type/]</span>[field:keyword/]</a>
+                       {/sline:vlist}
+
+
+
+                  </div>
+
+              </div>
+             {/sline:if}
+            {sline:if var='_haszone'}
+           	 <dl>
+            	<dt>目的地：</dt>
+            	<dd>
+                <span class="sp_1">
+                	<a class="on" href="/spots/ctrip.php?k2={sline:global.k2/}&k3={sline:global.k3/}">全部</a>
+                </span>
+                <span class="sp_2">
+                    {sline:vlist name='zone'}
+                	 <a href="/spots/ctrip.php?k1=[field:LabelText/]&k2=[field:global.k2/]&k3=[field:global.k3/]">[field:LabelText/]([field:Count/])</a>
+                    {/sline:vlist}
+
+                    <span class="more_btn" {sline:global.haszonemore runphp='yes'}if(empty(@me))@me="style='display:none'";{/sline:global.haszonemore}>
+                    <input type="button" name="" class="show_unfold" value="更多">
+                    </span>
+                </span>
+                </dd>
+           	 </dl>
+            {/sline:if}
+            {sline:if var='_hasjingqu'}
+              <dl>
+            	<dt>景区：</dt>
+            	<dd>
+                <span class="sp_1">
+                	<a class="on" href="/spots/ctrip.php?k1={sline:global.k1/}&k3={sline:global.k3/}">全部</a>
+                </span>
+                <span class="sp_2">
+                    {sline:vlist name='jingqu'}
+                	 <a href="/spots/ctrip.php?k1=[field:global.k1/]&k2=[field:LabelText/]&k3=[field:global.k3/]">[field:LabelText/]([field:Count/])</a>
+                    {/sline:vlist}
+                     <span class="more_btn" {sline:global.hasjingqumore runphp='yes'}if(empty(@me))@me="style='display:none'";{/sline:global.hasjingqumore}>
+                    <input type="button" name="" class="show_unfold" value="更多">
+                    </span>
+                </span>
+                </dd>
+           	 </dl>
+              {/sline:if}
+              {sline:if var='_hasspotkind'}
+             <dl>
+
+            	<dt>景区主题：</dt>
+            	<dd>
+                <span class="sp_1">
+                	<a class="on" href="/spots/ctrip.php?k1={sline:global.k1/}&k2={sline:global.k2/}">全部</a>
+                </span>
+                <span class="sp_2">
+                    {sline:vlist name='spotkind'}
+                	  <a href="/spots/ctrip.php?k1=[field:global.k1/]&k2=[field:global.k2/]&k3=[field:LabelText/]">[field:LabelText/]</a>
+                    {/sline:vlist}
+                     <span class="more_btn" {sline:global.hasspotkindmore runphp='yes'}if(empty(@me))@me="style='display:none'";{/sline:global.hasspotkindmore}>
+                    <input type="button" name="" class="show_unfold" value="更多">
+                    </span>
+
+                </span>
+                </dd>
+           	 </dl>
+             {/sline:if}
+
+            </div>
+          {sline:vlist name='spotlist'}
+            <div class="attractions_list">
+          	<div class="attractions_list_t">
+          		<div class="attractions_list_t_l">
+                	<div class="attractions_list_t_l_pic">
+                  		<a href="/spots/ctrip.php?action=show&productid=[field:ID/]" target="_blank"><img src="[field:Image/]" width="150" height="90"/></a>
+                	</div>
+                    <div class="attractions_list_t_l_text">
+                    <h4> <a href="/spots/ctrip.php?action=show&productid=[field:ID/]" target="_blank"> [field:Name/] </a></h4>
+                    <p>地址：[field:Address/]</p>
+                    <p>特色：[field:ProductManagerRecommand/]</p>
+                    </div>
+          		
+          		</div>
+                <div class="attractions_list_t_r">
+                	<div class="attractions_list_t_r_top">
+                     <a> [field:CommentGrade/]分</a>
+                	</div>
+                    <div class="attractions_list_t_r_down">
+                    <a class="showdetail" target="_blank" href="/spots/ctrip.php?action=show&productid=[field:ID/]">查看详细>></a>
+                    </div>
+                </div>
+          	</div>
+           <div class="attractions_list_c_t">
+         	 <table width="920" height="30">
+          		<tr>
+          		<td width="530">
+          		<a> 标题</a>
+          		</td>
+         		 <td width="150">
+          		<a> 票面价</a>
+          		</td>
+          		<td width="240">
+          		<a> 优惠价</a>
+          		</td>
+          		</tr>
+         	 </table>
+          </div>
+          <div class="attractions_type">
+
+             <div class="attractions_type_list">
+             	[field:suitlist function="CtripTicket::getTicketList(@me)"/]
+
+                <div class="attractions_b">
+                <a href="javascript:;" class="show_all_suit">查看全部（[field:suitlist function="count(@me)"/]）<img src="/templets/smore/images/zhankai.png" /></a>
+                </div>
+             </div>
+          </div>
+          </div>
+          {/sline:vlist}
+          <div class="pkg_page basefix">
+
+              <a href="javascript:;" class="up"><b></b>上一页</a>
+              <a href="javascript:;" class="down">下一页<b></b></a>
+
+          </div>
+
+		</div>
+        <div class="line_con_rig">
+            {sline:getrightcontent pagename='index'/}
+        </div>
+	</div>
+</div>
+<!-- 中间内容结束 -->
+
+{sline:include file='public/help.htm'/}
+
+{sline:include file='public/footer.htm'/}
+
+{sline:include file='public/flink.htm'/}
+
+<script src="/templets/smore/js/layer/layer.min.js"></script>
+
+<input type="hidden" id="k1" value="{sline:global.k1/}">
+<input type="hidden" id="k2" value="{sline:global.k2/}">
+<input type="hidden" id="k3" value="{sline:global.k3/}">
+<input type="hidden" id="page" value="{sline:global.page/}">
+<input type="hidden" id="pagecount" value="{sline:global.pagecount/}">
+
+<script>
+    $(function(){
+        //更多查看
+        $('.show_unfold').click(function(){
+            var label = $(this).val();
+            if(label=='更多'){
+                $(this).parents('.sp_2').attr('style','height:auto');
+                $(this).val('收起');
+            }
+            else{
+                $(this).parents('.sp_2').removeAttr('style');
+                $(this).val('更多');
+            }
+
+        })
+
+        //去除已选
+        $('.cate_select').find('.select').click(function(){
+            var k = $(this).attr('data-item');
+            $("#"+k).val('');
+
+            var k1=$("#k1").val();
+            var k2=$("#k2").val();
+            var k3=$("#k3").val();
+            var url = siteUrl+'spots/ctrip.php?k1='+k1+'&k2='+k2+'&k3='+k3;
+            window.open(url,'_self');
+
+
+        })
+        //搜索按钮
+        $(".search_button").click(function(){
+            var searchkey = $("#searchkey").val();
+            if(searchkey==''){
+                $("#searchkey").focus();
+                layer.tips('请输入关键词', $("#searchkey")[0] , {guide: 2, time: 2});
+            }
+            else{
+                var url = siteUrl+'spots/ctrip.php?k1='+searchkey;
+                window.open(url,'_self');
+            }
+        })
+        //查看全部套餐
+        $('.show_all_suit').click(function(){
+            $(this).parents('.attractions_type_list').first().find("dl:gt(5)").toggle();
+        })
+
+        //查看详细
+        $('.suit_ding').click(function(){
+
+            var url =$(this).parents('.attractions_list').first().find('.showdetail').attr('href');
+            window.open(url);
+
+        })
+        //翻页
+        $('.pkg_page').find('.up').click(function(){
+            var page = Number($('#page').val());
+            if(page==1)return false;
+            else{
+                page = page-1;
+                page = page <= 0 ? 1 : page;
+                var k1=$("#k1").val();
+                var k2=$("#k2").val();
+                var k3=$("#k3").val();
+                var url = siteUrl+'spots/ctrip.php?k1='+k1+'&k2='+k2+'&k3='+k3+'&page='+page;
+                window.open(url,'_self');
+
+            }
+        })
+        //下页
+        $('.pkg_page').find('.down').click(function(){
+
+            var page = Number($('#page').val());
+            var pagecount = Number($('#pagecount').val());
+            if(page==pagecount)return false;
+            else{
+                page = page+1;
+                page = page >= pagecount ? pagecount : page;
+                var k1=$("#k1").val();
+                var k2=$("#k2").val();
+                var k3=$("#k3").val();
+                var url = siteUrl+'spots/ctrip.php?k1='+k1+'&k2='+k2+'&k3='+k3+'&page='+page;
+                window.open(url,'_self');
+
+            }
+
+
+        })
+
+
+    })
+</script>
+</body>
+</html>

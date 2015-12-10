@@ -1,0 +1,1 @@
+<a href="[field:url/]" target="_blank" data-id="[field:id/]">[field:title/]</a>

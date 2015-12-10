@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{sline:field.servername/}-{sline:global.cfg_webname/}</title>
+{sline:php}Helper_Archive::getCss('base.css,help.css');{/sline:php}
+{sline:php}Helper_Archive::getScript('jquery-1.8.3.min.js,common.js');{/sline:php}
+</head>
+
+<body>
+	{sline:include file='public/header.htm'/}
+  
+  <!-- 中间内容开始 -->
+  <div class="big">
+  	<div class="width_1210">
+    	<!-- 面包屑and订单开始 -->
+    	<div class="top_first">
+      	<div class="crumbs"><a href="{sline:global.cfg_basehost/}">{sline:global.cfg_indexname/}</a> &gt; {sline:field.servername/} </div>
+       {sline:include file='public/scroll_order.htm'/}
+      </div>
+      <!-- 面包屑and订单结束 -->
+    
+    	<div class="help_left">
+      	
+        <ul>
+          {sline:serverlist}
+            <li><a href="[field:url/]" [field:aid runphp='yes']if(@me == $GLOBALS['aid']) @me='class="active"';else @me='';[/field:aid]>[field:servername/]</a></li>
+          
+         {/sline:serverlist}
+        </ul>
+      </div>
+      
+      <div class="help_rig">
+      	<h3 class="help_title">{sline:field.servername/}</h3>
+				<div class="show_con">
+                  {sline:field.content/}
+                </div>
+      </div>
+      
+    </div>
+  </div>
+  <!-- 中间内容结束 -->
+  {sline:include file='public/help.htm'/}
+  
+  {sline:include file='public/footer.htm'/}
+  
+</body>
+</html>

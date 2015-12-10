@@ -1,0 +1,1 @@
+<a href="javascript:;" data-suitid="[field:id/]">[field:title/]</a>

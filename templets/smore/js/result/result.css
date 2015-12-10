@@ -1,0 +1,6 @@
+/* CSS Document */
+.result{ border:1px solid #dcdcdc; background:#fff;}
+.result li{ height:25px; line-height:25px; cursor:pointer; text-align:left; text-indent:5px; border-bottom:1px dashed #dcdcdc;}
+.result li.over{ background:#dcdcdc;}
+.result li b{ color:#f00;}
+

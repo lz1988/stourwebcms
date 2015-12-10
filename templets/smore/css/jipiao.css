@@ -1,0 +1,701 @@
+@charset "utf-8";
+.jp_con_left{
+	float:left;
+	width:960px;
+	margin-top:10px;
+	font-family:"微软雅黑"}
+.jp_query_header{
+	float:left;
+	width:918px;
+	padding:20px;
+	border:1px solid #e5e5e5;
+	background:#fbfdfb}
+.jp_query_header .jp_tit{
+	float:left;
+	width:918px;
+	height:28px;
+	text-align:center;
+	font-size:0;
+	background:url(../images/jpchaxun-tit.png) center no-repeat}
+.jp_con_right{
+    float: right;
+    width: 240px;
+    height: auto;
+    margin-top: 10px}
+
+/*国内国际切换*/
+#tabs{
+	float:left;
+	width:918px}  
+#tabs dt{
+	float:left;
+	width:918px;
+	height:30px;
+	border-bottom:1px solid #e5e5e5}  
+#tabs dt span{
+	float:left;
+	color:#434343;
+	height:30px;
+	line-height:30px;
+	padding:0 25px;
+	margin-right:2px;
+	font-size:16px;
+	cursor:pointer;
+	background:#dcdcdc;
+	border-top-left-radius:5px;
+	border-top-right-radius:5px;
+	-webkit-border-top-left-radius:5px;
+	-webkit-border-top-right-radius:5px;
+	-moz-border-top-left-radius:5px;
+	-moz-border-top-right-radius:5px;
+	-ms-border-top-left-radius:5px;
+	-ms-border-top-right-radius:5px}
+#tabs dt span.on{
+	color:#fff;
+	background:#23a106}
+#tabs dd{
+	float:left;
+	width:916px;
+	padding-top:30px}
+.iCheckBox{
+	float:left;
+	width:120px;
+	padding:30px 0;
+	border-right:1px solid #e5e5e5}
+.iCheckBox label{
+	cursor:pointer;
+	display:block;
+	height:26px;
+	line-height:26px;
+	margin:5px 0}
+.hangban_box{
+	float:left;
+	width:260px;
+	margin-left:30px;
+	position:relative}
+.cf_city,
+.dd_city,
+.cf_date,
+.dd_date{
+	float:left;
+	width:260px;
+	margin:5px 0}
+.cf_city span,
+.dd_city span,
+.cf_date span,
+.dd_date span{
+	color:#4e5662;
+	display:block;
+	height:22px;
+	line-height:22px;
+	font-family:"宋体"}
+.cf_city .cf_box,
+.dd_city .dd_box,
+.cf_date .cf_box,
+.dd_date .dd_box{
+	float:left;
+	display:block;
+	width:250px;
+	height:28px;
+	line-height:28px;
+	background:none;
+	border:1px solid #c3c3c3;
+	border-radius:3px;
+	-moz-border-radius:3px;
+	-ms-border-radius:3px;
+	-webkit-border-radius:3px;
+	box-shadow:0 1px 5px #ddd inset}
+.huan_box{
+	position:absolute;
+	left:255px;
+	top:42px;
+	width:13px;
+	height:60px;
+	border:2px solid #65b71f;
+	border-left:0}
+.huan_box span{
+	float:right;
+	display:block;
+	color:#fff;
+	width:20px;
+	line-height:20px;
+	text-align:center;
+	cursor:pointer;
+	margin:20px -11px 0 0;
+	background:#65b71f;
+	border-radius:50%;
+	-moz-border-radius:50%;
+	-ms-border-radius:50%;
+	-webkit-border-radius:50%;}
+.now_cx_btn{
+	float:left;
+	width:150px;
+	height:40px;}
+.now_cx_btn a{
+	float:left;
+	color:#fff;
+	width:150px;
+	height:40px;
+	line-height:40px;
+	font-size:16px;
+	margin:50px 0 0 20px;
+	text-align:center;
+	background:#65b71f;
+	border-radius:3px;
+	-moz-border-radius:3px;
+	-ms-border-radius:3px;
+	-webkit-border-radius:3px}
+.now_cx_btn a:hover{
+	background:#6ac31e}
+.hb_msg_con{
+	float:left;
+	width:960px;
+	margin-top:20px}
+.top_hb_msg{
+	float:left;
+	width:960px;
+	height:33px;}
+.top_hb_msg .cfd{
+	margin-left:20px;}
+.top_hb_msg .cfd,
+.top_hb_msg .mdd{
+	float:left;
+	color:#333;
+	height:33px;
+	line-height:33px;
+	font-size:18px}
+.top_hb_msg .hb_tb_bg{
+	float:left;
+	width:42px;
+	height:33px;
+	line-height:33px;
+	padding:0 10px;
+	background:url(../images/hb-dancheng.png) center no-repeat}
+.top_hb_msg .time{
+	color:#999;
+	height:33px;
+	line-height:33px;
+	font-size:14px;
+	margin-left:30px}
+.top_hb_msg p{
+	float:right;
+	height:33px;
+	line-height:33px;
+	color:#666}
+.calendar_tab{
+	float:left;
+	width:960px;
+	margin-top:20px}
+.calendar_tab .prev_date, .calendar_tab .next_date {
+	width:18px;
+	background-color:#FFF;
+	border-bottom:1px solid #3D95EC}
+.calendar_tab .prev_date, .calendar_tab .next_date, .calendar_tab .panel_link {
+	float:left;
+	height:49px;
+	margin:0 -1px 0 0;
+	text-align:center;
+	background:#fbfdfb;
+	border:1px solid #e5e5e5;
+	border-bottom:1px solid #58b743;
+	cursor:pointer}
+.calendar_tab .prev_date a, .calendar_tab .next_date a {
+	overflow: hidden}
+.calendar_tab a {
+	display:block;
+	height:100%}
+.arrow_left b {
+	border-left:0 none transparent;
+	border-right:8px solid #23a106}
+.calendar_tab .prev_date b, .calendar_tab .next_date b {
+	vertical-align:-18px}
+.arrow_left b, .arrow_right b, .arrow_left_disable b, .arrow_left_disable:hover b, .arrow_right_disable b, .arrow_right_disable:hover b {
+	display:inline-block;
+	border-top:8px solid #f2f9ff;
+	border-bottom:8px solid #f2f9ff;
+	line-height:0}
+.arrow_right b {
+	border-right:0 none transparent;
+	border-left:8px solid #23a106}
+.calendar_tab_list {
+	width:920px;
+	height:51px;
+	float:left;
+	position:relative;
+	overflow:hidden}
+.calendar_ul{
+	position:absolute;
+	left:0;
+	top:0;
+	height:51px}
+.calendar_ul li {
+	float: left;
+	width: 135px;
+	height: 49px;
+	margin: 0 -1px 0 0;
+	text-align: center;
+	background: #fbfdfb;
+	border:1px solid #e5e5e5;
+	border-bottom:1px solid #58b743;
+	cursor: pointer}
+.calendar_ul .current {
+	position: relative;
+	top: 0;
+	width: 137px;
+	height: 49px;
+	background: #fff;
+	border-width: 2px 1px 0;
+	border-color: #58b743}
+.calendar_ul span {
+	display: block;
+	text-align: center}
+.calendar_ul .calendar_date {
+	color: #666;
+	font-weight: bold;
+	padding-top: 4px}
+.base_price02 {
+	margin-top:5px;
+	font-size: 17px;
+	color: #FF6600;
+	line-height: 100%}
+.base_price02 dfn {
+	font-size: 12px;
+	color: #333;
+	font-family: Arial,Simsun;
+	vertical-align: top;
+	margin-right: 2px;
+	font-style:normal}
+.designate_con{
+	float:left;
+	width:956px;
+	height:100px;
+	margin-top:10px;
+	border:2px solid #6bc2ff}
+.designate_con h3{
+	float:left;
+	width:956px;
+	height:30px;
+	line-height:30px;
+	font-family:"宋体";
+	font-size:12px;
+	background:#f5f5f5}
+.designate_con h3 .sp_1{
+	float:left;
+	margin-left:10px;
+	padding-left:25px;
+	background:url(../images/quc_qd_ico.png) left no-repeat}
+.designate_con h3 .sp_2{
+	float:left;
+	margin-left:20px;
+	font-weight:500}
+.designate_con h3 .sp_2 em{
+	padding-right:10px;
+	font-style:normal;
+	font-weight:bold}
+.designate_con table{
+	float:left;
+	width:956px;}
+.designate_con table td span{
+	display:block;}
+.designate_con table td .revise-btn{
+	float:right;
+	display:block;
+	color:#23a106;
+	width:80px;
+	height:22px;
+	line-height:22px;
+	text-align:center;
+	margin-right:17px;
+	border:1px solid #d6d6d6;
+	background:#f7f7f7;
+	border-radius:3px;
+	-moz-border-radius:3px;
+	-ms-border-radius:3px;
+	-webkit-border-radius:3px}
+.designate_con table td .hk_name,
+.designate_con table td .hk_jx{
+	color:#666;
+	margin:5px 0 0 20px}
+.designate_con table td .hk_jx{
+	margin-left:45px}
+.designate_con table td .hk_jx b{
+	color:#319619;
+	text-decoration:underline}
+.designate_con table td .dc{
+	width:42px;
+	height:9px;
+	margin:0 auto;
+	background:url(../images/hb-dancheng.png) center no-repeat}
+.designate_con table td .cf_time{
+	font-size:18px;
+	text-align:right}
+.designate_con table td .dd_time{
+	font-size:18px;
+	text-align:left}
+.designate_con table td .cf_jc{
+	color:#333;
+	font-size:12px;
+	text-align:right}
+.designate_con table td .dd_jc{
+	color:#333;
+	font-size:12px;
+	text-align:left}
+.designate_con table td .price b{
+	color:#f55c00;
+	font-size:24px;}
+.designate_con table td .price b s{
+	font-size:16px;}
+.loadmore{
+    float:left;
+    width:960px;
+    color:#999;
+    line-height:40px;
+    font-size:20px;
+    padding:20px 0;
+    text-align:center}
+.flight_list_con{
+	float:left;
+	width:960px;}
+.search_table{
+	float:left;
+	width:100%;
+	margin-top:10px}
+.search_table tr{
+	display:none}
+.search_table tr:hover{
+	background:#f9f9f9}
+.search_table td{
+	border-bottom:1px dashed #e5e5e5}
+.search_table td span{
+	display:block;
+	height:24px;
+	line-height:24px}
+.search_table td .cf_time{
+	color:#333;
+	font-weight:bold;
+	font-size:14px;
+	padding-left:20px}
+.search_table td .dd_time{
+	color:#333;
+	font-size:14px;
+	padding-left:20px}
+.fj_jx b{
+	font-weight:bold;
+	font-size:14px}
+.jh_jx{
+	padding-left:25px}
+.jh_jx b{
+	color:#319619;
+	text-decoration:underline}
+.cf_jc,
+.dd_jc,
+.fj_jx,
+.jh_jx,
+.cx,
+.tj_num,
+.ck_num,
+.hk_name,
+.hk_jx{
+	font-family:"宋体"}
+.tj_num b{
+	color:#f55c00;
+	font-size:20px;
+	font-weight:bold;
+	font-family:"微软雅黑"}
+.tj_num b s{
+	font-size:16px;
+	font-weight:500}
+.ck_num{
+    position:relative}
+.ck_num .box_none,
+.jh_jx .box_none{
+    display:none;
+    color:#555;
+    border:1px solid #ddd;
+    background:#fff;
+    padding:5px 10px 10px;
+    width:300px;
+    line-height:20px;
+    position:absolute;
+    top:24px;
+    z-index:999}
+.ck_num .box_none p,
+.jh_jx .box_none p{
+    text-align: left;
+    margin-top:5px}
+.ck_num .box_none em,
+.jh_jx .box_none em{
+    font-style:normal;
+    color:#333;
+    font-weight:bold}
+.ck_num .box_none{
+    left:35px;}
+.jh_jx .box_none{
+    left:80px;}
+.ck_num b{
+    color:#319619;
+    cursor:pointer;
+    padding-left:10px}
+.yd_btn,
+.more_cw{
+	float:right;
+	margin-right:20px}
+.yd_btn,
+.yd_btn a{
+	display:block;
+	color:#fff;
+	width:64px;
+	height:24px;
+	line-height:24px;
+	text-align:center;
+	background:#65b71f;
+	border-radius:3px;
+	-moz-border-radius:3px;
+	-ms-border-radius:3px;
+	-webkit-border-radius:3px;}
+.yd_btn a:hover{
+	color:#fff;
+	background:#6bc31f}
+.more_cw,
+.more_cw a{
+	color:#65b71f;
+	display:block;
+	width:64px;
+    text-align: left;
+	height:24px;
+	line-height:24px;}
+.more_cw a.up{
+	background:url(../images/arrow-up.png) right no-repeat}
+.more_cw a.down{
+	background:url(../images/arrow-down.png) right no-repeat}
+
+/*航空图标*/
+.pubFlights_3u,.pubFlights_8c,.pubFlights_8l,.pubFlights_bk,.pubFlights_ca,.pubFlights_cn,.pubFlights_cz,.pubFlights_eu,.pubFlights_fm,.pubFlights_g5,.pubFlights_gs,.pubFlights_ho,.pubFlights_hu,.pubFlights_kn,.pubFlights_mf,.pubFlights_mu,.pubFlights_ns,.pubFlights_pn,.pubFlights_sc,.pubFlights_zh,.pubFlights_vd,.pubFlights_jr,.pubFlights_ky,.pubFlights_tv,.pubFlights_9c,.pubFlights_jd,.pubFlights_g8,.pubFlights_gj,.pubFlights_dz,.pubFlights_yi,.pubFlights_qw,.pubFlights_dr,.pubFlights_uq,.pubFlights_fu,.pubFlights_aq
+{
+	padding-left:25px;
+	padding-bottom:2px;
+	background-color:transparent;
+	background-image:url(../images/pic_flightsdomesticlogo_20141103.png);
+	background-repeat:no-repeat;
+	text-align:left;
+	line-height:15px;
+}
+
+.pubFlights_3u
+{
+	background-position:0 0;
+}
+
+.pubFlights_8c
+{
+	background-position:0 -32px;
+}
+
+.pubFlights_8l
+{
+	background-position:0 -64px;
+}
+
+.pubFlights_bk
+{
+	background-position:0 -96px;
+}
+
+.pubFlights_ca
+{
+	background-position:0 -128px;
+}
+
+.pubFlights_cn
+{
+	background-position:0 -160px;
+}
+
+.pubFlights_cz
+{
+	background-position:0 -192px;
+}
+
+.pubFlights_eu
+{
+	background-position:0 -224px;
+}
+
+.pubFlights_fm
+{
+	background-position:0 -256px;
+}
+
+.pubFlights_g5
+{
+	background-position:0 -288px;
+}
+
+.pubFlights_gs
+{
+	background-position:0 -320px;
+}
+
+.pubFlights_ho
+{
+	background-position:0 -352px;
+}
+
+.pubFlights_hu
+{
+	background-position:0 -384px;
+}
+
+.pubFlights_kn
+{
+	background-position:0 -416px;
+}
+
+.pubFlights_mf
+{
+	background-position:0 -448px;
+}
+
+.pubFlights_mu
+{
+	background-position:0 -480px;
+}
+
+.pubFlights_ns
+{
+	background-position:0 -512px;
+}
+
+.pubFlights_pn
+{
+	background-position:0 -544px;
+}
+
+.pubFlights_sc
+{
+	background-position:0 -576px;
+}
+
+.pubFlights_zh
+{
+	background-position:0 -608px;
+}
+
+.pubFlights_vd
+{
+	background-position:0 -640px;
+}
+
+.pubFlights_jr
+{
+	background-position:0 -672px;
+}
+
+.pubFlights_ky
+{
+	background-position:0 -704px;
+}
+
+.pubFlights_tv
+{
+	background-position:0 -736px;
+}
+
+.pubFlights_9c
+{
+	background-position:0 -768px;
+}
+
+.pubFlights_jd
+{
+	background-position:0 -800px;
+}
+
+.pubFlights_g8
+{
+	background-position:0 -832px;
+}
+
+.pubFlights_gj
+{
+	background-position:0 -864px;
+}
+
+.pubFlights_dz
+{
+	background-position:0 -896px;
+}
+
+.pubFlights_yi
+{
+	background-position:0 -928px;
+}
+
+.pubFlights_qw
+{
+	background-position:0 -960px;
+}
+
+.pubFlights_dr
+{
+	background-position:0 -992px;
+}
+
+.pubFlights_uq
+{
+	background-position:0 -1024px;
+}
+
+.pubFlights_fu
+{
+	background-position:0 -1056px;
+}
+
+.pubFlights_aq
+{
+	background-position:0 -1088px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

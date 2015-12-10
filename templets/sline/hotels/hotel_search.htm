@@ -1,0 +1,190 @@
+<!doctype html>
+<html>
+<head>
+<title>{sline:field.pageno/}{sline:field.searchtitle/}-{sline:global.cfg_webname/}</title>
+{sline:field.seokeyword/}
+{sline:field.seodescription/}
+<meta name="author" content="{sline:global.cfg_webname/}" />
+{sline:php}Helper_Archive::getCss('base.css,hotel.css');{/sline:php}
+{sline:php}Helper_Archive::getScript('jquery-1.8.3.min.js,common.js,hotel.js,hotel.search.js');{/sline:php}
+</head>
+
+<body>
+	
+   {sline:include file='public/header.htm'/}
+  <!-- 中间内容开始 -->
+  <div class="big">
+  	<div class="width_1210">
+    	<!-- 面包屑and滚动订单开始 -->
+    	<div class="top_first">
+      	<div class="crumbs"><a href="{sline:global.cfg_basehost/}">{sline:global.cfg_indexname/}</a>{sline:field.pkname/}</div>
+        {sline:include file='public/scroll_order.htm'/}
+       
+      </div>
+      <!-- 面包屑and滚动订单结束 -->
+      
+      <!--顶部介绍开始-->
+      <div class="hotel_top_menu">
+        <h1><span>{sline:field.dest_name/}酒店</span><s></s></h1>
+        <div class="serve_menu">
+
+        </div>
+      </div>
+         
+      <!--顶部介绍结束-->
+      
+     
+      
+      <!--边栏开始-->
+    	<div class="line_con_rig">
+
+           {sline:getrightcontent pagename='search'/}
+        
+      </div>
+      <!--边栏结束-->
+      
+      <div class="hotel_con_rig">
+      	<!--隐藏栏目介绍开始-->
+      	<div class="sm_txt">
+      		  {sline:field.dest_jieshao/}
+     	  </div>
+        <!--隐藏栏目介绍结束-->
+      	<!--热卖开始-->
+      	<div class="hot_time">
+        	<h3>热卖推荐</h3>
+          {sline:gethotellist type='mdd' flag='recommend' row='3'}
+           <div class="tj_box">
+          	<div class="tj_img"><a class="fl" href="[field:url/]" target="_blank"><img class="fl" src="[field:lit160/]" width="140" height="100" alt="说明" /></a></div>
+            <div class="tj_txt"><a href="[field:url/]" target="_blank">[field:title/]</a><span>[field:sellpoint/]</span></div>
+            <div class="tj_pre">
+            	<span>[field:price2/]</span>
+              <a href="[field:url/]" target="_blank">立即抢购</a>
+            </div>
+          </div>
+          {/sline:gethotellist}
+        
+       
+        </div>
+        <!--热卖结束-->
+      	<!--搜索条件开始-->
+      	<div class="serach_menu">
+        	<div class="search_bt"><span>{sline:field.dest_name/}</span>  酒店筛选</div>
+                <dl>
+                <dt>目的地：</dt>
+                <dd id="destid_list">
+                  <span class="sp_1"><a href="/hotels/" data-field="destid" data-value="0" >全部</a></span>
+                  <span class="sp_2">
+                    {sline:vlist name='destlist'}
+                     <a href="[field:id function=getSearchUrl(@me,'dest_id')/]" data-field="destid" data-value="[field:id/]" >[field:kindname/]</a>
+                    {/sline:vlist}
+                    
+                  </span>
+                </dd>
+              </dl>
+          <dl>
+          	<dt>酒店档次：</dt>
+            <dd id="rank_list">
+              <span class="sp_1"><a class="on" data-field="rankid" data-value="0" href="{sline:global.rankid function=getSearchUrl(0,'rankid')/}">全部</a></span>
+              <span class="sp_2">
+                {sline:gethotelguide flag='rank'}
+              	  <a href="[field:id function=getSearchUrl(@me,'rankid')/]" data-field="rankid" data-value="[field:id/]">[field:title/]</a>
+              	{/sline:gethotelguide}
+              </span>
+            </dd>
+          </dl>
+          <dl>
+          	<dt>价格区间：</dt>
+            <dd id="price_list">
+              <span class="sp_1"><a class="on" data-field="priceid" data-value="0" href="{sline:global.priceid function=getSearchUrl(0,'priceid')/}">全部</a></span>
+              <span class="sp_2">
+              	 {sline:gethotelguide flag='price'}
+              	  <a href="[field:id function=getSearchUrl(@me,'priceid')/]" data-field="priceid" data-value="[field:id/]">[field:title/]</a>
+              	{/sline:gethotelguide}
+              </span>
+            </dd>
+          </dl>
+          {sline:attrgrouplist typeid='2'}
+            <dl>
+              <dt>{sline:field.groupname/}：</dt>
+              <dd class="attr_list">
+                <span class="sp_1"><a class="on" href="{sline:field.attrid function=getSearchUrl(null,null,@me)/}" data-field="attrid" data-value="0">全部</a></span>
+                <span class="sp_2">
+                   {sline:getattrbygroup}
+                      <a href="[field:attrid function=getSearchUrl(@me,'attrid')/]"  data-field="attrid" data-value="[field:attrid/]">[field:title/]</a>
+                   {/sline:getattrbygroup}
+                   
+                </span>
+              </dd>
+            </dl>
+          {/sline:attrgrouplist}
+        </div>
+        <!--搜索条件结束-->
+        
+        <!--搜索排序导航开始-->
+        <div class="list_nav">
+          <span class="sp_1"></span>
+          <span><a class="on" href="javascript:void(0)" data-field="sorttype" data-value="0">默认排序</a></span>
+          <span><a href="javascript:void(0)" data-field="sorttype" data-value="1">推荐</a></span>
+          <span><a href="javascript:void(0)" data-field="sorttype" data-value="2">价格</a></span>
+          <span><a href="javascript:void(0)" data-field="sorttype" data-value="3">销量</a></span>
+          <span><a href="javascript:void(0)" data-field="sorttype" data-value="4">人气</a></span>
+        </div>
+        <!--搜索排序导航结束-->
+        {sline:list}
+        <div class="hotel_list">
+        	<div class="pro_top_con">
+          	<div class="pro_pic">
+            	<a class="fl" href="[field:url/]" target="_blank"><img class="fl" src="[field:litpic function='getUploadFileUrl(@me)'/]" width="250" height="195" /></a>
+            </div>
+            <div class="pro_txt">
+            	<h4><a href="[field:url/]" target="_blank">[field:title/]</a></h4>
+              <p>酒店简介：[field:content function="cutstr_html(@me,60)"/]</p>
+              <p>开业时间：[field:opentime/]</p>
+              <p>装修时间：[field:decoratetime/]</p>
+            </div>
+            <div class="pro_price">
+            	<div class="hotel_myd">
+              	<p class="p1"><span style=" width:[field:id function=Helper_Archive::getSatisfyScore(@me,2)/]"></span></p>
+                <p class="p2">[field:id function="Helper_Archive::getCommentNum(@me,2)"/]</p>
+              </div>
+              <div class="hotel_bj">
+              	<p class="p1"><span>&yen;<b>[field:id function="Helper_Archive::getHotelMinPrice(@me)"/]</b></span>起</p>
+              	<p class="p2"><a href="[field:url/]" target="_blank">查看详情</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="pro_bot_con room_list" id="room_list_[field:id/]" data-id="[field:id/]">
+          
+          </div>
+        </div>
+        {/sline:list}
+        
+        
+        <!--分页代码样式开始-->
+        <div class="main_mod_page clear">
+          {sline:pagelist isstatic='1'/}
+        </div>
+        <div style="clear:both"></div>
+        <!--分页代码样式结束-->
+
+        
+      </div>
+      
+    </div>
+  </div>
+  <!-- 中间内容结束 -->
+  
+   {sline:include file='public/help.htm'/}
+  
+  {sline:include file='public/footer.htm'/}
+ <!--隐藏域-->
+  <input type="hidden" id="destid" value="{sline:global.dest_id/}"/>
+  <input type="hidden" id="attrid" value="{sline:global.attrid/}"/>
+  <input type="hidden" id="priceid" value="{sline:global.priceid/}"/>
+  <input type="hidden" id="rankid" value="{sline:global.rankid/}"/>
+  <input type="hidden" id="sorttype" value="{sline:global.sorttype/}"/>
+  <input type="hidden" id="pinyin" value="{sline:field.pinyin/}"/>
+  <input type="hidden" id="keyword" value="{sline:global.keyword/}"/>
+
+</body>
+</html>

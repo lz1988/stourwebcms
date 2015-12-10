@@ -1,0 +1,316 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>选择付款银行</title>
+{sline:php}GetCss('base.css','2012.03');{/sline:php}
+{sline:php}GetScript('jquery-1.8.3.min.js,slideTabs.js','2014.01');{/sline:php}
+<style>
+    /*新增银行选择*/
+    .changeBank{
+        float:left;
+        width:1210px}
+    .changeBank .cb_tit{
+        float:left;
+        color:#333;
+        width:1210px;
+        height:40px;
+        line-height:40px;
+        font-weight:bold;
+        font-size:14px}
+    .cb_switch{
+        float:left;
+        width:1210px}
+    .cb_switch .tabnav{
+        float:left;
+        width:1210px;
+        height:40px;
+        border-bottom:2px solid #eee}
+    .cb_switch .tabnav span{
+        float:left;
+        color:#666;
+        height:38px;
+        line-height:38px;
+        padding:0 20px;
+        cursor:pointer;
+        margin-right:3px;
+        font-size:16px;
+        background:#eee;
+        border:2px solid #eee;
+        border-bottom:2px solid #eee;
+        border-radius:5px 5px 0 0}
+    .cb_switch .tabnav span.on{
+        color:#333;
+        background:#fff;
+        border:2px solid #eee;
+        border-bottom:2px solid #fff;}
+    .changeBank .cb_conlist{
+        float:left;
+        width:1160px;
+        padding:23px;
+        border:2px solid #eee;
+        border-top:0}
+    .changeBank .cb_conlist li{
+        float:left;
+        width:208px;
+        height:50px;
+        margin:5px 30px 0 0}
+    .changeBank .cb_conlist li.mr_0{
+        margin-right:0}
+    .changeBank .cb_conlist li label{
+        float:left;
+        cursor:pointer;}
+    .cb_conlist li label input{
+        float:left;
+        width:14px;
+        height:14px;
+        margin:8px 10px 0 0}
+    .cb_conlist li label img{
+        float:left;
+        height:30px}
+
+    .changeBank .fk_box{
+        float:left;
+        width:1210px;
+        margin-top:20px}
+    .changeBank .fk_box a{
+        float:right;
+        color:#fff;
+        width:110px;
+        height:38px;
+        line-height:38px;
+        text-align:center;
+        font-size:16px;
+        margin-left:20px;
+        background:#ff872f;
+        border-radius:3px}
+    .changeBank .fk_box p{
+        float:right;
+        color:#333;
+        height:38px;
+        line-height:38px;
+        font-size:14px}
+    .changeBank .fk_box p span{
+        color:#f60;
+        font-size:20px;
+        font-weight:bold}
+</style>
+<script>
+	$(function(){
+			$('.cb_switch').switchTab()
+	})
+</script>
+</head>
+<body>
+{sline:include file='public/header.htm'/}
+	
+  <div class="big" style="margin-top: 50px">
+  	<div class="width_1210">
+  
+  		<div class="changeBank">
+      	<div class="cb_tit">点击选择银行前往付款：</div>
+        <form action="{sline:global.cfg_basehost/}/thirdpay/alipay_bank/alipayapi_go.php" method="post" id="bank_fm">
+        <div class="cb_switch">
+        	<div class="tabnav">
+          	<span>混合渠道</span>
+            <span>借记卡渠道</span>
+          </div>
+          <div class="tabcon">
+            <div class="cb_conlist">
+                <ul>
+                 <li>
+                        <label>
+                            <input type="radio" name="defaultBank" value="ICBCB2C" checked="checked"><img src="/thirdpay/alipay_bank/tpl/images/gongshang.gif" />
+                        </label>
+                  </li>
+                  <li>
+                    <label>
+                      <input type="radio" name="defaultBank" value="ABC"><img src="/thirdpay/alipay_bank/tpl/images/nongye.gif" />
+                    </label>
+                  </li>
+
+                  <li>
+                    <label>
+                      <input type="radio" name="defaultBank" value="BOCB2C" ><img src="/thirdpay/alipay_bank/tpl/images/zhongguo.gif" />
+                    </label>
+                  </li>
+
+                  <li>
+                    <label>
+                      <input type="radio" name="defaultBank" value="CCB"><img src="/thirdpay/alipay_bank/tpl/images/jianshe.gif" />
+                    </label>
+                  </li>
+                  <li class="mr_0">
+                    <label>
+                      <input type="radio" name="defaultBank" value="CMB"><img src="/thirdpay/alipay_bank/tpl/images/zhaohang.gif" />
+                    </label>
+                  </li>
+
+                  <li>
+                    <label>
+                      <input type="radio" name="defaultBank" value="GDB"><img src="/thirdpay/alipay_bank/tpl/images/guangfa.gif" />
+                    </label>
+                  </li>
+
+                  <li>
+                    <label>
+                      <input type="radio" name="defaultBank" value="HZCBB2C"><img src="/thirdpay/alipay_bank/tpl/images/hangzhou.gif" />
+                    </label>
+                  </li>
+                  <li>
+                    <label>
+                      <input type="radio" name="defaultBank" value="NBBANK"><img src="/thirdpay/alipay_bank/tpl/images/ningbo.gif" />
+                    </label>
+                  </li>
+
+                  <li>
+                    <label>
+                      <input type="radio" name="defaultBank" value="SPABANK"><img src="/thirdpay/alipay_bank/tpl/images/pingan.gif" />
+                    </label>
+                  </li>
+
+                  <li class="mr_0">
+                    <label>
+                      <input type="radio" name="defaultBank" value="SHBANK"><img src="/thirdpay/alipay_bank/tpl/images/shanghaibank.gif" />
+                    </label>
+                  </li>
+                  <li>
+                    <label>
+                      <input type="radio" name="defaultBank" value="SPDB"><img src="/thirdpay/alipay_bank/tpl/images/shangpufa.gif" />
+                    </label>
+                  </li>
+                  <li>
+                    <label>
+                      <input type="radio" name="defaultBank" value="CIB"><img src="/thirdpay/alipay_bank/tpl/images/xingye.gif" />
+                    </label>
+                  </li>
+                  <li>
+                    <label>
+                      <input type="radio" name="defaultBank" value="POSTGC"><img src="/thirdpay/alipay_bank/tpl/images/youzheng.gif" />
+                    </label>
+                  </li>
+                    <li>
+                        <label>
+                            <input type="radio" name="defaultBank" value="FDB"><img src="/thirdpay/alipay_bank/tpl/images/fd.gif" />
+                        </label>
+                    </li>
+                    <li class="mr_0">
+                        <label>
+                            <input type="radio" name="defaultBank" value="abc1003"><img src="/thirdpay/alipay_bank/tpl/images/visa.gif" />
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="radio" name="defaultBank" value="abc1004"><img src="/thirdpay/alipay_bank/tpl/images/mastercard.gif" />
+                        </label>
+                    </li>
+                </ul>
+            </div>
+          </div>
+          <div class="tabcon">
+          	<div class="cb_conlist">
+                <ul>
+                    <li>
+                        <label>
+                            <input type="radio" name="defaultBank" value="ICBC-DEBIT"><img src="/thirdpay/alipay_bank/tpl/images/gongshang.gif" />
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="radio" name="defaultBank" value="BOC-DEBIT"><img src="/thirdpay/alipay_bank/tpl/images/zhongguo.gif" />
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="radio" name="defaultBank" value="CCB-DEBIT"><img src="/thirdpay/alipay_bank/tpl/images/jianshe.gif" />
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="radio" name="defaultBank" value="CMB-DEBIT"><img src="/thirdpay/alipay_bank/tpl/images/zhaohang.gif" />
+                        </label>
+                    </li>
+
+                    <li  class="mr_0">
+                        <label>
+                            <input type="radio" name="defaultBank" value="GDB-DEBIT"><img src="/thirdpay/alipay_bank/tpl/images/guangfa.gif" />
+                        </label>
+                    </li>
+
+                    <li>
+                        <label>
+                            <input type="radio" name="defaultBank" value="SPA-DEBIT"><img src="/thirdpay/alipay_bank/tpl/images/pingan.gif" />
+                        </label>
+                    </li>
+
+                    <li>
+                        <label>
+                            <input type="radio" name="defaultBank" value="SPDB-DEBIT"><img src="/thirdpay/alipay_bank/tpl/images/shangpufa.gif" />
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="radio" name="defaultBank" value="PSBC-DEBIT"><img src="/thirdpay/alipay_bank/tpl/images/youzheng.gif" />
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="radio" name="defaultBank" value="COMM-DEBIT"><img src="/thirdpay/alipay_bank/tpl/images/jiaotong.gif" />
+                        </label>
+                    </li>
+                    <li class="mr_0">
+                        <label>
+                            <input type="radio" name="defaultBank" value="CEB-DEBIT"><img src="/thirdpay/alipay_bank/tpl/images/guangda.gif" />
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="radio" name="defaultBank" value="BJBANK"><img src="/thirdpay/alipay_bank/tpl/images/beijing.gif" />
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="radio" name="defaultBank" value="SHRCB"><img src="/thirdpay/alipay_bank/tpl/images/shangnongshang.jpg" />
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="radio" name="defaultBank" value="WZCBB2C-DEBIT"><img src="/thirdpay/alipay_bank/tpl/images/wenzhou.png" />
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="radio" name="defaultBank" value="CMBC"><img src="/thirdpay/alipay_bank/tpl/images/minsheng.gif" />
+                        </label>
+                    </li>
+                    <li class="mr_0">
+                        <label>
+                            <input type="radio" name="defaultBank" value="BJRCB"><img src="/thirdpay/alipay_bank/tpl/images/nongcunshangye.gif" />
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="radio" name="defaultBank" value="CITIC-DEBIT"><img src="/thirdpay/alipay_bank/tpl/images/zhongxin.gif" />
+                        </label>
+                    </li>
+                </ul>
+                  <input type="hidden" name="price" value="{sline:global.price/}"/>
+                  <input type="hidden" name="ordersn" value="{sline:global.ordersn/}"/>
+                  <input type="hidden" name="subject" value="{sline:global.subject/}"/>
+                  <input type="hidden" name="showurl" value="{sline:global.showurl/}"/>
+
+            </div>
+          </div>
+        </div>
+        <div class="fk_box">
+          <a href="javascript:;" onclick="$('#bank_fm').submit()">去付款</a>
+        	<p>支付：<span>&yen;{sline:global.price/}</span></p>
+        </div>
+        </form>
+      </div>
+  
+  	</div>
+  </div>
+{sline:include file='public/footer.htm'/}
+</body>
+</html>

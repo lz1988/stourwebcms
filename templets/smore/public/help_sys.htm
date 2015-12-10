@@ -1,0 +1,16 @@
+<!--帮助流程开始-->
+  <div class="wh_auto">
+    <div class="help">
+     {sline:helplist row='5' flag="all"}
+      <dl class="border_lf_none">
+        <dt><a rel="nofollow" href="{sline:field.url/}">{sline:field.kindname/}</a></dt>
+        {sline:gethelplist type='son' row='4'}
+          <dd><a rel="nofollow" href="[field:url/]">[field:title/]</a></dd>
+        {/sline:gethelplist}
+      </dl>
+     {/sline:helplist}
+      
+      
+    </div>
+  </div>
+  <!--帮助流程结束-->

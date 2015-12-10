@@ -1,0 +1,193 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{sline:field.seotitle/}-{sline:global.cfg_webname/}</title>
+{sline:field.seokeyword/}
+{sline:field.seodescription/}
+
+{sline:php}GetCss('buying.css,base.css','2014.01');{/sline:php}
+{sline:php}GetScript('jquery-1.8.3.min.js,common.js,tuan.js,tuan.show.js','2014.01');{/sline:php}
+
+</head>
+
+<body>
+ {sline:include file='public/header.htm'/}
+  
+  
+  <!-- 中间内容 -->
+  <div class="big">
+  	<div class="width_1210">
+    
+    	<!-- 热门目的地开始 -->
+    	<div class="top_first">
+      	<div class="crumbs"><a href="/">{sline:global.cfg_indexname/}</a> &raquo; <a href="/tuan/">{sline:field.typename/}</a></div>
+        {sline:include file='public/scroll_order.htm'/}
+      </div>
+      <!-- 热门目的地结束 -->
+      
+      <!--详细简介开始-->
+      <div class="buy_show_yop">
+      	<h1>{sline:field.title/}</h1>
+        <div class="b_show_left">
+        	<p class="p1 dao">剩余时间：<strong class="RemainD"></strong>天<strong class="RemainH"></strong>时<strong class="RemainM"></strong>分<strong class="RemainS"></strong>秒</p>
+          <div class="p2">
+          	{sline:field.sellpoint/}
+          </div>
+          <div class="buy_price_d">
+          	<span class="sp1">&yen;{sline:field.price/}</span>
+            <span class="sp2">原价：&yen;{sline:field.sellprice/}<s>{sline:field.discount/}折</s></span>
+            <span class="sp3">
+                {sline:field.array runphp='yes'}
+
+
+                  if(@me['totalnum']!=0)
+                  {
+                    @me= '<a href="/tuan/book.php?tuanaid='.@me['aid'].'">立即抢购</a>';
+                  }
+                  else
+                  {
+                     @me='';
+                  }
+
+                {/sline:field.array}
+            	<b>{sline:field.booknum/}人已经抢购</b>
+            </span>
+          </div>
+          <div class="buy_fkfs">
+          	<span>付款方式：</span>
+            <p>
+                {sline:if var='_haskuaiqian'}<img src="/templets/smore/images/kq-zf.jpg" alt="快钱支付" title="快钱支付" />{/sline:if}
+                {sline:if var='_hasyinlian'}<img src="/templets/smore/images/zx-zf.jpg" alt="银联支付" title="银联支付" />{/sline:if}
+                {sline:if var='_haszhifubao'}<img src="/templets/smore/images/zfb-zf.jpg" alt="支付宝支付" title="支付宝支付" />{/sline:if}
+                {sline:if var='_hasweixin'}<img src="/templets/smore/images/wx-zf.jpg" alt="微信支付" title="微信支付" />{/sline:if}
+                {sline:if var='_hasqianbao'}<img src="/templets/smore/images/qb-zf.jpg" alt="钱包支付" title="钱包支付"  />{/sline:if}
+                {sline:if var='_hashuicao'}<img src="/templets/smore/images/hc-zf.jpg" alt="汇潮支付"  title="汇潮支付" />{/sline:if}
+                {sline:if var='_hasbeibao'}<img src="/templets/smore/images/bb-zf.jpg" alt="贝宝支付"  title="贝宝支付" />{/sline:if}
+            </p>
+          </div>
+          <!-- JiaThis Button BEGIN -->
+          <div class="jiathis_style fl">
+            <span class="jiathis_txt">分享到：</span>
+            <a class="jiathis_button_qzone">QQ空间</a>
+            <a class="jiathis_button_tsina">新浪微博</a>
+            <a class="jiathis_button_tqq">腾讯微博</a>
+            <a class="jiathis_button_weixin">微信</a>
+            <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+            <a class="jiathis_counter_style"></a>
+          </div>
+          <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+          <!-- JiaThis Button END -->
+        </div>
+        <div class="b_show_rig slides" id="slides">{sline:field.piclist/}</div>
+      </div>
+  
+      <!--详细简介结束-->
+      
+      <div class="show_lm_con">
+      	<!-- 详情介绍开始 -->
+        <div id="lineinfo2" class="lm_show_nav">
+          <div id="tab2" class="gdnav">
+            <ul>
+                {sline:detailcontent typeid='13'}
+                <li>[field:chinesename/]</li>
+                {/sline:detailcontent}
+              <li class="">客户点评</li>
+              <li class="">团购咨询</li>
+            </ul>
+          </div>
+          <div class="" style=" float:left; width:958px; border:1px solid #dcdcdc; border-top:0">
+
+              {sline:detailcontent typeid='13'}
+            <div class="tablelist">
+              <h3 class="same_title">[field:chinesename/]</h3>
+              <div class="same_txt">
+                [field:content/]
+              </div>
+            </div>
+              {/sline:detailcontent}
+
+          </div>
+          <!-- 客户点评开始 -->
+            <div class="tablelist">
+                <div class="dif_interaction">
+                    <h3 class="dif_title">客户点评</h3>
+                    {sline:getcommentlist flag="tuan"}
+                    <div class="dz_lidt">
+                        <div class="head_pic_left">
+                            <img src="[field:litpic/]" width="50" height="50"  title="[field:nickname/]" />
+                        </div>
+                        <div class="body_con_rig">
+                            <div class="lp_ico"></div>
+                            <dl>
+                                <dt><p class="p1"><span>会员：</span>[field:nickname/]</p><p class="p2">获得点评积分[field:jifencomment/]</p></dt>
+                                <dd class="dd_1"><span>客户点评：</span>[field:content/]</dd>
+                                <dd class="dd_2">
+                                    <p><b>住宿环境：</b><span><s style=" width: [field:percent1/]"></s></span></p>
+                                    <p><b>交通位置：</b><span><s style=" width: [field:percent2/]"></s></span></p>
+                                    <p><b>卫生情况：</b><span><s style=" width: [field:percent3/]"></s></span></p>
+                                    <p><b>性价比：</b><span><s style=" width: [field:percent4/]"></s></span></p>
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                    {/sline:getcommentlist}
+
+
+                    <div class="dp_sm_con">
+                        <ul class="fl">
+                            <li class="li_1">
+                                <p class="p1">{sline:field.satisfyscore/}</p>
+                                <p class="p2">整体满意度</p>
+                            </li>
+                            <li class="li_2">
+                                <p class="p1"><span>点评说明</span>在网站购买过旅游产品的注册会员</p>
+                                <p class="p2">回程归来发表点评即可获赠积分，积分根据产品而定，获得的积分可在下次消费时抵用部分现金。</p>
+                            </li>
+                            <li class="li_3"><a href="/member/">我要点评</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+          <!-- 客户点评结束 -->
+          
+          <!-- 咨询结束 -->
+           {sline:include file='public/question.htm'/}
+          <!-- 咨询结束 -->
+          
+        </div>
+        <!-- 详情介绍结束 -->
+      </div>
+      
+      <!-- 边栏列表开始 -->
+      <div class="show_lm_rig">
+         {sline:getrightcontent pagename='show'/}
+      </div>
+      <!-- 边栏列表结束 -->
+      
+    </div>
+  </div>
+  <!-- 中间内容 -->
+
+  
+  <!--底部开始-->
+    {sline:include file='public/help.htm'/}
+  
+  {sline:include file='public/footer.htm'/}
+  
+  {sline:include file='public/flink.htm'/}
+  <!-- 底部结束 -->
+  
+ 
+
+<script type="text/javascript">
+$(document).ready(function(e) {
+    Tuan.tickTime("{sline:field.enddatetime/}");
+});
+	
+</script>
+
+
+</body>
+</html>

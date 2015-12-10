@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>找回密码第三步-{sline:global.cfg_webname/}</title>
+{sline:php}Helper_Archive::getCss('base.css,space.css','2014.02');{/sline:php}
+{sline:php}Helper_Archive::getScript('jquery-1.8.3.min.js,common.js,jquery.validate.js,user.login.js','2014.01');{/sline:php}</head>
+<body>
+	{sline:include file='public/header.htm'/}
+  
+  <!-- 中间内容开始 -->
+  <div class="big">
+  	<div class="width_1210">
+    	<!-- 面包屑and订单开始 -->
+    	<div class="top_first">
+      	<div class="crumbs"><a href="{sline:global.cfg_basehost/}">{sline:global.cfg_indexname/}</a> &gt;  找回密码</div>
+         {sline:include file='public/scroll_order.htm'/}
+      </div>
+      <!-- 面包屑and订单结束 -->
+    
+    	<!--登陆开始-->
+        <form method="post" id="findfrm" action="findpass.php?step=4">
+			<div class="user_space_big">
+      	<div class="retrieve_con">
+					<div class="ret_left_con">
+          	<div class="ret_top_gy">
+            		<span>1.申请找回密码</span><s><img class="fl" src="{sline:global.cfg_templets_skin/}/images/zh_ico.png" /></s>
+              <span>2.进入注册邮箱点击找回链接</span><s><img class="fl" src="{sline:global.cfg_templets_skin/}/images/zh_ico_1.png" /></s>
+              <span  class="on">3.设置新密码</span><s><img class="fl" src="{sline:global.cfg_templets_skin/}/images/zh_ico_1.png" /></s>
+              <span>4.重新登录</span>
+            </div>
+            <div class="ret_middle">
+            	<dl>
+              	<dt>输入新密码：</dt>
+                <dd><input type="password" class="text" id="pwd1" name="pwd1" /><span class="tishi">6-16位，可区分大小写</span></dd>
+              </dl>
+             <dl>
+              	<dt>确认新密码：</dt>
+                <dd><input type="password" class="text" id="pwd2" name="pwd2" /><span class="error">两次输入密码不一致，请重新输入</span></dd>
+              </dl>
+            </div>
+            <div class="ret_bom">
+            	<div class="btn_div"><input type="submit" class="register_btn" value="保存" /></div>
+            </div>E
+          </div>
+					<div class="reg_rig_con">
+          	<dl>
+            	<dt>已有帐号</dt>
+              <dd><a class="now_login" href="login.php">立即登录</a></dd>
+            </dl>
+                        <dl>
+                            <dt>其他方式登录</dt>
+                            {sline:php}
+                            if(!empty($GLOBALS['cfg_qq_appid']) && !empty($GLOBALS['cfg_qq_appkey']))
+                            {
+                            echo ' <dd><a href="javascript:;"><img class="fl" src="'.$GLOBALS['cfg_templets_skin'].'/images/call_qq.gif" alt="QQ" /></a></dd>';
+                            }
+                            if(!empty($GLOBALS['cfg_sina_appkey']) && !empty($GLOBALS['cfg_sina_appsecret']))
+                            {
+                            echo ' <dd><a href="javascript:;"><img class="fl" src="'.$GLOBALS['cfg_templets_skin'].'/images/call_sina.gif" alt="新浪微博" /></a></dd>';
+                            }
+
+
+                            {/sline:php}
+                        </dl>
+          </div>
+        </div>
+      </div>
+      <!--登陆结束-->
+      <input type="hidden" name="mid" value="{sline:field.mid/}"/>
+      </form>
+      
+    </div>
+  </div>
+  <!-- 中间内容结束 -->
+  
+   {sline:include file='public/help.htm'/}
+  {sline:include file='public/footer.htm'/}
+    <script>
+        $("#loginqq").click(function(){
+
+            var url=siteUrl+'member/login.php?dopost=loginbyqq';
+            window.open(url);
+
+        });
+        $("#loginsina").click(function(){
+
+            var url=siteUrl+'member/login.php?dopost=loginbysina';
+            window.open(url);
+
+        });
+
+    </script>
+</body>
+</html>

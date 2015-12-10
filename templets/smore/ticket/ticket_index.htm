@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+
+    <title>{sline:field.seotitle/}-{sline:global.cfg_webname/}</title>
+    <meta name="keywords" content="{sline:field.seokeyword/}"/>
+    <meta name="description" content="{sline:field.seodescription/}"/>
+    <meta name="author" content="{sline:global.cfg_webname/}" />
+   {sline:php}Helper_Archive::getCss('base.css,jipiao.css,red.css','2014.12');{/sline:php}
+    {sline:php}Helper_Archive::getScript('jquery-1.8.3.min.js,common.js,jquery-tabs.js,icheck.min.js,airticket.js');{/sline:php}
+    <script language="javascript" src="/templets/smore/js/DatePicker/WdatePicker.js"></script>
+
+<script type="text/javascript">
+
+
+
+	$(function(){  
+			$("#tabs").switchTab();
+
+
+			
+			$('#prevDate').click(function(){
+				//alert("3214")
+				$('.calendar_ul').css('left','-920px')
+			})
+
+
+	});  
+</script>
+</head>
+
+<body>
+ {sline:include file='public/header.htm'/}
+  <div class="big">
+  <div id='suggest1' class="ac_results"></div>
+  <div id='suggest2' class="ac_results"></div>
+  	<div class="width_1210">
+  		
+      <div class="jp_con_left">
+      	<div class="jp_query_header">
+        	<div class="jp_tit">机票查询</div>
+          <dl id="tabs">  
+            <dt>  
+              <span>国内航班</span>  
+             <!-- <span>国际航班</span>-->
+            </dt>
+            <dd>
+            	<div class="iCheckBox">
+                <label class="btn_1"><input class="fl" type="radio" class="flighttype" name="iCheck" value="S" checked>单程</label>
+                <label class="btn_2"><input class="fl" type="radio" class="flighttype" name="iCheck" value="D">往返</label>
+              </div>
+              <div class="hangban_box">
+              	<div class="cf_city">
+                	<span>出发城市：</span>
+                  <input type="text" class="cf_box" id="startcity" placeholder="成都" value="成都" />
+                  <input type="hidden" id="startcity_3word" value="CTU"/>
+                </div>
+                <div class="dd_city">
+                	<span>到达城市：</span>
+                  <input type="text" class="dd_box" id="endcity" placeholder="北京"  value="北京" />
+                  <input type="hidden" id="endcity_3word" value="BJS"/>
+
+                </div>
+                <div class="huan_box"><span id="sechange">换</span></div>
+              </div>
+              <div class="hangban_box">
+                <div class="cf_date">
+                	<span>出发日期：</span>
+                  <input type="text" class="cf_box" id="startdate" placeholder="2014-12-26" />
+                </div>
+                <div class="dd_date">
+                	<span>返程日期：</span>
+                  <input type="text" class="dd_box" id="enddate" disabled placeholder="YY-MM-DD" />
+                </div>
+              </div>
+              <div class="now_cx_btn"><a href="javascript:;" id="btn_search">立即查询</a></div>
+              <input type="hidden" id="searchtype" value="S"/>
+            </dd>
+            <dd>
+            	
+            </dd>
+          </dl>
+        </div>
+        <div class="hb_msg_con">
+          <div class="top_hb_msg">
+          	<img class="fl" src="/templets/smore/images/plane-ico.png" />
+            <span class="cfd" id="txtstartcity">成都</span>
+            <span class="hb_tb_bg"></span>
+            <span class="mdd" id="txtendcity">北京</span>
+            <span class="time" id="txtdate">2014-12-26&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <p class="sm">以下数据是对航空公司、代理商的报价智能筛选后的最优结果</p>
+          </div>
+          <div class="calendar_tab">
+          	<div id="prevDate" class="prev_date">
+            	<a class="arrow_left" rel="nofollow" href="javascript:void(0);"><b></b></a>
+        		</div>
+            <div class="calendar_tab_list">
+            	<ul class="calendar_ul" id="calendar_ul">
+
+
+              </ul>
+            </div>
+            <div id="nextDate" class="next_date">
+              <a class="arrow_right" rel="nofollow" href="javascript:void(0)"><b></b></a>
+            </div>
+          </div>
+          <div class="designate_con choosed" style="display: none">
+
+          </div>
+          <div class="loadmore" style="display: none">
+              <img src="/templets/smore/images/loadingflight.gif" /><br />
+              正在为您查询，请稍后
+          </div>
+          <div class="flight_list_con">
+
+          </div>
+
+        </div>
+      
+      </div>
+
+      <div class="jp_con_right">
+          {sline:getrightcontent pagename='index'/}
+      </div>
+    
+    </div>
+  </div>
+{sline:include file='public/footer.htm'/}
+
+</body>
+<script>
+    var allianceId = "{sline:global.cfg_ctrip_allianceid/}";
+    var siteid = "{sline:global.cfg_ctrip_sid/}";
+</script>
+</html>

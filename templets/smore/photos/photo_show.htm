@@ -1,0 +1,240 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{sline:field.seotitle/}-{sline:global.cfg_webname/}</title>
+<meta name="author" content="{sline:global.cfg_webname/}" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+{sline:field.seokeyword/}
+{sline:field.seodescription/}
+{sline:php}GetCss('base.css,photo.css,photo-scan.css','2012.03');{/sline:php}
+{sline:php}GetScript('jquery-1.8.3.min.js,common.js,jquery.ad-gallery.new.js,photo.show.js,photo.js,comment.js','2014.01');{/sline:php}
+
+
+</head>
+
+<body>
+	 {sline:include file='public/header.htm'/}
+
+  <!-- 中间内容开始 -->
+  <div class="big">
+  	<div class="width_1210">
+    	<!-- 面包屑and订单开始 -->
+    	<div class="top_first">
+      	<div class="crumbs"><a href="/">首页</a> &gt; <a href="/photos">相册</a> &gt; {sline:field.subname/}</div>
+        {sline:include file='public/scroll_order.htm'/}
+
+      </div>
+      <!-- 面包屑and订单结束 -->
+      
+      <!--相册导航开始-->
+       <div class="photo_top_nav">
+      	<dl>
+        	<dt>目的地：</dt>
+          <dd class="search_item" rel="dest_id" data="{sline:global.dest_id/}">
+          	<span class="sp_1"><a class="{sline:global.dest_id runphp='yes'} if(empty(@me)) @me="active"; else @me="";{/sline:global.dest_id}" href="javascript:;">全部</a></span>
+            <span class="sp_2">
+            {sline:vlist name="destlist"}
+                <a href="javascript:;" data="[field:id/]" class="[field:id runphp='yes'] if(@me==$GLOBALS['dest_id']) @me="active"; else @me="";[/field:id]" data="[field:id/]">[field:kindname/]</a>      
+              {/sline:vlist}
+            </span>
+          </dd>
+        </dl>
+           {sline:attrgrouplist typeid="6"}
+           <dl>
+               <dt>{sline:field.groupname/}：</dt>
+               <dd>
+                   <span class="sp_1"><a class="{sline:field.attrid function=getPhotoUrlCls('active','attrid',null,@me)/}" href="{sline:field.attrid function=getPhotoUrl(null,null,@me)/}">全部</a></span>
+            <span class="sp_2">
+           {sline:getattrbygroup typeid="6"}
+            	  <a href="[field:id function=getPhotoUrl(@me,'attrid')/]" class="[field:id function=getPhotoUrlCls('active','attrid',@me)/]">[field:title/]</a>
+          {/sline:getattrbygroup}
+            </span>
+               </dd>
+           </dl>
+           {/sline:attrgrouplist}
+
+      </div>
+			<!--相册导航结束-->
+		
+			<!--相册详细查看开始-->
+      <div class="photo_show_con">
+        <div class="photo-warp-inner ad-gallery" style="visibility: visible;" >
+        <div class="img-title">
+          <h2>{sline:field.title/}</h2>
+          <span class="r-area"><a href="javascript:;" title="喜欢" onClick="addFavorate(this,{sline:field.aid/})">喜欢</a></span> </div>
+        <!--img-title end-->
+        <div class="mainArea"><img src="{sline:field.bigpic function=getUploadFileUrl(@me)/}"/>
+        {sline:field.nextpichtml/}
+        {sline:field.prevpichtml/}
+        </div>
+        <!--mainArea end-->
+         <div class="photoList-wrap cf" style=" height:120px;">
+          <div class="nph_set_pre fl">
+          {sline:global.prephoto runphp="yes"}
+             if(empty(@me))
+             {
+               $href="javascript:;";
+               $img=getDefaultImage();
+               $hint="没有了";
+             }
+             else
+              {
+                $href="/photos/show_".@me['aid'].".html";
+                $img=@me['litpic'];
+                $hint="< 上一图集";
+              }  
+             
+            @me='<span><a href="'.$href.'" class="prevSet"><img alt="更多图片" src="'.$img.'" /></a></span>     
+            <p><a href="'.$href.'">'.$hint.'</a></p>';
+          {/sline:global.prephoto}
+          
+          </div>
+          <div class="ad-nav" style="width:820px;display:inline;margin:0 10px;float:left;">
+            <div bosszone="photoShowList" id="photo-List" class="photo-List ad-thumbs" style="width:720px;">
+              <ul class="ad-thumb-list">
+              
+            
+                {sline:vlist name="picturelist"}
+                <li id="current_[field:id/]"><a href="javascript:;"><img src="[field:pic/]" onClick="window.open('/photos/show_[field:global.aid/]_[field:id/].html','_self')"  rel="[field:global.step/]" /></a></li>      
+               {/sline:vlist}
+                
+              </ul>
+            </div>
+          </div>
+       
+          <div class="nph_set_next fl">
+           {sline:global.nextphoto runphp="yes"}
+            if(empty(@me))
+             {
+               $href="javascript:;";
+               $img=getDefaultImage();
+               $hint="没有了";
+             }
+             else
+              {
+                $href="/photos/show_".@me['aid'].".html";
+                $img=@me['litpic'];
+                $hint="< 下一图集";
+              }  
+             
+            @me='<span><a href="'.$href.'" class="prevSet"><img alt="更多图片" src="'.$img.'" /></a></span>     
+            <p><a href="'.$href.'">'.$hint.'</a></p>';
+          {/sline:global.nextphoto}
+          </div>
+        </div>
+        <div class="scrollbar-box">
+          <div id="scrollbar" bossZone="photoShowBar" style=" width:528px" class="scrollbar"><a class="nph_btn_scrl scroolbar-handle" href="javascript:void(0)" onfocus="this.blur()" title="拖动工具条以快速查看图片" style="width:100px;"><b class="nph_btn_lt"></b><b class="nph_btn_rt"></b><span class="nph_btn_bd"><span><b class="nph_btn_ct"></b></span></span></a></div>
+        </div>
+      </div>
+        
+        
+        <div class="photo-info">
+          {sline:field.content/}
+          <p id="descriptions"></p>
+        </div>
+         <div class="comment_on">
+        	<h3>参与评论</h3>
+          <form action="/comment/comment.php" method="post">  
+          <div class="text_box">
+          	<textarea name="content" cols="" rows="" onClick="togHint(this,'请使用文明语言!')">请使用文明语言!</textarea>
+          </div>
+          <div class="login_pl_btn">
+            <input class="fb_btn" type="button" onClick="sendComment(this,'请使用文明语言!')"  value="发表评论">
+            <span class="login_cm"><a href="javascript:;" onClick="commentLogin(this)" >登录</a></span>
+            <span class="nim"><input type="checkbox" class="niming"  value="1"/></span>
+            <span>匿名</span>
+             <span class="checkcode"><img onClick="commentCheck(this)" src="/include/vdimgck.php?word_type=3"/></span>
+             <span>验证码：<input type="text" name="checkcode" size="4"/></span>
+          </div>
+          <input type="hidden" name="articleid" value="{sline:field.id/}"/>
+          <input type="hidden" name="typeid" value="6"/>
+          </form>
+        </div>
+        
+        <div class="comment_list">
+        	<h3>他们说...</h3>
+          <div class="comment_nr_con">
+          {sline:commentlist typeid="6"}
+          	<div class="nr_pl_list">
+              <dl class="nr_dl">
+                <dt class="nr_dt"><img class="fl" src="{sline:field.litpic/}" width="45" height="45"></dt>
+                <dd class="nr_dd">
+                  <h4>{sline:field.nickname/}</h4>
+                  <div class="nr_pl_con">{sline:field.content/}</div>
+                  <div class="nr_pl_hf"><a href="javascript:;" onClick="funaddCommDiv(this,{sline:field.articleid/},{sline:field.id/},{sline:field.id/},6,0)">回复</a></div>
+                </dd>
+              </dl>
+              <div class="hf_con_div">
+               {sline:getchildcomment typeid="6"}
+                <dl class="hf_dl">
+                  <dt class="hf_dt"><img class="fl" src="[field:litpic/]" width="45" height="45"></dt>
+                  <dd class="hf_dd">
+                    <h4>[field:nickname/]</h4>
+                    <div class="nr_hf_con">回复<span>@[field:replynickname/]</span>：[field:content/]</div>
+                    <div class="nr_hf_hf"><a href="javascript:;" onClick="funaddCommDiv(this,[field:articleid/],[field:id/],[field:dockid/],6,1)">回复</a></div>
+                  </dd>
+                </dl>
+               {/sline:getchildcomment} 
+              </div>
+            </div>
+          {/sline:commentlist}
+          </div>
+          <div style="clear:both"></div>
+          <!--分页代码样式结束-->
+          </div>
+        </div> 
+         
+         
+      </div>
+      <!--相册详细查看结束-->
+      
+    </div>
+  </div>
+  <!-- 中间内容结束 -->
+   <script type="text/javascript">
+	$(function() {
+		var galleries = $('.ad-gallery').adGallery({
+			width: 1200, 
+			height: '100%', 
+		
+		
+		});
+
+	   var onclick=$("#current_{sline:global.imgid/} img").attr("onclick");
+	   	$("#current_{sline:global.imgid/} img").removeAttr('onclick');
+		$("#current_{sline:global.imgid/} img").trigger('click');
+		$("#current_{sline:global.imgid/} img").attr("onclick",onclick);
+	    
+		
+	    window.setTimeout(function(){
+			var rel=$("#current_{sline:global.imgid/} img").attr("rel");
+			var len=0;
+			if(rel>2)
+		     	var len=396-rel*132;		
+			var count=$(".ad-thumb-list li").length;	
+			if(rel>count-2)
+			   len=-(count-5)*132;
+			$(".ad-thumb-list").css("left",len);
+			var barpos=(rel-1)/count*428;
+			barpos=barpos>428?428:barpos;
+			$(".scroolbar-handle").css("left",barpos);
+			},500);
+			
+			
+		 var photo_top=$(".photo_show_con").offset().top;	
+		 $(window).scrollTop(photo_top);	
+			
+		
+	});
+
+</script> 
+  <!--帮助流程开始-->
+     
+  
+  {sline:include file='public/footer.htm'/}
+  
+  {sline:include file='public/flink.htm'/}
+
+</body>
+</html>

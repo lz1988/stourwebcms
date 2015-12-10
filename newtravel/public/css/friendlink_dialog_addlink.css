@@ -1,0 +1,22 @@
+.content-in table tr{
+    height: 40px;
+}
+.save-con{
+    text-align: center;
+    padding: 15px 0px;
+}
+.content-in .un-blank{
+    color:red;
+    line-height: 26px;
+    padding: 0px 3px;
+    float:left;
+}
+.content-in label.error{
+    color:red;
+    line-height: 28px;
+    float:left;
+    padding: 0px 3px;
+}
+.content-in input.error{
+    border:1px solid red;
+}

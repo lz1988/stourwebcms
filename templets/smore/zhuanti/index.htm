@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{sline:field.seotitle/}-{sline:global.cfg_webname/}</title>
+{sline:php}Helper_Archive::getCss('zt.css,specialtopic.css,template_ex.css','2012.10');{/sline:php}
+<script type="text/javascript" src="{sline:global.cfg_templets_skin/}/iepngfix/iepngfix_tilebg.js"></script>
+<style type="text/css">
+img, div { behavior: url(../iepngfix/iepngfix.htc)}
+body{background-repeat:no-repeat;}
+	
+</style>
+</head>
+
+<body style="{sline:field.bgcolor runphp='yes'}if(!empty(@me))$str='background-color:'.@me;else $str='background-color:#E64442';@me=$str;{/sline:field.bgcolor}{sline:field.bgimage runphp='yes'}if(!empty(@me))$str=';background-image:url(..'.@me.')';@me=$str;{/sline:field.bgimage}">
+	<div id="top" style="background:#eee;border-bottom:1px solid #eee">
+  	<div class="top_auto">
+      <ul class="top_nav">
+        <li><a href="{sline:global.cfg_basehost/}{sline:global.cfg_cmsurl/}/">{sline:global.cfg_indexname/}</a></li>
+        {sline:channel type='top'}
+         <li><a href="[field:typelink/]">[field:typename/]</a></li>
+        {/sline:channel}
+      </ul>
+      <ul class="top_sp">
+        <li> <a rel="nofollow" href="javascript:;" onclick="this.style.behavior='url(#default#homepage)';this.setHomePage('{sline:global.cfg_basehost/}');" >设为首页</a></li>
+        <li> <a rel="nofollow" href="javascript:;" onclick="window.external.addFavorite('{sline:global.cfg_basehost/}','{sline:global.cfg_webname/}')">收藏本站</a></li>
+        <li><a href="/servers/sitemap.html">网站导航</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="zt_top_big">
+  	<div class="big">
+      <div class="logo_banner">
+        
+        <img class="fl" src="{sline:field.logo/}"  title="{sline:field.ztname/}" width="980px"/>
+      </div>
+      <div class="introduce">
+      	{sline:field.jieshao/}
+      </div>
+      <div class="introduce_bg"></div>
+      <div style="clear:both"></div>
+    </div>
+  </div>
+  <div class="wrap ros basefix">
+  <div class="contain">
+  	<!--<div class="nav">
+    	<ul>
+        {sline:if var='_hasthemeline'}
+      	  <li class="nav_line"><a href="#ztline">{sline:field.shortname/}线路</a></li>
+        {/sline:if}
+        {sline:if var='_hasthemehotel'}
+          <li class="nav_hotel"><a href="#zthotel">{sline:field.shortname/}酒店</a></li>
+        {/sline:if}
+        {sline:if var='_hasthemecar'}
+          <li class="nav_car"><a href="#ztcar">{sline:field.shortname/}租车</a></li>
+        {/sline:if}
+        {sline:if var='_hasthemespot'}
+          <li class="nav_spot"><a href="#ztspot">{sline:field.shortname/}景点</a></li>
+        {/sline:if}
+        {sline:if var='_hasthemeraider'}
+          <li class="nav_raider"><a href="#ztraider">{sline:field.shortname/}攻略</a></li>
+        {/sline:if}
+      </ul>
+    </div>-->
+    {sline:include file='zhuanti/zt_line.htm'/}
+    {sline:include file='zhuanti/zt_hotel.htm'/}
+    {sline:include file='zhuanti/zt_car.htm'/}
+    {sline:include file='zhuanti/zt_spot.htm'/}
+    {sline:include file='zhuanti/zt_raider.htm'/}        
+    </div>
+  
+
+      <div class="show_con">
+    	<div class="show_top"></div>
+      <div class="show_bot"></div>
+    </div>
+  </div>
+ <div class="big">
+
+      <div class="footer">
+        <div class="foot_menu" style="text-align:center">
+          {sline:serverlist}
+              <a href="[field:url/]" rel="nofollow">[field:servername/]<s>|</s></a>
+          {/sline:serverlist}
+         
+       
+        </div>
+        <div class="foot_con" style="text-align:center"">
+          <p>{sline:global.cfg_powerby/}{sline:global.cfg_tongjicode function=stripslashes(@me)/}</p>
+          <p>{sline:global.cfg_beian/}</p>
+          <p>技术支持:<a id='tecsupport' href="{sline:kkkk runphp='yes'}
+              global $typeid;
+              if(empty($typeid)||$typeid==0)
+              @me="http://www.stourweb.com/";
+              else 
+              @me='javascript:;';
+              {/sline:kkkk}">{sline:id runphp='yes'}
+              global $typeid;
+              if(empty($typeid)||$typeid==0)
+              @me="思途CMS";
+              else 
+              @me='思途CMS';
+              {/sline:id}</a></p>
+        </div>
+      
+      </div>
+
+  </div> 
+
+</body>
+</html>

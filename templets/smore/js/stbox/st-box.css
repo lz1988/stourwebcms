@@ -1,0 +1,12 @@
+/*pro*/
+.fade{ position:absolute; left:0; top:0; width:100%; height:100%; background:#000; opacity:0.3; filter:alpha(opacity=30); -webkit-opacity:0.3; display:none;position:fixed}
+.product{ position:absolute; background:#fff; z-index:1001; text-align:left; top:0; padding-bottom:20px; box-shadow:0 0 5px #666; -moz-box-shadow:0 0 5px #666; -webkit-box-shadow:0 0 5px #666;}
+.product h3{color:#444; font-family:"微软雅黑"; height:40px; line-height:40px; margin-bottom:0; position:relative; border-bottom:1px solid #e8e8e8;font-size:18px; margin:0 10px;}
+.product h3 a{ color:#444; position:absolute; display:block; top:5px; right:0; width:30px; text-align:center; height:30px; line-height:30px;}
+.product h3 a:hover{ text-decoration:underline; color:#fff; background:#09c;}
+.product .product-con{ padding:10px; line-height:30px;}
+.product .product-submit{ padding-bottom:10px; text-align:center}
+.product .loading{ line-height:30px; text-align:center}
+.product .product-con span{ white-space:nowrap; display:block; float:left; text-align:left; margin-right:3px;}
+.none{ display:none;}
+.product .fixsel{ text-align:center; padding-bottom:10px;}

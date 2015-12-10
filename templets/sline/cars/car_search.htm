@@ -1,0 +1,195 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{sline:field.pageno/}{sline:field.searchtitle/}-{sline:global.cfg_webname/}</title>
+{sline:field.keyword/}
+{sline:field.description/}
+<meta name="author" content="{sline:global.cfg_webname/}" />
+{sline:php}GetCss('base.css,car.css,calendar.css','2012.03');{/sline:php}
+{sline:php}GetScript('jquery-1.8.3.min.js,common.js,car.search.js,GetCNDate.js,calendar_hotel.js','2014.01');{/sline:php}
+</head>
+
+<body>
+	 {sline:include file='public/header.htm'/}
+  
+  <!-- 中间内容开始 -->
+  <div class="big">
+  	<div class="width_1210">
+    	<!-- 面包屑and订单开始 -->
+    	<div class="top_first">
+      	<div class="crumbs"><a href="/">{sline:global.cfg_indexname/}</a> &raquo; <a href="/cars">{sline:field.channelname/}</a></div>
+       {sline:include file='public/scroll_order.htm'/}
+      </div>
+      <!-- 面包屑and订单结束 -->
+      <div class="car_side_left">
+      {sline:getrightcontent pagename='search'/}
+
+      </div>
+
+      <div class="car_con_rig">
+      	<!--搜索条件开始-->
+      	<div class="serach_menu">
+        	<div class="search_bt"></div>
+            <dl>
+                <dt>目的地：</dt>
+                <dd id="destid_list">
+                    <span class="sp_1"><a class="on" href="/cars/" data-field="destid" data-value="0" >全部</a></span>
+                  <span class="sp_2">
+                    {sline:vlist name='destlist'}
+                     <a href="[field:id function=getCarUrl(@me,'dest_id')/]" data-field="destid" data-value="[field:id/]" >[field:kindname/]</a>
+                    {/sline:vlist}
+
+                  </span>
+                </dd>
+            </dl>
+          <dl>
+          	<dt>车型：</dt>
+            <dd class="search_item" rel="carkindid" data="{sline:global.carkindid/}">
+            	<span class="sp_1"><a class="{sline:global.startplaceid function=Helper_Archive::getParamUrlCls('on','carkindid',null)/}" href="{sline:global.id function=getCarUrl(0,'carkindid')/}">全部</a></span>
+              <span class="sp_2">
+               {sline:getcarguidelist flag="stylelist"}
+                  <a href="[field:id function=getCarUrl(@me,'carkindid')/]" class="[field:id function=Helper_Archive::getParamUrlCls('on','carkindid',@me)/]" data-field="carkindid" data-value="[field:id/]" >[field:title/]</a>
+                {/sline:getcarguidelist}
+              </span>
+            </dd>
+          </dl>
+
+
+            {sline:attrgrouplist typeid='3' }
+            <dl>
+                <dt>{sline:field.groupname/}：</dt>
+                <dd class="attr_list">
+                    <span class="sp_1"><a class="on"  href= "{sline:field.groupid function=getCarUrl(null,null,@me)/} " data-value="0">全部</a></span>
+                <span class="sp_2">
+                   {sline:getattrbygroup}
+                      <a href="[field:attrid function=getCarUrl(@me,'attrid')/]" data-value="[field:attrid/]"  >[field:title/]</a>
+                   {/sline:getattrbygroup}
+
+                </span>
+                </dd>
+            </dl>
+            {/sline:attrgrouplist}
+        </div>
+        <!--搜索条件结束-->
+
+        <!--搜索排序导航开始-->
+        <div class="list_nav search_item">
+          <span class="sp_1"></span>
+          <span><a class="{sline:global.displayorder function=Helper_Archive::getParamUrlCls('on','displayorder',null)/}" href="{sline:global.displayorder function= getCarUrl(0,'displayorder')/}" data="">默认排序</a></span>
+          <span><a class="{sline:global.displayorder function=Helper_Archive::getParamUrlCls('on','displayorder','1')/}" href="{sline:global.displayorder function= getCarUrl(1,'displayorder')/}">推荐</a></span>
+          <span><a class="{sline:global.displayorder function=Helper_Archive::getParamUrlCls('on','displayorder',2)/}" href="{sline:global.displayorder function= getCarUrl(2,'displayorder')/}">价格</a></span>
+          <span><a class="{sline:global.displayorder function=Helper_Archive::getParamUrlCls('on','displayorder','3')/}" href="{sline:global.displayorder function= getCarUrl(3,'displayorder')/}">销量</a></span>
+          <span><a class="{sline:global.displayorder function=Helper_Archive::getParamUrlCls('on','displayorder',4)/}" href="{sline:global.displayorder function= getCarUrl(4,'displayorder')/}">人气</a></span>
+        </div>
+        <!--搜索排序导航结束-->
+
+        <!--搜索列表内容开始-->
+        <div class="rig_list_con">
+          {sline:list}
+        	<div class="list_car">
+          	<div class="base_describe">
+            	<div class="des_img"><a class="fl" href="[field:url/]"><img class="fl" src="[field:lit240/]" width="155" height="125" alt="[field:title/]" title="[field:title/]" /></a></div>
+              <div class="des_txt">
+              	<h3><a href="[field:url/]">[field:title/]</a></h3>
+              	<p class="p1">推荐理由：[field:content function="cutstr_html(@me,90)"/]</p>
+                <p class="p2">[field:attrid function="getCarAttrName2(@me)"/]</p>
+                <p class="p3"><span>满意度：<b>[field:id function=Helper_Archive::getSatisfyScore(@me,3)/]</b></span><span>销量：<b>[field:id function=Helper_Archive::getSellNum(@me,3)/]</b>人已预订</span><span>评论：<b>[field:id function=Helper_Archive::getCommentNum(@me,3)/]</b>条好评</span></p>
+              </div>
+              <!--<div class="ticket_myd">
+              	<p class="p1"><span style=" width:[field:id function=Helper_Archive::getSatisfyScore(@me,3)/]"></span></p>
+                <p class="p2">[field:id function=Helper_Archive::getCommentNum(@me,3)/]</p>
+              </div>-->
+            </div>
+            [field:id function=getCarTaocanHtml(@me)/]
+            <div class="" style=" float:left; width:910px; margin:20px 0 0 8px">更多租车线路定制服务欢迎拨打：<span style="color:#ff7f00">[field:global.cfg_phone/]</span></div>
+
+          </div>
+         {/sline:list}
+            </div>
+
+        <!--搜索列表内容结束-->
+
+        <!--分页代码样式开始-->
+        <div class="main_mod_page clear">
+            {sline:pagelist isstatic='1'/}
+        </div>
+        <div style="clear:both"></div>
+        <!--分页代码样式结束-->
+
+
+      </div>
+    </div>
+  </div>
+  <input type="hidden" id="attrid" value="{sline:global.attrid/}"/>
+  <!-- 中间内容结束 -->
+  
+ <!--底部开始-->
+  {sline:include file='public/help.htm'/}
+  {sline:include file='public/footer.htm'/}
+  {sline:include file='public/flink.htm'/}
+  <!-- 底部结束 -->
+
+     <div id="calendar" style="display:none">
+
+     </div>
+    <script>
+        //租车属性选中
+        var attrid = $("#attrid").val();
+        var attrArr = attrid.split('_');
+
+        for(i=0;i<attrArr.length;i++)
+        {
+
+            $.STOURWEB.search_attr_selected(".attr_list","a",attrArr[i],'on');
+        }
+        $(function(){
+            var FilesArray=['./powerfloat/jquery-powerFloat.js','./powerfloat/powerFloat.css']
+            Loader.loadFileList(FilesArray,function(){
+                $(".usedate").powerFloat({
+                    eventType:"click",
+                    target: $("#calendar"),
+                    showCall: function() { }
+
+                });
+
+            });
+
+
+
+        })
+        //获取套餐报价
+        $(".usedate").click(function(){
+
+            var suitid = $(this).attr('data-suitid');
+            var carid = $(this).attr('data-carid');
+            getCalendar(suitid,carid);
+
+
+        })
+        //预订按钮点击
+        $(".btn_ding").click(function(){
+            $(this).parents('dl').first().find('.usedate').trigger('click');
+        })
+
+        //获取日历报价
+        function getCalendar(suitid,carid)
+        {
+            showCalendar('calendar',suitid,function(){},carid);
+        }
+
+        //日历跳转
+        function setBeginTime(year,month,day,price,childprice,aid,suitid)
+        {
+
+            var url = siteUrl+'/cars/booking.php?usedate='+year+'-'+month+'-'+day+'&suitid='+suitid;
+            window.open(url);
+        }
+
+
+
+    </script>
+
+
+</body>
+</html>

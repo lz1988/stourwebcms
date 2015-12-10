@@ -1,0 +1,203 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	background:#f2f2f2}
+.print_top{
+	width:100%;
+	text-align:center;
+	background:#009ced;
+	height:40px;
+	line-height:40px;
+	border-bottom:1px solid #005d8e}
+.print_top a{
+	color:#fff;
+	margin:0 20px;}
+.print_con{
+	width:215mm;
+	_width:235mm;
+	margin:10px auto;
+	text-align:left;
+	background:white;
+	padding:10mm; 
+	border-top:1px solid #999;
+	border-left:1px solid #999;
+	border-right:4px solid #333;
+	border-bottom:4px solid #333}
+.print_header{
+	clear:both;
+	padding-bottom:10px;
+	border-bottom:6px solid #2da1e7}
+.h_phone_num{
+	padding-top:12px}
+.logo{
+	float:none}	
+.page_nr{
+	clear:both}
+.page_nr h1{
+	padding:20px 0;
+	font-family:"微软雅黑";
+	font-size:30px;
+	font-weight:500;
+	text-align:center}
+.page_nr .txt{
+	color:#666;
+	font-size:16px;
+	line-height:30px;
+	font-family:"微软雅黑"}
+.jiage{
+	clear:both;
+	padding-top:20px;
+	color:#464646;
+	font-size:14px}
+.jiage table{
+	border-top:1px solid #a0a0a0;
+	border-left:1px solid #a0a0a0}
+.jiage table td{
+	border-right:1px solid #a0a0a0;
+	border-bottom:1px solid #a0a0a0}
+.jiage .price{
+	color:#f50;
+	font-weight:bold;
+	font-family:"微软雅黑";
+	font-size:26px}
+.jiage .chufa{
+	font-weight:bold}
+.jiage .day{
+	color:#f50;
+	font-weight:bold}
+.boxcon{
+	margin-top:10px}
+.boxcon h3{
+	color:#2da1e7;
+	height:20px;
+	font-family:"微软雅黑";
+	font-size:18px;
+	font-weight:500;
+	position:relative;
+	border-bottom:6px solid #2da1e7}
+.boxcon h3 span{
+	display:block;
+	padding:0 10px;
+	height:30px;
+	line-height:30px;
+	position:absolute;
+	left:20px;
+	top:8px;
+	background:#fff}
+.conlist{
+	padding:20px;
+	margin-top:20px;
+	font-size:14px;
+	line-height:24px;
+	border:1px solid #dcdcdc}
+.xc_day{
+	padding-bottom:20px;
+	margin-bottom:20px;
+	border-bottom:2px dotted #dcdcdc}
+.sty_none{
+	padding-bottom:0;
+	margin-bottom:0;
+	border:0}	
+.day_tit .sp_1{
+	display:inline-block;
+	height:35px;
+	line-height:35px;
+	color:#2da1e7;
+	font-family:"微软雅黑";
+	font-size:20px;
+	padding-left:25px;
+	background:url(../images/dy_ico.gif) left no-repeat}
+.day_tit .sp_2{
+	display:inline-block;
+	height:35px;
+	line-height:35px;
+	color:#464646;
+	font-family:"微软雅黑";
+	font-size:16px;
+	margin-left:20px}
+.day_con{
+	color:#464646;
+	line-height:24px;
+	margin-top:10px}
+.jingdian{
+	margin-top:20px}
+.jingdian .tit{
+	color:#2da1e7;
+	font-family:"微软雅黑";
+	font-size:16px}
+.jingdian .jd_con{
+	color:#464646;
+	line-height:24px;
+	margin-top:10px}
+.jd_ul{
+	height:205px;
+	margin-top:20px}	
+.jd_ul li{
+	float:left;
+	width:240px;
+	margin-right:25px;}
+.jd_ul li.mr_0{
+	margin-right:0}
+.jd_ul li img{
+	padding:4px;
+	border:1px solid #dcdcdc}
+.jd_ul li p{
+	float:left;
+	width:240px;
+	height:30px;
+	line-height:30px;
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+	text-align:center;
+	font-size:12px}
+.yc_con{
+	margin-top:20px}
+.yc_con .tit,.zhusu .tit{
+	display:block;
+	height:30px;
+	line-height:30px;
+	color:#2da1e7;
+	font-family:"微软雅黑";
+	font-size:16px}
+.yc_con .can{
+	display:inline-block;
+	width:32%;
+	height:30px;
+	line-height:30px}
+.zhusu{
+	margin-top:20px}
+.zhusu .hotel{
+	display:block;
+	line-height:30px}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

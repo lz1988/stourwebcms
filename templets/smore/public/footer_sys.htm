@@ -1,0 +1,80 @@
+{sline:php}GetCss('footer.css','2014.03');{/sline:php}
+<!-- 底部介绍开始 -->
+  <div class="big">
+    <div class="width_1210">
+      <div class="footer">
+        <div class="foot_menu">
+          {sline:serverlist}
+              <a href="[field:url/]" rel="nofollow">[field:servername/]<s>|</s></a>
+          {/sline:serverlist}
+         
+       
+        </div>
+        <div class="foot_con">
+          <p>{sline:global.cfg_footer/}{sline:global.cfg_html_kefu/}</p>
+          <p>{sline:global.cfg_tongjicode function=stripslashes(@me)/}</p>
+          <p>{sline:global.cfg_beian/}</p>
+          <p>技术支持:<a id='tecsupport' href="{sline:kkkk runphp='yes'}
+              global $typeid;
+              if(empty($typeid)||$typeid==0)
+              @me="http://www.stourweb.com/";
+              else 
+              @me='javascript:;';
+              {/sline:kkkk}">{sline:id runphp='yes'}
+              global $typeid;
+              if(empty($typeid)||$typeid==0)
+              @me="思途旅游CMS";
+              else 
+              @me='思途旅游CMS';
+              {/sline:id}</a></p>
+        </div>
+        <div class="foot_img">
+             {sline:licenselist}
+        	   <a href="[field:picurl/]" target="_blank"><img src="[field:litpic/]" alt="[field:title/]" title="[field:title/]" /></a>
+             {/sline:licenselist}
+        	
+        </div>
+      </div>
+    </div>
+  </div> 
+<script>
+$(function(){
+	$('#roll').hide();
+	$(window).scroll(function() {
+		if($(window).scrollTop() >= 100){
+			$('#roll').fadeIn(400);
+    }
+    else
+    {
+    	$('#roll').fadeOut(200);
+    }
+  });
+  $('#roll_top').click(function(){$('html,body').animate({scrollTop: '0px'}, 800);});
+});
+</script>
+<style type="text/css">
+#roll_top{
+	position:relative;
+	cursor:pointer;
+	height:53px;
+	width:54px;
+	}
+#roll_top {
+	background:url(/templets/smore/images/top.png) no-repeat 0px -64px;
+	}
+#roll_top:hover { background-position:0px 0px;}
+#roll {
+	display:none;
+	width:54px;
+	position:fixed;
+	right:30px;
+	bottom:30px;
+	_position:absolute;
+	_margin-top:300px;
+	_top:expression(eval(document.documentElement.scrollTop));
+	}
+</style>
+<div id="roll"><div title="回到顶部" id="roll_top"></div></div>  
+<script src="/qqkefu/qqkefu.js"></script>
+
+<!-- 底部介绍结束 -->

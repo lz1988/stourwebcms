@@ -1,0 +1,1 @@
+<li><span>[field:nickname/]</span>[field:dingtime/]预订了[field:productname/]</li>

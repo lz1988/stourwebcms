@@ -1,0 +1,368 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{sline:field.title}-{sline:global.cfg_webname/}</title>
+    {sline:php}GetCss('base.css,jieban.css','2015.03');{/sline:php}
+    {sline:php}GetScript('jquery-1.8.3.min.js,common.js,jquery.cookie.js','2015.03');{/sline:php}
+</head>
+<body>
+ {sline:include file='public/header.htm'/}
+  <div class="big">
+  	<div class="width_1120">
+        <!-- 面包屑and订单开始 -->
+        <div class="top_first">
+            <div class="crumbs"><a href="{sline:global.cfg_basehost/}">{sline:global.cfg_indexname/}</a> &raquo; <a href="{sline:global.cfg_cmsurl/}/jieban/">{sline:field.typename/}</a> &raquo; {sline:field.membername/}的结伴</div>
+            {sline:include file='public/scroll_order.htm'/}
+        </div>
+        <!-- 面包屑and订单结束 -->
+      <div class="show_top_box">
+      	<dl>
+        	<dt>
+          	<img src="{sline:field.memberlitpic/}" alt="{sline:field.membername/}" width="74" height="74" />
+            <span><em>{sline:field.membername/}</em>的速拼行程</span>
+          </dt>
+          <dd>
+          	<p class="tit">{sline:field.title/}</p>
+            <p class="num">
+            	<span><em>发表于</em>{sline:field.addtime function="Mydate('Y-m-d',@me)"/}</span>
+              <span><em>访问量</em>{sline:field.shownum/}</span>
+            </p>
+            <a class="join-btn" href="javascript:;">+ 加入这个行程</a>
+          </dd>
+        </dl>
+      </div>
+      
+      <div class="show_xc_con">
+      	<div class="xc_con_left">
+        	<ul>
+          	<li class="li-ico1">
+            	<span class="z_tit">目的地</span>
+              <div class="z_con"><p class="z_txt">{sline:field.kindnamelist/}</p></div>
+            </li>
+          	<li class="li-ico2">
+            	<span class="z_tit">行程天数</span>
+              <div class="z_con"><p class="z_txt">{sline:field.day/}天</p></div>
+            </li>
+          	<li class="li-ico3">
+            	<span class="z_tit">出发日期</span>
+              <div class="z_con"><p class="z_txt">{sline:field.startdate/}&nbsp;&nbsp;可调动日期±{sline:field.vartime/}天</p></div>
+            </li>
+          	<li class="li-ico4">
+            	<span class="z_tit">Ta的人数</span>
+              <div class="z_con"><p class="z_txt">成人{sline:field.adultnum/}名&nbsp;&nbsp;儿童{sline:field.childnum/}名</p></div>
+            </li>
+          	<li class="li-ico5">
+            	<span class="z_tit">行程需求</span>
+              <div class="z_con"><p class="z_txt">{sline:field.attrlist/}</p></div>
+            </li>
+            {sline:if var='_hasline'}
+          	<li class="li-ico6">
+            	<span class="z_tit">参考推荐</span>
+              <div class="z_con">
+
+                  {sline:field.lineinfo/}
+
+              </div>
+              <script>
+				$(function(){$('.z_con').find('dl').last().addClass('mb20')})
+			 </script>
+            </li>
+            {/sline:if}
+          	<li class="li-ico7">
+            	<span class="z_tit">行程说明</span>
+              <div class="z_con"><div class="d_txt">{sline:field.memo/}</div></div>
+            </li>
+          </ul>
+        </div>
+        <div class="xc_con_rig">
+        	<div class="join_xc_box">
+          	<dl>
+            	<dt>
+              	<span>
+                	<em>{sline:field.joinnum/}人</em>已加入此行程
+                </span>
+              </dt>
+              <dd>
+              	<ul>
+                {sline:getjieban flag='join' row='4'}
+                  <li>
+                  	<img class="fl" src="[field:litpic/]"  width="48" height="48" />
+                  	<span class="tit">[field:membername/]</span>
+                    <span class="txt"><em>[field:joinnum/]人</em>参加</span>
+                  </li>
+                 {/sline:getjieban}
+                </ul>
+              </dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+ <div class="alt_bg_box" style="display: none"></div>
+ <div class="alert_box" style="display: none">
+     <div class="box_tit">加入行程<a href="javascript:;" class="closebtn">×</a></div>
+     <div class="box_con">
+         {sline:if var='_msgcode'}
+            <dl>
+                 <dt>手机号：</dt>
+                 <dd><input type="text" class="phone_num" id="phone" /><span id="btn_sendmsgcode" class="yzm">发送验证码</span></dd>
+             </dl>
+             <dl>
+                 <dt>验证码：</dt>
+                 <dd><input type="text" class="phone_num" id="checkcode1" placeholder="请输入短信验证码" /><span class="cf" id="time" style="display: none">60秒后可重发</span></dd>
+             </dl>
+         {/sline:if}
+         {sline:if var='_txtcode'}
+         <dl>
+             <dt>手机号：</dt>
+             <dd><input type="text" id="phone" class="phone_num"></dd>
+         </dl>
+         <dl>
+             <dt>验证码：</dt>
+             <dd><input type="text" class="phone_num" id="checkcode2" placeholder="输入验证码"><img class="yz_img" src="{sline:global.cfg_cmsurl/}/include/vdimgck.php" style="cursor:pointer" onclick="this.src=this.src+'?'" title="点击我更换图片" alt="点击我更换图片"/></dd>
+         </dl>
+         {/sline:if}
+         <dl>
+             <dt>成人：</dt>
+             <dd>
+                 <span class="prve-btn adultprev">-</span>
+                 <input type="text" class="num_peo adultnum" value="1"  placeholder="1" />
+                 <span class="next-btn adultnext">+</span>名
+             </dd>
+         </dl>
+         <dl>
+             <dt>儿童：</dt>
+             <dd>
+                 <span class="prve-btn childprev">-</span>
+                 <input type="text" class="num_peo childnum" value="0"  placeholder="0" />
+                 <span class="next-btn childnext">+</span>
+                 名 （0 - 11岁）
+             </dd>
+         </dl>
+         <div class="sure_btn"><a href="javascript:;" class="joinbtn">确定</a>
+             <input type="hidden" id="msgtype" value="{sline:field.msgtype/}">
+             <input type="hidden" id="jiebanid" value="{sline:field.id/}">
+         </div>
+     </div>
+ </div>
+  {sline:include file='public/footer.htm'/}
+ <script src="/templets/smore/js/layer/layer.min.js"></script>
+<script>
+
+    $(function(){
+
+        //加入行程部分
+        $('.adultprev').unbind('click').click(function(){
+            var num = Number($('.adultnum').val());
+            num = num-1;
+            num = num==0 ? 1 : num;
+            $('.adultnum').val(num);
+        })
+        $('.childprev').unbind('click').click(function(){
+            var num = Number($('.childnum').val());
+
+            num = num-1;
+            num = num==-1 ? 0 : num;
+            $('.childnum').val(num);
+        })
+
+        $('.adultnext').unbind('click').click(function(){
+            var num = Number($('.adultnum').val());
+            num = num+1;
+
+            $('.adultnum').val(num);
+        })
+        $('.childnext').unbind('click').click(function(){
+            var num = Number($('.childnum').val());
+            num = num+1;
+            $('.childnum').val(num);
+        })
+        //发送短信
+        $("#btn_sendmsgcode").click(function(){
+            sendmsgEvent();
+        })
+        //保存
+        $(".joinbtn").click(function(){
+            var mobile = '';
+            var msgtype = $("#msgtype").val();
+
+            var flag = true;
+            if(msgtype=='msg'){
+                //验证短信验证码是否正确,获取手机号
+                mobile = $("#phone").val();
+                var regPartton=/^1[3-8][0-9]{9}$/ig;
+                if (!regPartton.test(mobile))
+                {
+                    layer.msg('请输入正确的手机号码', 1,8);
+                    return false;
+                }
+                var checkcode = $("#checkcode1").val();
+
+                $.ajax({
+                    type:'POST',
+                    url:siteUrl+'jieban/ajax.jieban.php',
+                    data:{action:'checkmsgcode',code:checkcode},
+                    async:false,
+                    dataType:'json',
+                    success:function(data){
+                        if(data.status==0){
+                            layer.msg("验证码错误",1,8);
+                            flag = false;
+                            return false;
+                        }
+                    }
+                })
+            }
+            else if(msgtype=='txt'){
+                mobile = $("#phone").val();
+                var checkcode = $("#checkcode2").val();
+                var regPartton=/^1[3-8][0-9]{9}$/ig;
+                if (!regPartton.test(mobile))
+                {
+                    layer.msg('请输入正确的手机号码', 1,8);
+                    return false;
+                }
+                $.ajax({
+                    type:'POST',
+                    url:siteUrl+'/jieban/ajax.jieban.php',
+                    data:{action:'checktxtcode',code:checkcode},
+                    async:false,
+                    dataType:'json',
+                    success:function(data){
+                        if(data.status==0){
+                            layer.msg("验证码错误",1,8);
+                            flag = false;
+                            return false;
+                        }
+                    }
+                })
+            }
+            if(mobile==''){
+                layer.msg("请填写手机号码",1,8);
+                return false;
+            }
+
+            if(!flag)return false;
+            addJoin();
+
+
+
+        })
+        //关闭
+        $(".closebtn").click(function(){
+            $(".alt_bg_box").hide();
+            $(".alert_box").hide();
+            $('body').css('overflow','auto');
+        })
+        //加入显示对话框
+        $(".join-btn").click(function(){
+            $(".alt_bg_box").show();
+            $(".alert_box").show();
+            $('body').css('overflow','hidden');
+        })
+
+
+
+    })
+
+   function sendmsgEvent(){
+        var mobile = $("#phone").val();
+        //alert(mobile);
+        var regPartton=/^1[3-8][0-9]{9}$/ig;
+        if (!regPartton.test(mobile))
+        {
+            layer.msg('请输入正确的手机号码', 1,8);
+            return false;
+        }
+
+        var url = siteUrl+"jieban/ajax.jieban.php?action=sendmsgcode2&mobile="+mobile+"&k="+"{sline:field.csrf_token_jb2/}";
+        var sendnum = $.cookie('sendnum2') ? $.cookie('sendnum2') : 0;
+        if(sendnum>3){
+            layer.msg("验证码发送请求过于频繁,请过15分钟后再试",1,8);
+            return false;
+        }
+        if(sendnum!=0){
+            $.cookie('sendnum2', sendnum++);
+        }else{
+            $.cookie('sendnum2', 1,{ expires: 1/96 });
+        }
+        $.post(url,true,function(data) {
+
+            if(data=='ok')
+            {
+                $("#btn_sendmsgcode").unbind('click');
+                CodeTimeout(60);
+                return false;
+            }
+            else
+            {
+                layer.msg("验证码发送失败,请稍后再试",1,8);
+                return false;
+            }
+        });
+    }
+   function CodeTimeout(v){
+       if(v>0)
+       {
+           var _html = --v+'秒可重发';
+           $("#time").html(_html);
+           $("#time").show();
+
+           setTimeout(function(){CodeTimeout(v)},1000);
+       }
+       else
+       {
+           $("#btn_sendmsgcode").unbind('click');
+           $("#time").hide();
+
+       }
+   }
+   function addJoin(){
+       var adultnum = $('.adultnum').val();
+       var childnum = $('.childnum').val();
+       var mobile = $("#phone").val();
+       var jiebanid = $("#jiebanid").val();
+       $.ajax({
+           type:'POST',
+           url:siteUrl+'jieban/ajax.jieban.php',
+           data:{action:'addjoin',adultnum:adultnum,childnum:childnum,mobile:mobile,jiebanid:jiebanid},
+           async:false,
+           dataType:'json',
+           success:function(data){
+               if(data.status==0){
+                   layer.msg("加入失败,请稍后再试",1,8);
+                   flag = false;
+                   return false;
+               }else{
+                   $(".closebtn").trigger('click');
+                   layer.msg("加入成功,请保持电话畅通.",1,9);
+               }
+           }
+       })
+   }
+
+
+</script>
+
+ <script>
+     $(function(){
+         var joinH  = $('.join_xc_box').offset().top
+         $(window).scroll(function(){
+             var scroH = $(document).scrollTop();
+             if(scroH>=joinH){
+
+                 $('.join_xc_box').css({'position':'fixed','top':'0'})
+             }
+             else{
+                 $('.join_xc_box').css({'position':'inherit'})
+             }
+         })
+
+     })
+ </script>
+
+</body>
+</html>

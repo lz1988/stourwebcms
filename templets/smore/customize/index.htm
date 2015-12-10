@@ -1,0 +1,255 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{sline:field.seotitle/}-{sline:global.cfg_webname/}</title>
+    {sline:php}GetCss('base.css,customize.css','2015.03');{/sline:php}
+    {sline:php}GetScript('jquery-1.8.3.min.js,common.js','2014.01');{/sline:php}
+</head>
+
+<body style="font-family: '微软雅黑', Arial, Helvetica, sans-serif;">
+   {sline:include file='public/header.htm'/}
+   <div class="width_1210">
+   <!-- 面包屑and滚动订单开始 -->
+   <div class="top_first">
+       <div class="crumbs"><a href="{sline:global.cfg_basehost/}">{sline:global.cfg_indexname/}</a> &raquo; 私人定制 </div>
+       {sline:include file='public/scroll_order.htm'/}
+   </div>
+   </div>
+  <div class="wid_big"></div>
+  
+  <div class="sever_big">
+  	<div class="sever_ts">
+    	<div class="service_bt"><img src="/templets/smore/images/fu-ts-tit.jpg" alt="服务特色" /></div>
+      <dl class="service_list">
+        <dt>私密</dt>
+        <dd>
+          家庭成员、亲密好友<br />独立成团、随时出发
+        </dd>
+      </dl>
+      <dl class="service_list">
+        <dt>省心</dt>
+        <dd>
+          交通、酒店、导游<br />全程服务设计安排
+        </dd>
+      </dl>
+      <dl class="service_list">
+        <dt>专属</dt>
+        <dd>
+          “一对一”路线订制<br />打造独一无二专属旅行
+        </dd>
+      </dl>
+      <dl class="service_list">
+        <dt>灵动</dt>
+        <dd>
+          告别每日既定式行程<br />路线景点随心安排
+        </dd>
+      </dl>
+    </div>
+  </div>
+  
+  <div class="big">
+  	<div class="width_1210">
+    	<div class="dz_tit">
+      	<h3>“专属订制”在线订制申请表</h3>
+        <p>*为了更好的了解您的旅行计划，为您提供完美的订制服务，请填写以下资料，谢谢！</p>
+      </div>
+        <form method="post" id="cusfm" action="/customize/save.php">
+         <div class="dz_con">
+      	<div class="msg_con fl">
+        	<div class="msg_bt"><s>1</s>您的旅行计划</div>
+          <div class="msg_bom">
+          	<dl>
+            	<dt>目的地<s>*</s></dt>
+              <dd>
+              	<input type="text" class="msg_text noblank" name="dest" />
+              </dd>
+            </dl>
+          	<dl>
+            	<dt>出发时间<s>*</s></dt>
+              <dd>
+              	<input type="text" class="msg_text noblank starttime" name="starttime"  />
+              </dd>
+            </dl>
+          	<dl>
+            	<dt>出发地点<s>*</s></dt>
+              <dd>
+              	<input type="text" class="msg_text noblank" name="startplace"/>
+              </dd>
+            </dl>
+          	<dl>
+            	<dt>出行时长<s>*</s></dt>
+              <dd>
+              	<input type="text" class="msg_text noblank" name="days" />
+              </dd>
+            </dl>
+          	<dl>
+            	<dt>成人数<s>*</s></dt>
+              <dd>
+              	<input type="text" class="msg_text noblank" name="adultnum" />
+              </dd>
+            </dl>
+          	<dl>
+            	<dt>儿童数<s>*</s></dt>
+              <dd>
+              	<input type="text" class="msg_text noblank" name="childnum" />
+              </dd>
+            </dl>
+            <dl>
+            	<dt>交通方式</dt>
+              <dd>
+                <input type="hidden" name="planerank" value="飞机"/>
+                  <a class="on" href="javascript:;">飞机</a>
+                  <a href="javascript:;">火车</a>
+                  <a href="javascript:;">汽车</a>
+                  <a href="javascript:;">自驾</a>
+                  <a href="javascript:;">无</a>
+
+              </dd>
+            </dl>
+            <dl>
+            	<dt>酒店星级</dt>
+              <dd>
+                  <input type="hidden" name="hotelrank" value="三星级"/>
+                  <a href="javascript:;" class="on" >三星级</a>
+              	<a href="javascript:;">四星级</a>
+              	<a href="javascript:;">五星级</a>
+              	<a href="javascript:;">五星级以上</a>
+              	<a href="javascript:;">快捷经济型</a>
+              	<a href="javascript:;">其他</a>
+              </dd>
+            </dl>
+            <dl>
+            	<dt>需要房型</dt>
+              <dd>
+                <input type="hidden" name="room" value="单人"/>
+                  <a class="on" href="javascript:;">单人</a>
+                  <a href="javascript:;">双人大床房</a>
+                  <a href="javascript:;">双人分床房</a>
+                  <a href="javascript:;">套间</a>
+                  <a href="javascript:;">海景房</a>
+                  <a href="javascript:;">其它</a>
+              </dd>
+            </dl>
+            <dl>
+            	<dt>用餐形式</dt>
+              <dd>
+                  <input type="hidden" name="food" value="自理"/>
+                  <a class="on" href="javascript:;">自理</a>
+                  <a href="javascript:;">部分自理</a>
+                  <a href="javascript:;">全包用餐</a>
+              </dd>
+            </dl>
+          </div>
+        </div>
+        <div class="msg_con fr">
+        	<div class="msg_bt"><s>2</s>您的联系方式</div>
+          <div class="msg_bom">
+          	<dl>
+            	<dt>您的称呼<s>*</s></dt>
+              <dd>
+              	<input type="text" class="msg_text noblank" name="contactname" />
+              </dd>
+            </dl>
+          	<dl>
+            	<dt>您的性别<s>*</s></dt>
+              <dd>
+                  <input type="hidden" name="sex" value="先生"/>
+                  <a class="on" href="javascript:;">先生</a>
+                  <a href="javascript:;">女士</a>
+              </dd>
+            </dl>
+          	<dl>
+            	<dt>所在地点<s>*</s></dt>
+              <dd>
+              	<input type="text" class="msg_text noblank" name="address" />
+              </dd>
+            </dl>
+          	<dl>
+            	<dt>联系电话<s>*</s></dt>
+              <dd>
+              	<input type="text" class="msg_text noblank" name="phone" />
+              </dd>
+            </dl>
+          	<dl>
+            	<dt>Email</dt>
+              <dd>
+              	<input type="text" class="msg_text" name="email" />
+              </dd>
+            </dl>
+          	<dl>
+            	<dt>合适的联系时间</dt>
+              <dd>
+                  <input type="hidden" name="contacttime" value="9:00-12:00"/>
+                  <a class="on" href="javascript:;">9:00-12:00</a>
+                  <a href="javascript:;">14:00-18:00</a>
+                  <a href="javascript:;">19:00-22:00</a>
+              </dd>
+            </dl>
+          	<dl>
+            	<dt>其他要求</dt>
+              <dd>
+                  <textarea name="content"></textarea>
+              </dd>
+            </dl>
+              <dl>
+                  <dt>验证码<s>*</s></dt>
+                  <dd>
+                      <input class="msg_text noblank" style="width: 60px;line-height: 28px;height: 28px" name="checkcode" type="text"/><img  class="wd_yzm" style="vertical-align: middle;" src="/include/vdimgck.php" width="80" height="30"  onclick="this.src='/include/vdimgck.php?rand='+Math.random()" />
+                          <span style=" font-size: 13px;color: #f74949;">*验证码为数字相加的总和</span>
+                  </dd>
+              </dl>
+
+            <div class="tj_btn" style="margin-top: 0"><a href="javascript:;" onClick="checkForm()">提交订单</a></div>
+          </div>
+        </div>
+      </div>
+        </form>
+    </div>
+  </div>
+   <script src="/templets/smore/js/DatePicker/WdatePicker.js"></script>
+   <script>
+       $("dl a").click(function(e) {
+           $(this).siblings("input:hidden").val($(this).text());
+           $(this).siblings("a").removeClass("on");
+           $(this).addClass("on");
+       });
+       //日历选择
+       $(".starttime").click(function(){
+           WdatePicker({skin:'whyGreen',dateFmt:'yyyy-MM-dd',minDate:'%y-%M-%d'})
+       })
+
+
+       function checkForm()
+       {
+           var isvalidate=true;
+           $(".noblank").each(function(index, element) {
+               var val=$(element).val();
+               val=$.trim(val);
+               if(!val)
+               {
+                   var offset=$(element).offset();
+                   $(window).scrollTop(offset.top-100);
+                   $(element).css("border","1px solid red");
+                   isvalidate=false;
+                   return false;
+               }
+               else
+               {
+                   $(element).css("border","1px solid #dcdcdc");
+               }
+           });
+           if(isvalidate)
+               $("#cusfm").submit();
+       }
+
+
+   </script>
+   {sline:include file='public/help.htm'/}
+   <!--底部开始-->
+   {sline:include file='public/footer.htm'/}
+   <!-- 底部结束 -->
+  
+</body>
+
+</html>

@@ -1,0 +1,327 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+    <title>{sline:global.cfg_indextitle/}</title>
+    <meta name="keywords" content="{sline:global.cfg_keywords/}" />
+    <meta name="author" content="{sline:global.cfg_webname/}" />
+    <meta name="description" content="{sline:global.cfg_description/}" />
+    {sline:global.cfg_indexcode/}
+    {sline:php}GetCss('base.css,index_3.css','2014.03');{/sline:php}
+    {sline:php}GetScript('jquery-1.8.3.min.js,common.js,index.focus.js,slideTabs.js,lazy.js','2014.04');{/sline:php}
+
+
+</head>
+
+<body>
+{sline:include file='public/header.htm'/}
+
+<div class="big">
+    <div class="width_1210">
+
+        <!-- 热门目的地开始 -->
+        <div class="top_first">
+            <div class="hot_mdd">
+                <span>热门目的地：</span>
+                {sline:getdest flag='hot' row='6'}
+                <a href="[field:url/]">[field:title/]</a>
+                {/sline:getdest}
+            </div>
+            {sline:include file='public/scroll_order.htm'/}
+        </div>
+        <!-- 热门目的地结束 -->
+
+    </div>
+</div>
+  <!--滚动焦点图开始-->
+  <div class="focus_img">
+    <div id="_banners" class="banners">
+      {sline:rollingAd name='index3RollingAd'}
+      <div class="banner">
+        <a href="[field:linkurl/]" target="_blank"><img width="1920" height="320" src="[field:picurl/]" alt="[field:linktext/]" /></a>
+      </div>
+      {/sline:rollingAd}
+    </div>
+    <div id="_focus" class="focus">
+        {sline:rollingAd name='index3RollingAd'}
+      <a data-index="[field:global.step runphp='yes']@me=intval(@me)-1;[/field:global.step]" href="javascript:void(0);"><span class="bg-b"></span><span class="inner"></span></a>
+        {/sline:rollingAd}
+
+    </div>
+  </div>
+  <!--滚动焦点图结束-->
+  
+  <div class="top_pz_box">
+  	<div class="child ico01">深度旅行线路</div>
+  	<div class="child ico02">专业精品小团</div>
+  	<div class="child ico03">全程细心指导</div>
+  	<div class="child ico04">全面安全保障</div>
+  </div>
+  <!--品质保证-->
+  
+  <div class="big">
+  	<div class="width_1210">
+
+    {sline:channelcheck typeid='1'}
+    	<!--旅游线路开始-->
+      <div class="line_trip_box">
+
+        <div class="product_box">
+
+          <div class="con_list">
+
+          	<div class="tabnav">
+                <h3>旅游线路</h3>
+                {sline:middlenavlist flag='line'}
+            	 <span>{sline:field.kindname/}</span>
+                {/sline:middlenavlist}
+
+                <a class="more" href="/lines/all">更多线路</a>
+            </div>
+             {sline:middlenavlist flag='line'}
+            <div class="tabcon">
+            	<ul>
+                {sline:getlinelist type='mdd' row='6'}
+                    <li [field:global.autoindex runphp='yes']if(@me%3==0)@me="class='mr_0'";else @me='';[/field:global.autoindex]>
+                        <a class="fl" href="[field:url/]" target="_blank"><img class="fl lazyimg" src="" data-original="[field:litpic/]" alt="[field:title/]" width="294" height="162" /></a>
+                      <a class="tit" href="[field:url/]" target="_blank">[field:title/]</a>
+                      <span class="price">[field:sellprice runphp='yes']
+                             if(!empty(@me))
+                                  @me='&yen;'.'<b>'.@me.'</b>起';
+                             else @me='电询';
+
+                      [/field:sellprice]</span>
+                    </li>
+              	{/sline:getlinelist}
+              </ul>
+            </div>
+             {/sline:middlenavlist}
+
+            <div class="ad_img">{sline:myad name='index3LineAd'/}</div>
+          </div>
+        </div>
+      </div>
+      <!--旅游线路结束-->
+    {/sline:channelcheck}
+
+    {sline:channelcheck typeid='2'}
+    	<!--热门酒店开始-->
+      <div class="hotel_trip_box">
+
+        <div class="product_box">
+          <div class="con_list">
+          	<div class="tabnav">
+                <h3>热门酒店</h3>
+                {sline:middlenavlist flag='hotel'}
+            	 <span>{sline:field.kindname/}</span>
+                {/sline:middlenavlist}
+              <a class="more" href="/hotels/all/">更多酒店</a>
+            </div>
+            {sline:middlenavlist flag='hotel'}
+            <div class="tabcon">
+            	<ul>
+                {sline:gethotellist type='mdd' row='6'}
+              	<li [field:global.autoindex runphp='yes']if(@me%3==0)@me="class='mr_0'";else @me='';[/field:global.autoindex]>
+                	<a class="fl" href="[field:url/]" target="_blank"><img class="fl lazyimg" data-original="[field:litpic/]" alt="[field:title/]" width="294" height="162" /></a>
+                  <a class="tit" href="[field:url/]" target="_blank">[field:title/]</a>
+                  <span class="price">[field:sellprice runphp='yes']
+                             if(!empty(@me))
+                                  @me='&yen;'.'<b>'.@me.'</b>起';
+                             else @me='电询';
+
+                      [/field:sellprice]</span>
+                </li>
+                {/sline:gethotellist}
+              </ul>
+            </div>
+           {/sline:middlenavlist}
+
+            <div class="ad_img">{sline:myad name='index3HotelAd'/}</div>
+          </div>
+        </div>
+      </div>
+      <!--热门酒店结束-->
+    {/sline:channelcheck}
+    {sline:channelcheck typeid='5'}
+      <!--景点门票开始-->
+      <div class="spot_trip_box">
+
+        <div class="product_box">
+
+          <div class="con_list">
+          	<div class="tabnav">
+                <h3>景点门票</h3>
+                {sline:middlenavlist flag='spot'}
+                <span>{sline:field.kindname/}</span>
+                {/sline:middlenavlist}
+              <a class="more" href="/spots/all">更多景点</a>
+            </div>
+              {sline:middlenavlist flag='spot'}
+              <div class="tabcon">
+                  <ul>
+                      {sline:getspotlist type='mdd' row='6'}
+                      <li [field:global.autoindex runphp='yes']if(@me%3==0)@me="class='mr_0'";else @me='';[/field:global.autoindex]>
+                          <a class="fl" href="[field:url/]" target="_blank"><img class="fl lazyimg" data-original="[field:litpic/]" alt="[field:title/]" width="294" height="162" /></a>
+                          <a class="tit" href="[field:url/]" target="_blank">[field:title/]</a>
+                          <span class="price">&yen;<b>[field:price3/]</b></span>
+                      </li>
+                      {/sline:getspotlist}
+                  </ul>
+              </div>
+              {/sline:middlenavlist}
+            <div class="ad_img">{sline:myad name='index3SpotAd'/}</div>
+          </div>
+        </div>
+      </div>
+      <!--景点门票结束-->
+    {/sline:channelcheck}
+
+    {sline:channelcheck typeid='3'}
+      <!--旅游租车开始-->
+      <div class="car_trip_box">
+          <div class="trip_tit"><h3>旅游租车</h3><a class="more" href="/cars/all">更多租车</a></div>
+        <div class="product_box">
+        	<div class="car_con_list">
+
+            <div class="tabcon">
+            	<ul>
+                {sline:getcarlist flag='recommend' row='4'}
+                    <li [field:global.autoindex runphp='yes']if(@me%4==0)@me="class='mr_0'";else @me='';[/field:global.autoindex]>
+                        <a class="fl" href="[field:url/]" target="_blank"><img class="fl lazyimg" data-original="[field:litpic/]" alt="[field:title/]" width="220" height="124" /></a>
+                        <a class="tit" href="[field:url/]" target="_blank">[field:title/]</a>
+                         <span class="price">[field:sellprice runphp='yes']
+                             if(!empty(@me))
+                                  @me='&yen;'.'<b>'.@me.'</b>起';
+                             else @me='电询';
+                      [/field:sellprice]</span>
+                    </li>
+                {/sline:getcarlist}
+
+              </ul>
+            </div>
+                <div class="ad_img">{sline:myad name='index3CarAd'/}</div>
+          </div>
+
+        </div>
+      </div>
+      <!--旅游租车结束-->
+    {/sline:channelcheck}
+
+    {sline:channelcheck typeid='13'}
+      <!--团购开始-->
+      <div class="tuan_trip_box">
+      	<div class="trip_tit"><h3>特价团购</h3><a class="more" href="/tuan/">更多特价</a></div>
+        <div class="product_box">
+        	<div class="tuan_con_list">
+            <div class="tabcon">
+            	<ul>
+                    {sline:gettuanlist flag='recommend' row='4'}
+
+                    <li [field:global.autoindex runphp='yes']if(@me%4==0)@me="class='mr_0'";else @me='';[/field:global.autoindex]>
+                        <span class="dz_ico"><b>[field:discount/]折</b>优惠</span>
+                        <a class="fl" href="[field:url/]" target="_blank"><img class="fl lazyimg" data-original="[field:litpic/]" alt="[field:title/]" width="220" height="124" /></a>
+                        <a class="tit" href="[field:url/]" target="_blank">[field:title/]</a>
+                        <span class="price">&yen;<b>[field:price/]</b></span>
+                    </li>
+                    {/sline:gettuanlist}
+              </ul>
+            </div>
+          	<div class="ad_img">{sline:myad name='index3TuanAd'/}</div>
+          </div>
+        </div>
+      </div>
+      <!--团购结束-->
+    {/sline:channelcheck}
+
+    {sline:channelcheck typeid='8'}
+      <!--签证开始-->
+      <div class="visa_trip_box">
+      	<div class="trip_tit"><h3>签证办理</h3><a class="more" href="/visa/">更多签证</a></div>
+        <div class="product_box">
+        	<div class="visa_con_list">
+          	<ul>
+                {sline:getvisalist flag='recommend' row='8'}
+                    <li>
+                    <a class="fl" href="[field:url/]" target="_blank"><img class="fl lazyimg" data-original="[field:litpic/]" alt="[field:title/]" width="92" height="60" /></a>
+                    <p>
+                      <a href="[field:url/]" target="_blank">[field:title/]</a>
+                      <span>&yen;<b>[field:price/]</b></span>
+                    </p>
+                    </li>
+            	{/sline:getvisalist}
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!--签证结束-->
+    {/sline:channelcheck}
+
+    {sline:channelcheck typeid='4'}
+      <!--文章开始-->
+      <div class="article_trip_box">
+      	<div class="article_con">
+      		<div class="trip_tit">
+             <h3>旅游攻略</h3>
+            <div class="tabnav">
+                {sline:middlenavlist flag='raider'}
+            	 <span>{sline:field.kindname/}</span>
+                {/sline:middlenavlist}
+
+            </div>
+            <a class="more" href="/raiders/all">更多攻略</a>
+          </div>
+            {sline:middlenavlist flag='raider'}
+        	<div class="tabcon">
+                <div class="first">
+                  {sline:getarclist type='mdd' row='1'}
+                  <div class="yx-rotaion">
+
+                    <ul>
+                      <li>
+                        <a target="_blank" href="[field:url/]"><img class="lazyimg" data-original="[field:litpic/]" alt="[field:title/]" width="380" height="250"></a>
+                      </li>
+                    </ul>
+                  </div>
+                  <p class="tit"><a target="_blank" href="[field:url/]">[field:title/]</a></p>
+                  <p class="txt">[field:content function="cutstr_html(@me,40)"/]</p>
+                   {/sline:getarclist}
+                </div>
+                <div class="second">
+                    <ul>
+                    {sline:getarclist type='mdd' row='8' limit='1'}
+                    <li [field:global.autoindex runphp='yes']if(@me%2==0)@me="class='mr_0'";[/field:global.autoindex]>
+                        <p class="tit"><a href="[field:url/]" target="_blank">[field:title/]</a></p>
+                      <p class="txt">[field:content function="cutstr_html(@me,40)"/]</p>
+                    </li>
+                    {/sline:getarclist}
+                  </ul>
+                </div>
+            </div>
+            {/sline:middlenavlist}
+
+        </div>
+        
+      </div>
+      <!--文章结束-->
+    {/sline:channelcheck}
+    </div>
+  </div>
+{sline:include file='public/help.htm'/}
+
+{sline:include file='public/footer.htm'/}
+
+{sline:include file='public/flink.htm'/}
+
+<script>
+    $(function(){
+        $('.con_list').switchTab({trigger:'hover'});
+        $('.car_con_list').switchTab({trigger:'hover'});
+        $('.article_con').switchTab({trigger:'hover'});
+
+    })
+    $('img[data-original]').lazyload({container:"window",threshold:100});
+</script>
+<script src="{sline:global.cfg_cmsurl/}/automake.php" language="javascript"></script>
+  
+</body>
+</html>

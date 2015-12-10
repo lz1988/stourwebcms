@@ -1,0 +1,73 @@
+ <!-- 咨询开始 -->
+          <div class="tablelist column_int" style="float:left;">
+          	<div class="dif_interaction">
+          		<h3 class="dif_title">购买咨询</h3>
+                 {sline:getquestion row='5'}
+                      <div class="zx_list">
+                        <ul>
+                            <li><p class="p1"><span>网友：</span>[field:nickname/]</p><p class="p2">[field:addtime function="Mydate('Y-m-d H:i:s',@me)"/]</p></li>
+                          <li><p class="p1"><span>咨询内容：</span></p><p class="txt">[field:content/]</p></li>
+                          <li class="f50"><p class="p1"><span>客服回复：</span></p><p class="txt">先生/小姐：您好！[field:replycontent/]</p></li>
+                        </ul>
+                      </div>
+                 {/sline:getquestion}
+             
+              <form action="{sline:global.cfg_cmsurl/}/feedback.php" method="post" name="qfrm" id="qfrm">
+                  <div class="zx_con">
+                    <h3>咨询内容</h3>
+                    <textarea name="question" id="question" cols="" rows=""></textarea>
+                    <div class="txt">
+                      <p><a class="submit" href="javascript:;">提交</a></p>
+                      <p><label>验证码：</label><img class="yz_img" src="{sline:global.cfg_cmsurl/}/include/vdimgck.php" style="cursor:pointer" onclick="this.src=this.src+'?'" title="点击我更换图片" alt="点击我更换图片"  /><input type="text" class="yz_num" name="checkcode" value="" /></p>
+                      <p>
+                      {sline:php}
+                        if(!empty($User->username))
+                        {
+                           $str='<label>昵称：</label><span style="line-height:26px">'.$User->username.'</span>'; 
+                        }
+                        else
+                        {
+                           $str='<label><a href="'.$GLOBALS['cfg_cmsurl'].'/member/login.php">会员可登陆后咨询</a>&nbsp;昵称：</label><input type="text" class="nickname" name="nickname" value="" />';  
+                        }
+                        echo $str;
+                      {/sline:php}
+                      
+                      
+                      </p>
+                       <input type="hidden" name="productid" value="{sline:field.id/}">
+			           <input type="hidden" name="typeid" value="{sline:field.typeid/}">
+
+                    </div>
+                  </div>
+              </form>
+            </div>
+          </div>
+          <!-- 门票咨询结束 -->
+ <script src="/templets/smore/js/layer/layer.min.js"></script>
+ <script language="javascript">
+   $(function(){
+       $('.submit').click(function(){
+	        var leaveinfo=$("#question").val();
+			if (leaveinfo==""){
+
+                layer.msg('请留下您的问题！', 2,8);
+				$("#question").focus();
+				return false;
+			}
+	
+			var checkcode=$("#checkcode").val();
+			var code=/^[0-9]+$/;
+			var flag = code.test(checkcode);
+			if(checkcode==""){
+                layer.msg('请输入验证码！', 2,8);
+				$("#checkcode").focus();
+				return false;
+			}
+			$("#qfrm").submit();
+			
+			
+	   
+	   })
+   
+   })
+ </script>

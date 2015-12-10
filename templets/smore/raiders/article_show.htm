@@ -1,0 +1,244 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{sline:field.seotitle/}-{sline:global.cfg_webname/}</title>
+{sline:field.keyword/}
+{sline:field.description/}
+<meta name="author" content="{sline:global.cfg_webname/}" />
+{sline:php}GetCss('base.css,article.css','2012.06');{/sline:php}
+{sline:php}GetScript('jquery-1.8.3.min.js,common.js,comment.js,article.show.js','2012.06');{/sline:php}
+</head>
+
+<body>
+	<!-- 顶部介绍开始 -->
+		{sline:include file='public/header.htm'/}
+  <!-- 导航结束 -->
+  
+  <!-- 中间内容开始 -->
+  <div class="big">
+  	<div class="width_1210">
+    	<!-- 面包屑and订单开始 -->
+    	<div class="top_first">
+      	<div class="crumbs"><a href="/">{sline:global.cfg_indexname/}</a> &raquo; <a href="/raiders/">{sline:field.typename/}</a> {sline:field.pkname/}</div>
+       {sline:include file='public/scroll_order.htm'/}
+      </div>
+      <!-- 面包屑and订单结束 -->
+
+      <!--边栏开始-->
+    	<div class="line_con_rig">
+        
+        <!--快捷导航开始
+        <div class="shortcut_nav">
+        	<h3><span>{sline:field.destid function=Helper_Archive::getBelongDestName(@me) /}</span>快速导航</h3>
+          <div class="s_list_menu">
+          	<a href="/lines/{sline:field.pinyin/}" target="_blank">线路</a>
+            <a href="/hotels/{sline:field.pinyin/}" target="_blank">酒店</a>
+            <a class="mr_0" href="/spots/{sline:field.pinyin/}" target="_blank">门票</a>
+            <a href="/cars/{sline:field.pinyin/}"  target="_blank">租车</a>
+            <a href="/visa/}" target="_blank">签证</a>
+            <a class="mr_0" href="/photos/{sline:field.pinyin/}" target="_blank">相册</a>
+          </div>
+        </div>
+        快捷导航结束-->
+        
+        {sline:getrightcontent pagename='show'/}
+
+      </div>
+      <!--边栏结束-->
+      
+      <div class="articel_con_show">
+      	<div class="atc-banner">
+        	{sline:myad name='RaiderShowAd1'/}
+        </div>
+      	<!--文章内容开始-->
+				<div class="show_con">
+        	<div class="show_mid">
+          	<div class="title"><h1>{sline:field.title/}</h1></div>
+            <div class="news">
+            	<span class="time">时间：{sline:field.addtime function="MyDate('Y-m-d',@me)"/}</span>
+            	<span class="name">作者：{sline:field.author/}</span>
+              <span class="attr"><strong>{sline:field.destname/}</strong>{sline:field.attrlist runphp='yes'}
+                 $k=0;
+                 foreach(@me as $k=>$v)
+                 {
+                   if($k<3)
+                   {
+                     $str.=" - [<a target=\"_blank\" href=\"/raiders/all-{$v['id']}\">{$v['attrname']}</a>]";
+                   }
+                   $k++;
+
+
+                 }
+                 @me=$str;
+                {/sline:field.attrlist}
+              </span>
+              <span class="fl">
+               <!-- JiaThis Button BEGIN -->
+                <div class="jiathis_style" style="margin-top: 7px;">
+                    <a class="jiathis_button_qzone"></a>
+                    <a class="jiathis_button_tsina"></a>
+                    <a class="jiathis_button_tqq"></a>
+                    <a class="jiathis_button_weixin"></a>
+                    <a class="jiathis_button_renren"></a>
+                    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+                    <a class="jiathis_counter_style"></a>
+                </div>
+                <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1398134531972257" charset="utf-8"></script>
+                <!-- JiaThis Button END -->
+
+              </span>
+							<span class="num_1">{sline:field.commentnum/}</span>
+              <span class="num_2">{sline:field.shownum/}</span>
+            </div>
+          {sline:if var='_hasdest'}
+            <div class="add-pro">
+            	<div class="tit">相关线路推荐</div>
+                {sline:getlinelist flag='relative' row='2'}
+                  <dl>
+                    <dt><s>抢购</s><a class="fl" href="[field:url/]" target="_blank"><img src="[field:litpic/]" alt="[field:title/]" title="[field:title/]" /></a></dt>
+                    <dd class="d1"><a href="[field:url/]" target="_blank">[field:title/]</a></dd>
+                    <dd class="d2">[field:sellpoint/]</dd>
+                    <dd class="d3"><span>&yen;[field:sellprice/]</span>起</dd>
+                  </dl>
+                {/sline:getlinelist}
+
+
+            </div>
+          {/sline:if}
+            <div class="txt">
+            	<span class="zy">摘要：</span>{sline:field.summary/}
+            </div>
+            <div class="artcel_nr">
+            	{sline:field.content/}
+            </div>
+            <div class="today-hot">
+            	<div class="tit"><span>今日优惠</span><a href="/lines/">更多优惠&gt;&gt;</a></div>
+              <ul>
+                {sline:getlinelist flag='recommend' row='6'}
+                    <li>
+                        <s>优惠</s>
+                        <a class="fl" href="[field:url/]" target="_blank"><img src="[field:lit160/]" alt="[field:title/]" title="[field:title/]" /></a>
+                      <p class="p1"></p>
+                      <p class="p2">&yen;[field:sellprice/]</p>
+                      <p class="p3"><a href="[field:url/]" target="_blank">[field:title/]</a></p>
+                    </li>
+               {/sline:getlinelist}
+              </ul>
+            </div>
+            <div class="page_menu">
+            	<div class="prev">{sline:field.pre/}</div>
+            	<div class="next">{sline:field.next/}</div>
+            </div>
+            <div class="xg_news">
+            	<dl>
+              	<dt>相关阅读</dt>
+                 {sline:getarclist flag='relative' row='4'}
+                    <dd>
+                        <a class="fl" href="[field:url/]" target="_blank"><img src="[field:lit160/]" title="[field:title/]" alt="[field:title/]" /></a>
+                        <p><a href="[field:url/]" target="_blank">[field:title/]</a></p>
+                      <p class="p2">[field:content function="cutstr_html(@me,60)"/]</p>
+                    </dd>
+                {/sline:getarclist}
+              </dl>
+
+            </div>
+          </div>
+            	
+        </div>
+        <!--文章内容结束-->
+        <div class="atc-banner">
+            {sline:myad name='RaiderShowAd2'/}
+        </div>
+        <!--评论内容开始-->
+        <div class="comment_on">
+        	<h3>参与评论</h3>
+          <form action="/comment/comment.php" method="post">  
+          <div class="text_box">
+          	<textarea name="content" cols="" rows="" onClick="togHint(this,'请使用文明语言!')">请使用文明语言!</textarea>
+          </div>
+          <div class="login_pl_btn">
+            <input class="fb_btn" type="button" onClick="sendComment(this,'请使用文明语言!')"  value="发表评论">
+            <span class="login_cm"><a href="javascript:;" onClick="commentLogin(this)" >登录</a></span>
+            <span class="nim"><input type="checkbox" class="niming"  value="1"/></span>
+                  
+            <span>匿名</span>
+           
+            <span class="checkcode"><img onClick="commentCheck(this)" src="/include/vdimgck.php?word_type=3"/></span>
+             <span>验证码：<input type="text" name="checkcode" size="4"/></span>
+          </div>
+          <input type="hidden" name="articleid" value="{sline:field.id/}"/>
+          <input type="hidden" name="typeid" value="4"/>
+          </form>
+        </div>
+        
+        <div class="comment_list">
+        	<h3>他们说...</h3>
+          <div class="comment_nr_con">
+          {sline:commentlist typeid="4"}
+          	<div class="nr_pl_list">
+              <dl class="nr_dl">
+                <dt class="nr_dt"><img class="fl" src="{sline:field.litpic/}" width="45" height="45"></dt>
+                <dd class="nr_dd">
+                  <h4>{sline:field.nickname/}</h4>
+                  <div class="nr_pl_con">{sline:field.content/}</div>
+                  <div class="nr_pl_hf"><a href="javascript:;" onClick="funaddCommDiv(this,{sline:field.articleid/},{sline:field.id/},{sline:field.id/},4,0)">回复</a></div>
+                  
+                </dd>
+              </dl>
+              <div class="hf_con_div">
+               {sline:getchildcomment typeid="4"}
+                <dl class="hf_dl">
+                  <dt class="hf_dt"><img class="fl" src="[field:litpic/]" width="45" height="45"></dt>
+                  <dd class="hf_dd">
+                    <h4>[field:nickname/]</h4>
+                    <div class="nr_hf_con">回复<span>@[field:replynickname/]</span>：[field:content/]</div>
+                    <div class="nr_hf_hf"><a href="javascript:;" onClick="funaddCommDiv(this,[field:articleid/],[field:id/],[field:dockid/],4,1)">回复</a></div>
+                    
+                  </dd>
+                </dl>
+               {/sline:getchildcomment} 
+              </div>
+            </div>
+           {/sline:commentlist}
+           
+           
+            </div>
+            <!--分页代码样式开始-->
+         <!--   <div class="main_mod_page clear">
+             <p class="page_right">
+               <a class="prev" title="上一页" href="javascript:prevPage();">上一页</a>
+               <span class="mod_pagenav_count">
+               <a title="1" href="javascript:page(1);">1</a>
+               <span class="point">...</span>
+               <a title="6" href="javascript:page(6);">6</a>
+               <a title="7" href="javascript:page(7);">7</a>
+               <a onclick="return false;" href="javascript:void(0);" class="current">8</a>
+               <a title="9" href="javascript:page(9);">9</a>
+               <a title="10" href="javascript:page(10);">10</a>
+               <span class="point">...</span>
+               <a title="92" href="javascript:page(92);">92</a></span>
+               <a class="next" title="下一页" href="javascript:nextPage();">下一页</a></p>
+            </div>
+            -->
+            <div style="clear:both"></div>
+            <!--分页代码样式结束-->
+          </div>
+        </div>
+        <!--评论内容结束-->
+      </div>
+      
+    </div>
+  </div>
+  <!-- 中间内容结束 -->
+  
+  <!--帮助流程开始-->
+   {sline:include file='public/help.htm'/}
+  
+  {sline:include file='public/footer.htm'/}
+  
+  {sline:include file='public/flink.htm'/}
+  <!-- 友情链接结束 -->
+
+</body>
+</html>

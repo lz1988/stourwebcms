@@ -1,0 +1,222 @@
+@charset "utf-8";
+body{
+	width:100%;
+	background-image: -webkit-gradient(linear,50% 0,50% 100%,color-stop(0%,#182343),color-stop(100%,#328eb5));
+	background-image: -webkit-linear-gradient(#182343,#328eb5);
+	background-image: -moz-linear-gradient(#182343,#328eb5);
+	background-image: -o-linear-gradient(#182343,#328eb5);
+	background-image: linear-gradient(#182343,#328eb5);
+	filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0,startColorstr='#FF182343',endColorstr='#FF328EB5');
+	background-attachment:fixed}
+.head-top{
+	float:left;
+	width:100%;
+	min-width:1000px;
+	position:relative}
+.head-top h1{
+	width:230px;
+	height:27px;
+	font-size:0;
+	margin:40px auto 0;
+	background:url(../images/index_logo.png) left no-repeat}
+.top-operate{
+	margin-top:0 !important;
+	position:absolute;
+	top:0;
+	right:0;}
+.gn-ts-cum{
+	clear:both;
+	width:1000px;
+	height:36px;
+	margin:0 auto;
+	padding-top:30px}
+.gn-ts-cum p{
+	float:left;
+	color:#fff;
+	height:36px;
+	line-height:36px;
+	font-family:"微软雅黑";
+	padding-left:20px;
+	background:url(../images/upgrade-ico.png) left no-repeat}
+.gn-ts-cum p a{
+	color:#fff;
+	margin-left:10px}
+.gn-ts-cum .back-ico{
+	float:right;
+	color:#fff;
+	width:75px;
+	height:36px;
+	line-height:36px;
+	font-family:"微软雅黑";
+	font-size:14px;
+	text-align:center;
+	padding-left:5px;
+	background:url(../images/back-ico.png) left no-repeat}
+.gn-ts-cum .back-ico:hover{
+	text-decoration:none}
+.best_news{
+	color:#fff;
+	margin:0 auto ;
+	width:960px;
+	height:20px;
+	line-height:20px;
+	overflow:hidden;
+	font-family:"微软雅黑"}
+.best_news .tit{
+	float:left}
+.best_news .news_con{
+	float:left;
+	width:300px;
+	margin-left:10px;
+	cursor:pointer}
+.ma-wid_1000{
+	clear:both;
+	width:1000px;
+	margin:0 auto;}	
+.main-nr-top{
+	float:left;
+	width:1000px;
+	margin-top:35px}
+.main-nr-top ul{
+	float:left;
+	width:100%}
+.main-nr-top ul li{
+	float:left;
+	width:110px;
+	height:160px;
+	margin-right:68px;
+	cursor:pointer}
+.main-nr-top ul li p{
+	float:left;
+	padding:20px 20px 10px;}
+.main-nr-top ul li.current p{
+	/*background:url(../images/ico-bg.png) left no-repeat;*/
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-ms-border-radius:5px;
+	-webkit-border-radius:5px;}
+.main-nr-top ul li.current{
+	background:url(../images/up-arrow-ico.png) center bottom no-repeat}
+.main-nr-top ul li.mr_0{
+	margin-right:0}
+.main-nr-top ul li span{
+	float:left;
+	color:#c3dfea;
+	width:70px;
+	height:30px;
+	line-height:30px;
+	text-align:center;
+	font-family:"微软雅黑","黑体";
+	font-size:14px;}
+.hide-con-box{
+	display:none;
+	float:left;
+	width:100%;
+	padding:15px 0;
+	font-family:"微软雅黑","黑体";
+	background:url(../images/index-box-bg.png) left top repeat}
+.list-box{
+	float:left;
+	width:1000px}
+.list-box a{
+	float:left;
+	width:75px;
+	height:124px;
+	padding:0 10px}
+.list-box a:hover{
+	background:url(../images/box-border-bg.png) left top no-repeat}
+.list-box a img{
+	float:left;
+	margin:20px 0 10px 10px}
+.list-box a span{
+	float:left;
+	color:#c3dfea;
+	width:75px;
+	height:30px;
+	line-height:30px;
+	text-align:center;}
+.index_foot{
+	color:#c3dfea;
+	float:left;
+	width:1000px;
+	height:30px;
+	line-height:30px;
+	margin-top:20px;
+	text-align:center;
+	font-family:"微软雅黑","黑体";}
+.st-sm-con{
+	float:left;
+	width:1000px;
+	margin-top:40px}
+.st-sm-con dl{
+	float:left;
+	width:550px;}
+.st-sm-con dl dt{
+	float:left;
+	width:550px;
+	height:44px;
+	margin-bottom:10px}
+.st-sm-con dl dt a{
+	float:left;
+	color:#c3dfea;
+	height:44px;
+	line-height:44px;
+	padding-left:20px;
+	font-size:16px;
+	font-family:"微软雅黑","黑体"}
+.st-sm-con dl dd{
+	float:left;
+	width:550px}
+.st-sm-con dl dd a{
+	float:left;
+	color:#c3dfea;
+	width:200px;
+	height:26px;
+	line-height:26px;
+	margin-right:50px;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	font-size:14px;
+	font-family:"微软雅黑","黑体"}
+.about-st{
+	float:right;
+	color:#c3dfea;
+	width:440px;
+	font-family:"微软雅黑","黑体"}
+.about-st h3{
+	float:left;
+	width:440px;
+	height:44px;
+	line-height:44px;
+	font-size:18px;
+	font-weight:500}
+.about-st ul{
+	float:left;
+	width:440px}
+.about-st ul li{
+	float:left;
+	width:440px;}
+.about-st ul li span{
+	float:left;
+	width:65px;
+	line-height:30px}
+.about-st  ul li p{
+	float:left;
+	width:375px;
+	line-height:30px}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,13 @@
+
+.save-con{
+    text-align: center;
+    padding: 15px 0px;
+}
+.content-in .item{
+    float:left;
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+.item .i-box{
+    vertical-align: middle;
+}

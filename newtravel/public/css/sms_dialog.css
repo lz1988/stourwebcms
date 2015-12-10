@@ -1,0 +1,52 @@
+.search-con{
+    height:30px;
+}
+.search-con .time-txt{
+    float:left;
+    height:23px;
+    line-height: 23px;
+    margin-right: 5px;
+    border: 1px solid #dcdcdc;
+    width: 150px;
+}
+.search-con span{
+    float:left;
+    margin-right: 5px;
+    line-height: 25px;
+}
+.search-con .normal-btn{
+    margin-left: 10px;
+}
+.s-list .tb-list{
+    width: 100%;
+    border-spacing: 1px;
+}
+.s-list .tb-list th{
+    color:#333;
+    font-weight:300;
+    height: 30px;
+    line-height: 30px;
+    padding: 0px 5px;
+}
+.s-list .tb-list td{
+    height: 30px;
+    line-height: 30px;
+    padding: 0px 5px;
+}
+.s-list{
+    margin-top:10px;
+}
+.set-con table td{
+    height:35px;
+    line-height: 35px;
+}
+.set-con table td input{
+    height:23px;
+    line-height: 25px;
+    border:1px solid #dcdcdc;
+    padding:0px 5px;
+}
+.s-main .save-con{
+    margin-top:10px;
+    text-align: center;
+}

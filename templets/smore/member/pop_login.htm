@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+<head>
+<link href="{sline:global.cfg_templets_skin/}/css/base.css" rel="stylesheet" media="screen" type="text/css" />
+
+<script src="/templets/smore/js/jquery-1.8.3.min.js"></script>
+
+
+<meta charset="utf-8">
+<style type="text/css">
+ .login_yuding,.login_yuding ul{
+	float:left;
+	width:600px;
+	height:250px;}	
+.login_yuding ul li{
+	float:left;
+	width:299px;
+	height:250px}
+.login_yuding ul li h3{
+	float:left;
+	width:270px;
+	display:inline;
+	margin:10px 0 10px 10px;
+	padding-left:10px;
+	color:#008ae0;
+	font-weight:bold;
+	border-bottom:1px solid #ddd}	
+.user_account{
+	float:left;
+	width:280px;
+	display:inline;
+	margin:10px 0 10px 10px}
+.account_text,.password_text,.phonenum{
+	width:135px;
+	padding-left:5px;
+	height:24px;
+	line-height:24px;
+	border:1px solid #7f9db9}
+.findpassword{
+	font-size:14px;
+	margin-left:10px;
+	text-decoration:underline}
+.login_image,.ks_yuding{
+	margin-top:5px;}
+.line_bottom{
+	width:280px;
+	height:1px;
+	padding-top:15px;
+	border-bottom:1px dashed #ddd}
+.right_line{
+	border-right:1px dashed #ddd}
+.prompt{
+	color:#008ae0}
+.prompt b{
+	color:#f60;
+	font-family:"微软雅黑";}
+</style>
+</head>
+<body>
+  <div id="box" class="review_box">
+  	
+    <div class="login_yuding">
+      <ul>
+      	<li class="right_line">
+        	<h3>老会员登录并预订</h3>
+          <table class="user_account">
+          	<tr>
+            	<td width="54" height="35" align="right" style=" font-size:14px">账户：</td>
+            	<td width="214" height="35"><input type="text" name="loginname" id="loginname" class="account_text" value="" /></td>
+            </tr>
+            <tr>
+            	<td height="35" align="right" style=" font-size:14px">密码：</td>
+            	<td height="35"><input type="password" name="password" id="password" class="password_text" value="" /><a href="/member/findpass.php" class="findpassword">找回密码</a></td>
+            </tr>
+            <tr>
+            	<td></td>
+              <td><input type="image" src="{sline:global.cfg_templets_skin/}/images/login.png" id="login_image" class="login_image" onClick="ST.User.ajaxLogin()" /></td>
+            </tr>
+
+            <tr>
+            	<td colspan="2">
+              	<div class="line_bottom"></div>
+              </td>  
+            </tr>
+            <tr>
+            	<td height="58" colspan="2">
+                    {sline:php}
+                    if(!empty($GLOBALS['cfg_qq_appid']) && !empty($GLOBALS['cfg_qq_appkey']))
+                    {
+                    echo '<a href="javascript:;" id="loginqq"><img class="fl" src="'.$GLOBALS['cfg_templets_skin'].'/images/call_qq.gif" alt="QQ" /></a>';
+                    }
+                    {/sline:php}
+                    {sline:php}
+                    if(!empty($GLOBALS['cfg_sina_appkey']) && !empty($GLOBALS['cfg_sina_appsecret']))
+                    {
+                    echo '<a href="javascript:;" id="loginsina"><img class="fl" src="'.$GLOBALS['cfg_templets_skin'].'/images/call_sina.gif" alt="新浪微博" /></a>';
+                    }
+                    {/sline:php}
+
+            	</td>
+              <td class="prompt">
+
+
+              </td>
+            </tr>
+          </table>
+        </li>
+        <li>
+        	<h3>新会员预订</h3>
+        	<table class="user_account">
+          	<tr>
+            	<td width="65" height="35" align="right" style=" font-size:14px">手机号：</td>
+            	<td width="203" height="35"><input type="text" name="mobile" id="mobile" class="phonenum" value="" /></td>
+            </tr>
+            <tr>
+            	<td></td>
+              <td><input type="image" src="{sline:global.cfg_templets_skin/}/images/fast.png" id="ks_yuding" class="ks_yuding" onClick="ST.User.ajaxReg()"  /></td>
+            </tr>
+            <tr>
+            	<td height="58"></td>
+              <td>订单提交后系统会自动将您注册为{sline:global.cfg_webname/}会员，并将密码发送到您的手机</td>
+            </tr>
+          </table>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <script>
+      $("#loginqq").click(function(){
+
+          var url=siteUrl+'member/login.php?dopost=loginbyqq';
+          window.open(url);
+
+      });
+      $("#loginsina").click(function(){
+
+          var url=siteUrl+'member/login.php?dopost=loginbysina';
+          window.open(url);
+
+      });
+  </script>
+
+</body>
+</html>

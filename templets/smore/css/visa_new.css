@@ -1,0 +1,688 @@
+@charset "utf-8";
+body{
+	font-family:"微软雅黑" !important}
+.visa_bg_box{
+	float:left;
+	width:100%;
+	height:430px;
+	position:relative;
+	}
+.country_sar{
+	position:absolute;
+	left:50%;
+	top:50%;
+	width:548px;
+	height:180px;
+	padding:0 126px;
+	margin:-90px 0 0 -400px;
+	background:#fff;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-ms-border-radius:5px;
+	-webkit-border-radius:5px;
+	box-shadow:3px 3px 5px #d2c5ae}
+.country_sar .tit{
+	float:left;
+	color:#4db3f3;
+	width:548px;
+	padding:10px 0;
+	font-size:18px;
+	font-weight:bold;
+	margin-top:10px}
+.country_sar .import{
+	float:left;
+	width:548px;
+	margin-top:10px}
+.country_sar .import .sr_text{
+	float:left;
+	width:464px;
+	height:38px;
+	line-height:38px;
+	font-family:"微软雅黑";
+	font-size:14px; 
+	border:1px solid #d3d3d3;
+	border-right:0;
+	border-top-left-radius:5px;
+	border-bottom-left-radius:5px;
+	-moz-border-top-left-radius:5px;
+	-moz-border-bottom-left-radius:5px;
+	-ms-border-top-left-radius:5px;
+	-ms-border-bottom-left-radius:5px;
+	-webkit-border-top-left-radius:5px;
+	-webkit-border-bottom-left-radius:5px}
+.country_sar .import .tj_btn{
+	float:left;
+	color:#fff;
+	width:80px;
+	height:40px;
+	font-size:16px;
+	text-align:center;
+	border:0;
+	font-family:"微软雅黑";
+	cursor:pointer;
+	background:#3daff0;
+	border-top-right-radius:5px;
+	border-bottom-right-radius:5px;
+	-moz-border-top-right-radius:5px;
+	-moz-border-bottom-right-radius:5px;
+	-ms-border-top-right-radius:5px;
+	-ms-border-bottom-right-radius:5px;
+	-webkit-border-top-right-radius:5px;
+	-webkit-border-bottom-right-radius:5px}
+.country_sar .public{
+	float:left;
+	width:548px;
+	margin-top:20px}
+.country_sar .public span{
+	float:left;
+	color:#666;
+	width:100px;
+	height:30px;
+	line-height:30px;
+	padding-left:30px;
+	margin-left:45px;
+	font-size:14px;
+	background:url(../images/visa_num_ico.png) no-repeat}
+.country_sar .public span.ico1{
+	background-position:0 -38px}
+.country_sar .public span.ico2{
+	background-position:0 -82px}
+.country_sar .public span.ico3{
+	background-position:0 -124px}
+
+.select_country{
+	float:left;
+	width:1210px;
+	margin-top:10px}
+.select_country .visa_gj_tit{
+	float:left;
+	color:#3daff0;
+	width:1210px;
+	padding:40px 0;
+	text-align:center;
+	font-size:26px;
+	font-weight:bold}
+.select_country .hot_country_list,
+.select_country .hot_country_list ul{
+	float:left;
+	width:1210px;}
+.select_country .hot_country_list ul li{
+	float:left;
+	width:164px;
+	position:relative;
+	margin:10px 10px 0 0}
+.select_country .hot_country_list ul li.mr_0{
+	margin-right:0}
+.select_country .hot_country_list ul li span{
+	position:absolute;
+	bottom:0;
+	left:10px;
+	display:block;
+	width:144px;
+	height:40px;
+	line-height:40px;
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+	font-size:16px}
+.select_country .hot_country_list ul li span a{
+	color:#fff}
+.select_country .zimu_list{
+	float:left;
+	width:1210px;
+	margin-top:50px}
+.select_country .zimu_list dl{
+	float:left;
+	width:1210px}
+.select_country .zimu_list dl dt{
+	float:left;
+	width:1210px;
+	height:34px;
+	border-bottom:1px solid #3daff0}
+.select_country .zimu_list dl dt h3{
+	float:left;
+	color:#444;
+	height:34px;
+	line-height:34px;
+	font-size:20px;
+	font-weight:500}
+.select_country .zimu_list dl dt p{
+	float:right}
+.select_country .zimu_list dl dt span{
+	float:left;
+	color:#333;
+	width:36px;
+	height:34px;
+	line-height:34px;
+	text-align:center;
+	cursor:pointer;
+	font-size:14px}
+.select_country .zimu_list dl dt span.on{
+	color:#fff;
+	background:#3daff0;
+	border-top-left-radius:3px;
+	border-top-right-radius:3px}
+.select_country .zimu_list dl dd{
+	float:left;
+	width:1210px;}
+.select_country .zimu_list dl dd ul{
+	float:left;
+	width:1210px;
+	margin-top:10px}
+.select_country .zimu_list dl dd ul li{
+	float:left;
+	width:201px}
+.select_country .zimu_list dl dd ul li a{
+	float:left;
+	width:190px;
+	height:34px;
+	line-height:34px;
+	font-size:14px;
+	padding-left:10px;
+	background:url(../images/point.png) left no-repeat}
+
+.visa_flow_path{
+	float:left;
+	width:1210px;
+	margin-top:50px}
+.visa_flow_path .tit{
+	float:left;
+	width:1210px}
+.visa_flow_path .tit h3{
+	color:#3daff0;
+	width:500px;
+	font-size:20px;
+	text-align:center;
+	margin:0 auto;
+	padding:5px 0;
+	border-bottom:1px solid #eff4f7}
+.visa_flow_path .tit p{
+	color:#666;
+	padding:5px 0;
+	font-size:14px;
+	text-align:center}
+.visa_flow_path ul{
+	float:left;
+	width:1210px;
+	margin-top:50px}
+.visa_flow_path ul li{
+	float:left;
+	width:200px;
+	text-align:center}
+.visa_flow_path ul li p{
+	width:140px;
+	height:38px;
+	padding:12px 0 12px 60px;
+	text-align:left}
+.visa_flow_path ul li p.num1{
+	background:url(../images/visa_num_ico.png) no-repeat 0 -170px}
+.visa_flow_path ul li p.num2{
+	background:url(../images/visa_num_ico.png) no-repeat 0 -287px}
+.visa_flow_path ul li p.num3{
+	background:url(../images/visa_num_ico.png) no-repeat 0 -403px}
+.visa_flow_path ul li p.num4{
+	background:url(../images/visa_num_ico.png) no-repeat 0 -520px}
+.visa_flow_path ul li p.num5{
+	background:url(../images/visa_num_ico.png) no-repeat 0 -636px}
+.visa_flow_path ul li p strong{
+	color:#666;
+	display:block;
+	height:20px;
+	line-height:20px;
+	font-size:16px;
+	font-weight:500}
+.visa_flow_path ul li p span{
+	color:#999;
+	display:block;
+	height:18px;
+	line-height:18px}
+.visa_flow_path ul li p.num6 span{
+	color:#3daff0}
+
+
+.visa_atc{
+	float:left;
+	width:1210px;
+	height:auto;
+	margin-top:100px}
+.article_list{
+	float:left;
+	width:287px;
+	margin-right:20px}
+.visa_atc .mr_0{
+	margin-right:0} 
+.article_list h3{
+	float:left;
+	width:287px;
+	height:40px;
+	line-height:40px;
+	color:#3daff0;
+	font-size:16px;
+	font-weight:500;
+	border-bottom:1px solid #ddd}
+.article_list ul{
+	float:left;
+	margin-top:10px}
+.article_list li{
+	float:left;
+	width:287px;
+	height:30px;
+	line-height:30px}
+.article_list li a{
+	float:left;
+	width:277px;
+	height:30px;
+	line-height:30px;
+	padding-left:10px;
+	font-size:14px;
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	background:url(../images/point.png) left no-repeat}
+
+.list_headimg{
+	float:left;
+	width:100%;
+	height:280px;
+	background:url(../images/pic/visa_bg01.jpg) center no-repeat}
+.gj_txt{
+	float:left;
+	width:450px;
+	height:216px;
+	margin-top:32px;
+	background:url(../images/aph_bg.png) left repeat}
+.gj_txt dl{
+	float:left;
+	width:430px;
+	height:196px;
+	padding:10px}
+.gj_txt dl dt{
+	float:430px;
+	height:64px}
+.gj_txt dl dt img{
+	float:left;
+	width:62px;
+	height:62px;
+	border:1px solid #fff;
+	border-radius:50%;}
+.gj_txt dl dt h3{
+	color:#fff;
+	float:left;
+	height:64px;
+	line-height:64px;
+	margin-left:30px;
+	font-size:30px;
+	font-weight:500}
+.gj_txt dl dd{
+	color:#fff;
+	float:left;
+	width:430px;
+	height:120px;
+	line-height:20px;
+	margin-top:15px;
+	overflow:hidden}
+
+.list_mdd_tj{
+	float:left;
+	width:1208px;
+	margin-top:20px;
+	border:1px solid #dcdcdd;
+	box-shadow:3px 3px 5px #efefef}
+.list_mdd_tj dl{
+	float:left;
+	width:1168px;
+	padding:10px 20px 20px}
+.list_mdd_tj dl dt{
+	color:#3daff0;
+	float:left;
+	width:78px;
+	margin-top:10px;
+	font-size:16px;
+	font-weight:bold}
+.list_mdd_tj dl dd{
+	float:left;
+	width:1090px}
+.list_mdd_tj dl dd a{
+	color:#666;
+	float:left;
+	height:22px;
+	line-height:22px;
+	padding:0 15px;
+	margin-top:10px;
+	font-size:14px}
+.list_mdd_tj dl dd a.on,
+.list_mdd_tj dl dd a:hover{
+	color:#fff;
+	background:#3daff0;
+	border-radius:3px}
+
+.visa_list_box{
+	float:left;
+	width:1210px;
+	margin-top:20px}
+.visa_list_box ul{
+	float:left;
+	width:1210px}
+.visa_list_box ul li{
+	float:left;
+	width:1210px;
+	padding-bottom:20px;
+	margin-bottom:20px;
+	border-bottom:1px solid #eee}
+.visa_list_box ul li .pic{
+	float:left;
+	width:200px;
+	height:130px}
+.visa_list_box ul li .pic img{
+	float:left;
+	width:200px;
+	height:130px}
+.visa_list_box ul li .txt_con{
+	float:left;
+	width:720px;
+	margin-left:40px}
+.visa_list_box ul li .txt_con p{
+	float:left;
+	width:720px;
+	padding:5px 0; 
+	font-size:14px;
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow:ellipsis}
+.visa_list_box ul li .txt_con .p1 a{
+	float:left;
+	color:#2591cf;
+	width:720px;
+	height:30px;
+	line-height:30px;
+	font-weight:bold;
+	font-size:16px;
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow:ellipsis}
+.visa_list_box ul li .txt_con .p2{
+	color:#888}
+.visa_list_box ul li .txt_con p em{
+	color:#333;
+	font-weight:bold;
+	font-style:normal}
+.visa_list_box ul li .txt_con .p3 span{
+	color:#888;
+	float:left;
+	width:180px}
+.visa_list_box ul li .txt_con .p4{
+	color:#888}
+.visa_list_box ul li .yd{
+	float:right;
+	width:130px;
+	margin-top:27px}
+.visa_list_box ul li .yd span{
+	float:left;
+	color:#f60;
+	width:130px;
+	height:40px;
+	font-size:20px;
+	text-align:center}
+.visa_list_box ul li .yd span b{
+	font-size:34px;
+	font-family:Arial;
+	font-weight:bold}
+.visa_list_box ul li .yd a{
+	float:left;
+	color:#fff;
+	width:130px;
+	height:36px;
+	line-height:36px;
+	text-align:center;
+	font-size:16px;
+	background:#3daff0;
+	border-radius:5px}
+
+.list_page{
+	clear:both;
+	font-size:14px;
+	text-align:right}
+.list_page .prev,
+.list_page .next{
+	display:inline-block;
+	width:64px;
+	height:28px;
+	line-height:28px;
+	text-align:center;
+	color:#333;
+	background:#f3f3f3}
+.list_page .num{
+	display:inline-block}
+.list_page .num a{
+	display:inline-block;
+	color:#555;
+	width:24px;
+	height:24px;
+	line-height:24px;
+	text-align:center;
+	background:#f3f3f3}
+.list_page .num a.on{
+	color:#fff;
+	background:#3daff0}
+.list_page .all{
+	margin-left:20px}
+
+
+.visa_show_top{
+	float:left;
+	width:1208px;
+	height:328px;
+	border:1px solid #dcdcdd;
+	border-radius:5px;
+	box-shadow:3px 3px 3px #fafafa,-3px -3px 3px #fafafa,3px 3px 3px #fafafa,-3px -3px 3px #fafafa}
+.visa_show_top .pic{
+	float:left;
+	margin:15px 0 0 15px}
+.visa_show_top .txt_con{
+	float:left;
+	width:460px;
+	height:298px;
+	overflow:hidden;
+	padding:15px 25px 15px 15px;
+	border-right:1px solid #eee}
+.visa_show_top .txt_con h1{
+	float:left;
+	color:#3daff0;
+	width:460px;
+	height:50px;
+	line-height:40px;
+	font-size:22px}
+.visa_show_top .txt_con ul{
+	float:left;
+	width:460px}
+.visa_show_top .txt_con ul li{
+	color:#888;
+	float:left;
+	margin-top:12px;
+	font-size:14px}
+.visa_show_top .txt_con ul li em{
+	color:#333;
+	font-style:normal}
+.visa_show_top .txt_con ul .li_c{
+	width:460px}
+.visa_show_top .txt_con ul .li_d{
+	width:230px}
+.visa_show_top .txt_con  p{
+	color:#3daff0;
+	float:left;
+	width:460px;
+	height:48px;
+	line-height:24px;
+	margin-top:15px;
+	padding-top:10px;
+	font-size:14px;
+	overflow:hidden;
+	border-top:1px dashed #d7d7d7}
+.visa_show_top .show_msg{
+	float:left;
+	width:200px;
+	padding:0 21px}
+.show_msg p{
+	float:left;
+	width:200px;
+	margin-top:15px}
+.show_msg p.price{
+	color:#f60;
+	font-size:16px;
+	text-align:center}
+.show_msg p.price span{
+	font-size:18px;
+	font-weight:bold}
+.show_msg p.price span b{
+	font-size:34px;
+	font-family:Arial;
+	font-weight:bold}
+.show_msg p.date input{
+	float:left;
+	width:195px;
+	height:33px;
+	line-height:33px;
+	font-family:"微软雅黑";
+	border:1px solid #ddd;
+	background:url(../images/date-ico.png) no-repeat 175px 9px}
+.show_msg p.lx span{
+	float:left;
+	color:#3daff0;
+	width:190px;
+	height:31px;
+	line-height:31px;
+	padding-left:6px;
+	font-size:14px;
+	position:relative;
+	border:2px solid #3daff0}
+.show_msg p.lx span s{
+	position:absolute;
+	top:0;
+	right:0;
+	display:block;
+	width:14px;
+	height:14px;
+	background:url(../images/tc-ico.gif) left no-repeat}
+.show_msg p.num em{
+	float:left;
+	color:#666;
+	height:35px;
+	line-height:35px;
+	font-size:14px;
+	font-style:normal}
+.show_msg p.num span{
+	float:left;
+	width:36px;
+	height:35px;
+	cursor:pointer;
+	background:url(../images/subadd.gif) no-repeat}
+.show_msg p.num span.sub{
+	background-position:0 0}
+.show_msg p.num span.add{
+	background-position:0 -35px}
+.show_msg p.num input{
+	float:left;
+	width:43px;
+	height:33px;
+	padding:0;
+	margin:0 5px;
+	text-align:center;
+	font-size:14px;
+	border:1px solid #ddd}
+.show_msg p.now_btn a{
+	float:left;
+	color:#FFF;
+	width:200px;
+	height:40px;
+	line-height:40px;
+	font-size:16px;
+	text-align:center;
+	background:#3daff0;
+	border-radius:5px}
+
+
+.visa_show_nr{
+	float:left;
+	width:1210px;
+	margin-top:20px}
+.show_nav{
+	float:left;
+	width:1208px;
+	height:40px;
+	line-height:40px;
+	border:1px solid #e5e5e5;
+	border-bottom:2px solid #e5e5e5;
+    background-color: #fff}
+.show_nav span{
+	float:left;
+	color:#333;
+	font-size:16px;
+	font-weight:bold;
+	padding:0 20px;
+	cursor:pointer;
+	background:url(../images/line-ico.gif) right no-repeat}
+.show_nav span.on{
+	color:#3daff0;
+	border-bottom:2px solid #3daff0}
+.show_list_con{
+	float:left;
+	width:1208px;
+	margin-top:15px;
+	border:1px solid #e5e5e5}
+.nr_list{
+	float:left;
+	width:1168px;
+	margin:0 20px;
+	padding:20px 0;
+	border-bottom:1px dashed #e5e5e5}
+.show_list_con .bor_0{
+	border:0}
+.nr_list .list_tit{
+	float:left;
+	color:#fa9634;
+	width:1135px;
+	padding:10px 0 10px 35px;
+	font-size:18px;
+	font-weight:bold;
+	background:url(../images/tit-ico.png) 0 13px no-repeat}
+.nr_list .list_con{
+	float:left;
+	color:#333;
+	width:1135px;
+	line-height:24px;
+	font-size:14px;
+	padding:10px 0 10px 35px}
+
+/*签证人群分类*/
+.visa-box{
+    float:left;
+    width:100%;
+    overflow:hidden}
+.visa-box dl{
+    float:left;
+    width:100%;}
+.visa-box dl dt{
+    float:left;
+    width:100%;
+    height:28px;
+    border-bottom:1px solid #dcdcdc}
+.visa-box dl dt span{
+    float:left;
+    padding:0 10px;
+    height:28px;
+    line-height:28px;
+    margin-right:5px;
+    cursor:pointer;
+    border:1px solid #dcdcdc;
+    border-bottom:0}
+.visa-box dl dt span.on{
+    color:#fff;
+    background:#ff7200;
+    border-color:#ff7200}
+.visa-box dl dd{
+    float:left;
+    width:898px;
+    padding:10px;}
+
+
+

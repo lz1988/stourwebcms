@@ -1,0 +1,14 @@
+ <!--热卖产品开始-->
+        <div class="hot_pro">
+        	<h3>好评产品排行</h3>
+          <div class="side_plb_list">
+          	 {sline:getcommentlist level='1' row='6'}
+          	<dl class="pro_ph">
+            	<dt><s>[field:global.autoindex/]</s>[field:productname/]</dt>
+              <dd><span>好评度：</span><b><s style=" width:[field:percent/]"></s></b>已售：[field:sellnum/]</dd>
+            </dl>
+           {/sline:getcommentlist}
+           
+          </div>
+        </div>
+        <!--热卖产品结束-->

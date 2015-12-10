@@ -1,0 +1,26 @@
+{sline:if var='_hasthemeline'}
+ <div class="content" id="2916">
+			<div class="cate_tit">
+				<p class="more"><a href="/lines/" target="_blank">查看更多线路&gt;&gt;</a></p>
+				<h3 class="tit" id="2916">线路</h3>
+			</div>
+			<div class="cate_con">
+				<div class="list_2">
+					<ul class="lis basefix">
+                         {sline:getlinelist type='theme' row='30'}
+               <li>
+							    <a href="[field:url/]" target="_blank">
+								    <img src="[field:litpic/]">
+								  
+								    <h3 class="tit">[field:title/]</h3>
+								    <p class="tit_tip">[field:sellpoint/]</p>
+								    <p class="price"><ins class="start_price" data_startprice="1199">[field:sellprice runphp='yes'/]if(empty(@me)) @me="<strong>电询</strong>"; else @me="<dfn>¥</dfn><strong>".@me."</strong>元";[/field:sellprice]起</ins></p>						
+							    </a>
+						    </li>
+         {/sline:getlinelist}
+					</ul>	
+				</div>			
+            </div>
+	    </div>
+    
+{/sline:if}

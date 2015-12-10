@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    {sline:php}Helper_Archive::getCss('base.css','2014.01');{/sline:php}
+
+    <style>
+        .payment{
+            width:1206px;
+            height:536px;
+            margin:0 auto;
+            border:2px #e6e6e6 solid;
+        }
+
+        .pay-weixin{
+            width:870px;
+            height:421px;
+            margin:50px 0px 0px 168px;
+            float:left;
+        }
+        .p-w-box{
+            width:299px;
+            height:421px;
+            border-right:1px #e6e6e6 solid;
+            float:left;
+            padding-left:35px;
+            padding-right:148px;
+        }
+        .p-w-hd{
+            text-align:center;
+            line-height:54px;
+            font-family:Arial, "微软雅黑";
+            font-size:24px;
+        }
+        .pw-box-hd{
+            width::298px;
+            height:298px;
+            border:1px #e6e6e6 solid;
+        }
+        .pw-box-hd img{
+            width:298px;
+            height:298px;
+        }
+
+        .pw-box-ft{
+            width:175px;
+            height:44px;
+            margin-top:11px;
+            background:url(images/icon-red.png) 50px 0px no-repeat;
+            padding:0 0 0 125px;
+        }
+        .pw-box-ft p{
+            margin: 0;
+            font-size: 14px;
+            line-height: 22px;
+            color: #333;
+            font-weight: 700;
+        }
+        .p-w-sidebar{
+            width:329px;
+            height:421px;
+            margin-left:58px;
+            float:left;
+            background:url(images/phone-bg.png);
+        }
+        .payment-change{
+            width:1204px;
+            height:40px;
+            margin:24px 1px 1px 1px;
+            background:#f7f7f7;
+            float:left;
+        }
+        .payment-change p{
+            padding-left:50px;
+            font-size: 14px;
+            line-height: 40px;
+            color: #fff;
+            font-weight: 700;
+        }
+        .payment-change p a{
+            color:#333;
+            text-decoration:none;
+        }
+    </style>
+</head>
+<body>
+{sline:include file='public/header.htm'/}
+<div class="payment">
+    <div class="pay-weixin">
+      <div class="p-w-box">
+        <div class="p-w-hd">
+          微信支付
+        </div>
+        <div class="pw-box-hd">
+          <img src="http://paysdk.weixin.qq.com/example/qrcode.php?data={sline:global.url2/}" width="300" height="300" />
+        </div>
+        <div class="pw-box-ft">
+          <p>请使用微信扫一扫</p>
+          <p>扫描二维码支付</p>
+        </div>
+      </div>
+      <div class="p-w-sidebar">
+      </div>
+    </div>
+    <div class="payment-change">
+      
+    </div>
+  </div>
+
+{sline:include file='public/footer.htm'/}
+</body>
+</html>

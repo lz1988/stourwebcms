@@ -1,0 +1,172 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{sline:field.seotitle/}-{sline:global.cfg_webname/}</title>
+<meta name="keywords" content="{sline:field.seokeyword/}"/>
+<meta name="description" content="{sline:field.seodescription/}"/>
+<meta name="author" content="{sline:global.cfg_webname/}" />
+{sline:php}Helper_Archive::getCss('base.css,ticket.css','2014.02');{/sline:php}
+{sline:php}Helper_Archive::getScript('jquery-1.8.3.min.js,common.js,spot.index.js');{/sline:php}
+</head>
+
+<body>
+	{sline:include file='public/header.htm'/}
+  
+  <!-- 中间内容开始 -->
+  <div class="big">
+  	<div class="width_1210">
+    	<!-- 面包屑and订单开始 -->
+    	<div class="top_first">
+      	<div class="crumbs"><a href="{sline:global.cfg_basehost/}">{sline:global.cfg_indexname/}</a> &raquo; <a href="{sline:global.cfg_cmsurl/}/spots/">{sline:field.typename/}</a> </div>
+        {sline:include file='public/scroll_order.htm'/}
+      </div>
+      <!-- 面包屑and订单结束 -->
+    
+    	<!--顶部搜索导航开始-->
+      <div class="top_ser_menu">
+      	<div class="ser_t">我计划去</div>
+        <div class="ser_b">
+
+        	<input type="text" class="mdd_box" id="mdd_box" name="keyword" value="请输入目的或景点名称" datadef="请输入目的或景点名称"/>
+            <input type="button" class="mdd_btn" value="搜 索" />
+
+        </div>
+        <div class="ser_l">
+          <span>热门目的地：</span>
+          {sline:getdest flag='hot' row='6'}
+           <a href="/spots/[field:pinyin/]/">[field:title/]</a>
+          {/sline:getdest} 
+        </div>
+      </div>
+      <!--顶部搜索导航结束-->
+
+      
+      <!--门票内容开始-->
+      <div class="ticket_con">
+      
+      	<!--左侧内容开始-->
+        <div class="ticket_index_left">
+          {sline:middlenavlist flag='spot' readad='0'}
+        	<div class="mdd_tic_list">
+            <div class="tic_title">
+              <h3><s></s>{sline:field.kindname/}热门景点</h3>
+              <a href="{sline:global.cfg_basehost/}/spots/{sline:field.pinyin/}/">更多&gt;&gt;</a>
+            </div>
+            <div class="ticket_list">
+              <ul>
+               {sline:getspotlist type='mdd' flag='recommend' row='4'}
+                <li class="list_img">
+                  <a class="fl" href="[field:url/]" target="_blank"><img class="fl" src="[field:lit240/]" width="210" height="165" alt="[field:title/]" title="[field:title/]" /></a>
+                  <p><a href="[field:url/]" target="_blank" title="[field:title/]">[field:title/]</a><span>[field:price/]</span></p>
+                </li>
+               {/sline:getspotlist}
+                <li class="list_hr"></li>
+                {sline:getspotlist type='mdd' flag='recommend' row='12' limit='4'}
+                 <li class="list_txt"><a href="[field:url/]" target="_blank" title="[field:title/]">[field:title/]</a><span>[field:price/]</span></li>
+                {/sline:getspotlist}
+              </ul>
+            </div>
+          </div>
+          {/sline:middlenavlist}
+          <script>
+							$(function(){
+									var $str_tit = $('.list_img')
+									$str_tit.hover(function(){
+										var $height_a = $('.list_img p a').height()
+										$(this).children('p').children('a').css('height','auto');
+										if($height_a>30){
+												$(this).children('p').children('a').animate({height:'60px'},500)
+											}
+									},function(){
+										$(this).children('p').children('a').animate({height:'30px'},300)
+										})
+							})
+					</script>
+          
+        </div>
+        <!--左侧内容结束-->
+        
+        <!--右侧内容开始-->
+        <div class="ticket_index_rig">
+          <!--客户评论开始-->
+          <div class="discuss">
+            <h3>客户评论</h3>
+            <div class="dis_list">
+              {sline:getcommentlist flag="spot" row="5"}
+              <dl>
+                <dt><b>[field:nickname/]</b><strong>满意度：</strong><span><s style=" width:[field:percent/]"></s></span></dt>
+                <dd>[field:content/]</dd>
+              </dl>
+              {/sline:getcommentlist}
+            </div>
+          </div>
+          <!--客户评论结束-->
+          
+          <div class="shortcut_cz">
+            <h3>不知道去哪儿？试试小助手吧！</h3>
+            <div class="side_st">
+              <div class="diy_select">
+                <div class="diy_tit">景区等级</div>
+                <input type="hidden" name="" class="diy_select_input">
+                <div class="diy_select_txt">AAAAA</div>
+                <div class="diy_select_btn"></div>
+                <ul class="diy_select_list">
+                  {sline:getattrbygroup groupname='景点等级'}
+                  <li data-value="[field:id/]" data-field="attrid">[field:title/]</li>
+                  {/sline:getattrbygroup}
+                </ul>
+              </div>
+              <div class="diy_select">
+                <div class="diy_tit">景区类型</div>
+                <input type="hidden" name="" class="diy_select_input">
+                <div class="diy_select_txt">国内游</div>
+                <div class="diy_select_btn"></div>
+                <ul class="diy_select_list">
+                  {sline:getdest flag='top'}
+                  <li data-value="[field:id/]" data-field="destid">[field:title/]</li>
+                  {/sline:getdest}
+                
+                </ul>
+              </div>
+              <div class="diy_select">
+                <div class="diy_tit">价格区间</div>
+                <input type="hidden" name="" class="diy_select_input">
+                <div class="diy_select_txt">不限</div>
+                <div class="diy_select_btn"></div>
+                <ul class="diy_select_list">
+                  {sline:getspotguide flag='price'}
+                   <li data-value="[field:id/]" data-field="priceid">[field:title/]</li>
+                  {/sline:getspotguide}
+                 
+                </ul>
+              </div>
+              <div class="side_st_btn"><a href="javascript:;" class="btn_search">立即查询</a></div>
+            </div>
+          </div>
+                  {sline:getrightcontent pagename='index'/}
+
+        </div>
+        <!--搜索隐藏域-->
+        <input type="hidden" id="attrid" value="0"/>
+        <input type="hidden" id="priceid" value="0"/>
+        <input type="hidden" id="destid" value="0"/>
+        
+        <!--右侧内容结束-->
+      
+      </div>
+      <!--门票内容结束-->
+      
+    </div>
+  </div>
+  <!-- 中间内容结束 -->
+    
+  {sline:include file='public/help.htm'/}
+  
+  {sline:include file='public/footer.htm'/}
+  
+  {sline:include file='public/flink.htm'/}
+  <script language="javascript" src="/templets/smore/js/list_box.js"></script>
+
+</body>
+</html>

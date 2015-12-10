@@ -1,0 +1,443 @@
+insert into sline_car_pricelist(min,max,webid,aid) values(null,500,{webid},2);
+insert into sline_car_pricelist(min,max,webid,aid) values(501,null,{webid},3);
+
+insert into sline_hotel_pricelist(min,max,webid,aid) values(null,100,{webid},1);
+insert into sline_hotel_pricelist(min,max,webid,aid) values(101,null,{webid},2);
+
+insert into sline_line_pricelist(lowerprice,highprice,webid,aid) values(null,100,{webid},1);
+insert into sline_line_pricelist(lowerprice,highprice,webid,aid) values(101,null,{webid},2);
+
+
+insert into sline_line_content(webid,columnname,chinesename,displayorder,issystem,isopen,isline) values({webid},'linespot','途经景点',2,1,1,0);
+insert into sline_line_content(webid,columnname,chinesename,displayorder,issystem,isopen,isline) values({webid},'jieshao','行程安排',3,1,1,0);
+insert into sline_line_content(webid,columnname,chinesename,displayorder,issystem,isopen,isline) values({webid},'biaozhun','服务标准',4,0,1,0);
+insert into sline_line_content(webid,columnname,chinesename,displayorder,issystem,isopen,isline) values({webid},'beizu','备注',7,0,1,0);
+insert into sline_line_content(webid,columnname,chinesename,displayorder,issystem,isopen,isline) values({webid},'payment','签约付款',4,1,1,0);
+insert into sline_line_content(webid,columnname,chinesename,displayorder,issystem,isopen,isline) values({webid},'feeinclude','费用',5,0,1,0);
+insert into sline_line_content(webid,columnname,chinesename,displayorder,issystem,isopen,isline) values({webid},'features','线路特色',1,1,1,0);
+insert into sline_line_content(webid,columnname,chinesename,displayorder,issystem,isopen,isline) values({webid},'reserved1','自定义1',11,0,0,0);
+insert into sline_line_content(webid,columnname,chinesename,displayorder,issystem,isopen,isline) values({webid},'reserved2','自定义2',12,0,0,0);
+insert into sline_line_content(webid,columnname,chinesename,displayorder,issystem,isopen,isline) values({webid},'reserved3','自定义3',13,0,0,0);
+insert into sline_line_content(webid,columnname,chinesename,displayorder,issystem,isopen,isline) values({webid},'booking','预定',9,1,1,1);
+insert into sline_line_content(webid,columnname,chinesename,displayorder,issystem,isopen,isline) values({webid},'zuche','单租车',8,1,0,1);
+insert into sline_line_content(webid,columnname,chinesename,displayorder,issystem,isopen,isline) values({webid},'pinglun','客户评价',10,1,1,1);
+
+insert into sline_line_day(webid,aid,word,isdisplay) values({webid},1,1,0);
+
+insert into sline_module_config(webid,aid,pagename,shortname,typeid,moduleids) values({webid},1,'栏目首页','index',1,'6,11,8,9,4');
+insert into sline_module_config(webid,aid,pagename,shortname,typeid,moduleids) values({webid},2,'栏目详细页','show',1,'1,11,8,9,3,2,4');
+insert into sline_module_config(webid,aid,pagename,shortname,typeid,moduleids) values({webid},3,'栏目搜索页','search',1,'6,11,8,9,4');
+insert into sline_module_config(webid,aid,pagename,shortname,typeid,moduleids) values({webid},4,'栏目预订页','booking',1,'2,3,12,4,6');
+insert into sline_module_config(webid,aid,pagename,shortname,typeid,moduleids) values({webid},5,'栏目首页','index',2,'6,11,,8,9,4');
+insert into sline_module_config(webid,aid,pagename,shortname,typeid,moduleids) values({webid},6,'栏目详细页','show',2,'2,1,11,8,3,4');
+insert into sline_module_config(webid,aid,pagename,shortname,typeid,moduleids) values({webid},7,'栏目搜索页','search',2,'6,11,8,9,4');
+insert into sline_module_config(webid,aid,pagename,shortname,typeid,moduleids) values({webid},8,'栏目预订页','booking',2,'1,3,12,4');
+insert into sline_module_config(webid,aid,pagename,shortname,typeid,moduleids) values({webid},9,'栏目首页','index',3,'6,11,8,9,4');
+insert into sline_module_config(webid,aid,pagename,shortname,typeid,moduleids) values({webid},10,'栏目详细页','show',3,'3,1,11,8,2,4');
+insert into sline_module_config(webid,aid,pagename,shortname,typeid,moduleids) values({webid},11,'栏目搜索页','search',3,'6,11,8,9,4');
+insert into sline_module_config(webid,aid,pagename,shortname,typeid,moduleids) values({webid},12,'栏目预订页','booking',3,'2,3,12');
+insert into sline_module_config(webid,aid,pagename,shortname,typeid,moduleids) values({webid},13,'栏目首页','index',4,'6,11,8,4');
+insert into sline_module_config(webid,aid,pagename,shortname,typeid,moduleids) values({webid},14,'栏目详细页','show',4,'27,18,11,1,3,2,4');
+insert into sline_module_config(webid,aid,pagename,shortname,typeid,moduleids) values({webid},15,'栏目搜索页','search',4,'6,11,8,4');
+insert into sline_module_config(webid,aid,pagename,shortname,typeid,moduleids) values({webid},17,'栏目首页','index',5,'6,11,8,4');
+insert into sline_module_config(webid,aid,pagename,shortname,typeid,moduleids) values({webid},18,'栏目详细页','show',5,'28,5,18,11,4');
+insert into sline_module_config(webid,aid,pagename,shortname,typeid,moduleids) values({webid},19,'栏目搜索页','search',5,'6,11,8,4');
+insert into sline_module_config(webid,aid,pagename,shortname,typeid,moduleids) values({webid},21,'栏目首页','index',6,'1,8,11,4');
+insert into sline_module_config(webid,aid,pagename,shortname,typeid,moduleids) values({webid},22,'栏目详细页','show',6,'29,7,5,11,18');
+insert into sline_module_config(webid,aid,pagename,shortname,typeid,moduleids) values({webid},23,'栏目搜索页','search',6,'7,5,11,18');
+insert into sline_module_config(webid,aid,pagename,shortname,typeid,moduleids) values({webid},25,'栏目首页','index',10,'19,18,11,4,1');
+insert into sline_module_config(webid,aid,pagename,shortname,typeid,moduleids) values({webid},26,'栏目详细页','show',10,'19,18,11,1,4');
+insert into sline_module_config(webid,aid,pagename,shortname,typeid,moduleids) values({webid},27,'网站首页','index',0,'5,20,11,8,9,18');
+
+insert into sline_module_list(aid,webid,modulename,body,issystem) values(1,{webid},'推荐线路','<div class="sidebar">
+		  <h3>推荐线路<span class="more"><a href="{sline:global.cfg_cmsurl/}/lines/" rel="nofollow"><img src="{sline:global.cfg_templets_skin/}/skins/{sline:global.cfg_skincolor/}/images/more.gif" /></a></span></h3>
+		   <div class="youce_bor">
+		    <ul class="tj_right">
+			  
+			  {sline:getlinelist row=\'8\' flag=\'recommend\'}
+          	    <li class="[field:global.autoindex runphp=\'yes\']@me=@me==\'8\'?\'no_ber\':\'\';[/field:global.autoindex]">
+				<span class="jian_tp_i">
+                        <a href="[field:url/]"><img src="[field:litpic/]" alt="[field:title/]" width="75" height="50" /></a>
+                        <span></span>
+                      </span>
+                      <span class="cd_right cd_right_1"><a href="[field:url/]" rel="nofollow">[field:title/]</a></span>
+                      <span class="cd_right"><b>[field:price/]</b></span>
+				</li>
+		      {/sline:getlinelist}  
+		  </ul><!--线路推荐-->
+		  </div>
+</div>',1);
+insert into sline_module_list(aid,webid,modulename,body,issystem) values(2,{webid},'推荐酒店','<div class="sidebar">
+	  <h3>推荐酒店<span class="more"><a href="{sline:global.cfg_cmsurl/}/hotels/" rel="nofollow"><img src="{sline:global.cfg_templets_skin/}/skins/{sline:global.cfg_skincolor/}/images/more.gif" /></a></span></h3>
+	   <div class="youce_bor">
+	  {sline:gethotellist  flag=\'recommend\' row=\'2\'}
+		  <div class="tj_hotel">
+			  <a href="[field:url/]"><span class="hotel_image"><img class="fl" src="[field:litpic/]" alt="[field:title/]" width="75" height="50" /></span>
+			  <ul>
+				  <li class="color_name">[field:title/]</li>
+				  <li>星级：[field:hotelrank/]</li>
+				  <li>价格：<span class="jdbj">[field:price/]</span>起</li>
+			  </ul></a>
+		  </div>
+	  {/sline:gethotellist}
+	  <!--推荐酒店-->
+	  </div>
+</div>',1);
+insert into sline_module_list(aid,webid,modulename,body,issystem) values(3,{webid},'推荐租车','<div class="sidebar">
+	  <h3>推荐车型<span class="more"><a href="{sline:global.cfg_cmsurl/}/cars/" rel="nofollow"><img src="{sline:global.cfg_templets_skin/}/skins/{sline:global.cfg_skincolor/}/images/more.gif" /></a></span></h3>
+	  <div class="youce_bor">
+	  {sline:getcarlist flag=\'recommend\' row=\'2\'}
+	   <div class="car_zs">
+		   <ul class="img_car">
+			   			   <li class="car_border"><a href="[field:url/]"><img class="fl" src="[field:litpic/]" alt="[field:title/]" width="75" height="50" /></a></li>
+		   </ul>
+		   <ul class="car_js">
+                           <li class="car_bt"><a href="[field:url/]">[field:title/]</a></li>
+
+			   <li>车型：[field:kind/]</li>
+			   <li>价格：[field:price/]</li>
+		   </ul> 
+	   </div>
+	   {/sline:getcarlist}
+	   <!--车辆出租-->
+	   </div>
+</div>',1);
+insert into sline_module_list(aid,webid,modulename,body,issystem) values(4,{webid},'最新软文','<div class="sidebar">
+    <h3>最新文章<span class="more"><a href="{sline:global.cfg_cmsurl/}/raider/" rel="nofollow"><img src="{sline:global.cfg_templets_skin/}/skins/{sline:global.cfg_skincolor/}/images/more.gif" /></a></span></h3>
+	<div class="youce_bor">
+      <ul class="right_list">
+	    {sline:getarclist row=\'8\' flag=\'new\'}
+           <li><a href="[field:url/]">[field:title/]</a><span>[field:addtime function="Mydate(\'m-d\',@me)"/]</span></li>
+        {/sline:getarclist} 
+      </ul><!--旅游攻略-->
+	 </div>
+</div>',1);
+insert into sline_module_list(aid,webid,modulename,body,issystem) values(5,{webid},'推荐景点','<div class="sidebar">
+	  <h3>推荐景点<span class="more"><a href="{sline:global.cfg_cmsurl/}/spots/" rel="nofollow"><img src="{sline:global.cfg_templets_skin/}/skins/{sline:global.cfg_skincolor/}/images/more.gif" /></a></span></h3>
+	  <div class="youce_bor">
+	  {sline:getspotlist flag=\'recommend\' row=\'1\'}
+	  <span class="picture_jd"><a href="[field:url/]"><img src="[field:litpic/]" width="100" height="75" /></a></span>
+	  <ul class="jd_js">
+		  <li class="bt"><a href="[field:url/]">[field:title/]</a></li>
+		  <li class="nr_js"><p> [field:content  function="cn_substr(strip_tags(@me),75)"/]<span><a href="[field:url/]">更多</a></span></p></li>
+	  </ul>
+	  {/sline:getspotlist}
+	  <ul class="jd_mc">
+		  {sline:getspotlist flag=\'recommend\' row=\'8\'}
+		    <li><a href="[field:url/]" title="[field:title/]" target="_blank">[field:title/]</a></li>
+		  {/sline:getspotlist}
+	  </ul>
+	  </div>
+</div>',1);
+insert into sline_module_list(aid,webid,modulename,body,issystem) values(6,{webid},'推荐软文','<div class="sidebar">
+	  <h3>推荐文章<span class="more"><a href="{sline:global.cfg_cmsurl/}/raider/" rel="nofollow"><img src="{sline:global.cfg_templets_skin/}/skins/{sline:global.cfg_skincolor/}/images/more.gif" /></a></span></h3>
+	   <div class="youce_bor">
+	  <ul class="right_list">
+	  	  
+		  {sline:getarclist  flag=\'recommend\' row=\'6\'}
+		    <li><a href="[field:url/]" title="[field:alttitle/]">[field:title/]</a><span>[field:shownum/]</span></li>
+		  {/sline:getarclist}
+		  
+	  </ul><!--推荐相关文章-->
+	  </div>
+</div> ',1);
+insert into sline_module_list(aid,webid,modulename,body,issystem) values(7,{webid},'推荐图片','<div class="sidebar">
+	  <h3>推荐相册<span class="more"><a href="{sline:global.cfg_cmsurl/}/spots/" rel="nofollow"><img src="{sline:global.cfg_templets_skin/}/skins/{sline:global.cfg_skincolor/}/images/more.gif" /></a></span></h3>
+	   <div class="youce_bor">
+	  {sline:getphotolist flag=\'recommend\' row=\'1\'}
+	  <span class="picture_jd"><a href="[field:url/]"><img src="[field:litpic/]" width="100" height="75" /></a></span>
+	  <ul class="jd_js">
+		  <li class="bt"><a href="[field:url/]">[field:title/]</a></li>
+		  <li class="nr_js"><p> [field:imginfo function="cn_substr(@me,60)"/]<span><a href="[field:url/]">更多</a></span></p></li>
+	  </ul>
+	  {/sline:getphotolist}
+	  <ul class="jd_mc">
+		   {sline:getphotolist flag=\'recommend\' row=\'8\'}
+		    <li><a href="[field:url/]" title="[field:title/]" target="_blank">[field:title/]</a></li>
+		  {/sline:getphotolist}
+	  </ul>
+	  </div>
+</div>',1);
+insert into sline_module_list(aid,webid,modulename,body,issystem) values(8,{webid},'在线问答','<div class="sidebar">
+	  <h3>在线问答<span class="more"><a href="{sline:global.cfg_cmsurl/ rel="nofollow"}/questions/"><img src="{sline:global.cfg_templets_skin/}/skins/{sline:global.cfg_skincolor/}/images/more.gif" /></a></span></h3>
+	   <div class="youce_bor">
+	  {sline:getask row=\'8\'}
+		  <ul class="wenda">
+			<li class="question"><span>问：</span><a href="[field:url/]">[field:question/]</a></li>
+			
+			<li class="answer"><span>答：</span>[field:answer function="cn_substr(html2text(@me),65)"/]......<span class="riqi">[field:time function="Mydate(\'m-d\',@me)"/]</span></li>
+		 </ul>
+	  {/sline:getask}
+	 <span class="anniu"><a href="{sline:global.cfg_cmsurl/}/questions/"><img src="{sline:global.cfg_templets_skin/}/skins/{sline:global.cfg_skincolor/}/images/an.gif" /></a></span><!--在线问答-->
+	 </div>
+</div>',1);
+insert into sline_module_list(aid,webid,modulename,body,issystem) values(9,{webid},'网友评论','<div class="sidebar">
+    <h3>网友点评</h3>
+	<div class="youce_bor">
+     {sline:getcomment row=\'11\'}
+		<ul class="wenda">
+		  		  <li class="question"><a href="[field:url/]" rel="nofollow">[field:posttitle/]</a></li>
+<li class="answer"><span>评论：</span>[field:title function="cn_substr(@me,50)";/]<span class="riqi">[field:replydate function="Mydate(\'m-d\',@me)"/]</span></li>
+		</ul>
+	 {/sline:getcomment}
+
+    <!--评论回复-->
+	</div>
+</div>',1);
+insert into sline_module_list(aid,webid,modulename,body,issystem) values(10,{webid},'热门攻略','<div class="sidebar">
+     <h3>热门攻略<span class="more"><a href="{sline:global.cfg_cmsurl/}/raider/" rel="nofollow"><img src="{sline:global.cfg_templets_skin/}/skins/{sline:global.cfg_skincolor/}/images/more.gif" /></a></span></h3>
+	 <div class="youce_bor">
+        <ul class="right_list">
+	{sline:getarclist row=\'8\' flag=\'hot\'}
+           <li><a href="[field:url/]">[field:title/]</a><span>[field:shownum/]</span></li>
+        {/sline:getarclist} 
+      </ul>
+	</div>
+ </div>',1);
+insert into sline_module_list(aid,webid,modulename,body,issystem) values(11,{webid},'右侧广告1','<div class="guanggao">
+  {sline:myad name=\'GlobalRightA\'/}
+ </div>',1);
+insert into sline_module_list(aid,webid,modulename,body,issystem) values(12,{webid},'右侧广告2','<div class="guanggao">
+  {sline:myad name=\'GlobalRightB\'/}
+</div>',1);
+insert into sline_module_list(aid,webid,modulename,body,issystem) values(13,{webid},'右侧广告3','<div class="guanggao">
+  {sline:myad name=\'GlobalRightC\'/}
+</div>',1);
+insert into sline_module_list(aid,webid,modulename,body,issystem) values(14,{webid},'最新订单','<div class="sidebar">
+    <h3>最新订单</h3>
+	<div class="youce_bor">
+      <ul class="right_list">
+	{sline:getbookinglist row=\'5\' flag=\'lines\'}
+           <div class=\'order\'>[field:title/]</div>
+        {/sline:getbookinglist} 
+      </ul><!--订单-->
+	</div>
+</div>',1);
+insert into sline_module_list(aid,webid,modulename,body,issystem) values(15,{webid},'相关线路','<div class="sidebar">
+		  <h3>相关线路<span class="more"><a href="{sline:global.cfg_cmsurl/}/lines/" rel="nofollow"><img src="{sline:global.cfg_templets_skin/}/skins/{sline:global.cfg_skincolor/}/images/more.gif" /></a></span></h3>
+		   <div class="youce_bor">
+		    <ul class="tj_right">
+			  
+			  {sline:getlinelist row=\'8\' flag=\'relative\'}
+          	    <li class="[field:global.autoindex runphp=\'yes\']@me=@me==\'8\'?\'no_ber\':\'\';[/field:global.autoindex]">
+				<span class="jian_tp_i">
+                        <a href="[field:url/]"><img src="[field:litpic/]" alt="[field:title/]" width="75" height="50" /></a>
+                        <span></span>
+                      </span>
+                      <span class="cd_right cd_right_1"><a href="[field:url/]" rel="nofollow">[field:title/]</a></span>
+                      <span class="cd_right"><b>[field:price/]</b></span>
+				</li>
+		      {/sline:getlinelist}  
+		  </ul><!--线路推荐-->
+		  </div>
+</div>',1);
+insert into sline_module_list(aid,webid,modulename,body,issystem) values(16,{webid},'相关酒店','<div class="sidebar">
+	  <h3>相关酒店<span class="more"><a href="{sline:global.cfg_cmsurl/}/hotels/" rel="nofollow"><img src="{sline:global.cfg_templets_skin/}/skins/{sline:global.cfg_skincolor/}/images/more.gif" /></a></span></h3>
+	  <div class="youce_bor">
+	  {sline:gethotellist  flag=\'relative\' row=\'2\'}
+		  <div class="tj_hotel">
+			  <span class="hotel_image"><a href="[field:url/]"><img class="fl" src="[field:litpic/]" alt="[field:title/]" width="75" height="50" /></a></span>
+			  <ul>
+				  <li class="color_name"><a href="[field:url/]">[field:title/]</a></li>
+				  <li>[field:hotelrank/]</li>
+				  <li>价格范围：[field:price/]</li>
+				  <li class="color_more"><a href="[field:url/]">[详细信息]</a></li>
+			  </ul>
+		  </div>
+	  {/sline:gethotellist}
+	  </div>
+</div>',1);
+insert into sline_module_list(aid,webid,modulename,body,issystem) values(17,{webid},'相关租车','<div class="sidebar">
+  <h3>相关租车<span class="more"><a href="{sline:global.cfg_cmsurl/}/cars/" rel="nofollow"><img src="{sline:global.cfg_templets_skin/}/skins/{sline:global.cfg_skincolor/}/images/more.gif" /></a></span></h3>
+      <div class="youce_bor">
+	  {sline:getcarlist flag=\'relative\' row=\'2\'}
+	   <div class="car_zs">
+		   <ul class="img_car">
+			   <li class="car_bt"><a href="[field:url/]">[field:title/]</a></li>
+			   <li class="car_border"><a href="[field:url/]"><img class="fl" src="[field:litpic/]" alt="[field:title/]" width="75" height="50" /></a></li>
+		   </ul>
+		   <ul class="car_js">
+			   <li>车型：[field:kind/]</li>
+			   <li>价格范围：￥[field:nowprice/]/天</li>
+		   </ul> 
+	   </div>
+	   {/sline:getcarlist}
+	   </div>
+</div> ',1);
+insert into sline_module_list(aid,webid,modulename,body,issystem) values(18,{webid},'相关文章',' <div class="sidebar">
+              	  <h3>相关文章<span class="more"><a href="{sline:global.cfg_cmsurl/}/raider/" rel="nofollow"><img src="{sline:global.cfg_templets_skin/}/skins/{sline:global.cfg_skincolor/}/images/more.gif" /></a></span></h3>
+				  <div class="youce_bor">
+                  <ul class="right_list">
+					{sline:getarctaglist row=\'8\'}
+                     <li><a href="[field:arcurl/]">[field:title/]</a><span>[field:shownum/]</span></li>
+                    {/sline:getarctaglist} 
+               	  </ul>
+				  </div>
+               </div>',1);
+insert into sline_module_list(aid,webid,modulename,body,issystem) values(19,{webid},'在线客服',' <div class="sidebar">
+      <h3>联系客服</h3>
+	    <div class="youce_bor">
+        <ul class="phone">
+          {sline:getkefu}
+          <li class="fl dh_pic"><span class="fl"><img class="fl" src="[field:global.cfg_templets_skin/]/images/dh_tp.gif" alt="电话" title="电话" /></span><span class="fl dh_sz_n">联系电话：[field:phone/]</span></li>
+          [field:email/]
+          {/sline:getkefu}
+        </ul>
+		</div>
+</div>',1);
+insert into sline_module_list(aid,webid,modulename,body,issystem) values(20,{webid},'首页最新文章','<div class="sidebar">
+    <h3>最新文章<span class="more"><a href="{sline:global.cfg_cmsurl/}/raider/"><img src="{sline:global.cfg_templets_skin/}/skins/{sline:global.cfg_skincolor/}/images/more.gif" /></a></span></h3>
+      <ul class="right_list">
+	{sline:getarclist row=\'8\' flag=\'new\'}
+           <li><a href="[field:url/]" target="_blank">[field:title/]</a><span>[field:addtime function="Mydate(\'m-d\',@me)"/]</span></li>
+        {/sline:getarclist} 
+      </ul><!--旅游攻略-->
+</div>',1);
+insert into sline_module_list(aid,webid,modulename,body,issystem) values(22,{webid},'右侧广告4','<div class="guanggao">
+  {sline:myad name=\'GlobalRightD\'/}
+ </div>',1);
+insert into sline_module_list(aid,webid,modulename,body,issystem) values(23,{webid},'右侧广告5','<div class="guanggao">
+  {sline:myad name=\'GlobalRightE\'/}
+</div>',1);
+insert into sline_module_list(aid,webid,modulename,body,issystem) values(24,{webid},'右侧广告6','<div class="guanggao">
+  {sline:myad name=\'GlobalRightF\'/}
+</div>',1);
+insert into sline_module_list(aid,webid,modulename,body,issystem) values(25,{webid},'右侧广告7','<div class="guanggao">
+  {sline:myad name=\'GlobalRightG\'/}
+</div>',1);
+insert into sline_module_list(aid,webid,modulename,body,issystem) values(26,{webid},'右侧广告8','<div class="guanggao">
+  {sline:myad name=\'GlobalRightH\'/}
+</div>',1);
+insert into sline_module_list(aid,webid,modulename,body,issystem) values(27,{webid},'攻略导航','<div class="rd_dh">
+  	<h3>攻略分类导航</h3>
+	 <div class="youce_bor">
+  	  <ul>
+           {sline:channel type=\'special\' typeid=\'4\'}     
+    	  <li><a title="[field:typename/]" href="[field:global.cfg_cmsurl/]/raider/search_[field:aid/].html">[field:typename/]</a></li>  
+           {/sline:channel}
+      </ul>
+	 </div>
+  </div>',1);
+insert into sline_module_list(aid,webid,modulename,body,issystem) values(28,{webid},'景点导航','<div class="rd_dh">
+  	<h3>景点分类导航</h3>
+	<div class="youce_bor">
+  	<ul>
+      {sline:channel type=\'special\' typeid=\'5\'}     
+       <li><a title="[field:typename/]" href="[field:global.cfg_cmsurl/]/spots/search_[field:aid/].html">[field:typename/]</a></li>  
+      {/sline:channel}
+    </ul>
+	</div>
+  </div>',1);
+insert into sline_module_list(aid,webid,modulename,body,issystem) values(29,{webid},'相册导航','<div class="rd_dh">
+  	<h3>图片分类导航</h3>
+	<div class="youce_bor">
+  	<ul>
+    {sline:channel type=\'special\' typeid=\'6\'}     
+     <li><a title="[field:typename/]" href="[field:global.cfg_cmsurl/]/photos/search_[field:aid/].html">[field:typename/]</a>   </li>     {/sline:channel}
+    </ul>
+	</div>
+  </div>',1);
+insert into sline_module_list(aid,webid,modulename,body,issystem) values(30,{webid},'最新拼团','<div id="gundong_lone">
+      <div id="bg"><h1 style=" font-family:\'微软雅黑\'; font-size:20px; height:60px; line-height:60px; padding-left:30px; color:#fff">最新拼团</h1></div>
+      <div id="scrollDiv">
+        <ul>
+          {sline:getarclist flag=\'jieban\' row=\'9\'}
+             [field:array runphp=\'yes\']
+                  if($GLOBALS[\'autoindex\'] % 2==0)
+                   {
+                     $str=" <li><a href=\"{@me[\'url\']}\" target=\"_blank\">
+<span class=\"oushu\">{@me[\'title\']}</span><span class=\"shuzi\">{$GLOBALS[\'autoindex\']}</span></a></li>";
+                   }
+                  else
+                   {
+                    $str=" <li><a href=\"{@me[\'url\']}\" target=\"_blank\">
+<span class=\"shuzi\">{$GLOBALS[\'autoindex\']}</span><span class=\"jishu\">{@me[\'title\']}</span></a></li>";
+
+                    }
+                  @me=$str;
+               [/field:array]
+          {/sline:getarclist}
+        </ul>
+      </div>
+  {sline:include file=\'inc/pingtuan.htm\'/}
+</div>',0);
+
+
+insert into sline_nav(webid,aid,typeid,pid,typename,shortname,seotitle,linktitle,keyword,description,jieshao,tagword,url,linktype,isopen,displayorder,issystem) values({webid},1,1,0,'','旅游线路','','','','','','路线','/lines/',1,1,1,1);
+insert into sline_nav(webid,aid,typeid,pid,typename,shortname,seotitle,linktitle,keyword,description,jieshao,tagword,url,linktype,isopen,displayorder,issystem) values({webid},2,2,0,'','酒店预订','stourweb旅游网站系统','','stourweb旅游网站系统','stourweb旅游网站系统','','酒店','/hotels/',1,1,2,1);
+insert into sline_nav(webid,aid,typeid,pid,typename,shortname,seotitle,linktitle,keyword,description,jieshao,tagword,url,linktype,isopen,displayorder,issystem) values({webid},3,3,0,'','旅游租车','stourweb旅游网站系统','','租车,预订','stourweb旅游网站系统','','租车','/cars/',1,1,3,1);
+insert into sline_nav(webid,aid,typeid,pid,typename,shortname,seotitle,linktitle,keyword,description,jieshao,tagword,url,linktype,isopen,displayorder,issystem) values({webid},7,7,0,'','机票预订','stourweb旅游网站系统','','stourweb旅游网站系统','stourweb旅游网站系统','<p>stourweb旅游网站系统</p>','','/tickets/',1,0,4,1);
+insert into sline_nav(webid,aid,typeid,pid,typename,shortname,seotitle,linktitle,keyword,description,jieshao,tagword,url,linktype,isopen,displayorder,issystem) values({webid},4,4,0,'','旅游攻略','stourweb旅游网站系统','','stourweb旅游网站系统','stourweb旅游网站系统','','攻略','/raider/',1,1,5,1);
+insert into sline_nav(webid,aid,typeid,pid,typename,shortname,seotitle,linktitle,keyword,description,jieshao,tagword,url,linktype,isopen,displayorder,issystem) values({webid},5,5,0,'','旅游景点','stourweb旅游网站系统','','stourweb旅游网站系统','stourweb旅游网站系统','','风景','/spots/',1,1,6,1);
+insert into sline_nav(webid,aid,typeid,pid,typename,shortname,seotitle,linktitle,keyword,description,jieshao,tagword,url,linktype,isopen,displayorder,issystem) values({webid},6,6,0,'','风光图片','stourweb旅游网站系统','','厦门风景','stourweb旅游网站系统','','风景','/photos/',1,1,7,1);
+insert into sline_nav(webid,aid,typeid,pid,typename,shortname,seotitle,linktitle,keyword,description,jieshao,tagword,url,linktype,isopen,displayorder,issystem) values({webid},10,10,0,'','旅游问答','','','','','','咨询','/questions/',1,1,8,1);
+insert into sline_nav(webid,aid,typeid,pid,typename,shortname,seotitle,linktitle,keyword,description,jieshao,tagword,url,linktype,isopen,displayorder,issystem) values({webid},16,null,3,'','越野车','','','','','','','',0,0,3,0);
+insert into sline_nav(webid,aid,typeid,pid,typename,shortname,seotitle,linktitle,keyword,description,jieshao,tagword,url,linktype,isopen,displayorder,issystem) values({webid},17,null,3,'','商务车','','','','','','','',1,0,2,0);
+insert into sline_nav(webid,aid,typeid,pid,typename,shortname,seotitle,linktitle,keyword,description,jieshao,tagword,url,linktype,isopen,displayorder,issystem) values({webid},18,null,3,'','旅游大巴','','','','','','','',0,0,1,0);
+insert into sline_nav(webid,aid,typeid,pid,typename,shortname,seotitle,linktitle,keyword,description,jieshao,tagword,url,linktype,isopen,displayorder,issystem) values({webid},0,null,5,'','拼团','','','','','','','',1,1,9999,0);
+
+
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_medias_dir','上传路径','/uploads');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_cmspath','网站路径','');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_cli_time','','8');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_sendmail_bysmtp','','Y');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_webname','','stourweb搜行旅游网站系统');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_keywords','','stourweb搜行旅游网站系统');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_description','','');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_indextitle','','stourweb搜行旅游网站系统');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_index_zhuti','',' ');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_indexcode','','');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_gonggao','','');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_tongjicode','统计代码 ','');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_df_style','网站样式','default');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_weathcode','天气代码','');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_footer','底部设置','<p>Copyright &copy; 2011-20xx年&nbsp;本站版权所有</p>');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_beian','网站备案号','蜀ICP备xxxxxx号');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_powerby','网站版权信息',' ');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_indexname','主页链接名','首页');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_img_width','缩略图默认宽度','240');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_img_height','缩略图默认高度','180');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_notallowstr','评论禁用词语','她妈|它妈|他妈|你妈|去死|贱人|SB');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_feedback_time','评论间隔时间','30');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_makeindex','发表文章是否立即更新首页','1');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_auto_description','自动摘要长度','240');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_tplcache_dir','缓存目录','/data/tplcache');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_taposition','客服位置','1');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_taindex','是否在中间弹出','1');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_logo','logo图片','/uploads/allimg/20110927/20110927140819.gif');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_logourl','logo连接位置','http://s.souxw.com/');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_logoalt','logo alt标识','搜行旅游网站系统（stourweb）！');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_lxslogo','旅行社标识','/uploads/allimg/20111115/20111115111211.png');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_lxslogoalt','lxglogo alt标识','Stourweb搜行旅游网站Sline系统');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_lxslogourl','旅行社logo连接地址','http://');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_recolinenum','推荐线路显示数量','8');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_Email139','默认139邮箱','');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_lineEmail','线路139Email','');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_carEmail','车务139Email','');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_hotelEmail','酒店139Email','');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_indexphoto','相册首页滚动情况','-1');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_payment','','');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_qsmaillcontent','邮件内容设置','');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_corephrases','核心词组','stourweb');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_install','是否已经进行过配置','1');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_py_open','是否开启评论','1');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_wenda_open','是否开启问答','1');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_logodisplay','网站LOGO显示栏目','0,1,2,3,4,5,6,10');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_indexlinktitle','首页链接标题','');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_color','线路字体颜色是否开启','');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_wenEmail','提问139邮箱','');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_linenum','线路栏目显示数量','');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_hotelnum','酒店栏目显示数量','');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_carnum','租车栏目显示数量','');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_raidernum','攻略栏目显示数量','');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_booking','是否启用在线预定','1');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_zuche','是否启用单项租车','1');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_childrule','儿童标准','');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_hotelmark','酒店说明文字','');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_carmark','租车说明文字','');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_stats','统计基数','');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_skincolor','皮肤类型','skin_1');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_indexpage','首页模板效果','index.htm');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_html_editor','编辑器选择','ckeditor');
+insert into sline_sysconfig(webid,varname,info,value) values({webid},'cfg_html_kefu','客服代码','');
+

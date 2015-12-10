@@ -1,0 +1,1 @@
+<a href="[field:id function=getSearchUrl(@me,'priceid')/]" data-field="priceid" data-value="[field:id/]">[field:title/]</a>

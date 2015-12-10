@@ -1,0 +1,223 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>订单查询-{sline:global.cfg_webname/}</title>
+{sline:php}Helper_Archive::getCss('base.css,space.css,query.css','2014.02');{/sline:php}
+{sline:php}Helper_Archive::getScript('jquery-1.8.3.min.js,common.js,jquery.validate.js','2014.02');{/sline:php}
+</head>
+
+<body>
+	{sline:include file='public/header.htm'/}
+  
+  <!-- 中间内容开始 -->
+  <div class="big">
+  	<div class="width_1210">
+    	<!-- 面包屑and订单开始 -->
+    	<div class="top_first">
+      		<div class="crumbs"><a href="{sline:global.cfg_basehost/}">{sline:global.cfg_indexname/}</a> &gt; 订单查询</div>
+         {sline:include file='public/scroll_order.htm'/}
+      </div>
+      <!-- 面包屑and订单结束 -->
+    
+    	<!--查询开始-->
+	  <div class="user_space_big queryborder">
+         <form id="searchfrm" method="post" action="?dopost=search">
+         <div id="s_header">
+             <p class="header_t">订单查询</p>
+             <p><input type="text" class="searchtxt" name="searchkey" id="searchkey" value="{sline:field.searchkey/}" placeholder="输入手机号码查询订单"><a href="javascript:;" class="searchbtn">立即查询</a></p>
+             <p class="header_desc">订单分为：支付全款   支付订金    二次确认后支付    线下支付 （<span class="orange showxianxia" style="cursor: pointer">点击查看线下支付说明</span>）对订单有任何疑问，请联系客服！</p>
+
+         </div>
+         </form>
+         <div id="s_search_result">
+             <p class="r_title" style="display: none">尊敬的客户您好，您的手机<span class="orange">{sline:field.searchkey/}</span>查询到以下订单：</p>
+             {sline:list}
+              <div class="r_item">
+                 <p class="producttype">[field:typeid function="QueryOrder::getOrderName(@me)"/]</p>
+
+                 <div class="p_left">
+
+                     <div class="order_main">
+                       <div class="order_img">
+                         <img src="[field:array runphp='yes']@me=QueryOrder::getLitpic(@me['productautoid'],@me['typeid']);[/field:array]" width="117" height="80">
+                       </div>
+                       <div class="order_title">
+                           <p class="order_name">[field:array runphp='yes']@me=QueryOrder::getProductName(@me['productautoid'],@me['typeid']);[/field:array]</p>
+                           <p class="order_sellpoint">[field:array runphp='yes']@me=QueryOrder::getSellPoint(@me['productautoid'],@me['typeid']);[/field:array]</p>
+                       </div>
+                     </div>
+
+
+                 <p class="order_attr">产品类型：[field:productname function="QueryOrder::getSuitName(@me)"/]</p>
+                 <p class="order_attr">出行时间：[field:array runphp='yes']@me=QueryOrder::getUseDate(@me);[/field:array]</p>
+                 <p class="order_attr">购买时间：[field:addtime function="MyDate('Y-m-d',@me)"/]</p>
+                 <p class="order_attr">购买数量：[field:array runphp='yes']@me=QueryOrder::getBuyNum(@me);[/field:array]</p>
+               </div>
+               <div class="p_right">
+                   <p>订单状态：[field:status function="QueryOrder::getOrderStatus(@me)"/]</p>
+                   <p>付款类型：[field:paytype function="QueryOrder::getPayType(@me)"/]</p>
+                   <p>订单金额：￥[field:array runphp='yes']@me=QueryOrder::getTotalPrice(@me);[/field:array]</p>
+                   <p>支付金额：￥[field:array runphp='yes']@me=QueryOrder::getNeedPay(@me);[/field:array]</p>
+                   [field:array runphp='yes']
+                      if(@me['status']==1)
+                      {
+                         @me='<p class="btn_pay" data-orderid="'.@me['id'].'">立即支付</p>';
+                      }
+                      else if(@me['status']==2)
+                      {
+                         @me='<p class="btn_haspay">支付成功</p>';
+                      }
+                      else if(@me['status']==0)
+                      {
+                         @me='<p class="btn_haspay">等待处理</p>';
+                      }
+                      else
+                      {
+                         @me='<p class="btn_haspay">订单取消</p>';
+                      }
+
+                   [/field:array]
+               </div>
+             </div>
+             {/sline:list}
+         </div>
+        
+
+      </div>
+      <!--查询结束-->
+      
+    </div>
+  </div>
+    <div id="xianxiainfo" class="box_info">
+        <p class="title">线下支付说明<span class="close"></span></p>
+        <div class="desc">{sline:global.cfg_pay_xianxia/}</div>
+    </div>
+    <div id="payinfo" class="box_info">
+        <p class="title">支付方式<span class="close"></span></p>
+
+        <div class="zhifu_fs">
+
+            <div class="fs_con">
+                {sline:global.id function="Helper_Archive::getPayTypeList(0)"/}
+
+                <div class="btninfo"><span class="dopay">立即支付</span></div>
+            </div>
+        </div>
+
+
+    </div>
+    <input type="hidden" id="orderid" value="0"/>
+  <!-- 中间内容结束 -->
+  {sline:include file='public/help.htm'/}
+  {sline:include file='public/footer.htm'/}
+
+
+
+ <script type="text/javascript">
+   $(function(){
+       $('.showxianxia').click(function(){
+
+           showBox('xianxiainfo');
+
+       })
+       $(".close").click(function(){
+           ST.Util.closeFade();
+           $(this).parents('.box_info').first().hide();
+       })
+
+       $(".searchbtn").click(function(){
+           $("#searchfrm").submit();
+       })
+
+       //支付选择
+       $(".btn_pay").click(function(){
+
+           $("#orderid").val($(this).attr('data-orderid'));
+           showBox('payinfo');
+       })
+       //进行支付
+       $(".dopay").click(function(){
+           var orderid = $("#orderid").val();
+           var choosepay = $("input[name='choosepay']:checked").val();
+           if(choosepay=='6'){
+               $(".close").trigger('click');
+               showBox('xianxiainfo');
+
+           }
+           else{
+               var url= siteUrl+'member/query.php?dopost=payonline&orderid='+orderid+"&choosepay="+choosepay;
+               window.open(url);
+           }
+
+
+       })
+
+       var searchkey = $("#searchkey").val();
+       if(searchkey!=''){
+           $('.r_title').show();
+       }
+
+       //支付方式第一个选中
+       $("input[name='choosepay']").first().trigger('click');
+
+       $("#searchfrm").validate({
+
+           rules: {
+
+               searchkey:{
+                   required: true,
+                   number:true,
+                   maxlength:11,
+                   minlength:11
+
+               }
+           },
+           messages: {
+
+               searchkey:{
+                   required:"",
+                   number:'',
+                   maxlength:'',
+                   minlength:''
+               }
+
+
+           },
+           highlight: function(element, errorClass, validClass) {
+               $(element).addClass('errorb');
+           },
+           unhighlight:function(element, errorClass){
+               $(element).removeClass('errorb');
+           }
+
+
+
+       });
+   })
+
+   function calulateOffset(obj)
+   {
+       var objwidth = obj.width();
+       var objheight = obj.height();
+       windowHeight = document.documentElement.clientHeight || document.body.clientHeight || 0;
+       windowWidth = document.documentElement.clientWidth || document.body.clientWidth || 0;
+       scrollTop = document.body.scrollTop ||  document.documentElement.scrollTop;
+       var oLeft = (windowWidth - objwidth)/2;
+       var oTop = (windowHeight  - (objheight + 95))/2 + scrollTop;
+       offset = {left: oLeft, top: oTop};
+       return offset;
+   }
+   function showBox(objid)
+   {
+       var box = $("#"+objid);
+       ST.Util.createFade();
+       var offset = calulateOffset(box);
+       box.css({top: offset.top, left: offset.left,zIndex:1002});
+       box.fadeIn();
+   }
+ </script>
+
+
+</body>
+</html>

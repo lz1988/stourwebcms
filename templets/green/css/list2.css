@@ -1,0 +1,60 @@
+@charset "utf-8";
+/* CSS Document */
+
+body,h1,h2,h3,h4,blockquote,p,dl,dt,dd,ul,ol,li,th,td, form,fieldset,legend,button,input,textarea{margin:0;padding:0}
+body{color:#000;background:#ffffff;}
+button,input,select,textarea,h1,h2,h3,h4{font-size:100%}
+em,i{font-style:normal}ol,ul{list-style:none}
+img,fieldset{border:0;vertical-align:middle}
+.clearfix:after{content:"\20";clear:both;height:0;display:block;overflow:hidden}.clearfix{*zoom:1}
+.clear{font-size:0;line-height:0;height:0;overflow:hidden;clear:both;visibility:hidden}
+.fl,.mark{float:left}.fr,.subMark{float:right}
+.spanclass,.contentdiv{display:none}
+a{color:#000;text-decoration:none}a:hover{ text-decoration:underline}
+.mb10{margin-bottom:10px;}
+.f14{font-size:14px;}
+.f16{font-size:16px;}
+.cp{cursor:pointer;}
+/* scrolltab */
+.scrolltab{ float:right; position:relative;width:592px;}
+.scrolltab .ulBigPic{width:592px;height:300px; overflow:hidden;}
+.scrolltab .ulBigPic li{width:592px;height:300px;display:none;}
+.scrolltab .ulBigPic .liSelected{display:block;}
+.scrolltab .ulBigPic img{ }
+.scrolltab .ulBigPic .sPic{width:592px; height:300px;float:left;overflow:hidden;}
+.scrolltab .ulBigPic .sSideBox{width:290px;float:right;overflow:hidden;}
+.scrolltab .sSideBox span{width:290px;display:block;overflow:hidden;}
+.scrolltab .ulBigPic .sIntro{line-height:24px;color:#666;word-wrap:break-word;word-break:break-all;}
+.scrolltab .ulBigPic .sMore{height:24px;line-height:24px;}
+.scrolltab .ulBigPic .sMore a{color:#841;}
+.scrolltab .sLeftBtnA,.scrolltab .sLeftBtnASel,.scrolltab .sLeftBtnABan,.scrolltab .sRightBtnA,.scrolltab .sRightBtnASel,.scrolltab .sRightBtnABan{width:6px;height:13px;display:block;position:absolute;bottom:25px; z-index:99;background:url(../images/fucos_bg.png) no-repeat;}
+.scrolltab .sLeftBtnA,.scrolltab .sLeftBtnASel,.scrolltab .sRightBtnA,.scrolltab .sRightBtnASel{cursor:pointer;}
+.scrolltab .sLeftBtnA,.scrolltab .sLeftBtnASel,.scrolltab .sLeftBtnABan{left:5px}
+.scrolltab .sLeftBtnA{background-position:0  -8px}
+.scrolltab .sLeftBtnASel{background-position:0 -8px}
+.scrolltab .sLeftBtnABan{background-position:0 -8px}
+.scrolltab .sRightBtnA,.scrolltab .sRightBtnASel,.scrolltab .sRightBtnABan{right:5px}
+.scrolltab .sRightBtnA{background-position:0 -22px}
+.scrolltab .sRightBtnASel{background-position:0 -22px}
+.scrolltab .sRightBtnABan{background-position:0 -22px}
+.scrolltab .dSmallPicBox{width:592px;height:100px;margin-top:-100px; position:relative; background:url(../images/index_fucos_bg.png) top left repeat-x}
+.scrolltab .dSmallPic{width:556px;height:64px; padding-top:30px;position:absolute;left:18px;top:0;overflow:hidden;}
+.scrolltab .dSmallPic ul{position:absolute;}
+.scrolltab .dSmallPic li{width:75px;height:50px; margin:10px 5px 0 0px; float:left;display:inline;cursor:pointer; background:#fff}
+.scrolltab .dSmallPic li .sTitle{ display:none}
+.scrolltab .dSmallPic .sPic{width:70px;height:50px;display:block;}
+.scrolltab .dSmallPic .sPic img{ }
+.scrolltab .dSmallPic .liSelected{border:2px solid #ccd5e1; margin:8px 5px 0 0}
+.scrolltab .dSmallPic .liSelected .sTitle{ display:block; width:450px; height:30px; line-height:30px; position: absolute; top: -30px; left: 0; color: #fff;}
+.scrolltab .dSmallPic .liSelected s{ display:block; width:14px; height:7px; background:url(../images/fucos_bg.png) no-repeat 0 0; margin:-7px 0 0 28px;}
+.scrolltab .dSmallPic .liSelected .sPic img{border-color:#fff;}
+.scrolltab .sLeftBtnB,.scrolltab .sLeftBtnBSel,.scrolltab .sLeftBtnBBan,.scrolltab .sRightBtnB,.scrolltab .sRightBtnBSel,.scrolltab .sRightBtnBBan{width:6px;height:13px;display:block;position:absolute;top:35px;background:url(../images/fucos_bg.png) no-repeat;}
+.scrolltab .sLeftBtnB,.scrolltab .sLeftBtnBSel,.scrolltab .sRightBtnB,.scrolltab .sRightBtnBSel{cursor:pointer;}
+.scrolltab .sLeftBtnB,.scrolltab .sLeftBtnBSel,.scrolltab .sLeftBtnBBan{left:3px;}
+.scrolltab .sLeftBtnB{background-position:0 -8px;}
+.scrolltab .sLeftBtnBSel{background-position:0 -8px;}
+.scrolltab .sLeftBtnBBan{background-position:0 -8px;}
+.scrolltab .sRightBtnB,.scrolltab .sRightBtnBSel,.scrolltab .sRightBtnBBan{right:3px;}
+.scrolltab .sRightBtnB{background-position:0 -22px;}
+.scrolltab .sRightBtnBSel{background-position:0 -22px;}
+.scrolltab .sRightBtnBBan{background-position:0 -22px;}

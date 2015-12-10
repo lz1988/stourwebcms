@@ -1,0 +1,268 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{sline:field.seotitle/}-{sline:global.cfg_webname/}</title>
+<meta name="keywords" content="{sline:field.seokeyword/}"/>
+<meta name="description" content="{sline:field.seodescription/}"/>
+<meta name="author" content="{sline:global.cfg_webname/}" />
+{sline:php}Helper_Archive::getCss('base.css,line.css');{/sline:php}
+{sline:php}Helper_Archive::getScript('jquery-1.8.3.min.js,common.js,line.index.js');{/sline:php}
+</head>
+
+<body>
+	{sline:include file='public/header.htm'/}
+  
+  <!-- 中间内容开始 -->
+  <div class="big">
+  	<div class="width_1210">
+    	<!-- 面包屑and滚动订单开始 -->
+    	<div class="top_first">
+      	<div class="crumbs"><a href="{sline:global.cfg_basehost/}">{sline:global.cfg_indexname/}</a> &raquo; <a href="{sline:global.cfg_cmsurl/}/lines/">{sline:field.typename/}</a> </div>
+        {sline:include file='public/scroll_order.htm'/}
+        </div>
+      <!-- 面包屑and滚动订单结束 -->
+      
+      <!--顶部搜索导航开始-->
+      <div class="top_ser_menu">
+      	<div class="ser_t">我计划去</div>
+        <div class="ser_b">
+
+          <input type="text" class="mdd_box" id="destname" value="请输入目的地或线路名称" name="keyword" datadef="请输入目的地或线路名称" />
+          <input type="submit" class="mdd_btn"  value="搜 索" />
+
+        </div>
+        <div class="ser_l">
+          <span>热门目的地：</span>
+		  
+          {sline:getdest flag='hot' row='6'}
+           <a href="[field:url/]">[field:title/]</a>
+          {/sline:getdest} 
+        </div>
+      </div>
+      <!--顶部搜索导航结束-->
+      
+      <!--边栏开始-->
+      <div class="line_home_left">
+      	<div class="mmd_option">
+        	<h3>线路导航：</h3>
+          <div class="diy_select" id="mdd_choose">
+            <input type="hidden" name="" class="diy_select_input">
+            <div class="diy_select_txt navname"></div>
+            <div class="diy_select_btn"></div>
+            <ul class="diy_select_list dest_menu">
+              {sline:getdest flag='top'}
+               <li data-value="mdd_[field:id/]"><a  href="/lines/[field:pinyin/]/">[field:title/]</a></li>
+              {/sline:getdest}
+             
+            </ul>
+          </div>
+        </div>
+        
+        {sline:leftnav}
+          <div id="categorys" class="categorys mdd_{sline:field.kindid/}">
+            <div class="mc" id="_JD_ALLSORT" load="2" style="display: block;">
+              {sline:getleftnav}
+                <div class="item fore[field:global.autoindex/]" style="display: block;">
+                    <span class="tit_bt">
+                    <h3>
+                      <a class="title_bt" href="/lines/[field:pinyin/]/">[field:categoryname/]</a>
+                      [field:childpre/]
+                    </h3>
+                    <s></s>
+                  </span>
+                  <div class="i-mc" style="display: none; ">
+
+                      <div class="subitem">
+                          <div class="sub_left">
+                              <dl class="hot_dl">
+                                  <dt>热门线路</dt>
+                                  <dd>
+                                      [field:childnextall/]
+
+                                  </dd>
+                              </dl>
+                              <dl class="sx_dl">
+                                  <dt>游玩时间：</dt>
+                                  <dd>
+                                      [field:youwanshijian/]
+
+                                  </dd>
+                              </dl>
+                              [field:shuxin/]
+
+                              <dl class="sx_dl">
+                                  <dt>价格区间：</dt>
+                                  <dd>
+                                      [field:jiage/]
+
+
+                                  </dd>
+                              </dl>
+                          </div>
+                          <div class="sub_rig">
+                              [field:tjxianlu/]
+
+                          </div>
+                      </div>
+                  </div>
+                </div>
+               {/sline:getleftnav}
+            
+              
+              
+            </div>
+          </div>
+        {/sline:leftnav}
+       
+      	
+        <div class="shortcut_cz">
+        	<h3>不知道去哪儿？试试小助手吧！</h3>
+          <div class="side_st">
+            <div class="diy_select">
+            	<div class="diy_tit">出行天数</div>
+              <input type="hidden" name="day" id="dayid" value="0" class="diy_select_input">
+              <div class="diy_select_txt">不限</div>
+              <div class="diy_select_btn"></div>
+              <ul class="diy_select_list">
+                {sline:getlineguide flag='day'}
+                 <li data-value="[field:word/]" data-field="dayid">[field:title/]</li>
+                {/sline:getlineguide}
+               
+              </ul>
+            </div>
+            <div class="diy_select">
+            	<div class="diy_tit">出行类型</div>
+              <input type="hidden" name="dest_id" id="dest_id" value="0" >
+              <div class="diy_select_txt">不限</div>
+              <div class="diy_select_btn"></div>
+              <ul class="diy_select_list">
+               {sline:getdest flag='top'}
+                <li data-value="[field:id/]" data-pinyin="[field:pinyin/]" data-field="dest_id">[field:title/]</li>
+               {/sline:getdest}
+              </ul>
+            </div>
+            <div class="diy_select">
+            	<div class="diy_tit">价格区间</div>
+              <input type="hidden" name="priceid" id="priceid" value="0" class="diy_select_input">
+              <div class="diy_select_txt">不限</div>
+              <div class="diy_select_btn"></div>
+              <ul class="diy_select_list">
+                {sline:getlineguide flag='price'}
+                 <li data-value="[field:aid/]" data-field="priceid">[field:title/]</li>
+                {/sline:getlineguide}
+              
+              </ul>
+            </div>
+            <div class="side_st_btn btn_search"><a href="javascript:;">立即查询</a></div>
+          </div>
+        </div>
+         {sline:getrightcontent pagename='index'/}
+      </div>
+      <!--边栏结束-->
+      
+      <!--主体内容开始-->
+    	<div class="line_home_rig">
+				
+        <div class="fcous_st_img slides" id="slides">
+         {sline:rollingad name='LineRollingAd'}
+        	<a href="[field:linkurl/]" target="_blank"><img src="[field:picurl/]" width="956" height="275" title="[field:linktext/]" alt="[field:linktext/]" /></a>
+          {/sline:rollingad}
+        
+        </div>
+        
+        <!--本季热推开始-->
+        <div class="bj_hot_tj">
+        	<h3>本季热推</h3>
+          <ul class="hot_tj_ul">
+            {sline:getlinelist flag='recommend' row='4'}
+              <li>
+                  <div class="hot_img"><s></s><a class="fl" href="[field:url/]" title="[field:title/]" target="_blank"><img class="fl" src="[field:litpic/]" width="190" height="140" alt="[field:title/]" /></a></div>
+                <div class="hot_tit"><a href="[field:url/]" title="[field:title/]"><span style="[field:color/]">[field:title/]</span></a></div>
+                <div class="hot_txt">本季惊爆价：<span>[field:price/]</span>起</div>
+              </li>
+            {/sline:getlinelist}
+          	
+          </ul>
+        </div>
+        <!--本季热推结束-->
+				
+        {sline:middlenavlist flag='line' readad='0'}
+           <div class="line_list">
+          <div class="line_title_menu">
+        		<h3>{sline:field.kindname/}线路推荐</h3>
+            		<div class="more"><a href="/lines/{sline:field.pinyin/}/">更多</a></div>
+                <div class="line_menu_rig tjxl_tag_top">
+                <!--  <a class="active" data-id="{sline:field.kindid/}" href="javascript:;">推荐</a>
+                  {sline:field.kindchild/}-->
+                </div>
+          </div>
+          <div class="tjxl_tag_con">
+              <div class="line_con_l">
+                {sline:getlinelist type='mdd' flag='recommend' row='4'}
+                <div class="list_con_sy">
+                    <div class="sy_img"><a class="fl" href="[field:url/]" title="[field:title/]"><img class="fl" src="[field:litpic/]" width="100" height="80" alt="[field:title/]" /></a></div>
+                    <div class="sy_txt">
+                    <p class="p1"><a href="[field:url/]" target="_blank" ><span style="[field:color/]">[field:title/]</span>[field:iconlist function=Helper_Archive::getIconList(@me)/]</a></p>
+                    <p class="p2">[field:sellpoint/]</p>
+                    <p class="p3">
+                      <span>销量：<b>[field:sellnum/]</b>人已购买</span>
+                      <span>评论：<b>[field:commentnum/]</b>条评论</span>
+                      <span class="sp_star"><strong class="fl">满意度：</strong><b><s style=" width:[field:satisfyscore/]"></s></b></span>
+                    </p>
+                  </div>
+                  <div class="sy_price">
+                    <p class="p1">[field:lineprice runphp="yes"]
+                           if(!empty(@me))
+                             @me='&yen;<strong>'.@me.'</strong><span>起</span>';
+                           else
+                             @me='<strong>电询</strong>';
+                        [/field:lineprice]</p>
+                    <p class="p2"><span>[field:jifentprice runphp='yes']if(empty(@me))@me='无';[/field:jifentprice]</span></p>
+                  </div>
+                </div>	
+                {/sline:getlinelist}
+              </div>
+            
+              <div class="line_con_r">
+                <ul class="hot_tj_ul">
+                 {sline:getlinelist type='mdd' row='2' limit='4'}
+                  <li>
+                    <div class="hot_img"><s></s><a class="fl" href="[field:url/]" title="[field:title/]"><img class="fl" src="[field:lit240/]" width="190" height="140" alt="[field:title/]" /></a></div>
+                    <div class="hot_tit"><a href="[field:url/]" target="_blank" title="[field:title/]">[field:title/]</a></div>
+                    <div class="hot_txt">本季惊爆价：<span>&yen;[field:lineprice/]</span>起</div>
+                  </li>
+                 {/sline:getlinelist}
+                </ul>
+              </div>
+              
+          </div>
+          
+        </div>
+        {/sline:middlenavlist}
+        
+       
+        
+        
+        
+
+  
+      </div>
+      <!--主体内容结束-->
+      
+    </div>
+  </div>
+  <!-- 中间内容结束 -->
+  
+  {sline:include file='public/help.htm'/}
+  
+  {sline:include file='public/footer.htm'/}
+  
+  {sline:include file='public/flink.htm'/}
+  {sline:php}Helper_Archive::getScript('list_box.js');{/sline:php}
+
+
+
+
+</body>
+</html>

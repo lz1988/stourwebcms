@@ -1,0 +1,121 @@
+@charset "utf-8";
+/*后台登陆*/
+body{
+	width: 100%;
+	background-image:-webkit-gradient(linear,50% 0,50% 100%,color-stop(0%,#5080cb),color-stop(100%,#95d6f0));
+	background-image:-webkit-linear-gradient(#5080cb,#95d6f0);
+	background-image:-moz-linear-gradient(#5080cb,#95d6f0);
+	background-image:-o-linear-gradient(#5080cb,#95d6f0);
+	background-image:linear-gradient(#5080cb,#95d6f0);
+	filter:progid:DXImageTransform.Microsoft.gradient(gradientType=0,startColorstr='#FF5080cb',endColorstr='#FF95d6f0');
+	background-attachment:fixed}
+.login-box{
+	width:520px;
+	height:420px;
+	position:relative;
+	top:50%;
+	left:50%;
+	margin:-210px 0 0 -260px;
+	background:#fff}
+.head-box{
+	float:left;
+	width:520px;
+	height:110px;
+	background:url(../images/login-logo.png) center no-repeat #008ed8}
+.head-box a{
+	float:right;
+	display:block;
+	width:23px;
+	height:23px;
+	cursor:pointer}
+.login-admin{
+	clear:both;
+	margin:0 auto;
+	width:300px;
+	height:300px}
+.admin-head{
+	float:left;
+	width:300px;
+	height:54px;
+	margin-top:15px;
+	background:url(../images/login-admin.png) no-repeat 50px 0}
+.admin-head p{
+	float:left;
+	color:#212f3c;
+	width:160px;
+	font-size:14px;
+	font-family:"微软雅黑";
+	margin:3px 0 0 115px}
+.zh-password{
+	float:left;
+	width:500px;
+	height:30px;
+	line-height:30px;
+	margin-top:20px}
+.zh-password dt{
+	float:left;
+	color:#212f3c;
+	width:45px;
+	font-size:14px;
+	font-family:"微软雅黑"}
+.zh-password dd{
+	float:left;
+	width:360px}
+.zh-password dd input{
+	float:left;
+	height:28px;
+	line-height:28px;
+	padding-left:3px;
+	border:1px solid #dcdcdc}
+.zh-password dd input.text_250{
+	width:250px}
+.zh-password dd input.text_100{
+	width:100px}
+.zh-password dd .yzm-box{
+	float:left;
+	width:100px;
+	height:30px;
+	margin:0 10px;
+	text-align:center;
+	}
+.zh-password dd a{
+	float:left;
+	height:30px;
+	line-height:30px;
+	text-decoration:none}
+.login-btn,
+#loginfrm .reset-btn{
+	float:left;
+	color:#fff;
+	width:120px;
+	height:30px;
+	line-height:30px;
+	margin-top:20px;
+	font-size:14px;
+	font-family:"微软雅黑";
+	text-align:center}
+.login-btn:hover,
+.cancel-btn:hover{
+	color:#fff;
+	text-decoration:none}
+.login-btn{
+	margin-left:45px;
+	background:#47b4ed}
+.reset-btn{
+	margin-left:10px;
+	background:#006397}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

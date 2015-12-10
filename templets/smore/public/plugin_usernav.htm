@@ -1,0 +1,57 @@
+{sline:plugincheck identify='cfg_usernav_open'}
+    <div class="global_nav">
+    <div class="kj_tit">旅游产品快捷导航</div>
+    <div class="mc" style="display:none">
+    {sline:slidenavlist}
+     <div class="tall" style="display:none">
+                <span class="tit_bt">
+                  <s></s>
+                  <h3>
+                      <a class="title_bt" href="javascript:;">{sline:field.kindname/}</a>
+                  </h3>
+                </span>
+        <div class="gl_nav_con" style="display:none">
+            <div class="subitem">
+                {sline:getslidenav}
+                    <dl>
+                        <dt>[field:categoryname/]</dt>
+                        <dd>
+                            [field:categorychild/]
+                        </dd>
+                    </dl>
+                {/sline:getslidenav}
+
+            </div>
+        </div>
+    </div>
+    {/sline:slidenavlist}
+
+    </div>
+    </div>
+    <script>
+        $(document).ready(function(e) {
+            $(".global_nav").mouseover(function(){
+                $(this).children(".mc").show()
+                $(this).children().children(".tall").show()
+            })
+            $(".global_nav").mouseout(function(){
+                $(this).children(".mc").hide()
+                $(this).children().children(".tall").hide()
+            })
+        });
+        $(".global_nav div .tall").hover(function(e){
+                    $(this).siblings().removeClass("hover").find(".gl_nav_con").hide();
+                    $(this).addClass("hover");
+                    if($(this).find('dl').length > 0)
+                    {
+                        $(this).find(".gl_nav_con").show();
+                    }
+
+                },
+                function(e){
+                    $(this).removeClass("hover");
+                    $(this).find(".gl_nav_con").hide();
+                }
+        );
+    </script>
+{/sline:plugincheck}

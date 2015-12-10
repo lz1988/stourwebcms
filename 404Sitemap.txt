@@ -1,0 +1,8 @@
+http://testdata.souxw.com/lines/show_8.html
+http://testdata.souxw.com/hotels/show_4.html
+http://testdata.souxw.com/cars/show_4.html
+http://testdata.souxw.com/raiders/show_3.html
+http://testdata.souxw.com/spots/show_4.html
+http://testdata.souxw.com/photo/show_2.html
+http://testdata.souxw.com/visa/show_4.html
+http://testdata.souxw.com/tuan/show_4.html

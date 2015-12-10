@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>找回密码提示-{sline:global.cfg_webname/}</title>
+{sline:php}Helper_Archive::getCss('base.css,hint.css','2014.02');{/sline:php}
+{sline:php}Helper_Archive::getScript('jquery-1.8.3.min.js','2014.01');{/sline:php}
+
+</head>
+<body>
+	{sline:include file='public/header.htm'/}
+  
+  <!-- 中间内容开始 -->
+    <div class="big" style="margin-top:50px;margin-bottom: 50px">
+        <div class="width_1210">
+
+            <div class="ts_page_box">
+                <div class="op_tit">
+                    <h3>恭喜您，修改密码成功!</h3>
+                    <p>如有疑问请及时联系客服！</p>
+                </div>
+                <div class="op_nr">
+                    <p>选择您的操作：</p>
+                    <div class="lm_link">
+                        <a href="/">网站首页</a>
+                        <a class="on" href="/member/login.php">登录页面</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  <!-- 中间内容结束 -->
+  
+   {sline:include file='public/help.htm'/}
+  {sline:include file='public/footer.htm'/}
+
+</body>
+</html>

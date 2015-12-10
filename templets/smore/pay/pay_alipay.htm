@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={sline:global.cfg_soft_lang/}" />
+<title>付钱-{sline:global.cfg_webname/}</title>
+
+{sline:php}GetCss('base.css,pay.css','2012.03');{/sline:php}
+{sline:php}GetScript('jquery-1.4.2.min.js','2012.03');{/sline:php}
+</head>
+
+<body>
+{sline:include file='public/header.htm'/}
+
+<div class="big">
+  <div class="width_1210">
+  <div class="top_first">
+            <div class="crumbs"><a href="{sline:global.cfg_basehost/}">首页</a> &gt; 自定义支付</div>
+      </div>
+  </div>
+  <div class="pay_main">
+  
+
+  <div class="pay_dv">
+  <form name="fm" method="post" action="/pay/pay.php">
+     <div class="jianju jz"></div>
+	<div class="jz ny_middle">
+	<table width="960px" border="0" cellspacing="0" cellpadding="0">
+  <tbody><tr>
+    <td width="570" style="background:url(/templets/smore/images/pay.png) no-repeat ; width:569px; height:62px;">&nbsp;</td>
+    <td width="412" style="background:url(/templets/smore/images/3901.gif)  no-repeat 0 0px; width:415px; height:62px; background-size: 405px 64px;">&nbsp;</td>
+    <!-- TDS - ThinkerDev By WenFront&End Url : Www.iTdsCn.Cn E-Mail: TimeHoster@QQ.Com Or WebDev@iTdsCn.Cn -->
+  </tr>
+  <tr>
+ <td>
+ <table width="100%" style="background:url(/templets/smore/images/aaa.gif)  repeat-y ; width:569px;" class="ad1_newsss" border="0" cellspacing="0" cellpadding="0">
+   <tbody><tr><td class="AAA">收 款 方：</td>
+    <td colspan="2" style="color:#666">{sline:global.cfg_webname/}</td>
+    </tr>
+    <!-- TDS - ThinkerDev By WenFront&End Url : Www.iTdsCn.Cn E-Mail: TimeHoster@QQ.Com Or WebDev@iTdsCn.Cn -->
+     <tr>
+    <td width="86" class="AAA">支付编号：</td>
+  
+    <td width="170">{sline:global.ordersn/}<input name="ordersn" type="hidden" id="ddbh" value="{sline:global.ordersn/}" readonly="readonly"><input type="hidden" name="dopost" value="save"/></td>
+    <td width="313">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="AAA">您的姓名：</td>
+    <td><input name="username" type="text" id="username"></td>
+    <td class="REDS">*</td>
+  </tr>
+  <tr>
+    <td class="AAA">您的手机：</td>
+    <td><input name="phone" type="text" id="phone"></td>
+    <td class="REDS">*</td>
+  </tr>
+  <!-- TDS - ThinkerDev By WenFront&End Url : Www.iTdsCn.Cn E-Mail: TimeHoster@QQ.Com Or WebDev@iTdsCn.Cn -->
+  <tr>
+    <td class="AAA">行程人数：</td>
+    <td><input name="travelnum" type="text" id="travelnum" value="1"></td>
+    <td class="REDS">*</td>
+  </tr>
+  <tr>
+    <td class="AAA">线路名称：</td>
+    <td><input name="title" value="" type="text" id="title"></td>
+    <td class="REDS">*</td>
+  </tr>
+  
+    <tr>
+    <td class="AAA">支付金额：</td>
+    <td><input name="dingjin" type="text" id="dingjin"></td>
+    <td class="REDS">*</td>
+  </tr>
+      <tr>
+    <td colspan="3" style="color:#666; padding-left:15PX;">（注意：请填写0.01～50000.00 , 不要出现3,000.00，价格不支持","号）</td>
+    </tr>
+  
+      <tr>
+    <td class="AAA">付款说明：</td>
+    <td colspan="2"><label for="content"></label>
+      <textarea name="description" id="content" cols="45" rows="5"></textarea></td>
+    </tr>
+      <tr>
+    <td colspan="3" style="color:#666; padding-left:15PX;">（如联系人、人数、出发日期等等） </td>
+    
+    </tr>
+    
+        <tr>
+  
+    
+            </tr><tr>
+    <td class="AAA">支付方式：</td>
+    <td colspan="2"><input name="提交" type="button" onclick="checkFm()" id="button" style=" cursor:pointer;border:0;background:url(/templets/smore/images/pay.png) -446PX -139px no-repeat ; width:120PX; height:35PX;" value=""></td>
+    </tr>
+  
+</tbody></table><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tbody><tr>
+    <td style="background:url(/templets/smore/images/pay.png) 0 -82px no-repeat ; width:569px; height:25px;">&nbsp;</td>
+  </tr>
+</tbody></table>
+
+
+ </td>
+    <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tbody><tr>
+    <td style="background:url(/templets/smore/images/400.gif)  repeat-y ; font-size: 12px; background-size: 405px;"><ul class="wangzhao">
+				<li>1、支付前请确认您已在我社报名。</li>
+				<li>2、如您的支付宝上有足够的余额，您可以选择支付宝余额支付。如果余额不足，可选支付宝卡通支付。</li>
+				<li>3、如果您没有支付宝但有网上银行请选择用"网银支付"。</li>
+				<li>4、如果您没有支付宝也没有开通网上银行，您可以直接点确认订单进去支付页面选择线以下网点支付。（线下网点支付请先在网上生成交易号，凭交易号可在成都的网点刷卡或用现金缴纳旅游报名费。</li>
+				<li>5、信用卡支付一次不能超过500元、各银行对网上信用卡支付均有限额，但不限支付次数。</li>
+			</ul>
+</td>
+  </tr>
+</tbody></table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tbody><tr>
+    <td style="background:url(/templets/smore/images/410.gif)  no-repeat ;background-size: 405px;">&nbsp;</td>
+  </tr>
+</tbody></table>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tbody><tr>
+    <td style="background:url(/templets/smore/images/t.gif)  no-repeat ;  width:422px; height:269px;background-size: 400px;">&nbsp;</td>
+    <!-- TDS - ThinkerDev By WenFront&End Url : Www.iTdsCn.Cn E-Mail: TimeHoster@QQ.Com Or WebDev@iTdsCn.Cn -->
+  </tr>
+</tbody></table>
+
+
+</td>
+  </tr>
+</tbody></table>
+</div>
+    
+    </form>
+  </div>
+
+  
+   
+   
+  </div>                                                                                                                                  <script>
+	  function checkFm()
+	  {
+		 var dingjin=parseFloat($("#dingjin").val());
+		 var username=$("#username").val();
+		 var title=$("#title").val();
+		 var phone=$("#phone").val();
+		 var travelnum=$("#travelnum").val();
+		 if(!username)
+		 {
+			 alert("姓名不能为空");
+			 return;
+		 }
+		 if(!phone)
+		 {
+			 alert("手机不能为空");
+			 return;
+		 }
+		 if(!title)
+		 {
+			 alert("线路名称不能为空");
+			 return;
+		 }
+		 if(isNaN(travelnum))
+		 {
+			 alert("订金不能为空，且必须是数字");
+			 return;
+		 }
+		 
+		 if(isNaN(dingjin))
+		 {
+			 alert("订金不能为空，且必须是数字");
+			 return;
+		 }
+		 
+		 
+		
+		 
+		 
+		 document.forms['fm'].submit(); 
+		  
+		  
+	  }
+ </script>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+{sline:include file='public/footer.htm'/}
+{sline:include file='public/flink.htm'/} 
+<script language="javascript">
+   $(function(){
+	       $('img[data-original]').lazyload({container:"window",threshold:100});
+	}); 
+</script>
+</body>
+</html>

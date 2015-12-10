@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+<head>
+<meta charset="utf-8">
+<title>我的咨询-{sline:global.cfg_webname/}</title>
+{sline:php}Helper_Archive::getCss('base.css,space.css','2014.02');{/sline:php}
+{sline:php}Helper_Archive::getScript('jquery-1.8.3.min.js,common.js,ajax.member.search.js','2014.02');{/sline:php}
+</head>
+
+<body>
+   {sline:include file='public/header.htm'/}
+  
+  <!-- 中间内容开始 -->
+  <div class="big">
+  	<div class="width_1210">
+    	<!-- 面包屑and订单开始 -->
+    	<div class="top_first">
+      	<div class="crumbs"><a href="{sline:global.cfg_basehost/}">{sline:global.cfg_indexname/}</a> &gt; 用户中心</div>
+         {sline:include file='public/scroll_order.htm'/}
+       
+      </div>
+      <!-- 面包屑and订单结束 -->
+    
+    	<!--用户空间开始-->
+			<div class="user_space_big">
+      	<!--导航菜单开始-->
+      	    {sline:include file='public/member_left_nav.htm'/}
+        <!--导航菜单结束-->
+        
+        <!--用户空间内容开始-->
+        <div class="user_con">
+          <div class="st_order_menu">
+            <a class="current" href="javascript:void(0)">全部咨询记录</a>
+          </div>
+          <div class="st_order_con">
+          	<div class="zx_con">
+            	<ul id="question_list">
+
+               
+              </ul>
+            </div>
+            <!--分页代码开始-->
+            <div class="main_mod_page clear" id="pageinfo">
+             
+            </div>
+            <div style="clear:both"></div>
+            <!--分页代码结束-->
+          </div>
+          
+        </div>
+        <!--用户空间内容结束-->
+      </div>
+      <!--用户空间结束-->
+      
+    </div>
+  </div>
+  <!-- 中间内容结束 -->
+  {sline:include file='public/help.htm'/}
+  {sline:include file='public/footer.htm'/}
+  <input type="hidden" id="currentpage" value="1"/>
+  <script language="javascript">
+   $(function(){
+      //查询通用配置
+			    var config={
+					  pageSize:6,
+					  ajaxUrl:'member/ajax.php',
+					  dopost:'getmyquestion'
+				  
+				  };
+				 $.AjaxSearch(
+				   config,
+				   function(data){
+					  
+					   $("#question_list").html(data.list);
+					   $("#pageinfo").html(data.pageinfo);
+				   }
+				 );
+   
+   })
+  </script>
+ 
+
+</body>
+</html>

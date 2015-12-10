@@ -1,0 +1,31 @@
+ <div class="menu">
+     {sline:include file='public/plugin_usernav.htm'/}
+     <div class="main_nav_list">
+      <a href="{sline:global.cfg_basehost/}{sline:global.cfg_cmsurl/}/">{sline:global.cfg_indexname/}</a>
+      {sline:channel type='top'}
+        <a href="[field:typelink/]"
+         [field:linktitle runphp='yes']if(@me!=""){@me="title=\"".@me."\"";}[/field:linktitle]>
+         [field:kind runphp='yes']
+           if(@me==1)
+             {
+              @me='<s class="ico_new"></s>';
+             }
+            else if(@me==2)
+             {
+              @me='<s class="ico_hot"></s>';
+             }
+            else
+             {
+              @me='';
+             }
+         [/field:kind]
+       [field:typename/]</a>
+      {/sline:channel}
+    </div>
+    <div class="skip">
+       <!--<a href="/">签证</a>
+       <a href="#"><s>|</s>私人定制</a>
+       <a href="#"><s>|</s>定金支付</a>
+       <a href="#"><s>|</s>关于我们</a>-->
+    </div>
+ </div>

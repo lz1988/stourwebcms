@@ -1,0 +1,187 @@
+@charset "utf-8";
+.wid_big{
+	float:left;
+	width:100%;
+	height:386px;
+	background:url(../images/privately.jpg) top center no-repeat}
+.sever_big{
+	float:left;
+	width:100%;
+	border-bottom:1px solid #cdcdcd}
+.sever_ts{
+	width:1210px;
+	height:86px;
+	margin:0 auto}
+.service_bt{
+	float:left;
+	width:242px;
+	height:86px;
+	border-top:5px solid #434343}
+.service_bt img{
+	float:left;
+	margin:19px 0 0 27px}
+.service_list{
+	float:left;
+	width:242px;
+	height:86px;
+	border-top:5px solid #ffc240;
+	background:url(../images/sr-bg-ico.png) left no-repeat}
+.service_list dt{
+	float:left;
+	color:#ff9540;
+	width:52px;
+	height:52px;
+	line-height:52px;
+	text-align:center;
+	font-size:18px;
+	margin:17px 0 0 20px;
+	border:1px solid #ff9540;
+	border-radius:50%;
+	-moz-border-radius:50%;
+	-ms-border-radius:50%;
+	-webkit-border-radius:50%}
+.service_list dd{
+	float:left;
+	color:#696969;
+	width:140px;
+	height:36px;
+	line-height:18px;
+	font-size:14px;
+	margin:25px 0 0 10px}
+.dz_tit{
+	float:left;
+	width:1210px;
+	padding:30px 0}
+.dz_tit h3{
+	float:left;
+	color:#ff7200;
+	width:1210px;
+	height:40px;
+	font-size:28px;
+	font-weight:500;
+	text-align:center}
+.dz_tit p{
+	float:left;
+	color:#666;
+	width:1210px;
+	font-size:16px;
+	text-align:center}
+.dz_con{
+	float:left;
+	width:1210px}
+.msg_con{
+	width:594px;
+	height:580px;
+	border:1px solid #d8d8d8}
+.msg_con .msg_bt{
+	float:left;
+	color:#ff7200;
+	width:594px;
+	height:50px;
+	line-height:40px;
+	font-size:18px;
+	text-align:center;
+	background:url(../images/msg-bg.png) bottom repeat-x}
+.msg_con .msg_bt s{
+	display:inline-block;
+	color:#fff;
+	width:20px;
+	height:20px;
+	line-height:20px;
+	text-align:center;
+	font-size:16px;
+	background:#ff7200;
+	margin-right:10px;
+	border-radius:50%}
+.msg_bom{
+	float:left;
+	width:574px;
+	padding:10px;}
+.msg_bom dl{
+	float:left;
+	width:574px;
+	padding:5px 0}
+.msg_bom dl dt{
+	float:left;
+	color:#555;
+	width:100px;
+	height:40px;
+	line-height:40px;
+	padding-right:10px;
+	text-align:right;
+	font-size:14px}
+.msg_bom dl dt s{
+	color:#ff6667;
+	float:right;
+	padding-left:5px;
+	line-height:46px;
+	font-size:14px}
+.msg_bom dl dd{
+	float:left;
+	width:464px}
+.msg_bom dl dd .msg_text{
+	float:left;
+	width:200px;
+	height:28px;
+	line-height:28px;
+	margin-top:5px;
+	border:1px solid #dcdcdc}
+.msg_bom dl dd a{
+	float:left;
+	color:#555;
+	height:22px;
+	line-height:22px;
+	padding:0 10px;
+	margin:9px 10px 0 0;
+	border:1px solid #dcdcdc}
+.msg_bom dl dd a.on,
+.msg_bom dl dd a:hover{
+	color:#fff;
+	border:1px solid #ff8c00;
+	background:#ff8c00}
+.msg_bom dl dd textarea{
+	float:left;
+	width:400px;
+	height:120px;
+	border:1px solid #dcdcdc}
+.msg_bom .tj_btn{
+	float:left;
+	width:574px;
+	margin-top:10px}
+.msg_bom .tj_btn a{
+	display:block;
+	color:#fff;
+	width:115px;
+	height:30px;
+	line-height:30px;
+	font-size:14px;
+	text-align:center;
+	margin:0 auto;
+	border-radius:3px;
+	-moz-border-radius:3px;
+	-ms-border-radius:3px;
+	-webkit-border-radius:3px;
+	background:#ff8c00}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

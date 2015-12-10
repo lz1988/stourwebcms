@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>用户登陆-{sline:global.cfg_webname/}</title>
+{sline:php}Helper_Archive::getCss('base.css,space.css','2014.02');{/sline:php}
+{sline:php}Helper_Archive::getScript('jquery-1.8.3.min.js,common.js,jquery.validate.js,user.login.js,jquery.md5.js','2014.01');{/sline:php}
+</head>
+
+<body>
+	{sline:include file='public/header.htm'/}
+  
+  <!-- 中间内容开始 -->
+  <div class="big">
+  	<div class="width_1210">
+    	<!-- 面包屑and订单开始 -->
+    	<div class="top_first">
+      	<div class="crumbs"><a href="{sline:global.cfg_basehost/}">{sline:global.cfg_indexname/}</a> &gt;  用户登陆</div>
+         {sline:include file='public/scroll_order.htm'/}
+      </div>
+      <!-- 面包屑and订单结束 -->
+    
+    	<!--登陆开始-->
+			<div class="user_space_big">
+      	<div class="login_con" style="
+      	{sline:singlead name='loginAd'}
+      	  [field:picurl runphp='yes']
+      	    if(!empty(@me))
+      	    {
+      	      $str="background:url(@me) left no-repeat";
+      	    }
+            else
+            {
+              $str = '';
+            }
+            @me=$str;
+
+      	  [/field:picurl]{/sline:singlead}">
+        	<div class="free_enr"><a href="reg.php">免费注册</a></div>
+        	<div class="login_rig_con">
+           <form id="loginfrm" onSubmit="return false;">
+          	<table width="350" border="0" cellspacing="0" cellpadding="0">
+          	  <tr>
+          	    <td height="40" valign="bottom">登录帐号</td>
+        	    </tr>
+          	  <tr>
+          	    <td height="40"><input type="text" class="text login_name" name="loginname" id="loginname" datadef="手机号/邮箱" /></td>
+        	    </tr>
+          	  <tr>
+          	    <td height="30" valign="bottom">密码</td>
+        	    </tr>
+          	  <tr>
+          	    <td height="40"><input type="password" class="text login_password" name="password" id="password" /></td>
+        	    </tr>
+          	  <tr>
+          	    <td class="point_out" height="40"></td>
+        	    </tr>
+          	  <tr>
+          	    <td height="40"><input type="submit" value="登 陆" class="login_btn" /></td>
+        	    </tr>
+          	  <tr>
+          	    <td height="40" align="right"><a href="findpass.php">忘记密码?</a></td>
+        	    </tr>
+          	  <tr>
+                  {sline:php}
+                     if(!empty($GLOBALS['cfg_qq_appid'])||!empty($GLOBALS['cfg_sina_appkey'])||!empty($GLOBALS['cfg_weixi_appkey']))
+                     {
+          	            echo '<td height="40">其他方式登录</td>';
+                     }
+                  {/sline:php}
+        	    </tr>
+
+          	    <tr>
+          	    <td height="40">
+                   {sline:php}
+                     if(!empty($GLOBALS['cfg_qq_appid']) && !empty($GLOBALS['cfg_qq_appkey']))
+                     {
+                        echo ' <a class="login_fs" href="javascript:;" id="loginqq"><img class="fl" src="'.$GLOBALS['cfg_templets_skin'].'/images/qq_login.png" alt="QQ" /></a>';
+                     }
+                     if(!empty($GLOBALS['cfg_sina_appkey']) && !empty($GLOBALS['cfg_sina_appsecret']))
+                     {
+                       echo ' <a class="login_fs" href="javascript:;" id="loginsina"><img class="fl" src="'.$GLOBALS['cfg_templets_skin'].'/images/wb_login.png" alt="新浪微博" /></a>';
+                     }
+                     if(!empty($GLOBALS['cfg_weixi_appkey']) && !empty($GLOBALS['cfg_weixi_appsecret']))
+                     {
+                       echo ' <a class="login_fs" href="javascript:;" id="loginweixi"><img class="fl" src="'.$GLOBALS['cfg_templets_skin'].'/images/wx_login.png" alt="微信" /></a>';
+                     }
+                   {/sline:php}
+
+
+
+
+                </td>
+        	    </tr>
+        	  </table>
+              <input type="hidden" name="fromurl" id="fromurl" value="{sline:global.fromurl/}">
+            </form>
+          </div>
+        </div>
+      </div>
+      <!--登陆结束-->
+      
+    </div>
+  </div>
+  {sline:include file='public/help.htm'/}
+  {sline:include file='public/footer.htm'/}
+<script>
+    $("#loginqq").click(function(){
+
+        var url=siteUrl+'member/login.php?dopost=loginbyqq';
+        window.open(url);
+
+    });
+    $("#loginsina").click(function(){
+
+        var url=siteUrl+'member/login.php?dopost=loginbysina';
+        window.open(url);
+
+    });
+    $("#loginweixi").click(function(){
+
+        var url=siteUrl+'member/login.php?dopost=loginbyweixi';
+        window.open(url);
+
+    });
+</script>
+
+</body>
+</html>

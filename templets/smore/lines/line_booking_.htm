@@ -1,0 +1,323 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{sline:field.title/}预订-{sline:global.cfg_webname/}</title>
+<meta name="author" content="{sline:global.cfg_webname/}" />
+{sline:php}Helper_Archive::getCss('base.css');{/sline:php}
+{sline:php}Helper_Archive::getScript('jquery-1.8.3.min.js,common.js,jquery.validate.js,book.js');{/sline:php}
+<script language="javascript" type="text/javascript" src="/templets/smore/js/DatePicker/WdatePicker.js"></script>
+</head>
+
+<body>
+	{sline:include file='public/header.htm'/}
+  
+  <!-- 中间内容开始 -->
+  <div class="big">
+  	<div class="width_1210">
+    	<!-- 面包屑and滚动订单开始 -->
+    	<div class="top_first">
+      		<div class="crumbs">当前位置：<a href="{sline:global.cfg_basehost/}">{sline:global.cfg_indexname/}</a> &gt; <a href="{sline:global.cfg_cmsurl/}/lines/">线路</a>预订线路</div>
+        {sline:include file='public/scroll_order.htm'/}
+      </div>
+      <!-- 面包屑and滚动订单结束 -->
+
+      <div class="order_con">
+      	<div class="order_handle">
+          <div class="order_zt"><label>线路编号：{sline:field.lineseries/}</label><span>{sline:if var='_djsupport'}(支持订金){/sline:if}</span></div>
+          <div class="order_cd">感谢您对 {sline:global.cfg_webname/} 的支持与信任！</div>
+        </div>
+        <div class="jindu"></div>
+        <form id="dingfrm" action="?dopost=savebooking" method="post">
+        <div class="or_show or_bg_1">
+          <h3>订单详细</h3>
+          <dl>
+            <dt>产品名称：</dt>
+            <dd>{sline:field.title/}</dd>
+          </dl>
+          <dl>
+            <dt>产品价格：</dt>
+            <dd>
+                <span class="w_xt adultcontain">成人价格：<span class="color_f">&yen;<span class="a_price">{sline:field.price/}</span>元</span>&nbsp;&nbsp;起</span>
+                <span class="w_xt childcontain">儿童价格：<span class="color_f">&yen;<span class="c_price">{sline:field.childprice/}</span>元</span>&nbsp;&nbsp;起</span>
+                <span class="w_xt oldcontain">老人价格：<span class="color_f">&yen;<span class="o_price">{sline:field.oldprice/}</span>元</span>&nbsp;&nbsp;起</span>
+            </dd>
+          </dl>
+          <dl>
+            <dt>报名人数：</dt>
+            <dd>
+              <span class="w_xt adultcontain">成人&nbsp;&nbsp;<input type="text" class="text" name="dingnum" id="dingnum" onkeyup="gettotal()" value="{sline:field.dingnum/}" />&nbsp;&nbsp;名</span>
+              <span class="w_xt childcontain">儿童&nbsp;&nbsp;<input type="text" class="text" name="childnum" id="childnum"  onkeyup="gettotal()" value="{sline:field.childnum/}" />&nbsp;&nbsp;名</span>
+              <span class="w_xt oldcontain">老人&nbsp;&nbsp;<input type="text" class="text" name="oldnum" id="oldnum"  onkeyup="gettotal()" value="{sline:field.oldnum/}" />&nbsp;&nbsp;名</span>
+            </dd>
+          </dl>
+          <dl>
+            <dt>出团日期：</dt>
+            <dd><input type="text" class="date_txt" name="usedate2" id="usedate" readonly="readonly" value="{sline:field.usedate/}" readonly /></dd>
+          </dl>
+        </div>
+        <div class="or_show or_bg_2">
+          <h3>优惠信息</h3>
+          {sline:if var='_has_jifentprice'}
+            <dl>
+              <dt>积分可抵现金：</dt>
+              <dd>{sline:field.jifentprice/}</dd>
+            </dl>
+          {/sline:if}
+          {sline:if var='_has_jifenbook'}
+          <dl>
+          	<dt>购买送积分：</dt>
+            <dd>{sline:field.jifenbook/}</dd>
+          </dl>
+          {/sline:if}
+          {sline:if var='_has_jifencomment'}
+          <dl>
+          	<dt>评论送积分：</dt>
+            <dd>{sline:field.jifencomment/}</dd>
+          </dl>
+          {/sline:if}
+        </div>
+        <div class="or_show or_bg_3">
+          <h3>联系人资料</h3>
+          <dl>
+            <dt>联 系 人：</dt>
+            <dd><input type="text" class="data_text" name="linkman" id="linkman" value="{sline:field.linkman/}" /></dd>
+          </dl>
+          <dl>
+            <dt>电话号码：</dt>
+            <dd><input type="text" class="data_text" name="linktel" id="linktel" value="{sline:field.linktel/}" /></dd>
+          </dl>
+          <dl>
+            <dt>常用邮箱：</dt>
+            <dd><input type="text" class="data_text" name="linkemail" id="linkemail" value="{sline:field.linkemail/}" /></dd>
+          </dl>
+          <dl>
+            <dt>QQ号码：</dt>
+            <dd><input type="text" class="data_text" name="linkqq" id="linkqq" value="" /></dd>
+          </dl>
+        </div>
+            {sline:if var='_has_jifentprice'}
+               <div class="jifenprice" style="line-height: 20px;margin-left: 20px;padding-top:15px;float: left;border-top: 1px solid #e5e5e5;width:1000px">
+                   <input type="checkbox" name="jifenchoose" {sline:field.exopen runphp='yes'}if(empty(@me))@me="disabled='disabled'";else @me='';{/sline:field.exopen}  id="jifenchoose">{sline:field.jifenpricemsg/}</div>
+            {/sline:if}
+
+            <div class="or_show paylist">
+                <dl>
+                    <dt>支付方式：</dt>
+
+                    <dd>{sline:field.id function="Helper_Archive::getPayTypeList()"/}</dd>
+                </dl>
+
+
+            </div>
+        <div class="order_price">
+          <ul>
+            <li class="li_1">订单总金额：&yen;<span class="total">{sline:field.totalprice/}</span>元</li>
+            {sline:if var='_djsupport'}
+              <li class="li_2"><strong>支付订金：<b>&yen;<s id="dj">{sline:field.dingjin/}</s></b>元</strong><span>(支持订金订单，付款时仅需在线支付订金报名即可，剩余金额签约付款)</span></li>
+            {/sline:if}
+            <li class="li_3"><input type="submit" name="" value="提交订单" /></li>
+          </ul>
+        </div>
+        <!--隐藏域-->
+        <input type="hidden" name="jifentprice" id="jifentprice" value="{sline:field.jifentprice/}"/>
+        <input type="hidden" name="jifenbook" value="{sline:field.jifenbook/}"/>
+        <input type="hidden" name="jifencomment" value="{sline:field.jifencomment/}"/>
+        <input type="hidden" name="dingjin" value="{sline:field.dingjin/}"/>
+        <input type="hidden" name="productautoid" value="{sline:field.id/}"/>
+        <input type="hidden" name="price" class="a_price_txt" value="{sline:field.price/}"/>
+        <input type="hidden" name="childprice" class="c_price_txt" value="{sline:field.childprice/}"/>
+        <input type="hidden" name="oldprice" class="o_price_txt" value="{sline:field.oldprice/}"/>
+        <input type="hidden" name="productaid" value="{sline:field.aid/}"/>
+        <input type="hidden" name="webid" value="{sline:field.webid/}"/>
+        <input type="hidden" name="productname" value="{sline:field.title/}"/>
+        <input type="hidden" name="paytype" value="{sline:field.paytype/}"/>
+        <input type="hidden" name="suitid" id="suitid" value="{sline:global.suitid/}"/>
+        <input type="hidden" name="usedate" value="{sline:field.usedate/}">
+        <input type="hidden" name="usejifen" id="usejifen" value="0">
+        <input type="hidden" name="dj" id="dingjin" value="{sline:field.dingjin/}">
+        
+        </form>
+      </div>
+      
+    </div>
+  </div>
+  <!-- 中间内容结束 -->
+  
+  {sline:include file='public/help.htm'/}
+  
+  {sline:include file='public/footer.htm'/}
+  <script language="javascript">
+    $(function(){
+
+        if($('.paylist').find('input').length>=1)
+        {
+            $('.paylist').find('input').first().attr("checked",'checked');
+
+        }
+	   //出行时间选择 
+		$("#usedate").click(function(){
+          WdatePicker({onpicking:getnewprice, skin:'whyGreen',dateFmt:'yyyy-MM-dd',minDate:'%y-%M-#{%d+1}'})
+        })
+       //获取最新报价
+        getnewprice();
+
+       //使用积分
+       if($("#jifenchoose").length>0){
+           $("#jifenchoose").click(function(){
+               var status = $(this).attr('checked');
+               if(status=='checked'){
+                   $("#usejifen").val(1);
+               }
+               else{
+                   $("#usejifen").val(0);
+               }
+               gettotal();
+           })
+       }
+  	//表单验证
+
+	 $("#dingfrm").validate({ 
+			
+			submitHandler:function(form){
+              
+				var flag = ST.User.isLogin();
+				
+				if(flag == 0)
+				{
+				   ST.User.showLogin(function(){
+					   var param=$("#dingfrm").serialize();
+					   bookSubmit(param,"?dopost=savebooking");
+					   BOX.getBoxClose();
+					   })	
+				} 
+				else
+				{
+					var param=$("#dingfrm").serialize();
+					bookSubmit(param,"?dopost=savebooking");
+				  	//form.submit();
+				}
+				return false;
+				
+             } ,     
+			rules: { 
+			     
+				  dingnum: { 
+				   required: true
+				  },
+                  linktel:{
+                   required: true
+                  },
+				 
+				  usedate:{
+				   required: true
+				  }
+				}, 
+				messages: { 
+				  
+				   dingnum:{
+				    required:"请填写成人数量"
+						
+				   },
+                   linktel:{
+                     required:"请填写联系人"
+                   },
+				   usedate:{
+				    required:"请选择出行日期"
+				   }
+				 
+				}
+
+				
+	     });
+
+
+})
+   //根据选择的日期获取最新报价
+   function getnewprice()
+   {
+       var nowdate = $("#usedate").val();
+       var suitid =  $("#suitid").val();
+       $.ajax({
+           type:"post",
+           url:'ajax.line.php',
+           data:"dopost=getpricebydate&suitid="+suitid+"&nowdate="+nowdate,
+           dataType:'json',
+           success:function(data){
+
+
+               $(".a_price").html(data.adultprice);
+               $(".c_price").html(data.childprice);
+               $(".o_price").html(data.oldprice);
+
+               $(".a_price_txt").val(data.adultprice);
+               $(".c_price_txt").val(data.childprice);
+               $(".o_price_txt").val(data.oldprice);
+               if(data.adultprice!=0)
+               {
+                   $(".adultcontain").show();
+               }
+               else
+               {
+                   $(".adultcontain").hide();
+               }
+
+               if(data.childprice!=0)
+               {
+                   $(".childcontain").show();
+               }
+               else
+               {
+                   $(".childcontain").hide();
+               }
+
+               if(data.oldprice!=0)
+               {
+                   $(".oldcontain").show();
+               }
+               else
+               {
+                   $(".oldcontain").hide();
+               }
+
+               gettotal();//获取总价
+
+
+
+           }
+       })
+   }
+
+   //计算价格总和
+    function  gettotal()
+    {
+        var p1 = $(".a_price_txt").val();
+        var p2 = $(".c_price_txt").val();
+        var p3 = $(".o_price_txt").val();
+
+
+        var n1 = Number($("#dingnum").val());
+        var n2 = Number($("#childnum").val());
+        var n3 = Number($("#oldnum").val());
+        var total = p1*n1+p2*n2+p3*n3;
+        var minusprice = $("#jifentprice").val();
+        var usejifen = $("#usejifen").val();
+        var dingjin = $("#dingjin").val();
+
+        if(usejifen == 1){
+
+            total = total-minusprice;
+        }
+
+        var dingprice = n1 * dingjin;
+        $(".total").html(total);
+        $("#dj").text(dingprice);
+
+
+    }
+  </script>
+  
+ 
+
+</body>
+</html>

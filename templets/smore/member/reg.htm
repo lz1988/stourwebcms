@@ -1,0 +1,644 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>用户注册-{sline:global.cfg_webname/}</title>
+{sline:php}Helper_Archive::getCss('base.css,space.css','2014.02');{/sline:php}
+{sline:php}Helper_Archive::getScript('jquery-1.8.3.min.js,common.js,jquery.validate.js,user.reg.js,jquery.cookie.js,slideTabs.js','2014.01');{/sline:php}
+</head>
+
+<body>
+	{sline:include file='public/header.htm'/}
+
+    <div class="big">
+        <div class="width_1210">
+
+            <div class="user_space_big">
+                <div class="register_con">
+                    <div class="reg_left_con">
+                        <div class="reg_slide_tab">
+                            <div class="tabnav">
+                                <span class="on">手机注册</span>
+                                <span>邮箱注册</span>
+                            </div>
+                            <div class="tabcon">
+                                <form name="phoneform" method="post" id="phoneform" action="reg.php?dopost=doreg">
+                                    <table width="720" border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <td width="165" height="50" align="right"><span class="title">手机号：</span></td>
+                                            <td width="255" height="50" align="left"><input type="text" name="mobile" id="p_mobile" class="text"></td>
+                                            <td width="300" height="50" align="left" class="hint"></td>
+                                        </tr>
+                                        {sline:if var='_msgcode'}
+                                        <tr>
+                                            <td height="50" align="right"><span class="title">短信验证码：</span></td>
+                                            <td height="50" align="left" style="position: relative"><input type="text" name="msgcode" id="p_msgcode" class="text" style="width: 110px" /><button class="send_msg" id="MobileInvCode">发送验证码</button>
+                                                <div id="msg_check_main" class="msg_check_main" style="display: none;">
+                                                    <table class="msg_check_tb">
+                                                        <tr><td>输入验证码：</td><td><input type="text" class="msg_first_code" name="phone_checkcode"/></td></tr>
+                                                        <tr><td></td><td class="code_td"><img src="{sline:global.cfg_cmsurl/}/include/vdimgck.php?word_type=3"/><a href="javascript:;" onclick="$(this).siblings('img').attr('src','/include/vdimgck.php?word_type=3&rand='+Math.random())" class="msg_change">看不清，换一张？</a></td></tr>
+                                                        <tr><td colspan="2" class="ope_td"><a href="javascript:;" class="first_send_btn first_btn">发送</a><a href="javascript:;" class="first_cancel_btn first_btn">取消</a></td></tr>
+                                                    </table>
+                                                </div></td>
+                                            <td height="50" align="left" class="hint"></td>
+                                        </tr>
+                                        {/sline:if}
+                                        <tr>
+                                            <td height="50" align="right"><span class="title">密  码：</span></td>
+                                            <td height="50" align="left"><input type="password" name="password" id="p_password" class="text"></td>
+                                            <td height="50" align="left" class="hint"></td>
+                                        </tr>
+                                        <tr>
+                                            <td height="30"></td>
+                                            <td height="30">
+                                                <div class="password_cd">
+                                                    <em>密码强度</em>
+                                                    <div class="bx">
+                                                        <span class="on"></span>
+                                                        <span class="on"></span>
+                                                        <span class=""></span>
+                                                        <span class=""></span>
+                                                        <span class=""></span>
+                                                        <span class=""></span>
+                                                    </div>
+                                                    <b>弱</b>
+                                                </div>
+                                            </td>
+                                            <td height="30"></td>
+                                        </tr>
+                                        <tr>
+                                            <td height="50" align="right"><span class="title">确认密码：</span></td>
+                                            <td height="50" align="left"><input type="password" name="repassword" id="p_repassword" class="text"></td>
+                                            <td height="50" align="left" class="hint"></td>
+                                        </tr>
+                                        {sline:if var='_txtcode'}
+                                        <tr>
+                                            <td height="50" align="right"><span class="title">验证码：</span></td>
+                                            <td height="50" align="left"><input type="text" name="checkcode" id="p_checkcode" class="text length"><span class="yzm_num"><img class="yz_img" id="img_checkcode" src="{sline:global.cfg_cmsurl/}/include/vdimgck.php?word_type=3" style="cursor:pointer" title="点击我更换图片" alt="点击我更换图片"></span></td>
+                                            <td height="50" align="left" class="hint"><span class="hint-sub"></span><span>看不清楚？<a class="yaz_chenk" href="javascript:;">换一张</a></span></td>
+                                        </tr>
+                                        {/sline:if}
+                                        <tr>
+                                            <td height="50">&nbsp;</td>
+                                            <td height="50" colspan="2" align="left">
+                                                <input type="hidden" name="way" value="0"/>
+                                                <input type="button" class="register_btn" onclick="$('#phoneform').submit()" value="注 册"/></td>
+                                        </tr>
+                                       </table>
+                                    <input type="hidden" name="fromurl" value="{sline:global.fromurl/}">
+                                </form>
+                            </div>
+                            <div class="tabcon" style="display: none">
+                               <form name="emailform" method="post" id="emailform" action="reg.php?dopost=doemailreg">
+                                    <table width="720" border="0" cellspacing="0" cellpadding="0">
+                                        <tbody>
+                                        <tr>
+                                            <td width="165" height="50" align="right"><span class="title">邮箱：</span></td>
+                                            <td width="255" height="50" align="left"><input type="text" name="email" id="e_email" class="text"></td>
+                                            <td width="300" height="50" align="left" class="hint"></td>
+                                        </tr>
+                                       {sline:if var ='_emailcode'}
+                                        <tr>
+                                            <td width="165" height="50" align="right"><span class="title">邮箱验证码：</span></td>
+                                            <td width="255" height="50" align="left"><input type="text" name="emailcode" style="width: 110px" id="e_emailcode" class="text"/><button class="send_msg" id="emailcode_btn">发送验证码</button></td>
+                                            <td width="300" height="50" align="left" class="hint"></td>
+                                        </tr>
+                                        {/sline:if}
+                                        <tr>
+                                            <td height="50" align="right"><span class="title">密  码：</span></td>
+                                            <td height="50" align="left"><input type="password" name="password" id="e_password" class="text"></td>
+                                            <td height="50" align="left" class="hint"></td>
+                                        </tr>
+                                        <tr>
+                                            <td height="30"></td>
+                                            <td height="30">
+                                                <div class="password_cd">
+                                                    <em>密码强度</em>
+                                                    <div class="bx">
+                                                        <span class="on"></span>
+                                                        <span class="on"></span>
+                                                        <span class=""></span>
+                                                        <span class=""></span>
+                                                        <span class=""></span>
+                                                        <span class=""></span>
+                                                    </div>
+                                                    <b>弱</b>
+                                                </div>
+                                            </td>
+                                            <td height="30"></td>
+                                        </tr>
+                                        <tr>
+                                            <td height="50" align="right"><span class="title">确认密码：</span></td>
+                                            <td height="50" align="left"><input type="password" name="repassword" id="e_repassword" class="text"></td>
+                                            <td height="50" align="left" class="hint"></td>
+                                        </tr>
+                                        {sline:if var='_emailtxtcode'}
+                                        <tr>
+                                            <td height="50" align="right"><span class="title">验证码：</span></td>
+                                            <td height="50" align="left"><input type="text" name="checkcode" id="e_checkcode" class="text length"><span class="yzm_num"><img class="yz_img" id="email_checkcode" src="" style="cursor:pointer" title="点击我更换图片" alt="点击我更换图片"></span></td>
+                                            <td height="50" align="left" class="hint"><span class="hint-sub"></span>看不清楚？<a class="yaz_chenk" href="javascript:;">换一张</a><span class="reg_tip"></span><span class="error"></span></td>
+                                        </tr>
+                                        {/sline:if}
+                                        <tr>
+                                            <td height="50">&nbsp;</td>
+                                            <td height="50" colspan="2" align="left">
+                                                <input type="hidden" name="way" value="1"/>
+                                                <input type="button" class="register_btn" value="注 册" onclick="$('#emailform').submit()"/></td>
+                                        </tr>
+                                        </tbody></table>
+                                    <input type="hidden" name="fromurl"  value="{sline:global.fromurl/}">
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reg_rig_con">
+                        <dl>
+                            <dt>已有帐号</dt>
+                            <dd><a class="now_login" href="login.php">立即登录</a></dd>
+                        </dl>
+                        <dl>
+                            <dt>其他方式登录</dt>
+                            <dd>
+                                {sline:php}
+                                if(!empty($GLOBALS['cfg_qq_appid']) && !empty($GLOBALS['cfg_qq_appkey']))
+                                {
+                                echo '<a href="javascript:;" id="loginqq"><img class="fl" src="'.$GLOBALS['cfg_templets_skin'].'/images/call_qq.gif" alt="QQ" /></a>';
+                                }
+                                {/sline:php}
+                            </dd>
+                            <dd>
+                                {sline:php}
+                                if(!empty($GLOBALS['cfg_sina_appkey']) && !empty($GLOBALS['cfg_sina_appsecret']))
+                                {
+                                echo '<a href="javascript:;" id="loginsina"><img class="fl" src="'.$GLOBALS['cfg_templets_skin'].'/images/call_sina.gif" alt="新浪微博" /></a>';
+                                }
+                                {/sline:php}
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script>
+        $(function(){
+            //QQ或新浪登录
+            $("#loginqq").click(function(){
+
+                var url=siteUrl+'member/login.php?dopost=loginbyqq';
+                window.open(url);
+
+            });
+            $("#loginsina").click(function(){
+
+                var url=siteUrl+'member/login.php?dopost=loginbysina';
+                window.open(url);
+
+            });
+            //切换注册方式
+             $(".reg_slide_tab .tabnav span").click(function(){
+                    var index= $(".reg_slide_tab .tabnav span").index(this);
+                    var current_tab=$(".reg_slide_tab .tabcon:eq("+index+")");
+                    $(".reg_slide_tab .tabnav span").removeClass('on');
+                    $(this).addClass('on');
+                    $(".reg_slide_tab .tabcon").hide();
+                    current_tab.show();
+                    $(".reg_slide_tab .tabcon .yz_img").attr('id','');
+
+                    current_tab.find('.yz_img').attr('id','img_checkcode').attr('src','/include/vdimgck.php?word_type=3&rand='+Math.random());
+
+
+             });
+
+            /*手机注册验证开始*/
+            jQuery.validator.addMethod("mobile",function(value, element){
+                var pattern=/1[3-8]+\d{9}/;
+                return pattern.test(value);
+            },"请输入正确的手机号");
+            $("#phoneform").validate({
+                    rules: {
+                        'mobile': {
+                            required: true,
+                            mobile: true,
+                            remote: {
+                                url: 'reg.php?dopost=checkmobile',
+                                type: 'post'
+                            }
+                        },
+                        'password': {
+                            required: true,
+                            minlength: 6
+                        },
+                        'repassword': {
+                            required: true,
+                            equalTo: '#p_password'
+                        },
+                        'checkcode': {
+                            required: true,
+                            remote:{
+                                url:'reg.php?dopost=checkcode',
+                                type:'post'
+                            }
+                        },
+                        msgcode:{
+                            required:true,
+                            remote:{
+                                url: 'reg.php?dopost=ckcode',
+                                type: 'post',
+                                data: {
+                                    mobile: function() {
+                                        return $( "#p_mobile" ).val();
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    messages: {
+                        'password':{
+                            required:'密码不能为空',
+                            minlength:'密码不得小于6位'
+
+                        },
+                        'repassword':{
+                            required:'密码前后不一致',
+                            equalTo:'密码前后不一致'
+                        },
+                        'mobile':{
+                            required:'手机号不能为空',
+                            remote:'该手机号已被注册'
+                        },
+                        'checkcode':{
+                            required:'验证码不能为空',
+                            remote:'验证码错误'
+                        },
+                        msgcode:{
+                            required:'验证码不能为空',
+                            remote:'验证码错误'
+                        }
+
+                    },
+                   errorPlacement: function (error, element) {
+                       if(element.is('#p_checkcode'))
+                       {
+                           var hint_td = element.parents('td:first').siblings('.hint');
+                           var hint_sub=hint_td.find('.hint-sub');
+                           hint_sub.children().remove();
+                           error.addClass('reg_tip reg_error');
+                           hint_sub.append(error);
+                       }
+                       else {
+                           var hint_td = $(element).parents('td:first').siblings('.hint');
+                           hint_td.children().remove();
+                           error.addClass('reg_tip reg_error');
+                           hint_td.append(error);
+                       }
+                    },
+                    success: function (msg, element) {
+                        var jele = $(element);
+                        if(jele.is('#p_checkcode'))
+                        {
+                            var hint_td = jele.parents('td:first').siblings('.hint');
+                            var hint_sub=hint_td.find('.hint-sub');
+                            hint_sub.children().remove();
+                            hint_sub.append('<span class="reg_tip reg_success"></span>');
+                        }
+                        else {
+                            var hint_td = jele.parents('td:first').siblings('.hint');
+                            hint_td.children().remove();
+                            hint_td.append('<span class="reg_tip reg_success"></span>');
+                        }
+                        if(jele.is('#password'))
+                        {
+                            setPwdSafe();
+                        }
+
+                    },
+                    onkeyup:function(element,event)
+                    {
+                        setPwdSafe('#phoneform','#p_password');
+                        $(element).valid();
+                    }
+
+                    /*
+                    submitHandler: function (form) {
+                        form.submit();
+
+                    }*/
+                });
+
+
+            //邮箱注册验证
+            $("#emailform").validate({
+                rules: {
+                    'email': {
+                        required: true,
+                        email: true,
+                        remote: {
+                            url: 'reg.php?dopost=checkemail',
+                            type: 'post'
+                        }
+                    },
+                    'emailcode':{
+                        required:true,
+                        remote:{
+                            url: 'reg.php?dopost=checkemailcode',
+                            type: 'post',
+                            data: {
+                                email: function() {
+                                    return $( "#e_email" ).val();
+                                }
+                            }
+                        }
+
+                    },
+                    'password': {
+                        required: true,
+                        minlength: 6
+                    },
+                    'repassword': {
+                        required: true,
+                        equalTo: '#e_password'
+                    },
+                    'checkcode':{
+                        required:true,
+                        remote:{
+                            url:'reg.php?dopost=checkcode',
+                            type:'post'
+                        }
+                    }
+                },
+                messages: {
+                    'password':{
+                        required:'密码不能为空',
+                        minlength:'密码不得小于6位'
+
+                    },
+                    'repassword':{
+                        required:'密码前后不一致',
+                        equalTo:'密码前后不一致'
+                    },
+                    'email':{
+                        required:'邮箱不能为空',
+                        email:'邮箱格式错误',
+                        remote:'该邮箱已经被注册'
+                    },
+                    'emailcode':{
+                        required:'邮箱验证码不能为空'
+                    },
+                    'checkcode':{
+                        required:'验证码不能为空',
+                        remote:'验证码错误'
+                    },
+                    'emailcode':{
+                        required:'邮箱验证码不能为空',
+                        remote:'邮箱验证码错误'
+                    }
+
+                },
+                errorPlacement: function (error, element) {
+                    if (element.is('#e_checkcode')) {
+                        var hint_td = element.parents('td:first').siblings('.hint');
+                        var hint_sub = hint_td.find('.hint-sub');
+                        hint_sub.children().remove();
+                        error.addClass('reg_tip reg_error');
+                        hint_sub.append(error);
+                    }
+                    else {
+                        var hint_td = $(element).parents('td:first').siblings('.hint');
+                        hint_td.children().remove();
+                        error.addClass('reg_tip reg_error');
+                        hint_td.append(error);
+                    }
+
+                },
+                success: function (msg, element) {
+                    var jele = $(element);
+                    if(jele.is('#e_checkcode'))
+                    {
+                        var hint_td = jele.parents('td:first').siblings('.hint');
+                        var hint_sub=hint_td.find('.hint-sub');
+                        hint_sub.children().remove();
+                        hint_sub.append('<span class="reg_tip reg_success"></span>');
+                    }
+                    else
+                    {
+                        var hint_td = jele.parents('td:first').siblings('.hint');
+                        hint_td.children().remove();
+                        hint_td.append('<span class="reg_tip reg_success"></span>');
+                    }
+
+                },
+                onkeyup:function(element,event)
+                {
+                    setPwdSafe('#emailform','#e_password');
+                    $(element).valid();
+                }
+                /*
+                 ,
+
+                 submitHandler: function (form) {
+                 form.submit();
+
+                 }*/
+            });
+
+
+         //发送短信验证码
+        $('#MobileInvCode').click(function(){
+
+            if(!checkPhoneSend())
+                return;
+            togPhoneBtn(false);
+            $("#msg_check_main").show();
+
+        });
+        $(".first_cancel_btn").click(function(){
+            togPhoneBtn(true);
+        });
+
+        $(".first_send_btn").click(function(){
+            if(!checkPhoneSend())
+                return;
+            var firstcode=$(".msg_first_code").val();
+            if(!firstcode)
+            {
+                $(".msg_first_code").focus();
+                return;
+            }
+            var sendnum = $.cookie('sendnum') ? $.cookie('sendnum') : 0;
+            if(sendnum!=0){
+                $.cookie('sendnum', sendnum++);
+            }else{
+                $.cookie('sendnum', 1,{ expires: 1/96 });
+            }
+            var mobile = $("#p_mobile").val();
+
+            var url = "reg.php?dopost=sendmsgcode&mobile="+mobile+"&firstcode="+firstcode+"&k="+"{sline:field.stoken/}";
+            $.post(url,true,function(data) {
+                if(data.status)
+                {
+                    CodeTimeout(60);
+                    $("#msg_check_main").hide();
+                    return false;
+                }
+                else
+                {
+                   alert(data.msg);
+                    return false;
+                }
+            },'json');
+        });
+
+       //发送邮箱验证码
+        $("#emailcode_btn").click(function(){
+            var email = $("#e_email").val();
+            var regPartton=/^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+            if (!regPartton.test(email))
+            {
+                alert('请输入正确的邮箱');
+                return false;
+            }
+            var t=this;
+            t.disabled=true;
+            var url = "reg.php?dopost=sendemailcode&email="+email+"&k="+"{sline:field.stoken/}";
+            var sendnum = $.cookie('email_sendnum') ? $.cookie('email_sendnum') : 0;
+
+            if(sendnum>3){
+                alert("验证码发送请求过于频繁,请过15分钟后再试");
+                t.disabled=false;
+                return false;
+            }
+
+            if(sendnum!=0){
+                $.cookie('email_sendnum', sendnum++);
+            }else{
+                $.cookie('email_sendnum', 1,{ expires: 1/96 });
+            }
+
+            $.post(url,true,function(data) {
+                if(data.status)
+                {
+                    EmailCodeTimeout(60);
+                    return false;
+                }
+                else
+                {
+                    t.disabled=false;
+                    alert(data.msg);
+                    return false;
+                }
+            },'json');
+
+
+
+        });
+
+
+    })
+    function togPhoneBtn(status)
+    {
+        var btnEle=$("#MobileInvCode");
+        if(!status) {
+            btnEle.attr('disabled', true);
+            btnEle.css('background','#D3D3D3');
+
+        }
+        else
+        {
+            btnEle.removeAttr('disabled');
+            btnEle.css('background','#fc7301');
+            $("#msg_check_main").hide();
+        }
+
+    }
+    function CodeTimeout(v){
+        if(v>0)
+        {
+            togPhoneBtn(false)
+            $('#MobileInvCode').html('重发验证码('+(--v)+')');
+            setTimeout(function(){CodeTimeout(v)},1000);
+        }
+        else
+        {
+            togPhoneBtn(true);
+            $('#MobileInvCode')[0].disabled=false;
+            $('#MobileInvCode').html('重发验证码');
+        }
+    }
+    function EmailCodeTimeout(v)
+    {
+        if(v>0)
+        {
+            $('#emailcode_btn').html('重发验证码('+(--v)+')');
+            setTimeout(function(){EmailCodeTimeout(v)},1000);
+        }
+        else
+        {
+            $('#emailcode_btn')[0].disabled=false;
+            $('#emailcode_btn').html('重发验证码');
+        }
+    }
+    function checkPhoneSend()
+    {
+        var mobile = $("#p_mobile").val();
+        var regPartton=/1[3-8]+\d{9}/;
+        if (!regPartton.test(mobile))
+        {
+            alert('请输入正确的手机号码');
+            return false;
+        }
+        var t=$("#MobileInvCode")[0];
+     //   var url = "reg.php?dopost=sendmsgcode&mobile="+mobile+"&k="+"{sline:field.stoken/}";
+        var sendnum = $.cookie('sendnum') ? $.cookie('sendnum') : 0;
+
+        if(sendnum>3){
+            alert("验证码发送请求过于频繁,请过15分钟后再试");
+            return false;
+        }
+        return true;
+    }
+
+    //密码强度
+    function setPwdSafe(pselector,selector)
+    {
+        var pwd=$(pselector+' '+selector).val();
+        var pattern_1=/^[0-9]*$/i;
+        var pattern_2=/[a-z]+/i;
+
+        if(pattern_1.test(pwd)&&pwd.length<8)
+        {
+            // $(".safe strong").removeClass('on');
+            //  $(".safe strong.weak").addClass('on');
+
+            $(pselector+" .bx span").removeClass('on');
+            $(pselector+" .bx span:lt(2)").addClass('on');
+            $(pselector+" .password_cd b").text('弱');
+            return;
+        }
+        if(pattern_1.test(pwd)&&pwd.length>=8)
+        {
+
+            $(pselector+" .bx span").removeClass('on');
+            $(pselector+" .bx span:lt(4)").addClass('on');
+            $(pselector+" .password_cd b").text('中');
+            return;
+        }
+        if(pattern_2.test(pwd)&&pwd.length>=6)
+        {
+            $(pselector+" .bx span").removeClass('on');
+            $(pselector+" .bx span:lt(6)").addClass('on');
+            $(pselector+" .password_cd b").text('强');
+            return;
+        }
+
+        $(pselector+" .bx span").removeClass('on');
+        $(pselector+" .bx span:lt(2)").addClass('on');
+        $(pselector+" .password_cd b").text('弱');
+    }
+    </script>
+    {sline:include file='public/footer.htm'/}
+</body>
+</html>

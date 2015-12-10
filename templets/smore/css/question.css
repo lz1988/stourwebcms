@@ -1,0 +1,314 @@
+@charset "utf-8";
+.wd_list_box{
+	float:left;
+	width:1210px}
+.wd_list_box .wd_tit{
+	float:left;
+	width:1180px;
+	height:44px;
+	line-height:44px;
+	padding:0 15px;
+	background:url(../images/wd-lm-bg.png) left no-repeat}
+.wd_list_box .wd_tit h3{
+	float:left;
+	color:#fff;
+	font-size:18px;
+	font-weight:500;
+	padding-left:30px;
+	background:url(../images/wd_ico_03.png) no-repeat 0 10px}
+.wd_list_box .wd_tit p{
+	float:right;
+	color:#fff;
+	font-size:14px;
+width:300px
+}
+.wd_list_box .wd_tit p a{
+	float:right;
+	color:#fff;
+	width:120px;
+	height:30px;
+	line-height:30px;
+	text-align:center;
+	margin:7px 0 0 10px;
+	background:#1abde3;
+	border-radius:20px}
+.wd_list_box .wd_con{
+	float:left;
+	width:1208px;
+	padding-bottom:20px;
+	border:1px solid #dcdcdc;
+	border-top:0}
+
+.faq_list,
+.faq_list ul{
+	float:left;
+	width:1208px}
+.faq_list ul li{
+	float:left;
+	width:1208px}
+.faq_list .tw_box,
+.faq_list .wt{
+	float:left;
+	width:1178px;
+	font-size:14px;}
+.faq_list .tw_box{
+	padding:20px 15px 8px}
+.tw_box .wt strong{
+	color:#505050;
+	float:left;
+	height:30px;
+	line-height:30px;
+	font-weight:500;
+	padding-left:40px;
+	background:url(../images/wd_ico_03.png) no-repeat 0 -50px}
+.tw_box .wt p{
+	float:left;
+	width:800px;
+	height:30px;
+	line-height:30px;
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow:ellipsis}
+.tw_box .wt span,
+.faq_list .hf span{
+	float:right;
+	color:#aeafaf;
+	height:30px;
+	line-height:30px}
+.tw_box .wt span em{
+	color:#5f5f5f;
+	float:left;
+	height:30px;
+	line-height:30px;
+	margin-right:10px;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	font-style:normal}
+.tw_box .nr{
+	float:left;
+	color:#db7100;
+	width:800px;
+	line-height:30px;
+	margin-left:82px}
+.faq_list .hf{
+	float:left;
+	width:1178px;
+	padding:10px 15px;
+	font-size:14px;
+	background:#eee;
+	border-bottom:1px solid #dcdcdc}
+.faq_list .hf strong{
+	float:left;
+	height:30px;
+	line-height:30px;
+	font-weight:500;
+	padding-left:40px;
+	background:url(../images/wd_ico_03.png) no-repeat 0 -100px}
+.faq_list .hf .con{
+	float:left;
+	width:800px;
+	min-height:30px;
+	line-height:30px}
+.faq_list .hf p a{
+	color:#00b7e3;
+	float:right}
+
+.online_box,
+.contact_box{
+	float:left;
+	width:1208px;
+	margin-top:20px}
+.online_box .onlie_tit,
+.contact_box .contact_tit{
+	float:left;
+	color:#018295;
+	width:1178px;
+	height:40px;
+	line-height:40px;
+	padding:0 15px;
+	font-weight:bold;
+	font-size:16px;
+	border-bottom:1px solid #dcdcdc}
+.contact_box .contact_tit h3{
+	float:left;
+	color:#018295;
+	font-size:16px;}
+.contact_box .contact_tit span{
+	float:left;
+	color:#797a7a;
+	font-size:14px;
+	font-weight:500;
+	margin-left:50px}
+.online_con,
+.contact_con{
+	float:left;
+	width:1178px;
+	padding:0 15px}
+.online_con dl,
+.contact_con dl{
+	float:left;
+	width:1178px;
+	margin-top:10px}
+.online_con dl dt,
+.contact_con dl dt{
+	float:left;
+	color:#595959;
+	width:78px;
+	height:30px;
+	line-height:30px;
+	text-align:right;
+	font-size:14px}
+.online_con dl dd,
+.contact_con dl dd{
+	float:left;
+	width:1100px}
+.def_txt{
+	float:left;
+	height:28px;
+	line-height:28px;
+	margin-left:10px;
+	font-family:"微软雅黑";
+	border:1px solid #dcdcdc;
+	border-radius:3px}
+.online_con dl dd textarea{
+	float:left;
+	width:500px;
+	height:100px;
+	margin-left:10px;
+	font-family:"微软雅黑";
+	border:1px solid #dcdcdc;
+	border-radius:3px}
+.online_con dl dd label{
+	color:#777;
+	float:left;
+	height:30px;
+	line-height:30px;
+	cursor:pointer;
+	font-size:14px;
+	margin-left:10px}
+.online_con dl dd label input{
+	float:right;
+	width:16px;
+	height:16px;
+	margin:7px 0 0 5px;
+	cursor:pointer}
+.contact_con dl dd .wd_yzm{
+	float:left;
+	cursor:pointer;
+	margin-left:10px}
+.contact_con .tj_btn{
+	float:left;
+	margin:15px 0 0 88px}
+.contact_con .tj_btn a{
+	float:left;
+	color:#fff;
+	width:70px;
+	height:28px;
+	line-height:28px;
+	text-align:center;
+	font-size:14px;
+	background:#018295;
+	border-radius:3px}
+.w500{
+	width:500px}
+.w300{
+	width:300px}
+.w200{
+	width:200px}
+.big{
+    margin-top:30px;
+}
+.faq_list .hf a.xx {
+    color: #00b7e3;
+    float: right;
+}
+.faq_list .hf .re-con{
+    float:left;
+    width:800px;
+    height:30px;
+    line-height: 30px;
+}
+.page .pageCurrent{
+    background: none repeat scroll 0 0 #FFEDE1;
+    border-color: #FD6D01;
+    color: #FD6D01;
+    cursor: text;
+    font-weight: bold;
+    padding: 3px 7px 4px;
+}
+.page .pageOff{
+    text-align: center;
+    width: 22px;
+    border: 1px solid #D4D4D4;
+    color: #666;
+    padding: 3px 7px 4px;
+    text-decoration: none;
+    background: #FFF;
+    overflow: hidden;
+}
+.page a.pageOff:hover{
+    border-color:#FD6D01;
+    color:#FD6D01;
+    text-decoration:none
+}
+.page a.pageNext,.page a.pagePrev{
+    border: 1px solid #D4D4D4;
+    color: #666;
+    padding: 3px 7px 4px 15px;
+    text-decoration: none;
+    width: auto;
+    background-color: #fff;
+    background-image: url(../images/icon01.gif);
+    height: 9px;
+    background-position: -50px -154px;
+}
+.le-page{
+    float:left;
+    margin-top:20px;
+    width:1208px;
+}
+.le-page .page{
+    float:right;
+    display: inline-block;
+}
+#leave_fm .error{
+    border:1px solid red;
+}
+#leave_fm .bt{
+    color:red;
+    line-height: 30px;
+    float:left;
+    padding: 0px 5px;
+}
+#leave_fm .one-hint{
+    line-height: 40px;
+    margin-left:10px
+}
+.width_1210 .wd_list_box .sh-con{
+    float:left;
+    width:1208px;
+    border:1px solid #dcdcdc;
+    border-bottom: 0px;
+    padding-bottom: 0px;
+    border-top:0
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

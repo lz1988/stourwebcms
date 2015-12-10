@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{sline:field.pageno/}{sline:field.searchtitle/}-{sline:global.cfg_webname/}</title>
+    {sline:field.seokeyword/}
+    {sline:field.seodescription/}
+    <meta name="author" content="{sline:global.cfg_webname/}" />
+    {sline:php}GetCss('base.css,tongyong.css','2015.01');{/sline:php}
+    {sline:php}GetScript('jquery-1.8.3.min.js,common.js','2015.01');{/sline:php}
+</head>
+
+<body>
+{sline:include file='public/header.htm'/}
+
+
+<div class="layout">
+    <div class="mt1210">
+        <!-- 面包屑and订单开始 -->
+        <div class="top_first">
+            <div class="crumbs"><a href="{sline:global.cfg_basehost/}">{sline:global.cfg_indexname/}</a> &raquo; <a href="/{sline:field.modulepinyin/}/">{sline:field.modulename/}</a></div>
+
+            {sline:include file='public/scroll_order.htm'/}
+
+        </div>
+        <!-- 面包屑and订单结束 -->
+        <div class="cu_left">
+            <div class="cu_search">
+                <div class="cu_list">
+                    <dl>
+                        <dt>目的地：</dt>
+                        <dd class="cu_w" id="destid_list">
+                            <span class="d_span1"><a class="on" href="{sline:global.dest_id function=TongYong::getSearchUrl(0,'dest_id')/}" data-field="destid" data-value="0">全部</a></span>
+                            <span class="d_span2">
+                                 {sline:vlist name="destlist"}
+                                    <a href="[field:id function=TongYong::getSearchUrl(@me,'dest_id')/]" data-field="destid" data-value="[field:id/]">[field:kindname/]</a>
+                                 {/sline:vlist}
+                            </span>
+                        </dd>
+                    </dl>
+                </div>
+                {sline:attrgrouplist}
+                <div class="cu_list attr_list">
+
+                        <dl>
+                            <dt>{sline:field.groupname/}：</dt>
+                            <dd class="cu_w">
+                                <span class="d_span1"><a class="on" href="{sline:field.attrid function=TongYong::getSearchUrl(null,null,@me)/}" data-field="attrid" data-value="0">全部</a></span>
+                                <span class="d_span2">
+                                   {sline:getattrbygroup}
+                                      <a href="[field:attrid function=TongYong::getSearchUrl(@me,'attrid')/]" data-field="attrid" data-value="[field:attrid/]" >[field:title/]</a>
+                                   {/sline:getattrbygroup}
+
+                                </span>
+                            </dd>
+                        </dl>
+                </div>
+                {/sline:attrgrouplist}
+
+
+            </div>
+            <div class="d_con">
+                <ul class="d_con_u">
+                    {sline:list}
+                    <li [field:global.autoindex runphp='yes']if(@me%3==0)@me='class="mr_0"';else @me='';[/field:global.autoindex]>
+                        <div class="d_img">
+                            <a href="/[field:global.module_pinyin/]/show_[field:aid/].html" target="_blank"><img src="[field:litpic/]" alt="[field:title/]" width="304" height="180"/></a>
+
+                            <p class="d_tittle"><a href="/[field:global.module_pinyin/]/show_[field:aid/].html" target="_blank">[field:title/]</a></p>
+                        </div>
+                        <div class="d_price">
+                            <span class="d_span3">[field:id function=TongYong::getProductMinPrice(@me)/]</span><span class="d_span4">满意度：[field:satisfyscore/]</span>
+                        </div>
+                    </li>
+                    {/sline:list}
+
+                </ul>
+            </div>
+            <!--分页代码样式开始-->
+            <div class="main_mod_page clear">
+                {sline:pagelist isstatic='1'/}
+            </div>
+            <div style="clear:both"></div>
+            <!--分页代码样式结束-->
+
+        </div>
+        <div class="cu_right">
+            {sline:getrightcontent pagename='index'/}
+        </div>
+    </div>
+</div>
+    <!--底部开始-->
+    {sline:include file='public/help.htm'/}
+
+    {sline:include file='public/footer.htm'/}
+
+    {sline:include file='public/flink.htm'/}
+    <!--底部结束-->
+<!--隐藏域-->
+<input type="hidden" id="destid" value="{sline:global.dest_id/}"/>
+<input type="hidden" id="attrid" value="{sline:global.attrid/}"/>
+
+</body>
+<script>
+    $(function(){
+        //目的地天数选中
+
+        var attrid = $("#attrid").val();
+
+        var destid = $("#destid").val();
+
+
+        $.STOURWEB.search_item_selected("#destid_list","a",destid,'on');
+        //属性选中
+        var attrArr = attrid.split('_');
+        for(i=0;i<attrArr.length;i++)
+        {
+
+            $.STOURWEB.search_attr_selected(".attr_list","a",attrArr[i],'on');
+        }
+    })
+</script>
+</html>

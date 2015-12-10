@@ -1,0 +1,1 @@
+<a href="[field:picurl/]" target="_blank"><img src="[field:litpic/]" alt="[field:title/]" title="[field:title/]" /></a>

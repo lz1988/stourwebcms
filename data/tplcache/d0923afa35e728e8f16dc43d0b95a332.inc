@@ -1,0 +1,1 @@
+<div class="logo"><a href="{sline:global.cfg_logourl/}"><img src="{sline:global.cfg_logo/}" alt="{sline:global.cfg_logotitle/}" title="{sline:global.cfg_logotitle/}" class="fl"/></a></div>

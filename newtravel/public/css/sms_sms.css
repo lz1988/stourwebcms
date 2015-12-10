@@ -1,0 +1,133 @@
+.sms-single{
+    width: 800px;
+    margin:10px 0px 10px 15px;
+    border:1px solid #dcdcdc;
+}
+.sms-single .b-tit{
+    height:30px;
+    line-height: 30px;
+    padding-left: 15px;
+    color:white;
+    background: #43AEE4;
+}
+.sms-base .b-con{
+    height: 65px;
+    padding: 30px 0px 0px 20px;
+}
+.sms-base .b-con .h-icon{
+    background: url("../images/sms_ico.png") no-repeat;
+    height:20px;
+    width: 27px;
+    margin-top: 7px;
+    margin-right: 10px;
+}
+.sms-base .b-con .c-hint{
+    display: inline;
+    margin-right: 40px;
+}
+.sms-base .b-con .c-hint span{
+    float:left;
+    line-height: 25px;
+}
+.sms-base .b-con .h-num{
+    font-size: 20px;
+    color:#eb6110;
+    padding: 0px 2px;
+}
+.sms-base .b-con .normal-btn{
+    margin-left: 25px;
+}
+
+.sms-set{
+    width: 800px;
+    margin:30px 0px 10px 15px;
+}
+.sms-set .msg-bar{
+    height: 25px;
+    border-bottom: 2px solid #018CCF;
+}
+.sms-set .msg-bar span{
+    border:1px solid #008CD1;
+    padding: 0px 10px;
+    line-height: 25px;
+    background: white;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    float:left;
+    cursor: pointer;
+    height: 25px;
+}
+.sms-set .msg-bar span.on{
+    background:#008ED8;
+    color:white;
+}
+.msg-switcher .set-one{
+    margin: 15px 0px 20px 0px;
+    width: 800px;
+}
+.set-one .box-tit{
+    color:white;
+    background: #43AEE4;
+    line-height: 25px;
+    height:25px;
+    padding-left:15px;
+    boeder:1px solid #43aee4;
+}
+.set-one .set-one-box{
+    border:1px solid #dcdcdc;
+}
+.set-one .box-con textarea{
+    width: 790px;
+    height: 60px;
+    padding: 3px;
+    line-height: 18px;
+    border:none;
+}
+.set-one .box-con input{
+    line-height: 25px;
+    height:25px;
+    padding: 3px;
+    width:90%;
+    border:0px;
+}
+.set-one .set-one-tool div{
+   margin-top:10px
+}
+.set-one .tool-cs span{
+    margin-right: 20px;
+}
+.set-one .tool-cs span input{
+    vertical-align: middle;
+    margin-right:3px;
+}
+.set-one .tool-bn .short-cut{
+    margin-right: 20px;
+    margin-bottom: 10px;
+    line-height: 25px;
+    padding:0px 10px;
+    height:25px;
+    border:1px solid #43AEE4;
+    color:#43AEE4;
+    float:left;
+}
+.sms-base .e-con{
+    padding:10px 15px;
+}
+.sms-base .e-con table tr{
+    height:35px;
+}
+.sms-base .e-con table tr input{
+    border:1px solid #dcdcdc;
+    line-height: 25px;
+    height:24px;
+}
+.sms-base .e-con table .tb-hint{
+    padding-left: 30px;
+    color:#666;
+}
+.sms-base .e-ope{
+    padding:10px 0px 10px 10px;
+}
+.sms-base .e-ope a{
+    margin-right: 10px;
+}

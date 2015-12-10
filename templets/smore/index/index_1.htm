@@ -1,0 +1,239 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{sline:global.cfg_indextitle/}</title>
+    <meta name="keywords" content="{sline:global.cfg_keywords/}" />
+    <meta name="author" content="{sline:global.cfg_webname/}" />
+    <meta name="description" content="{sline:global.cfg_description/}" />
+    {sline:global.cfg_indexcode/}
+    {sline:php}GetCss('base.css,index2.css','2014.03');{/sline:php}
+    {sline:php}GetScript('jquery-1.4.2.min.js,common.js,jquery.foucs.js,lazy.js','2014.03');{/sline:php}
+</head>
+
+<body>
+{sline:include file='public/header.htm'/}
+  
+  <!-- 中间内容 -->
+  <div class="big">
+  	<div class="width_1210">
+    
+    	<!-- 热门目的地开始 -->
+    	<div class="top_first">
+      	<div class="hot_mdd">
+        	<span>热门目的地：</span>
+            {sline:getdest flag='hot' row='6'}
+            <a href="[field:url/]">[field:title/]</a>
+            {/sline:getdest}
+        </div>
+            {sline:include file='public/scroll_order.htm'/}
+      </div>
+      <!-- 热门目的地结束 -->
+           
+    </div>
+  </div>
+  <!-- 中间内容 -->
+  
+  <!--中间产品内容开始-->
+  <div class="big">
+  	<div class="width_1210">
+    	<div class="con_left">
+      	<!-- 大图展示产品开始 -->
+      	<div class="st_left">
+          <!-- 代码 开始 -->
+          <div id="main">
+            <div id="index_b_hero">
+              <div class="hero-wrap">
+                <ul class="heros clearfix">
+                    {sline:rollingAd name='IndexRollingAd'}
+                    <li class="hero">
+                        <a href="[field:linkurl/]" target="_blank" title="[field:linktext/]"><img src="[field:picurl/]" class="thumb" alt="[field:linktext/]" /></a>
+                        <div class="tishi"><a href="[field:linkurl/]" target="_blank">[field:linktext/]</a></div>
+                    </li>
+                    {/sline:rollingAd}
+                </ul>
+              </div>
+              <div class="helper">
+                <a href="javascript:;" class="prev icon-arrow-a-left"></a>
+                <a href="javascript:;" class="next icon-arrow-a-right"></a>
+              </div>
+            </div>
+          </div>
+          <script type="text/javascript">
+
+
+                  if($('.hero').length>1)
+                  {
+                      $.foucs({ direction: 'right' });
+                  }
+                  else
+                  {
+                      $('.hero').css('left',0);
+                  }
+
+
+
+          </script>
+          <!-- 代码 结束 -->
+
+            <div class="gl_top">
+              {sline:myad name='IndexAd1'/}
+            </div>
+
+
+            <div class="gl_b1">
+                {sline:myad name='IndexAd2'/}
+            </div>
+
+
+            <div class="gl_b2">
+                {sline:myad name='IndexAd3'/}
+            </div>
+
+        </div>
+        <!-- 大图展示产品结束 -->
+        <!--线路产品分类列表开始-->
+        {sline:middlenavlist type="index"}
+
+        <div class="line_list_con">
+        	<div class="list_bt"><s></s><h3>{sline:field.kindname/}旅游线路</h3><a href="/lines/{sline:field.pinyin/}/" target="_blank">更多</a></div>
+        	<div class="menu_left">
+            <div class="line_menu_txt">
+                {sline:getdest flag='mdd_hot' row='30'}
+                <a href="[field:url/]" title="[field:title/]" target="_blank">[field:title/]</a>
+                {/sline:getdest}
+            </div>
+            <div class="line_menu_pic">
+                {sline:field.leftad/}
+            </div>
+          </div>
+          
+          <div class="list_rig">
+          	<ul>
+                {sline:getlinelist type="mdd" flag="recommend" row="5" }
+                    <li>
+                    <a class="fl" href="[field:url/]" target="_blank"><img class="fl lazyimg" src="" data-original="[field:lit160/]" width="80" height="60" alt="[field:title/]" title="[field:title/]" /></a>
+                    <div class="con_txt">
+                      <p class="p1"><a href="[field:url/]" target="_blank"><span style="[field:color/]">[field:title/]</span>[field:iconlist function=Helper_Archive::getIconList(@me)/]</a></p>
+                      <p class="p2">推荐理由：[field:sellpoint/]</p>
+                      <p class="p3">
+                          <label class="wid_1">满意度：<span class="color_f60">[field:satisfyscore/]</span></label>
+                          <label class="wid_1">订单：已成交 <span class="color_f60">[field:sellnum/]</span> 单</label>
+                          <label class="wid_2">出发班期：<span class="color_f60">[field:startdate/]</span></label>
+                      </p>
+                    </div>
+                    <div class="price">
+                        <p class="p1">[field:price2/]</p>
+                      <p class="p2">[field:jifentprice/]</p>
+                    </div>
+                  </li>
+               {/sline:getlinelist}
+
+            </ul>
+          </div>
+          {sline:field.middlead/}
+
+          
+        </div>
+        {/sline:middlenavlist}
+        <!--线路产品分类列表结束-->
+        
+
+        
+
+        
+        <!--团购列表开始-->
+        <div class="tuan_con">
+        	<div class="tuan_bt"><s></s><h3>团购优惠</h3><a href="/tuan/" target="_blank">更多</a></div>
+          <ul>
+            {sline:gettuanlist flag="new" row="4"}
+
+            <li>
+            	<div class="tuan_ico"><span>[field:discount/]</span>折</div>
+            	<a class="fl" href="[field:url/]" target="_blank"><img class="fl lazyimg" src="" data-original="[field:lit240/]" width="223" height="163" alt="[field:title/]" title="[field:title/]" /></a>
+              <p class="p1"><a href="[field:url/]" target="_blank">[field:title/]</a></p>
+              <p class="p2"><span>优惠价：<i>&yen;</i><strong>[field:price/]</strong></span><s>原价：&yen;[field:sellprice/]</s></p>
+            </li>
+            {/sline:gettuanlist}
+
+          </ul>
+        </div>
+        <!--团购列表结束-->
+
+            <!--攻略游记开始-->
+            <div class="gl_con">
+                <div class="gl_bt"><s></s><h3>攻略游记</h3><a href="/raiders/" target="_blank">更多</a></div>
+                <ul class="gl_ul_top">
+                    {sline:getarclist flag='recommend' haspic="1" row='3'}
+
+                    <li [field:global.autoindex runphp='yes']if(@me%3==0)@me='class="mr_0"';else @me='';[/field:global.autoindex]><a class="fl" href="[field:url/]" target="_blank"><img class="fl lazyimg" src="" data-original="[field:litpic/]" width="310" height="215" alt="[field:title/]" /></a><p><a href="[field:url/]" target="_blank">[field:title/]</a></p></li>
+                    {/sline:getarclist}
+                </ul>
+                <div class="gl_list_con">
+                    <ul>
+                        {sline:getarclist flag='recommend' haspic='1' row='2' limit='3'}
+                        <li class="txt_img_list">
+                            <a class="fl" href="[field:url/]" target="_blank"><img class="fl lazyimg" src="" data-original="[field:lit240/]" width="145" height="100" alt="[field:title/]"  /></a>
+                            <p class="tit"><a href="[field:url/]" target="_blank">[field:title/]</a></p>
+                            <p class="txt">[field:content function="cutstr_html(strip_tags(@me),100)"/]</p>
+                        </li>
+                        {/sline:getarclist}
+                        {sline:getarclist flag='recommend' haspic='1' row='4' limit='5'}
+                        <li class="txt_list"><span>.</span><a href="[field:url/]" target="_blank">[field:title/]</a></li>
+                        {/sline:getarclist}
+                    </ul>
+                </div>
+                <div class="hot_gl">
+                    <div class="hot_tit"><s></s><h3>精彩游记</h3><i></i></div>
+                    <ul>
+                        {sline:getarclist flag='recommend' haspic='1' row='5' limit='10'}
+                        <li [field:global.autoindex runphp='yes']if(@me%5==0)@me='class="mr_0"';else @me='';[/field:global.autoindex]>
+                        <a class="fl" href="[field:url/]" target="_blank"><img class="fl lazyimg" src="" data-original="[field:lit240/]" width="180" height="120" alt="[field:title/]" title="[field:title/]" /></a>
+                        <p class="p1"><a href="[field:url/]" target="_blank">[field:title/]</a></p>
+                        <p class="p2"><span class="sp1"><a href="/raiders/[field:pinyin/]" target="_blank">[field:destname/]</a></span><span class="sp2">[field:shownum/]</span></p>
+                        </li>
+                        {/sline:getarclist}
+                    </ul>
+                    <dl class="hot_link">
+                        <dt>热门攻略：</dt>
+                        <dd>
+                            {sline:getdest flag='hot' row='30'}
+                            <a href="/raiders/[field:pinyin/]/" target="_blank">[field:title/]旅游</a>
+                            {/sline:getdest}
+
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+            <!--攻略游记结束-->
+
+      </div>
+      <div class="con_rig">
+          {sline:getrightcontent pagename='index'/}
+      </div>
+    </div>
+  </div>
+  <!--中间产品内容结束-->
+
+<!--中间产品内容结束-->
+{sline:include file='public/help.htm'/}
+
+{sline:include file='public/footer.htm'/}
+
+{sline:include file='public/flink.htm'/}
+<script>
+    $(".hot_pro").each(function(index, element) {
+        $(element).find("dl:last").addClass('bor_bot_0');
+    });
+    $('img[data-original]').lazyload({container:"window",threshold:100});
+
+    //团购优惠最后一个添加class
+    $(".tuan_con").find("li:last").addClass('mr_0');
+
+
+
+</script>
+<script src="{sline:global.cfg_cmsurl/}/automake.php" language="javascript"></script>
+
+</body>
+</html>

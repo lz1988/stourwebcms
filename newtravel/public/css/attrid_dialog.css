@@ -1,0 +1,27 @@
+.save-con{
+    padding: 10px;
+    text-align: center;
+}
+.save-con a{
+    margin-right: 10px;
+}
+.s-con .view-btn{
+    color:#F39900;
+}
+.s-con .hint{
+    text-align: center;
+    line-height: 40px;
+    height:40px;
+}
+.product-list  tr{
+    height:30px;
+    line-height: 30px;
+    border-bottom: 1px solid #dcdcdc;
+}
+.product-list{
+    width:95%;
+    margin:auto;
+}
+.product-list tr td{
+    text-align: center;
+}

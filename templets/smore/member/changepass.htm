@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+<head>
+<title>修改密码-{sline:global.cfg_webname/}</title>
+{sline:php}Helper_Archive::getCss('base.css,space.css','2014.02');{/sline:php}
+{sline:php}Helper_Archive::getScript('jquery-1.8.3.min.js,common.js,jquery.validate.js','2014.01');{/sline:php}
+</head>
+
+<body>
+	{sline:include file='public/header.htm'/}
+  <!-- 中间内容开始 -->
+  <div class="big">
+  	<div class="width_1210">
+    	<!-- 面包屑and订单开始 -->
+    	<div class="top_first">
+      	<div class="crumbs"><a href="{sline:global.cfg_basehost/}">{sline:global.cfg_indexname/}</a> &gt;  修改密码</div>
+         {sline:include file='public/scroll_order.htm'/}
+      </div>
+      <!-- 面包屑and订单结束 -->
+    
+    	<!--用户空间开始-->
+			<div class="user_space_big">
+      	<!--导航菜单开始-->
+      	   {sline:include file='public/member_left_nav.htm'/}
+        <!--导航菜单结束-->
+        
+        <!--用户空间内容开始-->
+        <div class="user_con">
+          <div class="user_setup">
+          	<h3>修改密码</h3>
+            <div class="user_detailed">
+            <form id="changefrm" action="index.php?dopost=savenewpass" method="post">
+              <table width="1018" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <th width="200" height="45" align="right" scope="row">注册帐号：</th>
+                  <td width="818">u{sline:field.jointime/}</td>
+                </tr>
+                <tr>
+                  <th height="45" align="right" scope="row">当前密码：</th>
+                  <td><input type="password" id="oldpwd" name="oldpwd" class="text" /><s><label class="tip"></label></s></td>
+                </tr>
+                <tr>
+                  <th height="45" align="right" scope="row">新密码：</th>
+                  <td><input type="password" id="newpwd1" class="text" name="newpwd1" /><s><label class="tip"></label></s></td>
+                </tr>
+                <tr>
+                  <th height="45" align="right" scope="row">确认密码：</th>
+                  <td><input type="password" class="text" id="newpwd2" name="newpwd2" /><s><label class="tip"></label></s></td>
+                </tr>
+                <tr>
+                  <th height="45" scope="row">&nbsp;</th>
+                  <td><a class="save" href="javascript:;">修 改</a></td>
+                </tr>
+              </table>
+             </form>
+            </div>
+          </div>
+        </div>
+        <!--用户空间内容结束-->
+      </div>
+      <!--用户空间结束-->
+      
+    </div>
+  </div>
+  <!-- 中间内容结束 -->
+   {sline:include file='public/help.htm'/}
+   {sline:include file='public/footer.htm'/}
+   <script language="javascript">
+    $(function(){
+	    //提交更改
+		$(".save").click(function(){
+	      $("#changefrm").submit();
+	    })
+		//表单验证
+		$("#changefrm").validate({ 
+			
+			rules: { 
+			     
+				  oldpwd: { 
+				   required: true
+				  },
+				  newpwd1:{
+				   required: true,
+				   rangelength: [6, 16] 
+				  },
+				  newpwd2:{
+				   required: true,
+				   equalTo: "#newpwd1"
+				  }
+				}, 
+				messages: { 
+				  
+				   oldpwd:{
+				    required:"*请输入旧密码"
+						
+				   },
+				   newpwd1: {
+				        required:"*新密码不能为空",
+						rangelength:"*密码长度为6-16位"
+				   },
+				   newpwd2:{
+				        required: "*请再次输入新密码密码",
+						equalTo:"*前后两次输入密码不一致"
+
+				   }
+				 
+				},
+				errorPlacement: function(error, element) {
+					var errplace = $(element).parent().find('.tip');
+					errplace.html(error.text());
+					$(element).addClass('bor_color');
+					
+					
+				},
+				success:function(label,element){
+				   var obj = $(element).parent().find('.tip');
+				   obj.html('');
+				   $(element).removeClass('bor_color');
+				   
+				  
+				  
+				}
+	
+	     });  
+	
+	})
+   </script>
+  
+
+</body>
+</html>

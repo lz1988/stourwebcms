@@ -1,0 +1,22 @@
+.s-main .save-con{
+    padding:20px 0px;
+    text-align: center;
+}
+.s-body .sp-item{
+    margin-right: 15px;
+    margin-bottom: 10px;
+    float:left;
+    width: 260px;
+}
+.sp-item .i-tit{
+    margin-left:3px;
+    white-space:nowrap;
+    width:220px;
+    float:left;
+    overflow:hidden;
+}
+.s-body .sp-item .i-box{
+    vertical-align: middle;
+    float:left;
+    margin-top:2px;
+}

@@ -1,0 +1,82 @@
+
+.version_sj{
+    width:100%;
+    font-family:"微软雅黑"}
+.now_version{
+    height:30px;
+    padding:10px 20px}
+.now_version p{
+    color:#282828;
+    float:left;
+    height:30px;
+    line-height:30px;
+    font-size:14px;
+    padding-left:20px;
+    background:url(../images/begingx.png) left no-repeat}
+.now_version .nowgx_btn{
+    float:left;
+    color:#fff;
+    width:90px;
+    height:30px;
+    line-height:30px;
+    font-size:14px;
+    text-align:center;
+    margin-left:40px;
+    background:#008ed8;
+    border-radius:5px;}
+.now_version .nowgx_btn_click{
+    float:left;
+    color:#fff;
+    width:90px;
+    height:30px;
+    line-height:30px;
+    font-size:14px;
+    text-align:center;
+    margin-left:40px;
+    background:#ccc;
+    border-radius:5px;
+}
+.version_list{
+    width:99%;
+    margin-left:10px;
+    padding-bottom: 20px;
+    font-family:'宋体'}
+.version_list th{
+    color:#fff;
+    font-weight:500;
+    background:#008ed8}
+.version_list td{
+    color:#4b5864;
+    position:relative;
+    border-bottom:1px solid #e5e5e5}
+.version_list td .color_009,.version_list td .hasupgrade{
+    color:#009e30}
+.version_list td .tck_con{
+    display:block;
+    width:240px;
+    height:35px;
+    line-height:42px;
+    text-align:center;
+    position:absolute;
+    left:50%;
+    bottom:-15px;
+    margin-left:-120px;
+    background:url(../images/tck_con_bg.png) left no-repeat}
+.version_num_con{
+    color:#565656;
+    float:left;
+}
+.version_num_con dl{
+    float:left;
+    width:100%;
+    border-bottom:1px solid #dcdcdc}
+.version_num_con dl dt{
+    float:left;
+    width:10%;
+    height:40px;
+    line-height:40px}
+.version_num_con dl dd{
+    width:90%;
+    float:left;
+    line-height:40px;}
+.ver_desc{display: none}

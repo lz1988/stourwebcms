@@ -1,0 +1,15 @@
+.s-con table td{
+    padding: 5px 5px;
+}
+.s-con table td input,.s-con table td select{
+    border:1px solid #dcdcdc;
+    float:left;
+    line-height: 24px;
+    height: 24px;
+}
+.save-con{
+    padding: 10px;
+}
+.save-con .normal-btn{
+   margin-left: 100px;
+}

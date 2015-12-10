@@ -1,0 +1,97 @@
+@charset "utf-8";
+/* CSS Document */
+.help_left{
+	float:left;
+	width:220px;
+	height:600px;
+	font-family:"微软雅黑";
+	border-radius:3px;
+	-moz-border-radius:3px;
+	-ms-border-radius:3px;
+	-webkit-border-radius:3px;
+	border:1px solid #e5ebf3;
+	background:#fafafa}
+.help_left h3{
+	color:#23272d;
+	width:190px;
+	height:45px;
+	line-height:45px;
+	padding-left:10px;
+	margin:0 10px;
+	font-size:18px;
+	font-weight:500;
+	border-bottom:1px solid #e5ebf3}	
+.help_left ul{
+	float:left;
+	width:200px;
+	margin:0 10px}
+.help_left ul li{
+	float:left;
+	width:200px;
+	height:30px;
+	line-height:30px;
+	padding:5px 0; 
+	font-size:14px;
+	border-bottom:1px solid #eee}
+.help_left ul li a{
+	float:left;
+	display:block;
+	width:180px;
+	height:30px;
+	line-height:30px;
+	padding-left:20px}
+.help_left ul li a.active{
+	color:#fff;
+	border-radius:3px;
+	background:#65b71f}	
+.help_rig{
+	float:right;
+	width:970px;
+	height:auto;
+	font-family:"微软雅黑";
+	border-top:2px solid #65b71f;
+	border-right:1px solid #e5ebf3;
+	border-bottom:1px solid #e5ebf3;
+	border-left:1px solid #e5ebf3;}
+.help_title{
+	float:left;
+	color:#65b71f;
+	width:940px;
+	height:40px;
+	line-height:40px;
+	font-weight:500;
+	font-size:18px;
+	display:inline;
+	margin:0 10px;
+	padding-left:10px;
+	border-bottom:1px solid #E5EBF3}
+.help_list{
+	float:left;
+	width:950px;
+	margin:0 10px}
+.help_list li{
+	float:left;
+	width:950px;
+	height:35px;
+	line-height:35px;
+	border-bottom:1px dotted #E5EBF3}
+.help_list li a{
+	float:left;
+	display:inline-block;
+	width:950px;
+	font-size:14px;
+	padding-left:10px;
+	background:url(../images/artcile_list_link.png) left no-repeat}
+.help_list li a:hover{
+	background:url(../images/artcile_list_hover.png) left no-repeat}
+.show_con{
+	float:left;
+	width:930px;
+	height:auto;
+	color:#464646;
+	line-height:22px;
+		margin:0 20px}
+.show_con p{
+	margin-top:10px;}
+.show_con strong,.show_con b{
+	font-weight:bold}

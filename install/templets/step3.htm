@@ -1,0 +1,165 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>填写安装参数-思途旅游CMS</title>
+<link type="text/css" rel="stylesheet" href="css/style.css" />
+<script language="javascript" src="js/jquery-1.8.3.min.js"></script>
+<script language="javascript" src="js/jquery.validate.js"></script>
+</head>
+
+<body>
+	<!--头部内容开始-->
+  <div class="header">
+    <div class="top_img">
+      <div class="con_img"><img class="fl" src="images/top_bg.gif" /></div>
+    </div>
+    <div class="top_logo">
+      <div class="con_logo">
+        <img class="fl" src="images/logo.gif" alt="思途旅游" />
+        <div class="txt">思途CMS v4.0</div>
+      </div>
+    </div>
+  </div>
+  <!--头部内容结束-->
+  
+  
+  <!--正文内容开始-->
+  <form method="post" id="frm" action="index.php?step=4" >
+  <div class="content">
+  	<div class="width_700">
+    	<div class="con_big">
+      	<div class="title">创建数据库</div>
+      	<div class="check_hj">
+        	<table width="658" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <th width="130" height="35" align="left" scope="col">填写数据库信息</th>
+              <th width="210" height="35" align="left" scope="col">&nbsp;</th>
+              <th width="258" height="35" align="left" scope="col">&nbsp;</th>
+            </tr>
+            <tr>
+              <td height="35"> 数据库服务器</td>
+              <td height="35"><input type="text" name="dbhost" class="text" value="127.0.0.1" /></td>
+              <td height="35">数据库服务器地址, 一般为 127.0.0.1或者localhost</td>
+            </tr>
+            <tr>
+              <td height="35"> 数据库名</td>
+              <td height="35"><input type="text" name="dbname" class="text" value="stourwebcms" /></td>
+              <td height="35">&nbsp;</td>
+            </tr>
+            <tr>
+              <td height="35">数据库用户名</td>
+              <td height="35"><input type="text" name="dbuser" class="text" value="root" /></td>
+              <td height="35">数据库用户名,一般为 root</td>
+            </tr>
+            <tr>
+              <td height="35">数据库密码</td>
+              <td height="35"><input type="password" name="dbpwd" class="text" value="" /></td>
+              <td height="35">连接数据库密码</td>
+            </tr>
+            <tr>
+                <td height="35"></td>
+                <td height="35"><input type="checkbox" name="usedata" value="1" style="vertical-align: middle" checked="checked"/> 是否导入演示数据</td>
+                <td height="35"></td>
+             </tr>
+          </table>
+        </div>
+        <div class="check_hj">
+        	<table width="658" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <th width="130" height="35" align="left" scope="col">填写管理员信息</th>
+              <th width="210" height="35" align="left" scope="col">&nbsp;</th>
+              <th width="258" height="35" align="left" scope="col">&nbsp;</th>
+            </tr>
+            <tr>
+              <td height="35">管理员账号</td>
+              <td height="35"><input type="text" name="adminuser" class="text" value="stourweb" /></td>
+              <td height="35"></td>
+            </tr>
+            <tr>
+              <td height="35">管理员密码</td>
+              <td height="35"><input type="password" name="adminpwd" id="userpass1" class="text" value="" /></td>
+              <td height="35">管理员密码不能为空，长度为6-16位</td>
+            </tr>
+            <tr>
+              <td height="35">重复密码</td>
+              <td height="35"><input type="password" name="adminpwd2" id="userpass2" class="text" value="" /></td>
+              <td height="35">&nbsp;</td>
+            </tr>
+           
+          </table>
+        </div>
+      	<div class="agree">
+        	<input type="submit" class="yes" value="下一步" />
+        	<input type="button" class="no" onclick="javascript:history.back(-1);" value="返回" />
+        </div>
+      	<div class="copy">Copyright © 2008-2015 梦旅程网络科技有限公司</div>
+      </div>
+    </div>
+  </div>
+ </form>
+
+  <!--正文内容结束-->
+  <script language="javascript">
+    $(function(){
+	    	//表单验证
+
+	 $("#frm").validate({ 
+			
+			rules: { 
+			     
+				  dbhost: { 
+				   required: true
+				  },
+				  dbname:{
+				   required: true
+				  },
+				  dbuser:{
+				   required: true
+				  },
+				  dbpwd:{
+				   required: true
+				  },
+				  truename:{
+				   required: true
+				  },
+				  adminuser:{
+				   required: true
+				  },
+				  adminpwd:{
+				   required: true,
+                   minlength:6,
+                   maxlength:16
+				  },
+				  adminpwd2:{
+				   required: true,
+				   equalTo: "#userpass1"
+				  }
+				 
+				}, 
+				errorPlacement: function(error, element) {
+
+					$(element).addClass('errorborder');
+					
+					
+				},
+				success:function(label,element){
+				 
+				   $(element).removeClass('errorborder');
+				  
+				}
+				
+				
+				
+				
+				
+				
+	     });
+		
+	
+	})
+  
+  </script>
+  
+</body>
+</html>

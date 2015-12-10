@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{sline:field.seotitle/}-{sline:global.cfg_webname/}</title>
+{sline:field.seokeyword/}
+{sline:field.seodescription/}
+<meta name="author" content="{sline:global.cfg_webname/}" />
+{sline:php}Helper_Archive::getCss('base.css,ticket.css','2014.02');{/sline:php}
+{sline:php}Helper_Archive::getScript('jquery-1.8.3.min.js,common.js,spot.show.js');{/sline:php}
+</head>
+
+<body>
+	{sline:include file='public/header.htm'/}
+  
+  <!-- 中间内容开始 -->
+  <div class="big">
+  	<div class="width_1210">
+    	<!-- 面包屑and订单开始 -->
+    	<div class="top_first">
+      	<div class="crumbs"><a href="{sline:global.cfg_basehost/}">{sline:global.cfg_indexname/}</a> &raquo; <a href="{sline:global.cfg_cmsurl/}/spots/">{sline:field.typename/}</a>{sline:field.pkname/}</div>
+        {sline:include file='public/scroll_order.htm'/}
+      </div>
+      <!-- 面包屑and订单结束 -->
+		
+    	
+      
+      <!--详情页面左侧正文开始-->
+      <div class="tic_show_con">
+      
+        <!--详情顶部基础信息展示开始-->
+        <div class="tic_show_top">
+          
+          <div class="tic_left_pic">
+            <dl>
+              <dt><img id="litpic" src="{sline:field.litpic/}" width="360" height="250" alt="{sline:field.title/}" title="{sline:field.title/}" /></dt>
+              {sline:vlist name='thumblist' row='2'}
+               <dd class="thumb"><img src="[field:value/]" width="105" height="80" /></dd>
+              {/sline:vlist}
+              <dd class="dd_more">
+              {sline:vlist name='biglist'}
+                  <a rel="group" href="[field:value/]">更多图片</a>
+                {/sline:vlist}</dd>
+            </dl>
+          </div>
+          
+          <div class="tic_rig_txt">
+            <dl>
+              <dt>{sline:field.title/}</dt>
+             <!-- <dd>景区等级：{sline:field.level/}</dd>-->
+              <dd>景区属性：{sline:field.theme/}</dd>
+              <dd>取票方式：{sline:field.getway/}</dd>
+              <dd>地址：{sline:field.address/}</dd>
+            </dl>	
+         
+          </div>
+          
+        </div>
+        <!--详情顶部基础信息展示结束-->
+        
+      	<!-- 详情介绍开始 -->
+        <div id="lineinfo2" class="lm_show_nav">
+         
+          <div style="float:left; width:958px; border:1px solid #dcdcdc;">
+
+            
+            <!-- 景区信息开始 -->
+            <div class="tablelist">
+            <h3 class="same_title">景点介绍</h3>
+			 <div class="same_txt">
+               {sline:field.content/}
+              </div>
+            </div>
+            <!-- 景区信息结束 -->
+            
+          </div>
+
+        </div>
+        <!-- 详情介绍结束 -->
+      </div>
+      <!--详情页面左侧正文结束-->
+      
+      <!--详情页面右侧边栏开始-->
+      <div class="tic_side_con">
+        {sline:getrightcontent pagename='show'/}
+      </div>
+      <!--详情页面右侧边栏结束-->
+
+    </div>
+  </div>
+  <!-- 中间内容结束 -->
+  
+  {sline:include file='public/help.htm'/}
+  {sline:include file='public/footer.htm'/}
+
+</body>
+</html>

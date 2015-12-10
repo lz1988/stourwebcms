@@ -1,0 +1,185 @@
+{sline:php}GetCss('header.css','2014.03');{/sline:php}
+<!-- 顶部介绍开始 -->
+	<div class="top">
+    <ul>
+	  <li class="fl txt">{sline:global.cfg_gonggao/}</li>
+      <li class="fr">
+        <span id="_userLogin" class="fl"></span>
+
+
+
+          <a class="fl" rel="nofollow" href="/servers/index_2.html">联系我们</a>
+          {sline:global.cfg_weibo_url runphp='yes'}
+            if(!empty(@me))
+            {
+              $url = @me;
+              @me = '<a class="wb_ico fl" href="'.$url.'" target="_blank">官方微博</a>';
+            }
+            else
+           {
+              @me ='';
+           }
+
+          {/sline:global.cfg_weibo_url}
+          {sline:global.cfg_weixin_logo runphp='yes'}
+           if(!empty(@me))
+           {
+             $url = @me;
+             @me='<a class="wx_ico fl" href="javascript:;">微信我们</a>';
+             @me.=' <div class="wx_img"><p><img src="'.$url.'" width="124" height="125"/></p></div>';
+           }
+           else
+            @me='';
+          {/sline:global.cfg_weixin_logo}
+          <div class="top_web_map bor_bag fl">
+                  <a class="web_nav_ico" href="javascript:;"><s></s>网站导航</a>
+                  <div class="w_nav_map">
+                      {sline:channel type='top'}
+                       <a href="[field:typelink/]">[field:typename/]</a>
+                      {/sline:channel}
+
+                  </div>
+          </div>
+
+      </li>  
+    </ul>
+  </div>
+  <!-- 顶部介绍结束 -->
+  <!-- logo and search开始 -->
+  <div class="big">
+    <div class="top_1210">
+    	<div class="top_mt">
+        {sline:logo}
+            <div class="logo"><a href="{sline:global.cfg_logourl/}"><img src="{sline:global.cfg_logo/}" alt="{sline:global.cfg_logotitle/}" title="{sline:global.cfg_logotitle/}" class="fl"/></a></div>
+        {/sline:logo}
+        <div class="all_search">
+          <div class="top_search">
+            <s><img class="fl" src="{sline:global.cfg_templets_skin/}/images/search_ico.png" /></s>
+            <input class="s_txt g_search" type="text" name="" value="请输入关键词" datadef="请输入关键词" />
+           
+            <input class="s_btn cloud_search" type="button" name="" value="搜&nbsp;索" />
+            <div class="searcg_hot">
+              <span>热门搜索：</span>
+              {sline:getsearchkey row='6'}
+                <a href="[field:url/]">[field:title/]</a>
+              {/sline:getsearchkey}
+            
+            </div>
+          </div>
+          <div class="h_phone_num">
+            <span>24小时客服电话：</span>
+            <p>{sline:global.cfg_phone/}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- logo and search结束 -->
+
+{sline:include file='public/head_nav.htm'/}
+<script language="javascript">
+  var siteUrl = '{sline:global.cfg_basehost/}{sline:global.cfg_cmsurl/}/';
+  $(function(){
+      
+	  //导航的选中状态
+		 $(".nav .menu  a").each(function(){
+								var url= window.location.href;
+
+
+								url=url.replace('index.php','');
+								url=url.replace('index.html','');
+								var ulink=$(this).attr("href");
+								if(url==ulink)
+								{
+								   $(this).addClass('active');
+								   $(this).prev().addClass('bnone');
+								}
+		  })
+	   
+	  //用户登陆状态
+	   $.ajax({
+		type: "POST",
+		url: "{sline:global.cfg_cmsurl/}/ajax/ajax_login.php",
+		data: "dopost=LoginStatus",
+		success: function(data){
+			$('#_userLogin').html(data);
+            //菜单指向
+            $(".my-booking").hoverDelay(
+                    function()
+                    {
+                       $(".mb-hide").show();
+                    },function(){
+                       $(".mb-hide").hide();
+                    }
+            )
+            hoverCssChange();
+
+		}
+	   });
+	   //搜索框事件
+	   $(".g_search").focusEffect();
+	   
+	   //云搜索点击
+	   $(".cloud_search").click(function(){
+	      var keyword = $(".g_search").val();
+		  var def = $(".g_search").attr('datadef');
+		  if(keyword=='' || keyword == def){
+		      $(".g_search").focus();
+		  }
+		  else{
+		     var searchUrl = siteUrl+'cloudsearch.php?keyword='+keyword;
+			 window.open(searchUrl);
+		  }
+	   
+	   })
+      //微信指向
+      $(".wx_ico").hoverDelay(
+              function(){
+                  $(".wx_img").show();
+              },
+              function(){
+                  $(".wx_img").hide();
+              }
+
+
+
+      )
+      //导航指向
+      $(".top_web_map").hoverDelay(
+              function(){
+                  $(".w_nav_map").show();
+              },
+              function(){
+                  $(".w_nav_map").hide();
+              }
+
+
+
+      )
+    hoverCssChange();
+
+
+  })
+
+  function hoverCssChange()
+  {
+      //指向样式
+      $(".bor_bag").mouseover(function(){
+          $(this).css({"background":"#fff","border-left":"1px solid #e6e5e5","border-right":"1px solid #e6e5e5"})
+          $(this).children(".web_nav_ico").css("background","#fff")
+      })
+      $(".bor_bag").mouseout(function(){
+          $(this).css({"background":"none","border-left":"1px solid #f1f1f1","border-right":"1px solid #f1f1f1"});
+          $(this).children(".web_nav_ico").css("background","#f1f1f1");
+      })
+
+  }
+
+  
+  
+</script>
+
+
+  
+  
+ 

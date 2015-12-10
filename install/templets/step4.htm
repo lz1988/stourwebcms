@@ -1,0 +1,292 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>安装思途CMS-思途旅游CMS</title>
+<link type="text/css" rel="stylesheet" href="css/style.css" />
+<script language="javascript" src="js/jquery-1.8.3.min.js"></script>
+</head>
+
+<body>
+	<!--头部内容开始-->
+  <div class="header">
+    <div class="top_img">
+      <div class="con_img"><img class="fl" src="images/top_bg.gif" /></div>
+    </div>
+    <div class="top_logo">
+      <div class="con_logo">
+        <img class="fl" src="images/logo.gif" alt="思途旅游" />
+        <div class="txt">思途CMS v4.0</div>
+      </div>
+    </div>
+  </div>
+  <!--头部内容结束-->
+  
+  
+  <!--正文内容开始-->
+  <div class="content">
+  	<div class="width_700">
+    	<div class="con_big">
+      	<div class="title">正在安装  请勿关闭浏览器</div>
+      	<div class="check_hj">
+        	<div class="az_jd">
+          	<div class="txt">安装进度</div>
+            <div class="jdt"><span id="processbar" style=" width:0%"></span></div>
+          </div>
+        	<table width="658" border="0" cellspacing="0" cellpadding="0" id="infolist">
+            <tr>
+              <th height="35" colspan="2" align="left" scope="col">正在安装文件</th>
+            </tr>
+            
+          </table>
+        </div>
+      	<div class="agree"><a class="load" href="#">正在安装...</a></div>
+      	<div class="copy">Copyright © 2008-2014 梦旅程网络科技有限公司</div>
+      </div>
+    </div>
+  </div>
+  
+  <!--正文内容结束-->
+ <script language="javascript">
+ 
+     var dbhost = '<?php echo $dbhost; ?>';
+	 var dbname = '<?php echo $dbname; ?>';
+	 var dbuser = '<?php echo $dbuser; ?>';
+	 var dbpwd = '<?php echo $dbpwd; ?>';
+     var usedata='<?php echo $usedata;?>';
+	 var adminuser ='<?php echo $adminuser; ?>';
+	 var adminpwd = '<?php echo $adminpwd; ?>';
+     var config ="&dbhost="+encodeURIComponent(dbhost)+"&dbname="+encodeURIComponent(dbname)+"&dbuser="+encodeURIComponent(dbuser)
+	     config+="&dbpwd="+encodeURIComponent(dbpwd)+"&adminuser="+encodeURIComponent(adminuser)+"&adminpwd="+encodeURIComponent(adminpwd)+'&usedata='+encodeURIComponent(usedata);
+	
+	$(function(){
+
+	   createDateBase();
+	   //createTable();
+	   
+	})
+	var timer;
+	//进度条动画
+	function animateProgress(num)
+	{
+		var i = 0;
+	    timer = setInterval(function(){
+			$("#processbar").css("width", i + "%");
+			i++;
+			if (i > 96) {
+				clearInterval(timer);					
+			}
+		}, 2000);
+		
+	}	 
+	
+    //创建数据库
+	function createDateBase()
+	{
+		
+		$.ajax({type:'POST',
+		url:'index.php?step=createDataBase'+config,
+		data:'',
+		beforeSend:function(){
+		  $str='  <tr id="createdata">';
+          $str+='    <td width="500" height="35">创建数据库 '+dbname+'</td>';
+          $str+='   <td width="158" height="35" align="center"><span  class="status">···</span></td> ';
+          $str+='  </tr>';
+		  $("#infolist").append($str);
+		  animateProgress();
+		},
+		success:function(data){
+		    
+		
+		  if(data == 'ok'){
+		     $("#createdata").find('.status').html('成功');
+			 createConfig();
+		  }
+		  else{
+		     alert("数据库服务器或登录密码无效，\\n\\n无法连接数据库，请重新设定！");
+			 history.back(-1);
+		  }
+		}
+		
+	})
+		
+	}
+	//创建数据库配置文件
+	function createConfig()
+	{
+		
+		$.ajax({type:'POST',
+		url:'index.php?step=createDataConfig'+config,
+		data:'',
+		beforeSend:function(){
+		  $str='  <tr id="createconfig">';
+          $str+='    <td width="500" height="35">安装数据库配置文件 common.inc.php</td>';
+          $str+='   <td width="158" height="35" align="center"><span  class="status">···</span></td> ';
+          $str+='  </tr>';
+		  $("#infolist").append($str);
+		},
+		success:function(data){
+		  
+		  if(data == 'ok'){
+		     $("#createconfig").find('.status').html('成功');
+			 createDefaultConfig();
+		  }
+		  else{
+		    $("#createconfig").find('.status').html('失败');
+		  }
+		}
+		
+	   })
+		
+	}
+	//创建默认配置项
+	function createDefaultConfig()
+	{
+		
+		$.ajax({type:'POST',
+		url:'index.php?step=createDefaultConfig'+config,
+		data:'',
+		beforeSend:function(){
+		  $str='  <tr id="DefaultConfig">';
+          $str+='    <td width="500" height="35">安装默认配置文件 config.cache.php</td>';
+          $str+='   <td width="158" height="35" align="center"><span  class="status">···</span></td> ';
+          $str+='  </tr>';
+		  $("#infolist").append($str);
+		},
+		success:function(data){
+		  
+		  if(data == 'ok'){
+		     $("#DefaultConfig").find('.status').html('成功');
+			 createTable();
+		  }
+		  else{
+		    $("#DefaultConfig").find('.status').html('失败');
+		  }
+		}
+		
+	   })
+		
+	}
+	//创建数据表
+	function createTable()
+	{
+		
+		$.ajax({type:'POST',
+		url:'index.php?step=creattable'+config,
+		data:'',
+		beforeSend:function(){
+		  $str='  <tr id="createTable">';
+          $str+='    <td width="500" height="35">创建数据表</td>';
+          $str+='   <td width="158" height="35" align="center"><span  class="status">···</span></td> ';
+          $str+='  </tr>';
+		  $("#infolist").append($str);
+		},
+		success:function(data){
+		  
+		  if(data == 'ok'){
+		     $("#createTable").find('.status').html('成功');
+			 initBaseData();
+		  }
+		  else{
+		    $("#createTable").find('.status').html('失败');
+		  }
+		}
+		
+	   })
+		
+	}
+	//初始基础数据
+	function initBaseData()
+	{
+		
+		$.ajax({type:'POST',
+		url:'index.php?step=initbasedata'+config,
+		data:'',
+		beforeSend:function(){
+		  $str='  <tr id="initBaseData">';
+          $str+='    <td width="500" height="35">初始基础数据</td>';
+          $str+='   <td width="158" height="35" align="center"><span  class="status">···</span></td> ';
+          $str+='  </tr>';
+		  $("#infolist").append($str);
+		},
+		success:function(data){
+		  
+		  if(data == 'ok'){
+		     $("#initBaseData").find('.status').html('成功');
+			 initDemoData();
+		  }
+		  else{
+		    $("#initBaseData").find('.status').html('失败');
+		  }
+		}
+		
+	   })
+		
+	}
+	//初始演示数据
+	function initDemoData()
+	{
+		
+		$.ajax({type:'POST',
+		url:'index.php?step=initdemodata'+config,
+		data:'',
+		beforeSend:function(){
+		  $str='  <tr id="initDemoData">';
+          $str+='    <td width="500" height="35">初始演示数据</td>';
+          $str+='   <td width="158" height="35" align="center"><span  class="status">···</span></td> ';
+          $str+='  </tr>';
+		  $("#infolist").append($str);
+		},
+		success:function(data){
+		  
+		  if(data == 'ok'){
+		     $("#initDemoData").find('.status').html('成功');
+			 completeDataBaseConfig();
+		  }
+		  else{
+		    $("#initDemoData").find('.status').html('失败');
+		  }
+		}
+		
+	   })
+		
+	}
+	//完成数据库配置和安装
+	function completeDataBaseConfig()
+	{
+		
+		$.ajax({type:'POST',
+		url:'index.php?step=completedatabaseconfig'+config,
+		data:'',
+		beforeSend:function(){
+		  $str='  <tr id="completeDataBaseConfig">';
+          $str+='    <td width="500" height="35">完成数据库配置和安装</td>';
+          $str+='   <td width="158" height="35" align="center"><span  class="status">···</span></td> ';
+          $str+='  </tr>';
+		  $("#infolist").append($str);
+		},
+		success:function(data){
+		
+		  if(data == 'ok'){
+		     $("#completeDataBaseConfig").find('.status').html('成功');
+			   $str='  <tr id="completed">';
+			  $str+='    <td width="500" height="35"><span style="color:green">安装成功!</span></td>';
+			  $str+='   <td width="158" height="35" align="center"></td> ';
+			  $str+='  </tr>';
+			  $("#infolist").append($str);
+			  clearInterval(timer);
+			  $("#processbar").css("width", "100%");
+			  window.location.href='index.php?step=5';
+		  }
+		  else{
+		    $("#completeDataBaseConfig").find('.status').html('失败');
+		  }
+		}
+		
+	   })
+		
+	}
+	
+ </script> 
+</body>
+</html>

@@ -1,0 +1,239 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{sline:field.pageno/}{sline:field.searchtitle/}-{sline:global.cfg_webname/}</title>
+{sline:field.seokeyword/}
+{sline:field.seodescription/}
+<meta name="author" content="{sline:global.cfg_webname/}" />
+{sline:php}Helper_Archive::getCss('base.css,line.css');{/sline:php}
+{sline:php}Helper_Archive::getScript('jquery-1.8.3.min.js,common.js,line.js,line.search.js');{/sline:php}
+</head>
+
+<body>
+	{sline:include file='public/header.htm'/}
+
+  <!-- 中间内容开始 -->
+  <div class="big">
+  	<div class="width_1210">
+    	<!-- 面包屑and滚动订单开始 -->
+    	<div class="top_first">
+      	<div class="crumbs"><a href="{sline:global.cfg_basehost/}">{sline:global.cfg_indexname/}</a> &raquo; <a href="{sline:global.cfg_cmsurl/}/lines/">{sline:field.channelname/}</a>{sline:field.pkname/}</div>
+        {sline:include file='public/scroll_order.htm'/}
+       
+      </div>
+      <!-- 面包屑and滚动订单结束 -->
+
+      <!--主体内容开始-->
+      <div class="line_con_left">
+      
+      	<!--顶部介绍开始-->
+        <div class="line_top_menu">
+          <h1><span>{sline:field.nav_title/}</span></h1>
+          <div class="serve_menu">
+           <a href="{sline:global.dest_url/}">目的地</a>
+            <a href="{sline:global.hotel_url/}">酒店</a>
+            <a href="{sline:global.raider_url/}">攻略</a>
+            <a href="{sline:global.photo_url/}">相册</a>
+          </div>
+        </div>
+        <!--顶部介绍结束-->
+        
+      	<!--隐藏栏目介绍开始-->
+      	<div class="sm_txt" style="{sline:field.dest_jieshao runphp='yes'} if(!empty(@me)) @me='display:block'; else @me='';{/sline:field.dest_jieshao}">
+      	  {sline:field.dest_jieshao/}
+     	  </div>
+        <!--隐藏栏目介绍结束-->
+          <div class="hot_time">
+              <h3>热卖推荐</h3>
+              {sline:getlinelist type='mdd' flag='recommend'  row='3'}
+              <div class="tj_box">
+                  <div class="tj_img"><s></s><a class="fl" href="[field:url/]" target="_blank"><img class="fl" src="[field:lit160/]" width="140" height="100" alt="说明" /></a></div>
+                  <div class="tj_txt"><a href="[field:url/]" target="_blank">[field:title/]</a><span>[field:sellpoint/]</span></div>
+                  <div class="tj_pre">
+                      <span>[field:lineprice runphp='yes']
+                               if(empty(@me))
+                                  @me='电询';
+                               else
+                                  @me='&yen;'.@me.'起';
+                          [/field:lineprice]</span>
+                      <a href="[field:url/]" target="_blank">立即抢购</a>
+                  </div>
+              </div>
+              {/sline:getlinelist}
+
+          </div>
+
+        <div class="serach_menu">
+        	<div class="search_bt"><span>{sline:field.searchname/}</span>  线路筛选</div>
+            {sline:plugincheck identify='cfg_startcity_open'}
+            <dl>
+                <dt>出发地：</dt>
+                <dd id="startcity_list">
+                    <span class="sp_1"><a class="on" href="{sline:global.startcity function=getSearchUrl(0,'startcity')/}" data-field="destid" data-value="0" >全部</a></span>
+                  <span class="sp_2">
+                    {sline:getstartplace flag='top'}
+                     <a href="[field:id function=getSearchUrl(@me,'startcity')/]" data-field="startcity" data-value="[field:id/]" >[field:cityname/]</a>
+                    {/sline:getstartplace}
+
+
+                  </span>
+                </dd>
+            </dl>
+            {/sline:plugincheck}
+                <dl>
+                <dt>目的地：</dt>
+                <dd id="destid_list">
+                  <span class="sp_1"><a class="on" href="{sline:global.dest_id function=getSearchUrl(0,'dest_id')/}" data-field="destid" data-value="0" >全部</a></span>
+                  <span class="sp_2">
+                    {sline:vlist name="destlist"}
+                     <a href="[field:id function=getSearchUrl(@me,'dest_id')/]" data-field="destid" data-value="[field:id/]" >[field:kindname/]</a>
+                    {/sline:vlist}
+                    
+                  </span>
+                </dd>
+              </dl>
+
+          <dl>
+          	<dt>游玩时间：</dt>
+            <dd id="day_list">
+              <span class="sp_1"><a class="on" href="{sline:global.day function=getSearchUrl(0,'day')/}" data-field="day" data-value="0">全部</a></span>
+              <span class="sp_2">
+              	{sline:getlineguide flag='day'}
+              	 <a href="[field:word function=getSearchUrl(@me,'day')/]" data-field="day" data-value="[field:word/]">[field:title/]</a>
+                {/sline:getlineguide}
+              </span>
+            </dd>
+          </dl>
+          {sline:attrgrouplist typeid='1' filterid='91'}
+            <dl>
+              <dt>{sline:field.groupname/}：</dt>
+              <dd class="attr_list">
+                <span class="sp_1"><a class="on" href="{sline:field.attrid function=getSearchUrl(null,null,@me)/}" data-field="attrid" data-value="0">全部</a></span>
+                <span class="sp_2">
+                   {sline:getattrbygroup}
+                      <a href="[field:attrid function=getSearchUrl(@me,'attrid')/]"  data-field="attrid" data-value="[field:attrid/]">[field:title/]</a>
+                   {/sline:getattrbygroup}
+                   
+                </span>
+              </dd>
+            </dl>
+          {/sline:attrgrouplist}
+          <dl class="bor_bot_0">
+          	<dt>价格区间：</dt>
+            <dd id="price_list">
+              <span class="sp_1"><a class="on" href="{sline:global.priceid function=getSearchUrl(0,'priceid')/}" data-field="priceid" data-value="0">全部</a></span>
+              <span class="sp_2">
+               {sline:getlineguide flag='price'}
+              	<a href="[field:id function=getSearchUrl(@me,'priceid')/]" data-field="priceid" data-value="[field:id/]">[field:title/]</a>
+               {/sline:getlineguide}
+              </span>
+            </dd>
+          </dl>
+        </div>
+
+
+        <!--/隐藏域-->
+        <div class="search_list">
+        	<div class="list_nav">
+          	<span class="sp_1"></span>
+          	<span><a class="on" href="javascript:void(0)" data-field="sorttype" data-value="0">默认排序</a></span>
+            <span><a href="javascript:void(0)" data-field="sorttype" data-value="1">推荐</a></span>
+            <span><a href="javascript:void(0)" data-field="sorttype" data-value="2">价格</a></span>
+            <span><a href="javascript:void(0)" data-field="sorttype" data-value="3">销量</a></span>
+            <span><a href="javascript:void(0)" data-field="sorttype" data-value="4">人气</a></span>
+          </div>
+          <!--列表部分开始-->
+          {sline:list}
+              <div class="list_con">
+                <div class="list_pic">
+                    <a class="fl" href="[field:url/]"><img class="fl" src="[field:lit160/]" width="150" height="115" title="[field:title/]" alt="[field:title/]" /></a>
+                </div>
+                <div class="list_txt">
+                    <p class="p1"><a href="[field:url/]" target="_blank">[field:title/][field:iconlist function=Helper_Archive::getLineIcon(@me)/]</a></p>
+                  <p class="p2">特色：[field:features function="cutstr_html(strip_tags(@me),50)"/]</p>
+                  <p class="p3">
+                  	<span>满意度：<b>
+                        [field:satisfyscore/]%
+                    </b></span>
+                  	<span>[field:array function="Helper_Archive::getSellNum('',1,@me)"/]笔成交</span>
+                  	<span>[field:id function="Helper_Archive::getCommentNum(@me,1)"/]条评价</span>
+                  </p>
+                  <p class="p4">
+                    <span>[[field:startcity function="getStartCityName(@me)"/]出发]</span>
+                    <span>行程：[field:lineday/] 天</span>
+                    <span>出团日期：[field:array function="getStartDataStr(@me)"/]</span>
+                  </p>
+                  <p class="p5">
+                      [field:dingjin runphp='yes']
+                         if(!empty(@me))@me='<img src="/templets/orange/images/zcdj.gif" />';
+                      [/field:dingjin]
+                      [field:paytype runphp='yes']
+                         if((@me=='3'))@me='<img src="/templets/orange/images/xyyd.gif" />';else @me='';
+                      [/field:paytype]
+                      [field:attrid function='getLineAttrName2(@me)'/]
+
+                      </p>
+                </div>
+                <div class="list_price">
+                    <p class="p1">[field:array runphp='yes']
+                        $price = getNewRealPrice(@me['aid'],@me['webid']);
+                        if(!empty($price))@me='<span>&yen;'.$price.'</span>起';else @me='<span>电询</span>';[/field:array]</p>
+                  <p class="p2"><del>&yen;[field:storeprice/]</del></p>
+                  <p class="p3">
+                    [field:jifentprice runphp='yes']
+                      if(!empty(@me)) @me='<span class="sp_1"><b>'.@me.'</b><s></s></span>';else @me='';
+                    [/field:jifentprice]
+					[field:jifenbook runphp='yes']
+                      if(!empty(@me)) @me='<span class="sp_2"><b>'.@me.'</b><s></s></span>';else @me='';
+                    [/field:jifenbook]
+
+
+                  </p>
+                </div>
+              </div>
+          {/sline:list}
+          <!--列表部分结束-->
+
+
+
+
+        </div>
+        <!--分页代码样式开始-->
+        <div class="main_mod_page clear">
+           {sline:pagelist isstatic='1'/}
+        </div>
+        <div style="clear:both"></div>
+        <!--分页代码样式结束-->
+      </div>
+      <!--主体内容结束-->
+
+      <!--边栏开始-->
+      <div class="line_con_rig">
+
+           {sline:getrightcontent pagename='search'/}
+
+      </div>
+      <!--边栏结束-->
+      
+    </div>
+  </div>
+  <!-- 中间内容结束 -->
+  
+  {sline:include file='public/help.htm'/}
+  
+  {sline:include file='public/footer.htm'/}
+ <!--隐藏域-->
+  <input type="hidden" id="destid" value="{sline:global.dest_id/}"/>
+  <input type="hidden" id="attrid" value="{sline:global.attrid/}"/>
+  <input type="hidden" id="priceid" value="{sline:global.priceid/}"/>
+  <input type="hidden" id="day" value="{sline:global.day/}"/>
+  <input type="hidden" id="sorttype" value="{sline:global.sorttype/}"/>
+  <input type="hidden" id="pinyin" value="{sline:field.pinyin/}">
+  <input type="hidden" id="startcity" value="{sline:global.cityid/}">
+  <input type="hidden" id="keyword" value="{sline:global.keyword/}">
+
+ 
+
+</body>
+</html>

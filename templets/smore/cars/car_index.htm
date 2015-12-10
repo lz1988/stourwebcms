@@ -1,0 +1,160 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{sline:field.seotitle/}-{sline:global.cfg_webname/}</title>
+<meta name="keywords" content="{sline:field.seokeyword/}"/>
+<meta name="description" content="{sline:field.seodescription/}"/>
+<meta name="author" content="{sline:global.cfg_webname/}" />
+{sline:php}GetCss('base.css,car.css','2012.03');{/sline:php}
+{sline:php}GetScript('jquery-1.8.3.min.js,common.js,car.index.js','2014.01');{/sline:php}
+</head>
+
+<body>
+   {sline:include file='public/header.htm'/}
+  <!-- 中间内容开始 -->
+  <div class="big">
+  	<div class="width_1210">
+    	<!-- 面包屑and订单开始 -->
+    	<div class="top_first">
+      	<div class="crumbs"><a href="/">{sline:global.cfg_indexname/}</a> &raquo; {sline:field.typename/}</div>
+        {sline:include file='public/scroll_order.htm'/}
+      </div>
+      <!-- 面包屑and订单结束 -->
+
+      <div class="car_top">
+      	<!--租车筛选开始-->
+      	<div class="car_sx">
+        	<h3 class="car_title">租车查询</h3>
+
+        	<ul class="nr_ul" id="car_up">
+            <li>
+            	<label>租车类型</label>
+              <div class='diy_select'>
+                <input type="hidden" name="attrid" class='diy_select_input'/>
+                <div class="diy_select_txt">全部</div>
+                <div class="diy_select_btn"></div>
+                <ul class="diy_select_list">
+                {sline:getattrbygroup groupid='1'}
+                  <li rel="[field:id/]">[field:attrname/]</li>
+                {/sline:getattrbygroup}
+                </ul>
+              </div>
+            </li>
+            <li>
+            	<label>厢型</label>
+              <div class='diy_select'>
+                <input type="hidden" name="attrid2" class='diy_select_input'/>
+                <div class="diy_select_txt">全部</div>
+                <div class="diy_select_btn"></div>
+                <ul class="diy_select_list">
+                {sline:getattrbygroup groupid='2'}
+                  <li rel="[field:id/]">[field:attrname/]</li>
+                    {/sline:getattrbygroup}
+                </ul>
+              </div>
+            </li>
+            <li>
+            	<label>车型分类</label>
+              <div class='diy_select'>
+                <input type="hidden" name="carkindid" class='diy_select_input'/>
+                <div class="diy_select_txt">全部</div>
+                <div class="diy_select_btn"></div>
+                <ul class="diy_select_list">
+                {sline:getcarguidelist flag="stylelist"}
+                  <li rel="[field:id/]">[field:title/]</li>
+                {/sline:getcarguidelist}
+                </ul>
+              </div>
+            </li>
+          </ul>
+          <div class="car_cx"><a href="javascript:;" onClick="carUp()">租车查询</a></div>
+         <script>
+		   function carUp()
+		   {
+			  var attrid=$("#car_up input[name=attrid]").val();
+			  var attrid2= $("#car_up input[name=attrid2]").val();
+			  var carkindid= $("#car_up input[name=carkindid]").val();
+			  
+			  attrid=!attrid?0:attrid;
+			  attrid2=!attrid2?0:attrid2;
+			  carkindid=!carkindid?0:carkindid;
+			  
+			  window.open("/cars/all-0-"+carkindid+"-0-"+attrid+'_'+attrid2);
+		   }	 
+		 </script>
+        </div>
+        <!--租车筛选结束-->
+        
+        <!--租车轮播图开始-->
+        <div class="car_foucs  slides" id="slides" style="height:283px">
+        	 {sline:rollingad name='CarRollingAd'}
+        	<a href="[field:linkurl/]" target="_blank"><img src="[field:picurl/]" width="710" height="283" title="[field:linktext/]" alt="[field:linktext/]" /></a>
+            {/sline:rollingad}
+        </div>
+        <!--租车轮播图结束-->
+        
+        <!--广告图片位开始-->
+        <div class="h_ban">
+            {sline:myad name='CarRightAd'/}
+        </div>
+        <!--广告图片位结束-->
+      </div>
+      
+      <!--租车内容开始-->
+      <div class="car_con">
+      
+      	<!--左侧内容开始-->
+        <div class="car_index_left">
+        	<div class="tic_title">
+          	<h3><s></s>推荐租车</h3>
+            <div class="tic_nav">
+            	<span>热门车型：</span>
+               {sline:getcarguidelist flag="stylelist" row="30"}
+                  <a href="/cars/all-0-[field:id/]-0-0">[field:title/]</a>
+                {/sline:getcarguidelist}
+            </div>
+          </div>
+          <div class="car_list">
+          	<ul>
+             {sline:getcarlist row='12' flag='recommend' limit='0'}
+            	<li class="list_img">
+              	<a class="fl" href="[field:url/]"><img class="fl" src="[field:lit240/]" width="210" height="165" alt="[field:title/]" title="[field:title/]" /></a>
+                <p class="p1"></p>
+                <p class="p2"><a href="[field:url/]">[field:title/]</a><span>&yen;[field:price/]</span></p>
+              </li>
+             {/sline:getcarlist} 
+
+              <li class="list_hr"></li>
+              {sline:getcarlist row='12' flag='recommend' limit='12'}
+              <li class="list_txt"><a href="[field:url/]">[field:title/]</a><span><b>&yen;[field:price/]</b></span></li>
+              {/sline:getcarlist}
+            </ul>
+          </div>
+        </div>
+        <!--左侧内容结束-->
+        
+        <!--右侧内容开始-->
+        <div class="car_index_rig">
+          {sline:getrightcontent pagename='index'/}
+          
+        </div>
+        <!--右侧内容结束-->
+      
+      </div>
+      <!--租车内容结束-->
+      
+    </div>
+  </div>
+  <!-- 中间内容结束 -->
+  
+ <!--底部开始-->
+    {sline:include file='public/help.htm'/}
+  
+  {sline:include file='public/footer.htm'/}
+  
+  {sline:include file='public/flink.htm'/}
+  <!-- 底部结束 -->
+
+</body>
+</html>

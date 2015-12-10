@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{sline:field.searchtitle/}-{sline:global.cfg_webname/}</title>
+{sline:field.keywords/}
+{sline:field.description/}
+<meta name="author" content="{sline:global.cfg_webname/}" />
+{sline:php}GetCss('css.css,photo.css','2012.03');{/sline:php}
+{sline:php}GetScript('jquery.min.js,base.js,hotel.js','2012.03');{/sline:php}
+</head>
+
+<body>
+{sline:include file='public/top.htm'/}
+{sline:include file='public/logo.htm'/}
+{sline:include file='public/nav.htm'/}
+<div class="big">
+  <div id="mbx">
+     您的位置：<a href="{sline:cfg_basehost/}">首页</a>&nbsp;&raquo;&nbsp;<a href="{sline:global.cfg_cmsurl/}/photos/" rel="nofollow">相册</a>{sline:field.pkname/} &raquo; <span class="crumbs">{sline:field.subtitle/}</span>
+  </div>
+  <div id="photo_index">
+    <div id="ph_dh_b">
+      <h3><span class="photo_l"></span><span class="photo_m">相册搜索</span><span class="photo_r"></span>  <div onmouseover="MM_over(this)" onmouseout="MM_out(this)" style=" font-weight:400;float:left;width:80px;position:absolute; top:0; left:160px;background:url({sline:global.cfg_templets_skin/}/images/mdd_bg.gif) right no-repeat;">目的地筛选
+                <div style="width:600px; padding-top:5px;height:auto;display:none;position:absolute;left:0;top:25px; font-size:12px;z-inde:5;">
+                  <div class="mdd_gs">
+                    {sline:field.prelevellist/}
+                  </div>
+                </div>
+              </div></h3>
+      <ul>
+        <li><span>目的地：</span>
+        <span style=" width:640px">
+           <a href="{sline:global.cfg_cmsurl/}/photos/search_{sline:global.childid/}_0.html" class="{sline:global.childid runphp='yes'}if($GLOBALS['childid']==0)@me='gl_qb'; else @me='';{/sline:global.childid}">全部</a>
+           {sline:field.samelevellist/}{sline:field.nextlevellist/}
+        </span>
+        </li>
+        <li><span>相册类型：</span>
+        <span style=" width:640px">
+        <a href="search_0_0.html" class="{sline:global.attrid runphp='yes'}if(@me==0)@me='gl_qb'; else @me='';{/sline:global.attrid}">全部</a>
+          {sline:photoguide flag='attribute'}
+            <a href="[field:global.cfg_cmsurl/]/photos/search_[field:global.childid/]_[field:id/].html" class="[field:id runphp='yes']if($GLOBALS['attrid']==@me)@me='gl_qb'; else @me='';[/field:id]">[field:title/]</a>
+          {/sline:photoguide}
+        </span>
+        </li>
+      </ul>
+    </div>
+    <div id="tj_hot_ph">
+      <ul>
+        {sline:getphotolist flag='recommend' row='4'}
+        <li><a href="[field:url/]" target="_blank"><img src="[field:litpic/]" alt="[field:alt/]" width="154" height="86" /></a><span><a href="[field:url/]">[field:title/]</a></span></li>
+        {/sline:getphotolist}
+      </ul>
+    </div>
+    <div class="photo_gnw">
+      <h3>{sline:field.kindname/}风景相册</h3>
+      <dl class="ph_hot">
+        {sline:list}
+        <dd class="bigpic">
+          <a rel="nofollow" href="[field:array runphp='yes']@me=getphotourl(@me['webid'],@me['aid'],@me['headimgid']);[/field:array]"><img src="[field:array runphp='yes']@me=getheadurl(@me['webid'],@me['litpic']);[/field:array]" alt="[field:alt/]" width="229" height="129" /></a>
+          <span><a href="[field:url/]">[field:title/]</a><b style=" color:#16b; padding-left:10px">人气：[field:shownum/]</b><p>[field:content function="cutstr_html(@me,24)"/]<a href="[field:url/]">[详细]</a></p></span>
+        </dd>
+        {/sline:list}
+      </dl>
+    </div>
+    <div id="tiaozhuan">
+            <ul>
+             {sline:pagelist listitem="info,index,end,pre,next,pageno,option" listsize="5"/}
+            </ul>
+           </div>
+  </div>
+ <div id="right">
+  {sline:getrightcontent pagename='search'/}
+</div>
+</div>
+{sline:include file='public/footer.htm'/}
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+ <div class="scrollDiv" id="s1">
+          <ul>
+           {sline:getorderlist flag='all' row='3'}
+             <li><span>[field:nickname/]</span>[field:dingtime/]预订了[field:productname/]</li>
+           {/sline:getorderlist}
+           {sline:getcommentlist flag="all" row='3'}
+             <li><span>[field:nickname/]</span>[field:pltime/]评论了[field:productname/]</li>
+           {/sline:getcommentlist}
+            {sline:getarclist flag="new" row='3'}
+             <li><span>[field:global.cfg_webname/]</span>[field:addtime function="Helper_Archive::formatAddTime(@me)"/]发表了<a href="[field:url/]">[field:title/]</a></li>
+           {/sline:getarclist}
+            
+          </ul>
+</div><!--scrollDiv end-->
+<script type="text/javascript">
+function AutoScroll(obj){
+  $(obj).find("ul:first").animate({
+	marginTop:"-25px"
+  },500,function(){
+	$(this).css({marginTop:"0px"}).find("li:first").appendTo(this);
+  });
+}
+$(document).ready(function(){
+  setInterval('AutoScroll("#s1")',3000);
+});
+</script>

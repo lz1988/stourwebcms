@@ -1,0 +1,319 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{sline:global.cfg_indextitle/}</title>
+    <meta name="keywords" content="{sline:global.cfg_keywords/}" />
+    <meta name="author" content="{sline:global.cfg_webname/}" />
+    <meta name="description" content="{sline:global.cfg_description/}" />
+    {sline:global.cfg_indexcode/} {sline:php}GetCss('base.css,index.css','2015.03');{/sline:php}
+    {sline:php}GetScript('jquery-1.8.3.min.js,common.js,slideTabs.js,focus.js,lazy.js','2015.04');{/sline:php}
+
+    <script>
+
+        $(function () {
+            $('.jd-car-box').switchTab();
+            $('.raider-box').switchTab();
+        })
+
+    </script>
+</head>
+<body>
+    {sline:include file='public/header.htm'/}
+    <!--滚动焦点图开始-->
+    <div class="focus_img">
+        <div id="_banners" class="banners">
+            {sline:rollingAd name='IndexRollingAd'}
+            <div class="banner">
+                <a href="[field:linkurl/]" target="_blank">
+                    <img width="1920" height="340" src="[field:picurl/]" alt="[field:linktext/]" /></a>
+            </div>
+            {/sline:rollingAd}
+        </div>
+        <div id="_focus" class="focus">
+            {sline:rollingAd name=IndexRollingAd} <a data-index="[field:global.step runphp='yes']@me=intval(@me)-1;[/field:global.step]"
+                href="javascript:void(0);"><span class="bg-b"></span><span class="inner"></span>
+            </a>{/sline:rollingAd}
+        </div>
+    </div>
+    <!--滚动焦点图结束-->
+    <!--品质保证-->
+    <div class="brand">
+        <div class="width_1210">
+            <dl class="sl">
+                <dt>当地实力</dt>
+                <dd>
+                    专注当地旅游，汇聚实力</dd>
+            </dl>
+            <dl class="jx">
+                <dt>精挑细选</dt>
+                <dd>
+                    亲身体验，甄选产品</dd>
+            </dl>
+            <dl class="pz">
+                <dt>品质服务</dt>
+                <dd>
+                    用高性价比，以心换心</dd>
+            </dl>
+        </div>
+    </div>
+    {sline:channelcheck typeid='1'}
+    <div class="big bgcolor_f5f5f5">
+        <div class="width_1210">
+            <div class="hot-line-box">
+                <div class="hot-line-tit">
+                    <h3>热门旅游线路</h3>
+                    <a class="more" target="_blank" href="/lines">更多&gt;&gt;</a>                </div>
+                <div class="hot-line-con">
+                    <div class="adv-ment-limg">
+                        {sline:singlead name='indexLineAd1'} <a class="fl" href="[field:linkurl/]" target="_blank">
+                            <img class="fl lazyimg" src="" width="287" height="352" data-original="[field:picurl/]" /></a>
+                        {/sline:singlead} {sline:singlead name='indexLineAd2'} <a class="fl" href="[field:linkurl/]"
+                            style="margin-top: 20px">
+                            <img class="fl lazyimg" src="" width="287" height="352" data-original="[field:picurl/]" /></a>
+                        {/sline:singlead}
+                    </div>
+                    <div class="line-list-con">
+                        <ul>
+                            {sline:getlinelist type="mdd" flag="recommend" row="6"}
+                            <li><i>推荐</i> <a class="fl" href="[field:url/]" target="_blank">
+                                <img class="fl lazyimg" src="" data-original="[field:litpic/]" alt="[field:title/]"
+                                    width="285" height="190" /></a>
+                                <p class="p1">
+                                    <a href="[field:url/]" target="_blank">[field:title/]</a></p>
+                                <p class="p2">
+                                    [field:sellpoint/]</p>
+                                <p class="p3">
+                                    [field:attrid runphp='yes'] $arr = Helper_Archive::getAttrNameList(@me,1); foreach($arr
+                                    as $row) { $url = $GLOBALS['cfg_basehost'].'/lines/0-0-0-0-0-0-0-0-'.$row['id'];
+                                    $str.='<a href="'.$url.'" target="_blank">'.$row['attrname'].'</a>'; } @me=$str;
+                                    [/field:attrid]
+                                </p>
+                                <p class="p4">
+                                    <span>优惠价：[field:sellprice runphp='yes'] if(!empty(@me))@me='<b>&yen;'.@me.'</b>'; else
+                                        @me='电询'; [/field:sellprice]</span> <a href="[field:url/]" target="_blank">立即预定</a>
+                                </p>
+                            </li>
+                            {/sline:getlinelist}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {/sline:channelcheck} 
+    
+    {sline:channelcheck typeid='2'}
+    <div class="big">
+        <div class="width_1210">
+            <div class="hot-hotel-box">
+                <div class="hot-hotel-tit">
+                    <h3>热门酒店</h3>
+                    <a class="more" target="_blank" href="/hotels">更多&gt;&gt;</a>                </div>
+                <div class="hot-hotel-con">
+                    <div class="adv-ment-himg">
+                        {sline:singlead name='indexHotelAd1'} <a class="fl" href="[field:linkurl/]" style="margin-top: 10px"
+                            target="_blank">
+                            <img class="fl lazyimg" src="" width="227" height="275" data-original="[field:picurl/]" /></a>
+                        {/sline:singlead} {sline:singlead name='indexHotelAd2'} <a class="fl" href="[field:linkurl/]"
+                            style="margin-top: 10px" target="_blank">
+                            <img class="fl lazyimg" src="" width="227" height="275" data-original="[field:picurl/]" /></a>
+                        {/sline:singlead}
+                    </div>
+                    <div class="hotel-list-con">
+                        <ul>
+                            {sline:gethotellist type="mdd" row="8"}
+                            <li><a class="fl" href="[field:url/]" target="_blank">
+                                <img class="fl lazyimg" src="" data-original="[field:litpic/]" alt="[field:title/]"
+                                    width="223" height="160" /></a>
+                                <p class="tit">
+                                    <a href="[field:url/]" target="_blank">[field:title/]</a></p>
+                                <p class="txt">
+                                    [field:sellpoint/]</p>
+                                <p class="price">
+                                    [field:sellprice runphp='yes']if(!empty(@me))@me='&yen;<span>'.@me.'</span>';else @me='电询';[/field:sellprice]
+                                </p>
+                            </li>
+                            {/sline:gethotellist}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {/sline:channelcheck}
+    <div class="big bgcolor_f5f5f5">
+        <div class="width_1210">
+            <div class="jd-car-box">
+                <div class="tabnav">
+					{sline:channelcheck typeid='3'} 
+					<span>旅游租车</span> 
+					{/sline:channelcheck}
+                    {sline:channelcheck typeid='5'} 
+					<span>推荐景点</span> 
+					{/sline:channelcheck} 
+                </div>
+				<div class="tabcon">
+                    <div class="adv-ment-jimg">
+                        {sline:myad name='indexCarAd1'/}
+                    </div>
+                    {sline:channelcheck typeid='3'}
+                    <div class="jd-car-list">
+                        <ul>
+                            {sline:getcarlist type='mdd' row='4'}
+                            <li><a class="fl" href="[field:url/]" target="_blank">
+                                <img class="fl lazyimg" src="" data-original="[field:litpic/]" alt="asdf" width="223"
+                                    height="160" /></a>
+                                <p class="tit">
+                                    <a href="[field:url/]" target="_blank">[field:title/]</a></p>
+                                <p class="txt">
+                                    [field:sellpoint/]</p>
+                                <p class="price">
+                                    [field:sellprice runphp='yes'] if(!empty(@me))@me='<b>&yen;'.@me.'</b>'; else @me='电询';
+                                    [/field:sellprice]
+                                </p>
+                            </li>
+                            {/sline:getcarlist}
+                        </ul>
+                    </div>
+                    {/sline:channelcheck}
+                </div>
+                <div class="tabcon">
+                    <div class="adv-ment-jimg">
+                        {sline:myad name='indexSpotAd1'/}
+                    </div>
+                    {sline:channelcheck typeid='5'}
+                    <div class="jd-car-list">
+                        <ul>
+                            {sline:getspotlist type='mdd' flag='recommend' row='4'}
+                            <li><a class="fl" href="[field:url/]" target="_blank">
+                                <img class="fl lazyimg" src="" data-original="[field:litpic/]" alt="[field:title/]"
+                                    width="223" height="160" /></a>
+                                <p class="tit">
+                                    <a href="[field:url/]" target="_blank">[field:title/]</a></p>
+                                <p class="txt">
+                                    [field:sellpoint/]</p>
+                                [field:sellprice runphp='yes'] if(!empty(@me)) @me='
+                                <p class="price">
+                                    &yen;<span>'.@me.'</span></p>
+                                '; else @me=''; [/field:sellprice] </li>
+                            {/sline:getspotlist}
+                        </ul>
+                    </div>
+                    {/sline:channelcheck}
+                </div>
+            </div>
+        </div>
+    </div>
+    {sline:channelcheck typeid='4'}
+    <div class="big">
+        <div class="width_1210">
+            <div class="raider-box">
+                <div class="tabnav">
+                    <span>最新攻略</span>
+                    <span>推荐攻略</span>                </div>
+                <div class="tabcon">
+                    <div class="nav_tits">
+                    {sline:getarcattr}
+                        <a target="_blank" href="[field:url/]">[field:title/]</a>
+                    {/sline:getarcattr}
+                        <a target="_blank" href="/raiders" class="more">更多&gt;</a>
+                    </div>
+                    <div class="raider-list-l">
+                        <ul>
+                            {sline:getarclist type='mdd' flag='new' haspic='1' row='3'}
+                            <li [field:global.autoindex runphp='yes']if(@me%3==0)@me='class="mr_0"';else @me='';[/field:global.autoindex]>
+                                <a class="fl" href="[field:url/]" target="_blank">
+                                <img class="fl" src="" data-original="[field:litpic/]" alt="[field:title/]"
+                                    width="240" height="178" /></a>
+                                <p class="tit">
+                                    <a href="[field:url/]" target="_blank">[field:title/]</a></p>
+                                <p class="txt">
+                                    [field:content function="cutstr_html(@me,40)"/]<a href="[field:url/]" target="_blank">[详细]</a></p>
+                            </li>
+                            {/sline:getarclist}
+
+                            {sline:getarclist type='mdd' flag='new' row='3' limit='3'}
+                            <li [field:global.autoindex runphp='yes']if(@me%3==0)@me='class="mr_0"';else @me='';[/field:global.autoindex]>
+                                <p class="tit">
+                                    <a href="[field:url/]" target="_blank">[field:title/]</a></p>
+                                <p class="txt">
+                                    [field:content function="cutstr_html(@me,40)"/]<a href="[field:url/]" target="_blank">[详细]</a></p>
+                            </li>
+                            {/sline:getarclist}
+                        </ul>
+                    </div>
+                    <div class="raider-list-r">
+                        <ul>
+                            {sline:getarclist type='mdd' flag='new' row='4' limit='6'}
+                            <li>
+                                <p class="tit">
+                                    <a href="[field:url/]" target="_blank">[field:title/]</a></p>
+                                <p class="txt">
+                                    [field:content function="cutstr_html(@me,40)"/]</p>
+                            </li>
+                            {/sline:getarclist}
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tabcon">
+                    <div class="nav_tits">
+                    {sline:getarcattr}
+                        <a target="_blank" href="[field:url/]">[field:title/]</a>
+                    {/sline:getarcattr}
+                        <a target="_blank" href="/raiders" class="more">更多&gt;</a>
+                    </div>
+                    <div class="raider-list-l">
+                        <ul>
+                            {sline:getarclist type='mdd' flag='recommend' haspic='1' row='3'}
+                            <li [field:global.autoindex runphp='yes']if(@me%3==0)@me='class="mr_0"';else @me='';[/field:global.autoindex]>
+                                <a class="fl" href="[field:url/]" target="_blank">
+                                <img class="fl" src="" data-original="[field:litpic/]" alt="[field:title/]"
+                                    width="240" height="178" /></a>
+                                <p class="tit">
+                                    <a href="[field:url/]" target="_blank">[field:title/]</a></p>
+                                <p class="txt">
+                                    [field:content function="cutstr_html(@me,40)"/]<a href="[field:url/]" target="_blank">[详细]</a></p>
+                            </li>
+                            {/sline:getarclist}
+
+                            {sline:getarclist type='mdd' flag='recommend' row='3' limit='3'}
+                            <li [field:global.autoindex runphp='yes']if(@me%3==0)@me='class="mr_0"';else @me='';[/field:global.autoindex]>
+                                <p class="tit">
+                                    <a href="[field:url/]" target="_blank">[field:title/]</a></p>
+                                <p class="txt">
+                                    [field:content function="cutstr_html(@me,40)"/]<a href="[field:url/]" target="_blank">[详细]</a></p>
+                            </li>
+                            {/sline:getarclist}
+                        </ul>
+                    </div>
+                    <div class="raider-list-r">
+                        <ul>
+                            {sline:getarclist type='mdd' flag='recommend' row='4' limit='6'}
+                            <li>
+                                <p class="tit">
+                                    <a href="[field:url/]" target="_blank">[field:title/]</a></p>
+                                <p class="txt">
+                                    [field:content function="cutstr_html(@me,40)"/]</p>
+                            </li>
+                            {/sline:getarclist}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {/sline:channelcheck} 
+
+    {sline:include file='public/help.htm'/} 
+    {sline:include file='public/footer.htm'/}
+    {sline:include file='public/flink.htm'/}
+
+    <script>
+        $(function () {
+            $('img[data-original]').lazyload({ container: "window", threshold: 100 });
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>私人旅游订制</title>
+{sline:php}GetCss('base.css,customize.css','2012.03');{/sline:php}
+<script src="{sline:global.cfg_templets_skin/}/js/DatePicker/WdatePicker.js"></script>
+{sline:php}GetScript('jquery-1.8.3.min.js,common.js','2014.01');{/sline:php}
+</head>
+
+<body>
+	 {sline:include file='public/header.htm'/}
+  
+  <!-- 中间内容开始 -->
+  <div class="big">
+  	<div class="width_1210">
+    	<!-- 面包屑and滚动订单开始 -->
+    	<div class="top_first">
+      	<div class="crumbs"><a href="/">首页</a> &gt; 私人定制</div>
+        {sline:include file='public/scroll_order.htm'/}
+      </div>
+      <!-- 面包屑and滚动订单结束 -->
+
+      <div class="sr_order">
+      	<div class="or_head"><img class="fl" src="{sline:global.cfg_templets_skin/}/images/sr_top_bg.jpg" /></div>
+        <div class="or_body">
+            <form method="post" id="cusfm" action="/customize/save.php">
+        	<div class="dz_first">
+          	<h3><img class="fl" src="{sline:global.cfg_templets_skin/}/images/one_bg.jpg" /></h3>
+            <div class="dz_nr_con">
+            	<table width="916" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <th width="350" height="50" align="right" scope="row">目的地<span class="f60">*</span></th>
+                  <td width="560" height="50"><input type="text" name="dest" class="order_txt noblank" /></td>
+                </tr>
+                <tr>
+                  <th height="50" align="right" scope="row">出发时间<span class="f60">*</span></th>
+                  <td height="50"><input type="text" name="starttime" onClick="WdatePicker()" class="order_txt noblank" /></td>
+                </tr>
+                <tr>
+                  <th height="50" align="right" scope="row">出发地点<span class="f60">*</span></th>
+                  <td height="50"><input type="text" name="startplace"  class="order_txt noblank" /></td>
+                </tr>
+                <tr>
+                  <th height="50" align="right" scope="row">出行时长<span class="f60">*</span></th>
+                  <td height="50"><input type="text" class="order_txt noblank" name="days" />天</td>
+                </tr>
+                <tr>
+                  <th height="50" align="right" scope="row">成人数<span class="f60">*</span></th>
+                  <td height="50"><input type="text" class="order_txt noblank" name="adultnum" />位</td>
+                </tr>
+                <tr>
+                  <th height="50" align="right" scope="row">儿童数<span class="f60">*</span></th>
+                  <td height="50"><input type="text" class="order_txt noblank" name="childnum" />位</td>
+                </tr>
+                <tr>
+                  <th height="50" align="right" scope="row">交通方式 </th>
+                  <td height="50" class="aitem">
+                    <input type="hidden" name="planerank" value="飞机"/>
+                      <a class="active" href="javascript:;">飞机</a>
+                  	<a href="javascript:;">火车</a>
+                    <a href="javascript:;">汽车</a>
+                    <a href="javascript:;">自驾</a>
+                    <a href="javascript:;">无</a>
+                  </td>
+                </tr>
+                <tr>
+                  <th height="50" align="right" scope="row">酒店星级 </th>
+                  <td height="50" class="aitem">
+                    <input type="hidden" name="hotelrank" value="三星级"/> 
+                  	<a class="active" href="javascript:;">三星级</a>
+                    <a href="javascript:;">四星级</a>
+                    <a href="javascript:;">五星级</a>
+                    <a href="javascript:;">五星级以上</a>
+                    <a href="javascript:;">快捷经济型</a>
+                    <a href="javascript:;">其它</a>
+                  </td>
+                </tr>
+                <tr>
+                  <th height="50" align="right" scope="row">需要房型</th>
+                  <td height="50" class="aitem">
+                    <input type="hidden" name="room" value="单人"/> 
+                  	<a class="active" href="javascript:;">单人</a>
+                    <a href="javascript:;">双人大床房</a>
+                    <a href="javascript:;">双人分床房</a>
+                    <a href="javascript:;">套间</a>
+                    <a href="javascript:;">海景房</a>
+                    <a href="javascript:;">其它</a>
+                  </td>
+                </tr>
+                <tr>
+                  <th height="50" align="right" scope="row">用餐形式 </th>
+                  <td height="50" class="aitem">
+                    <input type="hidden" name="food" value="自理"/> 
+                  	<a class="active" href="javascript:;">自理</a>
+                    <a href="javascript:;">部分自理</a>
+                    <a href="javascript:;">全包用餐</a>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class="dz_second bor_bom">
+          	<h3><img class="fl" src="{sline:global.cfg_templets_skin/}/images/two_bg.jpg" /></h3>
+            <div class="dz_nr_con">
+            	<table width="918" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <th width="350" height="60" align="right" scope="row">您的称呼<span class="f60">*</span></th>
+                  <td width="560"><input type="text" class="order_txt2 noblank" name="contactname" /></td>
+                </tr>
+                <tr>
+                  <th height="60" align="right" scope="row">您的性别</th>
+                  <td class="aitem">
+                     <input type="hidden" name="sex" value="先生"/> 
+                  	<a class="active" href="javascript:;">先生</a>
+                    <a href="javascript:;">女士</a>
+                  </td>
+                </tr>
+                <tr>
+                  <th height="60" align="right" scope="row">所在地点<span class="f60">*</span></th>
+                  <td><input type="text" class="order_txt2 noblank" name="address" /></td>
+                </tr>
+                <tr>
+                  <th height="60" align="right" scope="row">联系电话<span class="f60">*</span></th>
+                  <td><input type="text" class="order_txt2 noblank" name="phone" /></td>
+                </tr>
+                <tr>
+                  <th height="60" align="right" scope="row">Email</th>
+                  <td><input type="text" class="order_txt2" name="email" /></td>
+                </tr>
+                <tr>
+                  <th height="60" align="right" scope="row">合适的联系时间</th>
+                  <td class="aitem">
+                    <input type="hidden" name="contacttime" value="9:00-12:00"/>
+                  	<a class="active" href="javascript:;">9:00-12:00</a>
+                  	<a href="javascript:;">14:00-18:00</a>
+                  	<a href="javascript:;">19:00-22:00</a>
+                  </td>
+                </tr>
+                <tr>
+                  <th height="120" align="right" valign="top" scope="row">其它要求</th>
+                  <td height="120">
+                  	<textarea name="content"></textarea>
+                  </td>
+                </tr>
+                <tr>
+                  <th align="right" scope="row">&nbsp;</th>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <th height="40" colspan="2" align="center" valign="middle" scope="row"><a class="tj_order_btn_c" href="javascript:;" onClick="checkForm()">提交订单</a></th>
+                </tr>
+              </table>
+
+            </div>
+          </div>
+          </form>
+        </div>
+        <div class="or_foot"><img class="fl" src="{sline:global.cfg_templets_skin/}/images/sr_bom_bg.jpg" /></div>
+      </div>
+      
+		</div>
+  </div>
+  <!-- 中间内容结束 -->
+  <script>
+     $(".aitem a").click(function(e) {
+         $(this).siblings("input:hidden").val($(this).text());
+		 $(this).siblings("a").removeClass("active");
+		 $(this).addClass("active");
+    });
+	
+	
+	function checkForm()
+	{
+		var isvalidate=true;
+		$(".noblank").each(function(index, element) {
+             var val=$(element).val();
+			 val=$.trim(val);
+			 if(!val)
+			  {  
+			      var offset=$(element).offset();
+				  $(window).scrollTop(offset.top-100);			
+        		  $(element).css("border","1px solid red");
+				  isvalidate=false;
+				  return false;
+			  }
+			  else
+			  {
+				  $(element).css("border","1px solid #dcdcdc");
+			  }
+        });
+	    if(isvalidate)	
+		$("#cusfm").submit();
+	}
+	
+	function scrollSlow(pos)
+	{
+		
+	}
+  </script>
+  
+  <!--底部开始-->
+    {sline:include file='public/help.htm'/}
+  
+  {sline:include file='public/footer.htm'/}
+  
+  {sline:include file='public/flink.htm'/}
+  <!-- 底部结束 -->
+
+</body>
+</html>

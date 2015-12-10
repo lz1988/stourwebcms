@@ -1,0 +1,135 @@
+/**
+ * Created by Administrator on 2015/6/24 0024.
+ */
+.s-main{
+}
+.s-main .s-search .txt-wp{
+    line-height: 25px;
+    height: 30px;
+}
+.s-main .s-search .txt-wp .s-txt{
+    border:1px solid #DCDCDC;
+    line-height:25px;
+    height: 25px;
+    width: 250px;
+    float:left;
+}
+.s-search .txt-wp .s-btn{
+    float:left;
+    height: 20px;
+    width: 20px;
+    line-height: 25px;
+    margin-top:5px;
+    margin-left:-25px;
+    background: url(../images/dest_btns.png) no-repeat -20px 0px;
+}
+.s-search .txt-wp .s-btn:hover{
+    background: url(../images/dest_btns.png) no-repeat -20px 0px;
+}
+.s-search .txt-wp .s-btn:active{
+    background: url(../images/dest_btns.png) no-repeat -40px 0px;
+}
+.s-chosen .chosen-tit
+{
+    padding: 10px 0px 5px 0px;
+    line-height: 25px;
+}
+.con-one{
+    padding: 10px 0px 0px 0px;
+    border-bottom: 1px solid #dcdcdc;
+}
+.con-one .all-btn{
+    color:#43AEE4;
+    margin-bottom: 10px;
+}
+.con-one .all-btn:hover{
+    color:#F8BA53;
+}
+.con-one .dest-item{
+    float:left;
+    margin-right: 20px;
+    margin-bottom:10px;
+    width: 120px;
+}
+.con-one .lb-box{
+    vertical-align: middle;
+    margin-top:3px;
+}
+.con-one .lb-num{
+    line-height:16px;
+}
+.con-one .lb-tit,.con-one .lb-box,.con-one a{
+    float:left;
+}
+.con-one .lb_5{
+    width:60px;
+}
+.con-one .dest-item label,.con-one .dest-item a{
+    margin-left: 3px;
+}
+.con-one .dest-item .num-len1{
+    padding:0px 3px;
+    background:url(../images/dest_btns.png) no-repeat 0px -33px ;
+    color:white;
+}
+.con-one .dest-item .num-len1:hover{
+    background:url(../images/dest_btns.png) no-repeat 0px -18px ;
+}
+.con-one .dest-item .num-len2{
+    padding:0px 3px;
+    background:url(../images/dest_btns.png) no-repeat -15px -33px ;
+    color:white;
+}
+.con-one .dest-item .num-len2:hover{
+    background:url(../images/dest_btns.png) no-repeat -15px -18px ;
+}
+.clear-both{
+    clear:both;
+}
+
+.s-chosen .chosen-one{
+    background:#EBF0F6;
+    -moz-border-radius: 5px;      /* Gecko browsers */
+    -webkit-border-radius: 5px;   /* Webkit browsers */
+    border-radius:5px;            /* W3C syntax */
+    padding: 1px 20px 1px 5px;
+    border:1px solid #D0D9E8;
+    position: relative;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    float:left;
+    line-height: 25px;
+}
+.s-chosen .chosen-one .del{
+    position: absolute;
+    right:8px;
+    top:0px;
+    font-size: 13px;
+}
+.s-chosen .chosen-one .del:hover{
+    color:red;
+}
+.confirm-btn{
+    background: #43AEE4;
+    -moz-border-radius: 5px;      /* Gecko browsers */
+    -webkit-border-radius: 5px;   /* Webkit browsers */
+    border-radius:5px;            /* W3C syntax */
+    line-height: 25px;
+    height: 25px;
+    padding: 0px 15px;
+    display: inline-block;
+    color:white;
+    cursor: pointer;
+    text-decoration: none;
+}
+.confirm-btn:hover{
+    background:#008ED8;
+}
+.confirm-btn:active{
+    background: #F6B74D;
+}
+
+.s-main .save-con{
+    padding: 20px 0px;
+    text-align: center;
+}

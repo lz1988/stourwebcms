@@ -1,0 +1,1 @@
+<a href="[field:word function=getSearchUrl(@me,'day')/]" data-field="day" data-value="[field:word/]">[field:title/]</a>

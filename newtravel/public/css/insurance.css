@@ -1,0 +1,67 @@
+/*新的CSS */
+.tourer-nav .tourer-add
+{
+   background: url(../images/btn-ad.png);
+    padding: 4px 10px 4px 30px;
+    background-repeat: no-repeat;
+    line-height: 20px;
+    color:white;
+}
+.tourer-nav a:hover{
+    color:#f60;
+
+}
+.tourer-container .wrp
+{
+    border:1px solid #dcdcdc;
+    padding:20px;
+    width: 550px;
+    margin-right:20px;
+    float:left;
+    margin-bottom: 50px;
+}
+.tourer-container .n-tb{
+    padding: 0px;
+    border:0px;
+}
+.tourer-container .n-tb .tit{
+    padding-left:20px;
+    text-align: right;
+}
+.tourer-container .n-tb tr{
+    height: 35px;
+    line-height: 35px;
+}
+.tourer-container .n-tb tr td .txt{
+    height: 25px;
+    line-height: 25px;
+    border:1px solid #DCDCDC;
+}
+.tourer-container .n-tb tr .btn-td{
+    position: relative;
+}
+.tourer-container .n-tb .btn-td .cp{
+    position:absolute;
+    right:40px;
+    top:70px;
+    background-image: url(../images/tb-btn.png);
+    background-repeat: no-repeat;
+    padding: 3px 20px 3px 20px;
+    line-height: 20px;
+    color:white;
+}
+.tourer-container .n-tb .btn-td .del{
+    position:absolute;
+    right:-35px;
+    top:70px;
+    background-image: url(../images/tb-btn.png);
+    background-repeat: no-repeat;
+    padding: 3px 20px 3px 20px;
+    line-height: 20px;
+    color:white;
+}
+.tourer-container .n-tb .btn-td a:hover{
+    color:#f60;
+}
+.tourer-container .n-tb .con-td{
+}

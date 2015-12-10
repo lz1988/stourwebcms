@@ -1,0 +1,18 @@
+<!--热门团购产品开始-->
+        <div class="hot_pro">
+        	<h3>热门团购产品</h3>
+          <div class="side_plb_list">
+          	{sline:gettuanlist flag='recommend' row='4'}
+          	<dl class="dl_list">
+            	<dt><a class="fl" href="[field:url/]" target="_blank"><img class="fl" src="[field:lit240/]" width="218" height="130" alt="[field:title/]" /></a></dt>
+              <dd class="dd1"><a href="[field:url/]" target="_blank">[field:title/]</a></dd>
+              <dd class="dd2">
+              	<span class="sp_1">[field:price/]</span>
+                <span class="sp_2">[field:discount/]折</span>
+                <a href="[field:url/]" target="_blank">抢购</a>
+              </dd>
+            </dl>
+           {/sline:gettuanlist}
+          </div>
+        </div>
+<!--热门团购产品结束-->

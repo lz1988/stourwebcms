@@ -1,0 +1,1 @@
+<li class="list_txt"><a href="[field:url/]" target="_blank" title="[field:title/]">[field:title/]</a><span>[field:price/]</span></li>

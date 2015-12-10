@@ -1,0 +1,190 @@
+/* CSS Document */
+.pay_main{
+	width:1000px;
+	margin:auto;
+	height:600px;
+	padding-top:40px;
+	line-height: 1.5;
+font-size: 12px;
+color: #333;
+}
+
+
+.pay_main .pay_tb .l_name{
+	background:#eeeeee;
+	font-size:14px;
+	font-family:"微软雅黑";
+	color:#666;
+	font-weight:700;
+	padding-left:20px;
+}
+.pay_main h4{
+	color:#39a41a;
+	font-size:30px;
+	font-family:"微软雅黑";
+	text-align:center;
+	font-weight:300;
+	line-height:30px;
+}
+.pay_main .tj{
+	text-align:center;
+}
+.pay_main .tj a{
+	padding:5px 20px 5px 20px;
+	background:#39a41a;
+	display:inline-block;
+	font-size:18px;
+	color:white;
+}
+
+.pay_main .pay_tb .pr{
+   width:100px;
+}
+.clearfix {
+zoom: 1;
+}
+
+
+.hidden{
+	display:none;
+}
+
+.new-btn-login-sp{
+	border:1px solid #D74C00;
+	padding:1px;
+	display:inline-block;
+}
+
+.new-btn-login{
+    background-color: transparent;
+    background-image: url("images/new-btn-fixed.png");
+    border: medium none;
+}
+.new-btn-login{
+    background-position: 0 -198px;
+    width: 82px;
+	color: #FFFFFF;
+    font-weight: bold;
+    height: 28px;
+    line-height: 28px;
+    padding: 0 10px 3px;
+}
+.new-btn-login:hover{
+	background-position: 0 -167px;
+	width: 82px;
+	color: #FFFFFF;
+    font-weight: bold;
+    height: 28px;
+    line-height: 28px;
+    padding: 0 10px 3px;
+}
+.bank-lists{
+	overflow:hidden;
+	margin-top:5px;
+}
+.bank-lists li{
+	float:left;
+	width:153px;
+	margin-bottom:5px;
+}
+
+#mains{
+	width:700px;
+	margin:0 auto;
+	font-size:14px;
+	font-family:'宋体';
+}
+#logos{
+	background-color: transparent;
+    background-image: url("images/new-btn-fixed.png");
+    border: medium none;
+	background-position:0 0;
+	width:166px;
+	height:35px;
+    float:left;
+}
+.red-star{
+	color:#f00;
+	width:10px;
+	display:inline-block;
+}
+.null-star{
+	color:#fff;
+}
+.contents{
+	margin-top:5px;
+}
+
+.contents dt{
+	width:100px;
+	display:inline-block;
+	text-align:right;
+	float:left;
+	
+}
+.contents dd{
+	margin-left:100px;
+	margin-bottom:5px;
+}
+#foots{
+	margin-top:10px;
+}
+.foot-ul li {
+	text-align:center;
+}
+.note-help {
+    color: #999999;
+    font-size: 12px;
+    line-height: 130%;
+    padding-left: 3px;
+}
+
+.cashier-nav {
+    font-size: 14px;
+    margin: 15px 0 10px;
+    text-align: left;
+    height:30px;
+    border-bottom:solid 2px #CFD2D7;
+}
+.cashier-nav ol li {
+    float: left;
+}
+.cashier-nav li.current {
+    color: #AB4400;
+    font-weight: bold;
+}
+.cashier-nav li.last {
+    clear:right;
+}
+.alipay_link {
+    text-align:right;
+}
+.alipay_link a:link{
+    text-decoration:none;
+    color:#8D8D8D;
+}
+.alipay_link a:visited{
+    text-decoration:none;
+    color:#8D8D8D;
+}
+
+.ny_about{ width:222px; height:auto; border:1px solid #B9D6EF;}
+.ny_about_1{ width:220px; height:auto; padding:1px;}
+.ny_about_2{ width:220px; height:auto; background-color:#E0F1FF;}
+.ny_about_3{ width:220px; height:10px; }
+.ny_about_3_1{ width:220px; height:50px; }
+.ny_about_4{ width:200px; height:auto; }
+.ny_about_5{ width:200px; height:40px; border-bottom:1px dashed #666666; }
+.ny_about_6{ width:200px; height:25px; padding-top:15px; line-height:25px;}
+.ny_about_6 a{ font-size:14px; font-weight:bold; font-family:"宋体"}
+.ny_about_6 a:hover{ text-decoration:underline;}
+.ny_about_7{ width:700px; padding:15px 0px 15px 0px; line-height:20px; color:#333333;}
+.ny_about_8{ width:700px; height:40px;}
+.ad1_newsss TD{ height:40PX;height:38PX\9}
+
+.ad1_newsss TD.AAA{ text-align:right; padding-right:5PX; color:#666; font-size:14px; width:80PX;}
+
+.wangzhao{ padding:0; margin:0; list-style:none; padding-left:18px; padding-right:10px; padding-top:10px;}
+.wangzhao li{ padding:0; margin:0; color:#666; line-height:22px;list-style:none}
+.REDS{ color:#F00}
+

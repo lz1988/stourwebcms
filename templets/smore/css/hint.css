@@ -1,0 +1,53 @@
+.ts_page_box{
+    margin:20px auto 0;
+    width:694px;
+    height:344px;
+    border:3px solid #e9e9e9}
+.ts_page_box .op_tit,
+.ts_page_box .op_nr{
+    float:left;
+    width:400px;
+    margin-left:147px;
+    text-align:center}
+.ts_page_box .op_tit{
+    padding:20px 0;
+    margin-top:50px;
+    border-bottom:1px solid #eee}
+.ts_page_box .op_tit h3{
+    float:left;
+    color:#ff7200;
+    width:400px;
+    height:40px;
+    line-height:40px;
+    font-size:22px;
+    font-weight:500}
+.ts_page_box .op_tit p{
+    float:left;
+    color:#464646;
+    width:400px;
+    font-size:14px}
+.ts_page_box .op_nr p{
+    float:left;
+    color:#999;
+    width:400px;
+    margin-top:20px;
+    font-size:14px}
+.ts_page_box .op_nr .lm_link{
+    float:left;
+    width:400px;
+    margin-top:20px}
+.ts_page_box .op_nr .lm_link a{
+    display:inline-block;
+    color:#999;
+    height:28px;
+    line-height:28px;
+    text-align:center;
+    padding:0 15px;
+    margin-right:10px;
+    font-size:14px;
+    border:1px solid #c9c9c9;
+    border-radius:3px}
+.ts_page_box .op_nr .lm_link a:hover,
+.ts_page_box .op_nr .lm_link a.on{
+    color:#ff7200;
+    border:1px solid #f56800}

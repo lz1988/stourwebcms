@@ -1,0 +1,339 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{
+	margin:0;
+	padding:0;}
+a{ 
+	text-decoration:none;}
+.big{
+	float: left;
+    width: 100%;
+	}
+.width_1210{ 
+    width:1210px; 
+	margin:0 auto;
+	}
+.line_con_left{
+	 float:left;
+	 width:960px;
+	 }
+.top_search2 {
+	width:960px;
+	height:40px;
+	margin-top:15px;
+	}
+.top_search_left{
+	width:146px;
+	height:40px;
+	background-image:url(../images/search_left.png);
+	float:left;}
+.top_search_left a {
+	font-size:20px;
+	color:#fff;
+	line-height:38px;
+	margin-left:30px;}
+.top_search_right{
+	width:814px;
+	height:40px;
+	float:left;}
+.search_txt {
+	width:676px;
+	height:36px;
+	float:left;
+	border:2px solid #00b7ee;
+	color:#CCC;
+	font-family:"微软雅黑","黑体","宋体";
+	font-size:16px;
+	line-height:34px;
+	padding-left:10px;
+	padding-right:10px;
+	}
+.search_button {
+	width:114px;
+	height:40px;
+	float:left;
+	border:0;
+	background-color:#00b7ee;
+	color:#fff;
+	font-family:"微软雅黑","黑体","宋体";
+	font-size:18px;
+	line-height:34px;
+	cursor:pointer;
+	}
+.serach_menu {
+	width:938px;
+	float:left;
+	border:1px solid #eeeeee;
+	margin-top:20px;
+	font-size:12px;
+	padding:10px;}
+.serach_menu dl{
+	float: left;
+	width: 938px;
+	margin: 4px 10px 0;
+	padding-bottom: 6px;}
+.serach_menu dl dt{
+	float:left;
+	color:#555;
+	width:70px;
+	height:20px;
+	line-height:20px;
+	text-align:right}
+.serach_menu dl dd{
+	float:left;
+	width:860px;
+    }
+
+.serach_menu dl dd span{
+	float:left}
+.serach_menu dl dd .sp_1{
+	width:38px}	
+.serach_menu dl dd .sp_2{
+	width:810px;
+    height: 25px;
+    overflow: hidden;
+}
+.serach_menu dl dd span a.on{
+	color:#fff;
+	background:#f60}	
+.serach_menu dl dd a{
+	float:left;
+	color:#005aa0;
+	height:20px;
+	line-height:20px;
+    margin-bottom: 3px;
+	padding:0 6px}
+.serach_menu dl dd a:hover{
+	color:#f60}
+	
+.attractions_list {
+	width:918px;
+	height:auto;
+	float:left;
+	border:1px solid #eeeeee;
+	padding:20px;
+	margin-top:20px;}
+.attractions_list_t {
+	width:918px;
+	height:auto;
+	float:left;}
+.attractions_list_t_l {
+	width:780px;
+	float:left;}
+
+.attractions_list_t_l_pic {
+	width:150px;
+	border:1px solid #f1f1f1;
+	padding:2px;
+	float:left;
+	background-color:#fff;}
+.attractions_list_t_l_text {
+	width:604px;
+	height:auto;
+	float:left;
+	margin-left:20px;}
+.attractions_list_t_l_text h4 {
+	float:left;
+	width:600px;
+	height:40px;
+	line-height:40px;
+	font-weight:500;
+	font-size:16px;}
+.attractions_list_t_l_text h4 a {
+	float:left;
+	width:600px;
+	height:40px;
+	line-height:40px;
+	color:#0079c6;}
+.attractions_list_t_l_text p {
+	color:#999;
+	line-height:20px;
+	margin-top:8px;
+	font-size:14px;}
+	
+.attractions_list_t_r {
+	width:138px;
+	height:auto;
+	float:left;}
+.attractions_list_t_r_top {
+	width:138px;
+	height:auto;
+	float:left;
+	margin-top:20px;}
+.attractions_list_t_r_top a {
+	display:block;
+	width:138px;
+	font-size:24px;
+	color:#0079c6;
+	text-align:center;}
+.attractions_list_t_r_down {
+	width:138px;
+	height:auto;
+	float:left;
+	margin-top:10px;}
+.attractions_list_t_r_down a {
+	display:block;
+	width:120px;
+	height:30px;
+	margin-left:9px;
+	margin-right:9px;
+	font-size:14px;
+	line-height:30px;
+	color:#fff;
+	text-align:center;
+	background-image:url(../images/botton.png);}
+.attractions_list_c_t {
+	width:920px;
+	height:30px;
+	background-color:#eeeeee;
+	float:left;
+	margin-top:20px;}
+.attractions_list_c_t a {
+	float:left;
+	margin-left:20px;
+	color:#666;
+	font-size:14px;}
+.attractions_type {
+	width:920px;
+	height:auto;
+	float:left;
+	margin-top:10px;}
+.attractions_type_t {
+	width:920px;
+	height:40px;
+	line-height:40px;
+	color:#333;
+	float:left;
+	font-size:14px;}
+.attractions_type_list {
+	width:920px;
+	height:auto;
+	float:left;}
+.attractions_type_list dl {
+	width:920px;
+	height:auto;
+	float:left;
+	border-bottom: 1px dashed #dcdcdc;}
+.attractions_dt {
+	float:left;
+	width:530px;
+	height:40px;
+	}
+.attractions_dt a {
+	font-size:14px;
+	color:#0085d5;
+	line-height:40px;
+	}
+.attractions_dd {
+	float:left;
+	width:130px;
+	height:40px;
+	line-height:40px;
+	color:#555555;
+	font-size:14px;
+	margin-left:20px;}
+.attractions_dd2 {
+	float:left;
+	width:130px;
+	height:40px;
+	line-height:40px;
+	color:#ff7f00;
+	font-size:14px;
+	margin-left:20px;}
+.attractions_dd3 {
+	float:left;
+	width:80px;
+	height:31px;
+	line-height:40px;
+	color:#ff7f00;
+	font-size:14px;
+	background-image:url(../images/buy.png);
+	margin-top:6px;
+	margin-bottom:3px;}
+.attractions_dd3 a {
+	float:left;
+	width:80px;
+	height:31px;
+	line-height:26px;
+	color:#fff;
+	font-size:14px;
+	text-align:center;}
+.attractions_con_hide {
+	float:left;
+	width:898px;
+	height:auto;
+	border:1px solid #f1f1f1;
+	background-color:#FFF;
+	margin-top:10px;
+	margin-bottom:10px;
+	padding:10px;
+	color:#999;
+	font-size:14px;}
+.attractions_b {
+	float:right;
+	width:920;
+	height:20px;
+	margin-top:20px;
+	}
+.attractions_b a {
+	float:left;
+	width:100px;
+	height:20px;
+	line-height:20px;
+	margin-right:10px;
+	font-size:12px;
+	color:#0079c6;
+	}
+.line_con_rig {
+	float: right;
+	width: 240px;
+	margin-top: 15px;}
+.cate_select { border-bottom:#cccccc dotted 1px; margin:0 13px 10px; color:#4d4d4d; padding:5px 0 3px;}
+.cate_select .select { display:inline-block; padding-right:20px; height:20px; line-height:20px; margin-left:5px; background:url(http://pic.c-ctrip.com/packages111012/icon_pkg.png?120111.png) #53b9fb 100% -830px no-repeat; color:#fff; cursor:pointer; font-weight:bold;margin-bottom:5px; font-weight:normal;}
+.cate_select .select:hover { background-position:100% -910px; text-decoration:none;background-color:#2C8BC8;}
+.cate_select .select span{ float:left;background-color:#2c8bc8;padding:0 5px;margin-right:10px;font-weight:normal;}
+.cate_select .clear { float:right; color:#0053AA; vertical-align:middle; }
+
+.more_btn {
+    width: 100px;
+    float: right;
+    overflow: hidden;
+    zoom: 1;
+    position: absolute
+}
+.show_fold, .more_btn .show_unfold {
+
+    background-repeat: no-repeat;
+    color: #0053AA;
+    background-color: #F4FBFF;
+    border: 1px solid #CDE1F5;
+
+}
+.more_btn input {
+    float: left;
+    width: 35px;
+    cursor: pointer;
+    /* padding: 0 10px 1px 0; */
+    height: 20px;
+
+}
+/*分页*/
+.pkg_page{height: 26px; padding: 10px 0;float: right }
+.pkg_page a{ float: left; width: 24px; padding: 3px 0 3px 0; text-align: center;color: #0065bb; border:1px solid #ccc; background-color: #fff; margin-right:3px; }
+.pkg_page a:hover{ text-decoration: none; color: #0065bb;border:1px solid #3da0e7;}
+.pkg_page .current,.pkg_page .current:hover{ color: #fff;border:1px solid #3da0e7; background-color: #64bbfa; font-weight: bold;}
+.pkg_page_ellipsis{float: left; margin:0 6px 0 3px;}
+.pkg_page .up{ margin-right:10px; *padding: 5px 0 4px 0;width:64px;}
+.pkg_page .down{ margin-left:10px; width: 62px; _padding: 5px 0 3px 0;}
+.pkg_page .up b,.pkg_page .down b{ display: inline-block; width: 0; height: 0; line-height:0;  vertical-align:-2px;*vertical-align:-4px;}
+.pkg_page .up b{ border-width: 6px 6px 6px 0; border-style: dashed solid dashed dashed; border-color: transparent #0065bb transparent transparent; margin-left:-2px;margin-right: 5px; }
+.pkg_page .down b{ border-width: 6px 0 6px 6px; border-style: dashed dashed dashed solid; border-color: transparent transparent transparent #0065bb; margin-left:6px;}
+.pkg_page .up_nocurrent,.pkg_page .up_nocurrent:hover,.pkg_page .down_nocurrent,.pkg_page .down_nocurrent:hover{cursor: default; border:1px solid #ccc;color: #ccc;}
+.pkg_page .up_nocurrent b,.pkg_page .up_nocurrent:hover b{ border-color: transparent #ccc transparent transparent;}
+.pkg_page .down_nocurrent b,.pkg_page .down_nocurrent:hover b{border-color: transparent transparent transparent #ccc; }
+
+.pkg_pagevalue { float: left; margin-left:20px; height: 26px; line-height: 26px; }
+.pkg_pagevalue .pkg_page_num { width:25px; height:14px; padding:3px; border:1px solid #ccc; margin:0 4px;}
+.pkg_page_submit { width: 40px; margin-left:10px; font-weight:normal; cursor: pointer; height: 24px; line-height:24px;border:1px solid #ccc; background-color: #fff; }
+.pkg_page_submit:hover{ border:1px solid #3da0e7;}

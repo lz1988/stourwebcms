@@ -1,0 +1,25 @@
+{sline:if var='_hasthemecar'}
+ <div class="content" id="2916">
+			<div class="cate_tit">
+				<p class="more"><a href="/cars/" target="_blank">查看更多租车&gt;&gt;</a></p>
+				<h3 class="tit" id="2916">租车</h3>
+			</div>
+			<div class="cate_con">
+				<div class="list_2">
+					<ul class="lis basefix">
+           {sline:getcarlist type='theme' row='30'}
+           <li>
+							    <a href="[field:url/]" target="_blank">
+								    <img src="[field:litpic/]">
+								   
+								    <h3 class="tit">[field:title/]</h3>
+								    <p class="tit_tip">[field:content function=cutstr_html(@me,40)/]</p>
+								    <p class="price"><ins class="start_price" data_startprice="1199">[field:minprice runphp='yes'/]if(empty(@me)) @me="<strong>电询</strong>"; else @me="<dfn>¥</dfn><strong>".@me."</strong>元";[/field:minprice]起</ins></p>						
+							    </a>
+						    </li>
+           {/sline:getcarlist}
+       	</ul>	
+				</div>			
+            </div>
+	    </div>
+{/sline:if}

@@ -1,0 +1,25 @@
+{sline:if var='_hasthemehotel'}
+<div class="content" id="2916">
+			<div class="cate_tit">
+				<p class="more"><a href="/hotel/" target="_blank">查看更多酒店&gt;&gt;</a></p>
+				<h3 class="tit">酒店</h3>
+			</div>
+			<div class="cate_con">
+				<div class="list_2">
+					<ul class="lis basefix">
+          {sline:gethotellist type='theme' row='30'}
+        	<li>    
+            <a href="[field:url/]" target="_blank">
+								    <img src="[field:litpic/]">
+								 
+								    <h3 class="tit">[field:title/]</h3>
+								    <p class="tit_tip">[field:content function=cutstr_html(@me,40)/]</p>
+								    <p class="price"><ins class="start_price" data_startprice="1199">[field:sellprice runphp='yes'/]if(empty(@me)) @me="<strong>电询</strong>"; else @me="<dfn>¥</dfn><strong>".@me."</strong>元";[/field:sellprice]起</ins></p>						
+							    </a>
+						    </li>
+         {/sline:gethotellist}
+       	</ul>	
+				</div>			
+            </div>
+	    </div>
+{/sline:if}

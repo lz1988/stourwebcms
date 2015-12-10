@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{sline:field.seotitle/}_{sline:global.cfg_webname/}</title>
+    <meta name="author" content="{sline:global.cfg_webname/}" />
+    {sline:php}Helper_Archive::getCss('base.css,visa_new.css','2014.01');{/sline:php}
+    {sline:php}Helper_Archive::getScript('jquery-1.8.3.min.js,common.js','2014.01');{/sline:php}
+</head>
+
+<body>
+    {sline:include file='public/header.htm'/}
+    <div class="width_1210">
+        <!-- 面包屑and订单开始 -->
+        <div class="top_first">
+            <div class="crumbs"><a href="{sline:global.cfg_cmsurl/}/" rel="nofollow">{sline:global.cfg_indexname/}</a>&raquo;<a href="{sline:global.cfg_cmsurl/}/visa/" rel="nofollow">{sline:field.typename/}</a>&raquo;{sline:field.countryname/}签证</div>
+            {sline:include file='public/scroll_order.htm'/}
+
+        </div>
+        <!-- 面包屑and订单结束 -->
+    </div>
+	<div class="list_headimg" style="background: url({sline:field.bigpic/}) center no-repeat;">
+  	<div class="width_1210">
+    	<div class="gj_txt">
+      	<dl>
+        	<dt>
+          	<img src="{sline:field.litpic_guoqi/}" alt="{sline:field.countryname/}" />
+            <h3>{sline:field.countryname/}签证</h3>
+          </dt>
+          <dd>
+           {sline:field.jieshao/}
+          </dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+  
+  <div class="big">
+  	<div class="width_1210">
+    	
+      <div class="list_mdd_tj">
+      	<dl>
+        	<dt>签发城市</dt>
+          <dd>
+              <a class="{sline:global.cityid runphp='yes'}if(empty(@me))@me='on';else @me='';{/sline:global.cityid}" href="/visa/{sline:global.countrypy/}/" data-field="cityid" data-value="[field:id/]">全部</a>
+              {sline:visatype flag='city'}
+              <a class="[field:id runphp='yes']if(@me==$GLOBALS['cityid'])@me='on';else @me='';[/field:id]" href="/visa/[field:global.countrypy/]-[field:id/]" data-field="cityid" data-value="[field:id/]">[field:title/]</a>
+              {/sline:visatype}
+          </dd>
+        </dl>
+      </div>
+      
+      <div class="visa_list_box">
+      	<ul>
+         {sline:list}
+          <li>
+          	<a class="pic" href="/visa/show_[field:aid/].html"><img src="[field:litpic/]" /></a>
+            <div class="txt_con">
+            	<p class="p1"><a href="/visa/show_[field:aid/].html" class="tit" target="_blank">[field:title/]</a></p>
+              <p class="p2"><em>办理时长：</em>[field:handleday/]</p>
+              <p class="p3">
+              	<span>
+                  <em>签证类型：</em>[field:visatype function="getVisaType(@me)"/]
+                </span>
+              	<span>
+                  <em>所属领区：</em>[field:belongconsulate/]
+                </span>
+              	<span>
+                  <em>停留时间：</em>[field:partday/]
+                </span>
+              	<span>
+                  <em>有效日期：</em>[field:validday/]
+                </span>
+              </p>
+              <p class="p4">[field:sellpoint/]</p>
+            </div>
+            <div class="yd">
+            	<span>&yen;<b>[field:price/]</b></span>
+              <a href="/visa/show_[field:aid/].html" target="_blank">预定办签</a>
+            </div>
+          </li>
+         {/sline:list}
+
+        </ul>
+          <!--分页代码样式开始-->
+          <div class="main_mod_page clear">
+
+              {sline:pagelist listitem="info,index,end,pre,next,pageno,option" listsize="5" isstatic="1"/}
+          </div>
+          <div style="clear:both"></div>
+          <!--分页代码样式结束-->
+      </div>
+      
+    </div>
+  </div>
+  {sline:include file='public/footer.htm'/}
+
+</body>
+</html>

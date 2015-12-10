@@ -1,0 +1,209 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{sline:field.seotitle/}-{sline:global.cfg_webname/}</title>
+    <meta name="keywords" content="{sline:field.seokeyword/}"/>
+    <meta name="description" content="{sline:field.seodescription/}"/>
+    <meta name="author" content="{sline:global.cfg_webname/}" />
+    {sline:php}Helper_Archive::getCss('base.css,visa_new.css','2015.03');{/sline:php}
+    {sline:php}Helper_Archive::getScript('jquery-1.8.3.min.js,common.js,jquery-tabs.js','2014.01');{/sline:php}
+
+<script>
+
+	$(function(){
+			$('.zmdl').switchTab()	
+	})
+</script>
+</head>
+
+<body>
+   {sline:include file='public/header.htm'/}
+   <div class="width_1210">
+       <!-- 面包屑and订单开始 -->
+       <div class="top_first">
+           <div class="crumbs"><a href="{sline:global.cfg_cmsurl/}/" rel="nofollow">{sline:global.cfg_indexname/}</a> &raquo; {sline:field.typename/}</div>
+           {sline:include file='public/scroll_order.htm'/}
+
+       </div>
+       <!-- 面包屑and订单结束 -->
+    </div>
+	<div class="visa_bg_box" style="background: url({sline:global.cfg_indexname function='getVisaTopAd()'/})  center no-repeat;">
+
+  	<div class="country_sar">
+    	<div class="tit">输入办签国家</div>
+      <div class="import">
+      	<input type="text" class="sr_text search_country" placeholder="输入国家名称或者拼音" value="" />
+        <input type="button" class="tj_btn gocountry" value="前往" />
+      </div>
+      <div class="public">
+      	<span class="ico1">服务专业</span>
+        <span class="ico2">方便快捷</span>
+        <span class="ico3">省时省心</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="big">
+  	<div class="width_1210">
+    
+    	<div class="select_country">
+      	<div class="visa_gj_tit">签证国家选择</div>
+        <div class="hot_country_list">
+        	<ul>
+             {sline:visatype flag='hotcountry' row='14'}
+                <li class="[field:global.autoindex runphp='yes']if(@me%7==0)@me='mr_0';else @me='';[/field:global.autoindex]">
+                    <a href="/visa/[field:pinyin/]/"><img class="fl" src="[field:litpic/]" alt="[field:kindname/]" width="164" height="164" /></a>
+                    <span><a href="/visa/[field:pinyin/]/" target="_blank">[field:kindname/]</a></span>
+                </li>
+             {/sline:visatype}
+
+          </ul>
+        </div>
+        <div class="zimu_list">
+        	<dl class="zmdl">
+          	<dt>
+            	<h3>全部签证国家</h3>
+              <p>
+                {sline:visaarealist}
+                 <span>{sline:field.areaname/}</span>
+                {/sline:visaarealist}
+
+              </p>
+            </dt>
+            {sline:visaarealist}
+              <dd>
+            	<ul>
+                {sline:visatype flag='getcountrybypid' row='100'}
+              	  <li><a href="/visa/[field:pinyin/]/" target="_blank">[field:title/]</a></li>
+                {/sline:visatype}
+              </ul>
+            </dd>
+            {/sline:visaarealist}
+
+          </dl>
+        </div>
+        <div class="visa_flow_path">
+        	<div class="tit">
+          	<h3>签证办理，快人一步</h3>
+            <p>省时 · 省事 · 省心 · 省力</p>
+          </div>
+          <ul>
+          	<li>
+            	<img src="/templets/smore/images/visa_bz01.png" alt="提交订单" />
+              <p class="num1">
+                <strong>提交订单</strong>
+                <span>Submit orders</span>
+              </p>
+            </li>
+          	<li>
+            	<img src="/templets/smore/images/visa_bz02.png" alt="提交订单" />
+              <p class="num2">
+                <strong>提交签证材料</strong>
+                <span>Submit Visa materials</span>
+              </p>
+            </li>
+          	<li>
+            	<img src="/templets/smore/images/visa_bz03.png" alt="提交订单" />
+              <p class="num3">
+                <strong>审核材料</strong>
+                <span>Audit  material</span>
+              </p>
+            </li>
+          	<li>
+            	<img src="/templets/smore/images/visa_bz04.png" alt="提交订单" />
+              <p class="num4">
+                <strong>送签（面试）</strong>
+                <span>Interview </span>
+              </p>
+            </li>
+          	<li>
+            	<img src="/templets/smore/images/visa_bz05.png" alt="提交订单" />
+              <p class="num5">
+                <strong>出签</strong>
+                <span>Success</span>
+              </p>
+            </li>
+          	<li>
+            	<img src="/templets/smore/images/visa_bz06.png" alt="提交订单" />
+              <p class="num6">
+                <strong>成功率高达</strong>
+                <span>99.9%</span>
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="visa_atc">
+       {sline:arclist flag='attrlist' groupname='签证攻略'}
+      	<div class="article_list {sline:global.itemindex runphp='yes'}if(@me%4==0)@me='mr_0';else @me='';{/sline:global.itemindex}">
+		  <h3>{sline:field.kindname/}</h3>
+          <ul>
+              {sline:getarclist flag='attr' row='6'}
+              <li><a href="[field:url/]" target="_blank">[field:title/]</a></li>
+              {/sline:getarclist}
+          </ul>
+        </div>
+       {/sline:arclist}
+
+      </div>
+      
+    </div>
+  </div>
+    {sline:include file='public/help.htm'/}
+
+    <!-- 底部介绍开始 -->
+    {sline:include file='public/footer.htm'/}
+    <!-- 底部介绍结束 -->
+
+    <!-- 友情链接开始 -->
+    {sline:include file='public/flink.htm'/}
+    <script src="/templets/smore/js/layer/layer.min.js"></script>
+<script>
+    $(function(){
+        //国家选择
+        var FilesArray=['./result/result.js','./result/result.css']
+        Loader.loadFileList(FilesArray,function(){
+
+            $('.search_country').Result({url:'ajax.visa.php',data:'getCountry'});
+        });
+        //按目的地搜索
+        $(".gocountry").click(function(){
+            var countryname = $(".search_country").val();
+            if(countryname==''){
+                layer.msg('请输入国家名称或者拼音简写!', 1,8);
+                $(".gocountry").focus();
+                return false;
+            }
+            var pinyin = getDestPinYin(countryname);
+            if(pinyin!='')
+            {
+                var url = siteUrl+'visa/'+pinyin+'/';
+                window.open(url,'_self');
+            }
+            else{
+                layer.msg('当前国家暂时没有签证可预订!', 1,8);
+                $(".gocountry").focus();
+            }
+
+
+
+
+        })
+        //获取目的地id
+        function getDestPinYin(destname)
+        {
+            var py = 0;
+            $.ajax({type:'POST',url:'ajax.visa.php',async:false,data:'dopost=getPinyin&countryname='+destname,success:function(data){
+                py=data;
+
+            }})
+            return py;
+
+        }
+    })
+</script>
+
+</body>
+</html>

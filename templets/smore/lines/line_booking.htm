@@ -1,0 +1,613 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+    <title>{sline:field.title/}预订-{sline:global.cfg_webname/}</title>
+    <meta name="author" content="{sline:global.cfg_webname/}" />
+    {sline:php}Helper_Archive::getCss('base.css,insurance.css');{/sline:php}
+    {sline:php}Helper_Archive::getScript('jquery-1.8.3.min.js,common.js,jquery.validate.js,book.js');{/sline:php}
+</head>
+<style>
+    body{
+        font-family: "微软雅黑";
+    }
+    .errorb{
+        border:1px solid red !important;
+    }
+</style>
+<body>
+  {sline:include file='public/header.htm'/}
+  <div class="width_1210">
+  <!-- 面包屑and滚动订单开始 -->
+  <div class="top_first">
+      <div class="crumbs"><a href="{sline:global.cfg_basehost/}">{sline:global.cfg_indexname/}</a> &raquo; <a href="{sline:global.cfg_cmsurl/}/lines/">{sline:global.typename/}预订</a></div>
+      {sline:include file='public/scroll_order.htm'/}
+  </div>
+	<!--订单页面-->
+  <div class="order_con" >
+    <form id="dingfrm" action="?dopost=savebooking" method="post">
+  	<div class="order_left">
+    	<div class="order_data_con">
+      	<div class="liuc"><img class="fl" src="/templets/smore/images/liucheng.gif"/></div>
+        <!--产品基本信息-->
+        <div class="order_cp_show">
+        	<h3>产品编号：{sline:field.lineseries/}</h3>
+          <div class="order_dl_con">
+            <dl>
+              <dt>产品名称：</dt>
+              <dd>{sline:field.title/}</dd>
+            </dl>
+            <dl>
+              <dt>产品类型：</dt>
+              <dd>{sline:field.suitname/}</dd>
+            </dl>
+            <dl>
+              <dt>出发日期：</dt>
+              <dd>{sline:field.usedate/}</dd>
+            </dl>
+            <dl class="jifen">
+              <dt>积分优惠：</dt>
+              <dd>
+               {sline:if var='_has_jifentprice'}
+                <span>
+                  <em>积分抵现金</em>
+                  <b>&yen;{sline:field.jifentprice/}</b>
+                </span>
+               {/sline:if}
+               {sline:if var='_has_jifenbook'}
+                <span>
+                  <em>预定送积分</em>
+                  <b>{sline:field.jifenbook/}</b>
+                </span>
+               {/sline:if}
+               {sline:if var='_has_jifencomment'}
+                <span>
+                  <em>点评送积分</em>
+                  <b>{sline:field.jifencomment/}</b>
+                </span>
+               {/sline:if}
+              </dd>
+            </dl>
+          </div>
+        </div>
+        <!--产品价格数量-->
+        <div class="cp_num_con">
+        	<dl>
+          	<dt>
+            	<span>类型</span>
+              <span>日期</span>
+              <span>单价</span>
+              <span>购买数量</span>
+              <span>金额</span>
+            </dt>
+            <dd>
+            	<ul {sline:field.hasadult runphp='yes'}if(empty(@me))@me='style="display:none"';else @me='';{/sline:field.hasadult}>
+              	<li>成人</li>
+              	<li>{sline:field.usedate/}</li>
+              	<li>&yen;{sline:field.price/}</li>
+              	<li>
+                	<span class="down">-</span>
+                  <input type="text" class="gm_num" id="adultnum" name="adultnum" readonly value="{sline:field.dingnum/}" />
+                  <span class="up">+</span>
+                </li>
+              	<li>&yen;<span class="adulttotalprice">8729</span></li>
+              </ul>
+
+            	<ul {sline:field.haschild runphp='yes'}if(empty(@me))@me='style="display:none"';else @me='';{/sline:field.haschild}">
+              	<li>儿童</li>
+              	<li>{sline:field.usedate/}</li>
+              	<li>&yen;{sline:field.childprice/}</li>
+              	<li>
+                	<span class="down">-</span>
+                  <input type="text" class="gm_num" id="childnum" name="childnum" readonly value="{sline:field.childnum/}" />
+                  <span class="up">+</span>
+                </li>
+              	<li>&yen;<span class="childtotalprice"></span></li>
+              </ul>
+
+
+            	<ul class="bor_0" {sline:field.hasold runphp='yes'}if(empty(@me))@me='style="display:none"';else @me='';{/sline:field.hasold}>
+              	<li>老人</li>
+              	<li>{sline:field.usedate/}</li>
+              	<li>&yen;{sline:field.oldprice/}</li>
+              	<li>
+                	<span class="down">-</span>
+                    <input type="text" class="gm_num" id="oldnum" name="oldnum" readonly value="{sline:field.oldnum/}" />
+                    <span class="up">+</span>
+                </li>
+              	<li>&yen;<span class="oldtotalprice"></span></li>
+              </ul>
+
+            </dd>
+          </dl>
+        </div>
+        {sline:if var='_has_roombalance'}
+            <div class="room_balance">
+                <table>
+                    <tr class="room_th"><td align="center" width="22%">单房差</td><td align="center">购买数量</td><td align="center" width="26%">金额</td></tr>
+                    <tr class="room_td"><td align="center">{sline:field.roombalance/}</td>
+                        <td align="center">
+                            <div class="num-increment">
+                                <span class="down">-</span>
+                            <input type="text" class="gm_num" id="roombalance_num" name="roombalancenum" readonly="" value="0">
+                            <span class="up">+</span>
+                            </div>
+                        </td>
+                        <td align="center" id="roombalance_total">0</td>
+                    </tr>
+                </table>
+            </div>
+        {/sline:if}
+        <!--积分抵现金-->
+        {sline:if var='_has_jifentprice'}
+        <div class="exchange_con">
+        	<h3>积分抵现金</h3>
+          <div class="exchange_box">
+          	<p class="box_txt">当前产品可使用{sline:field.needjifen/}账户积分抵用支付现金 &yen;{sline:field.jifentprice/}元</p>
+            <div class="box_jf">
+            	<label>
+                    <input type="checkbox" name="jifenchoose" {sline:field.exopen runphp='yes'}if(empty(@me))@me="disabled='disabled'";else @me='';{/sline:field.exopen}  id="jifenchoose" value="使用积分抵用现金">
+<b>使用积分抵用现金</b>
+              </label>
+
+              {sline:field.array runphp='yes'}
+                 if(empty(@me['islogin']))
+                 {
+                   @me = ' <span class="unlogin">登录后可使用账户积分抵用现金支付！<a href="/member/login.php">立即登录</a></span>';
+                 }
+                 else
+                 {
+                   @me = '<span class="onlogin">我当前的积分：'.@me['myjifen'].'</span>';
+                 }
+              {/sline:field.array}
+
+
+
+
+            </div>
+          </div>	
+        </div>
+        {/sline:if}
+        {sline:if var='_has_insurance'}
+            <div class="secure">
+
+
+                <table width="100%" border="0">
+                    <tr>
+                        <th width="40%" height="40" bgcolor="#E5E5E5" scope="col"><span>保险名称</span></th>
+                        <th width="20%" bgcolor="#E5E5E5" scope="col">保险期限</th>
+                        <th width="10%" bgcolor="#E5E5E5" scope="col">单价</th>
+                    </tr>
+                   {sline:vlist name="insurances"}
+
+                    <tr>
+                        <td height="54">
+                            <label class="tit">
+                                <input type="radio" name="insurance" class="ins-it" value="[field:productcode/]" data-val="[field:ourprice/]"/>
+                                <span>[field:productname/]</span>
+                                <i class="down"></i>
+                            </label>
+                        </td>
+                        <td align="center">[field:day/]天</td>
+                        <td align="center">¥[field:ourprice/]</td>
+                    </tr>
+                    <tr class="con">
+                        <td height="54" colspan="4">
+                            <div class="pd20">
+                                [field:description/]
+                            </div>
+                        </td>
+                    </tr>
+                    {/sline:vlist}
+                    </table>
+                <script>
+                    $(function(){
+                        $('.secure .tit span').toggle(function(){
+
+                            $(this).parents('tr').next('.con').show();
+                            $(this).siblings('i').addClass('up').removeClass('down')
+                        },function(){
+                            $(this).parents('tr').next('.con').hide();
+                            $(this).siblings('i').addClass('down').removeClass('up')
+                        })
+                        $(".secure .ins-it").click(function(){
+                            booking.countPrice();
+                        });
+                    })
+                </script>
+            </div>
+
+
+        {/sline:if}
+        <!--预定信息-->
+        <div class="yd_msg">
+        	<h3>预定信息<span>手机号码快速下单，无需注册登录！</span></h3>
+          <div class="msg_con">
+          	<dl>
+            	<dt>预定联系人：</dt>
+              <dd><input type="text" name="linkman" id="linkman" class="msg_text" value="{sline:field.linkman/}" /></dd>
+            </dl>
+          	<dl>
+            	<dt>联系手机：</dt>
+              <dd><input type="text" class="msg_text" name="linktel" id="linktel" value="{sline:field.linktel/}" /><span>（*必填，将作为订单查询和处理的凭证）</span></dd>
+            </dl>
+              <dl>
+                  <dt>邮箱：</dt>
+                  <dd><input type="text" class="msg_text" name="linkemail" id="linkemail" value="{sline:field.linkemail/}" /><span></span></dd>
+              </dl>
+          	<dl>
+            	<dt>订单留言：</dt>
+              <dd><textarea class="msg_area" name="remarkinfo" cols="" rows=""></textarea><span>（*此处可输入收件地址信息等)</span></dd>
+            </dl>
+          </div>
+        </div>
+        <!--游客信息-->
+        <div class="yk_msg">
+        	<h3>游客信息<span style="cursor: pointer" id="tourerlist">点击展开，填写每位游客身份信息</span></h3>
+          <div class="msg_con" id="tourer">
+
+
+
+          </div>
+        </div>
+        <!--支付方式-->
+        <div class="zhifu_fs">
+        	<h3>支付方式</h3>
+          <div class="fs_con">
+              {sline:field.id function="Helper_Archive::getPayTypeList()"/}
+          </div>
+        </div>
+        <!--订单金额-->
+        <div class="order_money">
+            <p><em>验证码：<input class="cd-txt" name="checkcode" type="text"/><img  class="wd_yzm" src="/include/vdimgck.php" width="80" height="30"  onclick="this.src='/include/vdimgck.php?rand='+Math.random()" /></em>
+			<span style=" font-size: 13px;">*验证码为数字相加的总和</span>
+			</p>
+            <p><em>订单金额：&yen;<span class="totalprice"></span>元</em></p>
+          {sline:if var='_djsupport'}
+            <p><span>支付金额：&yen;<span class="payprice"></span>元</span>说明：当前订单为定金支付型，提交订单时，仅需支付定金即可成功预定该产品，无需全款支付！</p>
+          {/sline:if}
+        </div>
+        <!--预定按钮-->
+        <div class="tj_btn_order">
+        	<a href="javascript:;" class="btnsaveorder">提交订单</a>
+        </div>
+      </div>
+      <div class="order_txt xxinfo" style="display: none">
+      	<h3 class="tit" id="xianxia">线下支付说明</h3>
+        <div class="txt_con">
+         {sline:global.cfg_pay_xianxia/}
+        </div>
+      </div>
+    </div>
+    
+    <!--右侧订单数据-->
+    <div class="order_box_right">
+      <div class="order_rig">
+        <div class="order_js_tit">订单结算</div>
+        <div class="order_box">
+          <div class="cl_cp_tj">
+            <ul>
+              <li {sline:field.hasadult runphp='yes'}if(empty(@me))@me='style="display:none"';else @me='';{/sline:field.hasadult}>
+                <span class="sp_1">成人{sline:field.price/}</span>
+                <span class="sp_2" id="hasadult">{sline:field.dingnum/}</span>
+                <span class="sp_3 adulttotalprice"></span>
+              </li>
+              <li {sline:field.haschild runphp='yes'}if(empty(@me))@me='style="display:none"';else @me='';{/sline:field.haschild}>
+                <span class="sp_1">儿童{sline:field.childprice/}</span>
+                <span class="sp_2" id="haschild">{sline:field.childnum/}</span>
+                <span class="sp_3 childtotalprice"></span>
+              </li>
+              <li {sline:field.hasold runphp='yes'}if(empty(@me))@me='style="display:none"';else @me='';{/sline:field.hasold}>
+                <span class="sp_1">老人{sline:field.oldprice/}</span>
+                <span class="sp_2" id="hasold">{sline:field.oldnum/}</span>
+                <span class="sp_3 oldtotalprice"></span>
+              </li>
+                <li {sline:field.hasinsurance runphp='yes'}if(empty(@me))@me='style="display:none"';else @me='';{/sline:field.hasinsurance}>
+                <span class="sp_1">保险</span>
+                <span class="sp_2" id="ins_num">0</span>
+                <span class="sp_3" id="ins_total">0</span>
+                </li>
+            </ul>
+          </div>
+
+          <div class="integral jftinfo" style="display: none;">使用积分抵用现金&yen;{sline:field.jifentprice/}元</div>
+          <div class="payment">使用<span class="choosepayname"></span>支付</div>
+          <div class="order_num">
+            <p class="p1">订单金额：<span class="totalprice"></span></p>
+            <p class="p2">支付金额：<span class="payprice"></span></p>
+          </div>
+          <div class="tj_order_btn">
+              <input type="hidden" id="adultprice" value="{sline:field.price/}"/>
+              <input type="hidden" id="childprice" value="{sline:field.childprice/}"/>
+              <input type="hidden" id="oldprice" value="{sline:field.oldprice/}"/>
+              <input type="hidden" name="jifentprice" id="jifentprice" value="{sline:field.jifentprice/}"/>
+              <input type="hidden" name="jifenbook" value="{sline:field.jifenbook/}"/>
+              <input type="hidden" name="jifencomment" value="{sline:field.jifencomment/}"/>
+              <input type="hidden" name="dingjin"  id="dingjin_new" value="{sline:field.dingjin/}"/>
+              <input type="hidden" name="productautoid" value="{sline:field.id/}"/>
+              <input type="hidden" name="productaid" value="{sline:field.aid/}"/>
+              <input type="hidden" name="webid" value="{sline:field.webid/}"/>
+              <input type="hidden" name="productname" value="{sline:field.title/}"/>
+              <input type="hidden" name="paytype" value="{sline:field.paytype/}"/>
+              <input type="hidden" name="suitid" id="suitid" value="{sline:global.suitid/}"/>
+              <input type="hidden" name="usedate" value="{sline:field.usedate/}">
+              <input type="hidden" name="lineday" id="lineday_num" value="{sline:field.lineday/}"/>
+              <input type="hidden" name="dj" id="dingjin" value="{sline:field.dingjin/}">
+              <input type="hidden" name="usejifen" id="usejifen" value="0"/>
+              <input type="hidden" name="roombalance" id="roombalance" value="{sline:field.roombalance/}"/>
+              <input type="button" class="btnsaveorder" value="提交订单" />
+          </div>
+        </div>
+      </div>
+    </div>
+    </form>
+    
+  </div>
+  </div>
+
+  {sline:include file='public/help.htm'/}
+
+  {sline:include file='public/footer.htm'/}
+
+  <script src="/templets/smore/js/layer/layer.min.js"></script>
+
+<script>
+   $(function(){
+		  var orderRigHeight = $('.order_rig').offset().top;
+		  $(window).scroll(function(){
+			  var scroHeight = $(document).scrollTop();
+
+			  if(scroHeight>=orderRigHeight){
+				  $('.order_rig').css({"position":"fixed","z-index":"999","top":"0"});
+			  }else if(scroHeight<orderRigHeight){
+				  $('.order_rig').css({"position":"static"});
+			  }
+			  
+		  })
+          //统计价格
+           booking.countPrice();
+          //人数添加事件
+          $(".cp_num_con").find('.up').click(function(){
+              var txt = $(this).parents('li').first().find('.gm_num');
+              txt.val(Number(txt.val())+1);
+              booking.countPrice();
+              booking.addTourer();
+          })
+          //人数减少事件
+           $(".cp_num_con").find('.down').click(function(){
+               var txt = $(this).parents('li').first().find('.gm_num');
+               var n = Number(txt.val())-1;
+               n = n<0 ? 0 : n;
+               txt.val(n);
+               booking.countPrice();
+               booking.removeTourer();
+
+           })
+
+          $(".num-increment .up,.num-increment .down").click(function(){
+               var txtEle=$(this).siblings('.gm_num:first');
+               var orgNum=txtEle.val();
+               orgNum=orgNum?parseInt(orgNum):0;
+               if($(this).is('.up'))
+                 orgNum++;
+               else
+               {
+                   orgNum=orgNum==0?0:--orgNum;
+               }
+               txtEle.val(orgNum);
+               booking.countPrice();
+              var roombalance=$("#roombalance").val();
+              var roombalaceNum=$("#roombalance_num").val();
+              var balanceTotal=roombalance*roombalaceNum;
+                $("#roombalance_total").text(balanceTotal);
+          });
+
+       //使用积分
+       if($("#jifenchoose").length>0){
+           $("#jifenchoose").click(function(){
+               var status = $(this).attr('checked');
+               if(status=='checked'){
+                   $("#usejifen").val(1);
+                   $('.jftinfo').show();
+               }
+               else{
+                   $("#usejifen").val(0);
+                   $('.jftinfo').hide();
+               }
+               booking.countPrice();
+
+           })
+       }
+       $("input[name='choosepay']").click(function(){
+           var payname = $(this).attr('data-type');
+           $(".choosepayname").html(payname);
+       })
+       //支付方式第一个选中
+       $("input[name='choosepay']").first().trigger('click');
+
+
+       //联系人隐藏
+         $("#tourerlist").click(function(){
+             $("#tourer").toggle();
+         })
+       //表单验证
+
+       $("#dingfrm").validate({
+
+           submitHandler:function(form){
+
+               var param=$("#dingfrm").serialize();
+               // console.log(param);
+
+               bookSubmit(param,"?dopost=savebooking");
+               return false;
+
+           } ,
+           rules: {
+
+               linktel:{
+                   required: true
+               },
+               'checkcode':{
+                   required:true
+               }
+
+           },
+           messages: {
+
+               linktel:{
+                   required:""
+               },
+               'checkcode':{
+                   required:''
+               }
+
+
+           },
+           highlight: function(element, errorClass, validClass) {
+               $(element).addClass('errorb');
+           },
+           unhighlight:function(element, errorClass){
+               $(element).removeClass('errorb');
+           }
+
+
+
+       });
+       //添加联系人
+       booking.addTourer();
+       //下订单
+       $(".btnsaveorder").click(function(){
+           $("#dingfrm").submit();
+       })
+	})
+
+
+    var booking = {
+       countPrice:function(){
+
+           var childnum = Number($("#childnum").val());
+           var adultnum = Number($("#adultnum").val());
+           var oldnum = Number($("#oldnum").val());
+
+           var childprice = $("#childprice").val();
+           var adultprice = $("#adultprice").val();
+           var oldprice = $("#oldprice").val();
+           var dingjin = $("#dingjin_new").val();
+
+           var days=Number($("#lineday_num").val());
+
+           var roombalance=$("#roombalance").val();
+           var roombalaceNum=$("#roombalance_num").val();
+           //赋值选定人数
+            $("#hasadult").html(adultnum);
+			$("#haschild").html(childnum);
+			$("#hasold").html(oldnum);
+
+           var insuranceprice=$(".ins-it:checked").attr("data-val");
+           var total_insuranceprice=childnum*insuranceprice*days+oldnum*insuranceprice*days+adultnum*insuranceprice*days;
+           total_insuranceprice=total_insuranceprice?total_insuranceprice:0;
+           $("#ins_num").text(oldnum+adultnum+childnum);
+           $("#ins_total").text(total_insuranceprice);
+
+
+           var roombalanceTotal=0;
+           if(!isNaN(roombalance)&&!isNaN(roombalaceNum))
+              roombalanceTotal=roombalance*roombalaceNum;
+
+
+           childtotalprice = childnum * childprice;
+           adulttotalprice = adultnum * adultprice;
+           oldtotalprice = oldnum * oldprice;
+           dingjintotalprice = (childnum+adultnum+oldnum) * dingjin;
+           totalprice = childtotalprice + adulttotalprice + oldtotalprice;
+           totalprice+=total_insuranceprice;
+           totalprice+=roombalanceTotal;
+           //dingjintotalprice+=total_insuranceprice;
+           if(!dingjintotalprice&&!isNaN(dingjintotalprice))
+               dingjintotalprice+=total_insuranceprice;
+           payprice = dingjintotalprice!=0 &&!isNaN(dingjintotalprice)? dingjintotalprice : totalprice;
+         //  payprice+=parseFloat(total_insuranceprice);
+           var usejifen = $("#usejifen").val();
+           var minusprice = $("#jifentprice").val();
+           if(usejifen==1){
+               totalprice = totalprice-minusprice;
+               payprice = payprice-minusprice;
+           }
+           if(payprice>totalprice){ //如果人为设置定金大于总价,则直接读取totalprice.
+               payprice = totalprice;
+           }
+
+
+
+
+
+           $('.childtotalprice').html(childtotalprice);
+           $('.adulttotalprice').html(adulttotalprice);
+           $('.oldtotalprice').html(oldtotalprice);
+           $('.totalprice').html(totalprice);
+           $('.payprice').html(payprice);
+
+
+
+
+       },
+       addTourer:function(){
+
+               var childnum = Number($("#childnum").val());
+               var adultnum = Number($("#adultnum").val());
+               var oldnum = Number($("#oldnum").val());
+               var totalnum = childnum+adultnum+oldnum;
+               var $info = '';
+               var hasnum = $('#tourer').find('.msg_list').length+1;
+               for(i=hasnum;i<=totalnum;i++){
+
+                   $info = '<div class="msg_list">';
+                   $info +='      <ul>';
+                   $info +='        <li><em>游客'+i+'</em></li>'
+                   $info +='    <li>'
+                   $info +='   <em>姓名：</em>'
+                   $info +='<input type="text" name="tourername'+i+'" class="text_msg tourname" id="tourname'+i+'" />'
+
+                   $info +='    <label><input type="radio" name="tourersex'+i+'" value="男" checked >男</label>'
+                   $info +='    <label><input type="radio" name="tourersex'+i+'" value="女" >女</label>'
+
+                   $info +='</li>'
+                   $info +='   <li><em>联系手机：</em><input type="text" name="tourermobile'+i+'" class="text_msg tourmobile" id="tourmobile'+i+'" /></li>'
+                   $info +='    <li>'
+                   $info +='    <em>证件号码：</em>'
+                   $info +='<select class="msg_select tourcardtype" name="tourercardtype'+i+'">'
+                   $info +='   <option value="身份证">身份证</option>'
+                   $info +='<option value="因私护照">因私护照</option>'
+                   $info +='<option value="港澳通行证">港澳通行证</option>'
+                   $info +='<option value="台胞证">台胞证</option>'
+                   $info +='<option value="军官证">军官证</option>'
+                   $info +='<option value="出生日期">出生日期</option>'
+                   $info +='</select>'
+                   $info +='<input type="text" class="text_msg ml_1 tourcard" id="tourcard'+i+'"  name="tourercard'+i+'" />'
+                   $info +='    </li>'
+                   $info +='</ul>'
+                   $info +='</div>';
+                   $("#tourer").append($info);
+                  // $('#tourname'+i).rules('add', {required: true, IsRealName: true});
+                  // $('#tourmobile'+i).rules('add', {isMobile: true });
+                  // $('#tourcard'+i).rules('add', { required: true});
+
+               }
+
+
+
+
+       },
+       removeTourer:function(){
+           $('#tourer').find('.msg_list').last().remove();
+       }
+
+
+    };
+
+
+
+</script>
+</body>
+</html>

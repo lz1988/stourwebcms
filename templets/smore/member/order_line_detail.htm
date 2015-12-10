@@ -1,0 +1,79 @@
+
+          <div class="or_show">
+          	<h3>订单详细</h3>
+            <dl>
+            	<dt>产品名称：</dt>
+              <dd>{sline:field.productname/}</dd>
+            </dl>
+            <dl>
+            	<dt>产品价格：</dt>
+              <dd>
+                  <span class="w_xt">成人价格：<span class="color_f">&yen;{sline:field.price/}元</span>&nbsp;&nbsp;起</span>
+                  <span class="w_xt childcontain">儿童价格：<span class="color_f">&yen;{sline:field.childprice/}元</span>&nbsp;&nbsp;起</span>
+                  <span class="w_xt oldcontain">老人价格：<span class="color_f">&yen;{sline:field.childprice/}元</span>&nbsp;&nbsp;起</span>
+
+              </dd>
+            </dl>
+            <dl>
+            	<dt>报名人数：</dt>
+              <dd>
+                  <span class="w_xt">成人&nbsp;&nbsp;<span class="color_f">{sline:field.dingnum/}</span>&nbsp;&nbsp;名</span>
+                  <span class="w_xt childcontain">儿童&nbsp;&nbsp;<span class="color_f">{sline:field.childnum/}</span>&nbsp;&nbsp;名</span>
+                  <span class="w_xt oldcontain">老人&nbsp;&nbsp;<span class="color_f">{sline:field.oldnum/}</span>&nbsp;&nbsp;名</span>
+
+              </dd>
+            </dl>
+            <dl>
+            	<dt>出团日期：</dt>
+              <dd>{sline:field.usedate/}</dd>
+            </dl>
+            <dl>
+                <dt>单房差：</dt>
+                <dd>{sline:field.roombalance/}</dd>
+            </dl>
+            <dl>
+                  <dt>单房差数量：</dt>
+                  <dd>{sline:field.roombalancenum/}</dd>
+            </dl>
+            <dl>
+            	<dt>订单金额：</dt>
+              <dd><span class="color_f">&yen;{sline:field.totalprice/}元({sline:field.orderstatus/})</span></dd>
+            </dl>
+            {sline:if var='_has_insurance'}
+              <dl>
+                  <dt>保险：</dt>
+                  <dd><span class="color_f">&yen;{sline:field.insuranceprice/}元</span></dd>
+              </dl>
+            {/sline:if}
+            {sline:if var='_has_jiefentprice'}
+            <dl>
+            	<dt>积分抵现金：</dt>
+              <dd><span class="color_f">{sline:field.jifentprice/}</span>&nbsp;&nbsp;分</dd>
+            </dl>
+            {/sline:if}
+            {sline:if var='_has_jiefenbook'}
+            <dl>
+            	<dt>预订送积分：</dt>
+              <dd><span class="color_f">{sline:field.jifenbook/}</span>&nbsp;&nbsp;分</dd>
+            </dl>
+            {/sline:if}
+            {sline:if var='_has_jiefencomment'}
+            <dl>
+            	<dt>评论送积分：</dt>
+              <dd><span class="color_f">{sline:field.jifencomment/}</span>&nbsp;&nbsp;分</dd>
+            </dl>
+            {/sline:if}
+          </div>
+          <script language="JavaScript">
+               var childnum = '{sline:field.childnum/}';
+               var oldnum = '{sline:field.oldnum/}';
+              if(childnum == 0)
+              {
+                  $(".childcontain").hide();
+              }
+              if(oldnum == 0)
+              {
+                  $(".oldcontain").hide();
+              }
+          </script>
+    

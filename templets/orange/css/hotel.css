@@ -1,0 +1,1213 @@
+@charset "utf-8";
+/* CSS Document */
+.hotel_top{
+	float:left;
+	width:1210px;
+	height:325px;}
+.hotel_sx{
+	float:left;
+	width:369px;
+	height:299px;
+	padding:10px;
+	border:3px solid #ff7e00;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-ms-border-radius:5px;
+	-webkit-border-radius:5px;}
+.hotel_sx .jd_title{
+	color:#ff7200;
+	float:left;
+	width:369px;
+	font-family:"微软雅黑";
+	font-size:24px;
+	font-weight:500;
+	text-align:center;}
+.hotel_sx .nr_ul{
+	float:left;
+	width:338px;
+	margin:10px 0 0 15px}
+.hotel_sx .nr_ul li{
+	float:left;
+	width:338px;
+	height:28px;
+	line-height:28px;
+	margin-bottom:13px;}
+.hotel_sx .nr_ul li label{
+	float:left;
+	color:#555;
+	width:60px;
+	font-size:13px}
+.hotel_sx .nr_ul li .text{
+	float:left;
+	width:270px;
+	height:26px;
+	line-height:26px;
+	border:1px solid #a3a3a3;
+	background:url(../images/text_box_bg.png) no-repeat}
+.hotel_sx .nr_ul li .jd_name{
+	float:left;
+	width:270px;
+	height:26px;
+	line-height:26px;
+	border:1px solid #a3a3a3}
+.hotel_sx .nr_ul li .md{
+	background-position:right -116px}
+.hotel_sx .nr_ul li .rz{
+	background-position:right -38px}
+.hotel_sx .nr_ul li .ld{
+	background-position:right -76px}
+.hotel_sx .nr_ul li .diy_select_btn{
+	background:url(../images/text_box_bg.png) no-repeat -5px -146px}
+.hotel_sx .nr_ul li .diy_select{
+	width:273px;
+	border:1px solid #a3a3a3}
+.hotel_sx .nr_ul li .diy_select_txt{
+	width:245px}	
+.hotel_sx .nr_ul li .diy_select li{
+	width:273px;
+	margin-bottom:0}
+.hotel_cx{
+	float:left;
+	width:218px;}
+.hotel_cx a{
+	color:#fff;
+	float:left;
+	width:122px;
+	height:34px;
+	line-height:32px;
+	text-align:center;
+	margin-left:75px;
+	font-family:"微软雅黑";
+	font-size:16px;
+	font-weight:500;
+	background:url(../images/buy_btn.png) left no-repeat}
+.hotel_cx a:hover{
+	color:#fff}	
+.hotel_gg{
+	float:right;
+	width:800px;
+	height:325px}
+.h_foucs{
+	float:left;
+	width:800px;
+	height:325px;
+	overflow:hidden}
+.h_ban{
+	float:right;
+	width:240px;
+	height:325px;
+	overflow:hidden}
+.h_ban img{
+	margin-bottom:10px}
+.hotel_hot{
+	float:left;
+	margin-top:15px;
+	width:1208px;
+	height:250px;
+	border-top:2px solid #ff7f00;
+	border-right:1px solid #d2d2d2;
+	border-bottom:1px solid #d2d2d2;
+	border-left:1px solid #d2d2d2}
+.hotel_hot h3{
+	float:left;
+	width:1153px;
+	height:40px;
+	line-height:40px;
+	margin:0 10px;
+	padding-left:35px;
+	font-family:"微软雅黑";
+	color:#ff7f00;
+	font-size:16px;
+	background:url(../images/body_bg.png) no-repeat -976px -600px}
+.hotel_hot ul{
+	float:left;
+	width:1208px;
+	height:auto;
+	margin-top:8px}
+.hotel_hot ul li{
+	float:left;
+	width:170px;
+	height:180px;
+	padding:5px;
+	margin-left:17px;
+	border:1px solid #e5e5e5}
+.hotel_hot ul li p{
+	float:left;
+	height:24px;
+	line-height:24px}
+.hotel_hot ul li .p1{
+	width:170px;
+	margin-top:5px}
+.hotel_hot ul li .p1 a{
+	color:#333;
+	float:left;
+	width:170px;
+	height:24px;
+	line-height:24px;
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow:ellipsis}
+.hotel_hot ul li .p2{
+	color:#333}
+.hotel_hot ul li .p2 strong{
+	color:#f60;
+	font-family:"微软雅黑";
+	font-size:18px;
+	font-weight:500}
+.hotel_hot ul li .p2 span{
+	color:#f60;
+	margin-left:3px}
+.hotel_big{
+	float:left;
+	width:1210px;
+	height:435px;
+	margin-top:15px}
+.city_hotel{
+	float:left;
+	width:958px;
+	border-top:2px solid #ff7e00;
+	border-right:1px solid #d2d2d2;
+	border-bottom:1px solid #d2d2d2;
+	border-left:1px solid #d2d2d2}
+.tab_title{
+	float:left;
+	width:140px;
+	height:40px;
+	line-height:40px;
+	color:#ff7200;
+	font-size:16px;
+	font-family:"微软雅黑";
+	padding-left:20px;}	
+.tabbox{
+	width:958px;
+	position:relative;
+	height:auto;
+	overflow:hidden}
+.tabbox .tabbtn{
+	float:left;
+	width:798px;
+	height:30px;
+	line-height:30px;
+	margin-top:5px}
+.tabbox .tabbtn li{
+	float:left;
+	position:relative}
+.tabbox .tabbtn li a{
+	display:block;
+	float:left;
+	color:#555;
+	height:30px;
+	line-height:30px;
+	overflow:hidden;
+	width:auto;
+	padding:0 10px;
+	text-align:center;
+	font-size:14px;
+	cursor:pointer}
+.tabbox .tabbtn li.current{ }
+.tabbox .tabbtn li.current a{
+	height:30px;
+	line-height:30px;
+	color:#fff;
+	background:#ff7200}
+.tabbox .tabcon{
+	padding:10px;
+	float:left;
+	width:938px}
+.tabbox .tabcon li{
+	float:left;
+	width:210px;
+	margin:10px 12px;
+	overflow:hidden}
+.tabcon li p{
+	float:left;
+	width:200px;
+	overflow:hidden}
+.tabcon li .p1{
+	font-size:14px;
+	height:30px;
+	line-height:20px;
+	padding:0 5px;
+	margin-top:-30px;
+	background:#000;
+	filter:alpha(opacity=50);
+	opacity:0.5}
+.tabcon li .p2{
+	height:30px;
+	line-height:30px;
+	margin-top:-30px;
+	padding:0 5px;
+	position:relative;
+	z-index:9999}
+.tabcon li .p2 .sp_1{
+	float:left;
+	width:140px;
+	height:30px;
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+	font-size:12px;
+	color:#fff}
+.tabcon li .p2 .sp_1:hover{
+	color:#f60;
+	text-decoration:underline}
+.tabcon li .p2 .sp_2{
+	float:right;
+	color:#fff000;
+	font-size:14px;
+	font-family:"微软雅黑"}
+.linkage_hotel{
+	float:left;
+	width:1208px;
+	margin-top:13px;
+	border-top:2px solid #01aec8;
+	border-right:1px solid #e5e5e5;
+	border-bottom:1px solid #e5e5e5;
+	border-left:1px solid #e5e5e5}
+.linkage_hotel h3{
+	float:left;
+	color:#01aec8;
+	width:1188px;
+	height:40px;
+	line-height:40px;
+	padding:0 10px;
+	font-family:"微软雅黑";
+	font-weight:500;
+	font-size:16px}
+.linkage_hotel .carousel{
+	float:left;
+	width:1168px;
+	padding:10px 20px}
+
+.carousel .prev, .carousel .next{
+	height:60px;
+	width:19px;
+	overflow:hidden;
+	display:block;
+	margin-top:20px;
+	text-decoration:none;
+	cursor:pointer}
+.carousel #prev.disabled{
+background: url(../images/direction_bg.png) no-repeat 0 -60px;
+cursor: default;
+}
+.carousel .prev{
+float: left;
+background: url(../images/direction_bg.png) no-repeat 0 0;
+}
+.carousel #next.disabled{
+background: url(../images/direction_bg.png) no-repeat -19px -60px;
+cursor: default;
+}
+.carousel .next{
+float: left;
+background: url(../images/direction_bg.png) no-repeat -19px 0;
+}
+.jCarouselLite{
+float: left;
+width: 486px;
+height:auto;
+overflow: hidden;
+}
+.jCarouselLite li{
+height: 99px;
+width: 75px;
+margin: 0 9px;
+position: relative;
+background: url(../images/jd_hotel_bg.gif) left top no-repeat;
+}
+.jCarouselLite li img{
+float: left;
+margin: 24px 0 0 12px;
+}
+.jCarouselLite li .p1{
+float: left;
+width: 75px;
+height: 20px;
+line-height: 20px;
+font-size: 12px;
+padding-left: 4px;
+margin-top:13px;
+text-align:center;
+overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis
+}
+.side{
+	float:right;
+	width:240px;
+	margin-top:15px}
+.hotel_sale{
+	float:left;
+	width:238px;
+	border-top:2px solid #009eb6;
+	border-right:1px solid #e5e5e5;
+	border-bottom:1px solid #e5e5e5;
+	border-left:1px solid #e5e5e5}
+.hotel_sale h3{
+	float:left;
+	width:218px;
+	height:30px;
+	line-height:30px;
+	padding:0 10px;
+	font-size:16px;
+	font-family:"微软雅黑";
+	font-weight:500;
+	color:#009eb6}
+.sale_pro{
+	float:left;
+	width:238px}
+.sale_pro dl{
+	float:left;
+	width:218px;
+	margin:10px 10px}
+.sale_pro dl dt{
+	float:left;
+	width:75px;
+	height:60px;}
+.sale_pro dl dd{
+	float:left;
+	width:130px;
+	height:60px;
+	margin-left:10px}
+.sale_pro dl dd p{
+	float:left;
+	width:130px;
+	height:20px}
+.sale_pro dl dd .p1 a{
+	float:left;
+	color:#2a98da;
+	width:130px;
+	height:20px;
+	line-height:20px;
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis}
+.sale_pro dl dd .p2 span{
+	float:left;
+	width:75px;
+	height:15px}
+.sale_pro dl dd .p2 span s{
+	float:left;
+	height:15px;
+	background:url(../images/body_bg.png) no-repeat -925px -30px}
+.sale_pro dl dd .p3{
+	color:#f60;
+	font-size:16px;
+	font-family:"微软雅黑"}
+.hotel_top_menu{
+	float:left;
+	width:1210px;
+	height:35px;
+	border-bottom:2px solid #ff7f00}
+.hotel_top_menu h1{
+	float:left;
+	color:#333;
+	width:300px;
+	height:35px;
+	line-height:30px;
+	font-family:"微软雅黑";
+	font-size:26px;
+	font-weight:500;
+	padding-left:35px;
+	background:url(../images/top_menu_title.png) no-repeat 0 0}	
+.hotel_top_menu h1 span{
+	float:left}
+.hotel_top_menu h1 s{
+	float:left;
+	width:19px;
+	height:17px;
+	cursor:pointer;
+	margin:7px 0 0 5px;
+	background:url(../images/top_menu_title.png) no-repeat -6px -40px}
+.serve_menu{
+	float:right;
+	width:auto;
+	height:28px;
+	margin-top:7px}
+.serve_menu span{
+	float:left;
+	color:#555;
+	height:28px;
+	line-height:28px;
+	margin-right:10px}
+.serve_menu a{
+	float:left;
+	color:#fff;
+	width:70px;
+	height:28px;
+	line-height:28px;
+	text-align:center;
+	margin-right:5px;
+	font-size:14px;
+	background:url(../images/menu_bg.gif) left no-repeat}
+.hotel_con_rig{
+	float:left;
+	width:960px;
+	height:auto;
+	margin-top:15px}
+.sm_txt{
+	float:left;
+	color:#888;
+	width:938px;
+	height:auto;
+	line-height:20px;
+	margin:-15px 0 15px;
+	border:1px solid #ff7f00;
+	border-top:0;
+	padding:10px;
+	display:none}	
+.hot_time{
+	float:left;
+	width:958px;
+	padding-bottom:15px;
+	border:1px solid #dcdcdc}
+.hot_time h3{
+	float:left;
+	color:#ff5a00;
+	width:943px;
+	height:34px;
+	line-height:34px;
+	padding-left:15px;
+	font-size:14px;
+	font-weight:500;
+	background:#f5f5f5}
+.tj_box{
+	float:left;
+	width:300px;
+	height:100px;
+	margin:15px 0 0 15px}
+.tj_img{
+	float:left;
+	width:140px;
+	height:100px;
+	margin-right:10px}
+.tj_txt{
+	float:left;
+	width:150px;
+	height:60px;
+	line-height:20px;
+	overflow:hidden}
+.tj_txt a{
+	color:#f60}
+.tj_txt span{
+	color:#888}
+.tj_pre{
+	float:left;
+	width:150px;
+	height:30px}
+.tj_pre span{
+	float:left;
+	color:#f60;
+	line-height:30px;
+	font-family:"微软雅黑";
+	font-size:14px}
+.tj_pre a{
+	float:right;
+	color:#fff;
+	width:72px;
+	line-height:24px;
+	text-align:center;
+	margin:3px 10px 0 0;
+	background:url(../images/body_bg.png) no-repeat 0 -764px}
+.serach_menu{
+	float:left;
+	width:958px;
+	margin-top:15px;
+	position:relative;
+	border:1px solid #dcdcdc}
+.search_bt{
+	float:left;
+	color:#555;
+	width:943px;
+	height:34px;
+	line-height:34px;
+	padding-left:15px;
+	font-size:14px;
+	background:#f5f5f5}
+.search_bt span{
+	color:#ff5a00}
+.serach_menu dl{
+	float:left;
+	width:938px;
+	line-height:24px;
+	margin:10px 10px 0;
+	padding-bottom:10px;
+	border-bottom:1px solid #ddd}
+.serach_menu dl.bor_bot_0{
+	border-bottom:0}	
+.serach_menu dl dt{
+	float:left;
+	width:78px;
+	height:24px;
+	line-height:24px;
+	font-size:14px;
+	text-align:right}
+.serach_menu dl dd{
+	float:left;
+	width:860px}
+.serach_menu dl dd span{
+	float:left}
+.serach_menu dl dd .sp_2{
+	width:810px}	
+.serach_menu dl dd span a.on{
+	color:#fff;
+	background:#f60}	
+.serach_menu dl dd a{
+	float:left;
+	color:#005aa0;
+	height:24px;
+	line-height:24px;
+	padding:0 10px}
+.serach_menu dl dd a:hover{
+	color:#f60}
+.list_nav{
+	float:left;
+	width:958px;
+	height:30px;
+	line-height:30px;
+	margin-top:15px;
+	border:1px solid #dcdcdc;
+	border-radius:3px;
+	-moz-border-radius:3px;
+	-ms-border-radius:3px;
+	-o-border-radius:3px;
+	-webkit-border-radius:3px;
+	background:#eaeaea}
+.list_nav span{
+	float:left}
+.list_nav span a{
+	float:left;
+	padding:0 10px;
+	margin-left:10px}
+.list_nav span a.on{
+	background:#bfbfbf}
+.list_nav .sp_1{
+	width:14px;
+	height:14px;
+	margin:8px 0 0 10px;
+	background:url(../images/body_bg.png) no-repeat left -628px;}
+.hotel_list{
+	float:left;
+	width:918px;
+	height:auto;
+	padding:20px;
+	margin-top:15px;
+	display:inline;
+	border-top:2px solid #ff7f00;
+	border-right:1px solid #dcdcdc;
+	border-bottom:1px solid #dcdcdc;
+	border-left:1px solid #dcdcdc}
+.pro_top_con{
+	float:left;
+	width:918px;
+	height:auto;
+	padding-bottom:10px;
+	border-bottom:1px solid #dcdcdc}
+.pro_pic{
+	float:left;
+	width:250px;
+	padding:4px;
+	border:1px solid #e6e2e7}
+.pro_txt{
+	float:left;
+	width:500px;
+	height:203px;
+	display:inline;
+	margin-left:20px}
+.pro_txt h4{
+	float:left;
+	width:500px;
+	height:40px;
+	line-height:40px;
+	font-family:"微软雅黑";
+	font-weight:500;
+	font-size:16px}
+.pro_txt h4 a{
+	float:left;
+	width:500px;
+	height:30px;
+	line-height:30px;
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	color:#0079c6}
+.pro_txt p{
+	color:#565656;
+	line-height:20px;
+	margin-top:8px}
+.pro_price{
+	float:right;
+	width:120px;
+	height:203px;
+	position:relative}
+.hotel_myd{
+	float:left;
+	width:92px;
+	height:127px;
+	position:absolute;
+	top:-22px;
+	left:12px;
+	background:url(../images/hotel_pl_bg.png) left no-repeat}
+.hotel_myd .p1{
+	float:left;
+	width:75px;
+	height:15px;
+	text-align:left;
+	margin:78px 0 0 8px;
+	background:url(../images/body_bg.png) no-repeat -925px 0}
+.hotel_myd .p1 span{
+	display:inline-block;
+	height:15px;
+	background:url(../images/body_bg.png) no-repeat -925px -30px}
+.hotel_myd .p2{
+	float:left;
+	color:#666;
+	width:90px;
+	height:20px;
+	line-height:20px;
+	margin-top:10px;
+	text-align:center}
+.hotel_bj{
+	float:left;
+	width:90px;
+	position:absolute;
+	left:15px;
+	bottom:0px}
+.hotel_bj .p1{
+	float:left;
+	width:90px;
+	color:#555}
+.hotel_bj .p1 span{
+	color:#ff7f00;
+	margin-right:3px;
+	font-size:14px;
+	font-family:"微软雅黑"}
+.hotel_bj .p1 span b{
+	font-size:26px}
+.hotel_bj .p2{
+	float:left;
+	width:90px;
+	margin-top:5px}
+.hotel_bj .p2 a{
+	float:left;
+	width:90px;
+	height:30px;
+	line-height:30px;
+	color:#fff;
+	font-size:14px;
+	text-align:center;
+	background:#ff7f00}
+.hotel_bj .p2 a:hover{
+	text-decoration:underline}
+.pro_bot_con{
+	float:left;
+	width:918px;
+	height:auto;
+	margin-top:10px}
+.h_pro_table{
+	float:left;
+	width:918px;
+	color:#555}
+.h_pro_table th{
+	color:#555;
+	height:30px;
+	font-size:14px;
+	font-weight:500;
+	background:#eee}
+.h_pro_table td{
+	color:#555;
+	height:50px;
+	font-size:12px;
+	border-bottom:1px solid #f2f2f2}
+.h_pro_table .h_title_a{
+	cursor:pointer}
+.h_pro_table .h_title_a a{
+	color:#0085d5;
+	float:left;
+	padding-left:15px}
+.h_pro_table .h_title_a img{
+	float:left;
+	margin:2px 0 0 5px}
+.h_pro_table .h_pro_yd{
+	display:block;
+	width:80px;
+	height:31px;
+	line-height:28px;
+	color:#fff;
+	font-size:14px;
+	font-family:"微软雅黑";
+	background:url(../images/h_pro_yd.png) left no-repeat}
+.h_pro_table .none{
+	display:none}
+.h_pro_table .control_con{
+	border:1px solid #e5e5e5;
+	float:left;
+	width:916px;
+	height:auto;
+	margin:20px 0 10px;
+	position:relative}
+.h_pro_table .control_con table td{
+	height:40px;
+	line-height:40px;
+	padding-left:20px}
+.h_pro_table .control_con table td img{
+	float:left;
+	margin:15px 10px 15px 0}
+.h_pro_table .control_con table td.bor_bot_none{
+	border-bottom:0}
+.h_pro_table .control_con .arr_bg{
+	position:absolute;
+	top:-14px;
+	left:20px;
+	width:26px;
+	height:14px;
+	background:url(../images/arr_bg.png) left no-repeat}
+.h_top_show{
+	float:left;
+	width:1180px;
+	height:auto;
+	padding:10px;
+	border:5px solid #dfdfdf}
+.h_base_js{
+	float:right;
+	width:550px;
+	height:auto;
+	position:relative}
+.h_base_js .base_ul{
+	float:left;
+	width:550px}
+.h_base_js .base_ul li{
+	float:left;
+	width:400px;
+	height:40px;
+	line-height:40px}
+.base_ul .title{
+	color:#333;
+	font-family:"微软雅黑";
+	font-size:22px}
+.base_ul .address{
+	color:#666;
+	overflow:hidden;
+	font-family:"微软雅黑";
+	font-size:16px}
+.base_ul .sale{
+	color:#f60;
+	padding-bottom:10px;
+	border-bottom:1px dotted #ddd}
+.base_ul .sale span{
+	font-size:16px}
+.base_ul .sale strong{
+	font-size:24px;
+	font-family:"微软雅黑";
+	font-weight:500}
+.base_ul .sale s{
+	color:#333;
+	font-size:12px;
+	margin-left:3px}
+.base_ul .star_level{
+	color:#666;
+	font-size:14px}
+.base_ul .star_level p{
+	float:left;
+	width:75px;
+	height:15px;
+	margin-top:10px}
+.base_ul .star_level p s{
+	float:left;
+	height:15px;
+	background:url(../images/body_bg.png) no-repeat -925px -30px}
+.base_ul .ts_sever{
+	color:#666;
+	font-size:14px}	
+.base_ul .show_time,.base_ul .decorate_time{
+	color:#666;
+	font-size:14px}
+.base_ul .li_payment{
+	height:auto !important;
+	margin-top:10px}
+.base_ul .li_payment span{
+	float:left;
+	height:30px;
+	line-height:30px}
+.base_ul .li_payment p{
+	float:left;
+	width:330px}
+.base_ul .li_payment p img{
+	float:left;
+	margin:0 5px 5px 0}
+.base_ul .li_bg2{
+	border-bottom:1px dotted #e5e5e5}
+.base_ul .li_payment span,
+.base_ul .li_bg2 span{
+	float:left;
+	color:#666;
+	font-size:14px}
+.base_ul .li_bg2 img{
+	float:left;
+	margin:8px 5px 0 0}
+.base_ul .li_bg2 a{
+	float:left;
+	width:70px;
+	color:#666;
+	font-size:14px;
+	margin-right:5px}
+.dp_myd{
+	width:133px;
+	height:183px;
+	position:absolute;
+	right:10px;
+	top:-15px;
+	background:url(../images/client_myd_bg.png) left top no-repeat}
+.dp_myd .star{
+	float:left;
+	width:133px;
+	height:15px;
+	margin-top:110px}
+.dp_myd .star span{
+	display:block;
+	width:75px;
+	height:15px;
+	margin:0 auto;
+ 	background:url(../images/body_bg.png) no-repeat -925px 0}
+.dp_myd .star span s{
+	float:left;
+	display:block;
+	height:15px;
+ 	background:url(../images/body_bg.png) no-repeat -925px -30px}
+.dp_myd p{
+	float:left;
+	color:#666;
+	height:30px;
+	line-height:30px;
+	width:133px;
+	text-align:center;
+	margin-top:20px}
+
+.h_side_right{
+	float:right;
+	width:240px;
+	margin-top:15px}
+.h_side_list h3{
+	float:left;
+	color:#009eb6;
+	width:240px;
+	height:35px;
+	line-height:35px;
+	font-weight:500;
+	font-family:"微软雅黑";
+	font-size:18px;
+	background:url(../images/body_bg.png) no-repeat left bottom}
+.h_side_list h3 s{
+	float:left;
+	width:24px;
+	height:24px;
+	margin:5px 5px 0 0;
+	background:url(../images/body_bg.png) no-repeat right -708px}
+.h_side_con{
+	float:left;
+	width:238px;
+	height:auto;
+	border:1px solid #ddd;
+	border-top:0}
+.h_side_con dl{
+	float:left;
+	width:218px;
+	margin:10px 10px 0;
+	padding-bottom:10px;
+	border-bottom:1px solid #dedede}
+.h_side_con dl dt a{
+	color:#0073b6;
+	float:left;
+	width:190px;
+	height:30px;
+	line-height:30px;
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	margin-left:10px}
+.h_side_con dl dt s{
+	float:left;
+	color:#fff;
+	width:15px;
+	height:15px;
+	margin-top:8px;
+	text-align:center;
+	background:#f60}
+.h_side_con dl dd{
+	float:left;
+	width:216px;}
+.h_side_con dl dd p{
+	float:left;
+	width:130px;
+	height:30px;
+	line-height:30px}
+.h_side_con dl dd p b{
+	float:left;
+	width:75px;
+	height:15px;
+	margin:6px 0 0 5px}
+.h_side_con dl dd p b s{
+	float:left;
+	height:15px;
+	background:url(../images/body_bg.png) no-repeat -925px -30px}
+.h_side_con dl dd span{
+	float:right;
+	height:30px;
+	line-height:30px;}
+.h_side_con dl dd span strong{
+	color:#f60;
+	font-size:24px;
+	font-weight:500;
+	margin-right:3px}
+.h_side_con dl.bor_bot_none{
+	border-bottom:0}
+.tablelist .hotel_list{
+	border:0;
+	padding-top:0}
+.xq_time{
+	float:left;
+	width:918px}	
+.xq_time .date{
+	float: left;
+	height: 28px;
+	line-height: 28px;
+	margin-right:20px}
+.xq_time .date label{
+	float: left;
+	color: #555;
+	width: 70px;
+	font-size:14px;
+	text-align: center}
+.xq_time .date .text{
+	float: left;
+	color:#555;
+	width: 150px;
+	height: 26px;
+	line-height: 26px;
+	border: 1px solid #a3a3a3;
+	background: url(../images/text_box_bg.png) no-repeat}
+.xq_time .date .rz{
+	background-position: right -39px}
+.xq_time .date .ld{
+	background-position: right -77px}
+.revise_date{
+	float:left;
+	width:88px;
+	height:26px;}
+.revise_date a{
+	float:left;
+	width:88px;
+	height:26px;
+	line-height:26px;
+	text-align:center;
+	color:#fff;
+	background:url(../images/body_bg.png) no-repeat 0 -728px}
+.hotel_pic_list{
+	float:left;
+	width:918px}
+.hotel_pic_list li{
+	float:left;
+	width:215px;
+	height:150px;
+	margin:0 19px 19px 0}
+.hotel_pic_list li.mr_0{
+	margin-right:0}
+
+
+
+.line_con_rig{
+	float:right;
+	width:240px;
+	margin-top:15px}
+.line_con_rig .dos{
+	height:auto;
+	border-top:2px solid #f60}	
+.line_con_rig .dos .dis_list{
+	height:auto}
+/*购买弹出框*/
+.h_out_box{
+	
+	width:780px;
+	background:#fff;
+	}
+.h_out_box .title{
+	float:left;
+	width:750px;
+	height:50px;
+	line-height:50px;
+	margin:5px 15px 0;
+	border-bottom:1px solid #c9c9c9}
+.h_out_box .title h3{
+	float:left;
+	font-size:18px;
+	font-family:"微软雅黑";
+	font-weight:500}
+.h_out_box .title span{
+	float:right;
+	width:14px;
+	height:13px;
+	margin:18px 10px 0 0;
+	cursor:pointer;
+	background:url(../images/h_box_close.gif) left no-repeat}
+.box_left{
+	float:left;
+	width:380px;
+	height:auto;
+	margin:15px 0 0 15px}
+.box_left table td{
+	border:1px solid #dcdcdc}
+.box_left table td.top_title{
+	border:1px solid #fff}
+.box_left table td.top_title span{
+	float:left;
+	width:278px;
+	line-height:24px;
+	text-align:center}
+.box_left table .prev{
+	float:left;
+	width:50px;
+	height:24px;
+	line-height:24px;
+	text-align:center;
+	background:#dcdcdc}
+.box_left table .next{
+	float:right;
+	color:#fff;
+	width:50px;
+	height:24px;
+	line-height:24px;
+	text-align:center;
+	background:#01aec8}
+.box_left table td.aaa{
+	border:1px solid #daf0dd;
+	background:#daf0dd}
+.box_left table td.bbb{
+	color:#fff;
+	border:1px solid #f60;
+	font-weight:bold;
+	background:#f60}
+.box_left table .num{
+	float:left;
+	width:100%;
+	height:25px;
+	line-height:25px;
+	text-align:center}
+.box_left table .no_yd{
+	float:left;
+	color:#ccc;
+	width:100%;
+	height:25px;
+	line-height:25px;
+	text-align:center}
+.box_left table .yes_yd{
+	color:#f60;
+	float:left;
+	width:100%;
+	height:25px;
+	line-height:25px;
+	text-align:center}
+.box_right{
+	float:right;
+	width:355px;
+	height:310px;
+	margin:15px 15px 0 0}
+.box_right table{
+	border:1px solid #ddd}
+.box_right .h_num{
+	color:#f60;
+	width:50px;
+	height:20px;
+	line-height:20px;
+	text-align:center;
+	margin-right:5px;
+	border:1px solid #dcdcdc}
+.box_right table th{
+	color:#333;
+	height:24px;
+	line-height:24px;
+	font-weight:500;
+	border:0;
+	background:#eee}
+.box_right table td{
+	color:#f60;
+	border:0}
+.box_right table .ml_10{
+	margin-left:10px}
+.box_right .txt{
+	color:#f60;
+	float:left;
+	width:350px;
+	height:30px;
+	line-height:30px;}
+.box_btn{
+	float:left;
+	width:750px;
+	height:30px;
+	margin:15px 0 0 15px;
+	text-align:center}
+.box_btn .sure_btn,.box_btn .cancel_btn{
+	color:#fff;
+	width:100px;
+	height:30px;
+	line-height:30px;
+	margin:0 5px;
+	border:0;
+	border-radius:3px;
+	-moz-border-radius:3px;
+	-ms-border-radius:3px;
+	-webkit-border-radius:3px;
+	-o-border-radius:3px;
+	font-family:"微软雅黑";
+	font-size:14px;
+	cursor:pointer;
+	background:#ff8200}
+.box_btn .sure_btn{
+	color:#fff;
+	background:#ff8200}
+.box_btn .cancel_btn{
+	color:#a4a4a4;
+	background:#d2d2d2}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

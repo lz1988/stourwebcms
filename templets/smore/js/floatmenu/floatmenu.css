@@ -1,0 +1,36 @@
+/* CSS Document */
+/* .tab_nav{
+	 width: 895px;
+     padding-left: 10px;
+     background: #5abb1f;
+     overflow: hidden;
+ }
+ .tab_nav span {
+	display: inline-block;
+	width: 90px;
+	float: left;
+	line-height: 34px;
+	border-right: 1px solid #75d027;
+	font-weight: bold;
+	color: #fff;
+	text-align: center;
+	font-size: 14px;
+	cursor: pointer;
+ }
+ .tab_nav span.on {
+	margin-left: -1px;
+	border-right: 0 none;
+	color: #555;
+	background: #fff;
+  }*/
+ .fxd {
+   position: fixed;
+   top: 0;
+   z-index:999;
+ }
+ .section {
+  clear: both;
+  display: block;
+  overflow: hidden;
+ }
+

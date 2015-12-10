@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={sline:global.cfg_soft_lang/}" />
+<title>{sline:field.seotitle/}-{sline:global.cfg_webname/}</title>
+{sline:field.seodescription/}
+{sline:field.seokeyword/}
+<meta name="author" content="{sline:global.cfg_webname/}" />
+{sline:php}GetCss('base.css,photo.css,mas_pb1.css','2012.03');{/sline:php}
+{sline:php}GetScript('jquery-1.8.3.min.js,common.js,jquery.masonry.js,photo.index.js,photo.js','2014.01');{/sline:php}
+</head>
+
+
+<script type="text/javascript">
+var isWidescreen=screen.width>=1280; 
+if(isWidescreen){document.write("<style type='text/css'>.demo{width:1200px;}</style>");}
+</script>
+
+
+
+<body>
+	 {sline:include file='public/header.htm'/}
+  
+  <!-- 中间内容开始 -->
+  <div class="big">
+  	<div class="width_1210">
+    	<!-- 面包屑and订单开始 -->
+    	<div class="top_first">
+      	<div class="crumbs"><a href="/">首页</a> &gt; <a href="/photos">相册</a>{sline:global.mianbao/}</div>
+        {sline:include file='public/scroll_order.htm'/}
+      </div>
+      <!-- 面包屑and订单结束 -->
+      
+      <!--相册导航开始-->
+      <div class="photo_top_nav">
+      	<div class="p_mdd">
+        	<p class="tit">{sline:global.destname/}</p>
+          <p class="num">({sline:global.count/})</p>
+        </div>
+      	<div class="p_menu">
+      	<dl>
+        	<dt>目的地：</dt>
+          <dd>
+          	<span class="sp_1"><a class="{sline:global.dest_id function=getPhotoUrlCls('active','dest_id','all')/}" href="{sline:global.dest_id function=getPhotoUrl('all','dest_id')/}">全部</a></span>
+            <span class="sp_2">
+            {sline:vlist name="destlist"}
+                <a href="[field:id function=getPhotoUrl(@me,'dest_id')/]"  class="[field:id function=getPhotoUrlCls('active','dest_id',@me) /]">[field:kindname/]</a>      
+              {/sline:vlist}
+            </span>
+          </dd>
+        </dl>
+        {sline:attrgrouplist typeid="6"}
+        <dl>
+        	<dt>{sline:field.groupname/}：</dt>
+          <dd>
+          	<span class="sp_1"><a class="{sline:field.attrid function=getPhotoUrlCls('active','attrid',null,@me)/}" href="{sline:field.attrid function=getPhotoUrl(null,null,@me)/}">全部</a></span>
+            <span class="sp_2"> 
+           {sline:getattrbygroup typeid="6"}                
+            	  <a href="[field:id function=getPhotoUrl(@me,'attrid')/]" class="[field:id function=getPhotoUrlCls('active','attrid',@me)/]">[field:title/]</a>
+          {/sline:getattrbygroup}
+            </span>
+          </dd>
+        </dl>
+        {/sline:attrgrouplist}
+        </div>
+      </div>
+			<!--相册导航结束-->
+		
+<div class="demo clearfix">
+	
+			
+	<div class="item_list infinite_scroll">
+	{sline:vlist name="photolist"}	
+		<div class="item masonry_brick">
+			<div class="item_t">
+				<div class="img">
+					<a href="[field:url/]" target="_blank"><img width="274"
+                     src="[field:id function=getDefaultImage()/]" rel="[field:pic/]" class="lazy_load" /></a>
+
+				</div>
+				<div class="title"><span>[field:title/]</span></div>
+			</div>
+			<div class="item_b clearfix">
+				<div class="items_likes fl">
+					<a href="javascript:;" onClick="addFavorate(this,[field:id/])" class="like_btn"></a>
+					<em class="bold">[field:favorite runphp='yes'] if(empty(@me)) @me=0;[/field:favorite]</em>
+				</div>
+				<div class="items_comment fr"><!--<a href="[field:url/]">评论</a><em class="bold">(0)</em>--></div>
+			</div>
+		</div><!--item end-->
+	{/sline:vlist}	
+
+	
+	</div>
+					
+    					
+	<div id="more"><a href="{sline:global.cfg_templets_skin/}/page/2.htm"></a></div>
+	<div style="clear:both"></div>				
+	{sline:global.page/}
+
+</div>
+					
+
+  </div>
+  <!-- 中间内容结束 -->
+  
+ <!--底部开始-->
+  
+  
+  {sline:include file='public/footer.htm'/}
+  
+  {sline:include file='public/flink.htm'/}
+  <!-- 底部结束 -->
+</div></body>
+</html>

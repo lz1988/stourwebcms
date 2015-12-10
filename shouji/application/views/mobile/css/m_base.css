@@ -1,0 +1,356 @@
+@charset "utf-8";
+* {
+	margin:0;
+	padding:0}
+body {
+	-webkit-user-select:none;
+	-webkit-user-drag:none;
+	-webkit-text-size-adjust:100%}
+input {
+	-webkit-user-modify:read-write-plaintext-only}
+a,button,fieldset,input,span,textarea,ul {
+	-webkit-tap-highlight-color:rgba(255,255,255,0)}
+fieldset,input[type=text],textarea {
+	border:none;
+	outline:0;}
+body,bottom,dd,dl,dt,form,h1,h2,h3,h4,h5,h6,input,label,li,ol,p,td,textarea,th,ul {
+	margin:0;
+	padding:0}
+body {
+	font:12px/1.5 arial,Tahoma;
+	text-align:left;
+	color:#333;
+	font-family:Arial,"Lucida Grande",Verdana,"Microsoft YaHei",hei}
+button,h1,h2,h3,h4,h5,h6,input,select,textarea {
+	font-size:100%}
+fieldset,img {
+	border:0}
+ul {
+	margin:0;
+	padding:0;
+	list-style:none}
+div,td,th {
+	font-size:12px}
+table {
+	border-collapse:collapse;
+	border-spacing:0}
+em,i {
+	font-style:normal}
+sup {
+	vertical-align:text-top}
+sub {
+	vertical-align:text-bottom}
+.fl {
+	float:left!important}
+.fr {
+	float:right!important}
+.b0 {
+	border:0 none!important}
+.clearfix:after {
+	content:"\20";
+	display:block;
+	clear:both;
+	height:0;
+	*zoom:1}
+a {
+	color:#555;
+	cursor:pointer;
+	text-decoration:none}
+.mt5 {
+	margin-top:5px}
+.mt10 {
+	margin-top:10px}
+.mt20 {
+	margin-top:20px}
+.ml10 {
+	margin-left:10px}
+.h_40{
+	height:40px;
+	line-height:20px}	
+
+.home_top{
+	padding:10px;
+	position:relative;
+	background:#f9f9f9;
+	border-bottom:1px solid #e5e5e5}	
+
+.home_top .logo{
+	float:left;}
+
+.home_top .logo img{
+	float:left;
+	height:30px;
+	vertical-align:middle}
+	
+.home_top .user_location{
+	float:left;
+	color:#217db1;
+	height:30px;
+	line-height:30px;
+	margin-left:20px;
+	padding-left:25px;
+	font-size:14px;
+	background:url(../images/m_all_ico.png) no-repeat -30px -105px;
+	background-size:960px 400px;
+	-moz-background-size:960px 400px;}
+	
+.home_top .user_login{
+	position:absolute;
+	right:10px;
+	top:15px}
+	
+.home_top .user_login a{
+	color:#217db1;
+	font-size:14px;}
+
+.home-device {
+	width:320px;
+	height:200px;
+	margin:0 auto;
+	position:relative}
+
+.swiper-main {
+	width:320px;
+	height:200px;
+	position:relative}
+
+.swiper1, .swiper1 .swiper-slide{
+	width:320px;
+	height:300px}
+.pagination1 {
+	text-align:center;
+	margin-top:5px;
+	position:absolute;
+	top:175px;
+	right:10px;
+	z-index:999}
+
+.pagination1 .swiper-pagination-switch {
+	display:inline-block;
+	width:10px;
+	height:10px;
+	border-radius:10px;
+	background:#c0cad1;
+	margin:0 3px;
+	cursor:pointer}
+	
+.pagination1 .swiper-active-switch {
+	background:#73cdef}
+	
+.swiper-container {
+	margin:0 auto;
+	position:relative;
+	overflow:hidden;
+	-webkit-backface-visibility:hidden;
+	-moz-backface-visibility:hidden;
+	-ms-backface-visibility:hidden;
+	-o-backface-visibility:hidden;
+	backface-visibility:hidden;
+	/* Fix of Webkit flickering */
+	z-index:1}
+	
+.swiper-wrapper {
+	position:relative;
+	width:100%;
+	-webkit-transition-property:-webkit-transform, left, top;
+	-webkit-transition-duration:0s;
+	-webkit-transform:translate3d(0px,0,0);
+	-webkit-transition-timing-function:ease;
+	
+	-moz-transition-property:-moz-transform, left, top;
+	-moz-transition-duration:0s;
+	-moz-transform:translate3d(0px,0,0);
+	-moz-transition-timing-function:ease;
+	
+	-o-transition-property:-o-transform, left, top;
+	-o-transition-duration:0s;
+	-o-transform:translate3d(0px,0,0);
+	-o-transition-timing-function:ease;
+	-o-transform:translate(0px,0px);
+	
+	-ms-transition-property:-ms-transform, left, top;
+	-ms-transition-duration:0s;
+	-ms-transform:translate3d(0px,0,0);
+	-ms-transition-timing-function:ease;
+	
+	transition-property:transform, left, top;
+	transition-duration:0s;
+	transform:translate3d(0px,0,0);
+	transition-timing-function:ease}
+	
+.swiper-slide {
+	float:left}
+
+.swiper-container, .swiper-slide {
+	width:320px;
+	height:200px}
+
+.footer{
+	margin:0 auto;
+	margin-top:15px;
+	background:#e9eef2}
+
+.back_top{
+	color:#2d9bc4;
+	height:40px;
+	line-height:40px;
+	text-align:center;
+	font-size:16px;
+	cursor:pointer}
+
+.terminal{
+	color:#2d9bc4;
+	text-align:center;
+	font-size:14px}
+
+.terminal a{
+	display:inline-block;
+	height:30px;
+	color:#2d9bc4}
+
+.load_more {
+	clear:both;
+	text-align:center;
+	display:none;
+	font-size:16px;
+	font-weight:700;
+	height:50px;
+	line-height:50px;
+	padding:10px}
+	
+.load_more img {
+	vertical-align:-14px}
+	
+.load-more {
+	background:none;
+	border:0;
+	color:#333;
+	font-size:16px;
+	font-weight:700;
+	height:60px;
+	line-height:40px;
+	text-align:center;
+	width:100%;
+	cursor:pointer;
+	padding:10px;
+	font-family:"微软雅黑"}
+
+.bom_fix_box{
+	display:-webkit-box;
+	position:fixed;
+	bottom:0;
+	width:100%;
+	padding:10px 0;
+	background:#fff;
+	border-top:1px solid #d4d9dc}
+
+.bom_fix_box span{
+	color:#333;
+	display:block;
+	-webkit-box-flex:1;
+	width:40%;
+	height:40px;
+	line-height:40px;
+	font-size:16px;
+	text-align:center}	
+
+.bom_fix_box span em{
+	color:#ff1212}
+
+.bom_fix_box a{
+	color:#fff;
+	display:block;
+	width:50%;
+	height:40px;
+	line-height:40px;
+	text-align:center;
+	-webkit-box-flex:1;
+	font-size:18px;
+	background:#f00;
+	border-radius:5px}
+
+.bom_fix_box a.cell_phone{
+	margin-left:10px;
+	background:#23dabe}
+
+.bom_fix_box a.booking{
+	margin:0 10px;
+	background:#3bb9e9}
+
+.opy{
+	height:60px}
+/*手机飘浮框*/
+.dm-box{
+    position:fixed;
+    left:20px;
+    bottom:20px;
+    height:53px;
+    cursor:pointer;
+    background:#2cbcff;
+    border-radius:35px;
+    z-index: 1000;
+    box-shadow:1px 3px 3px #d9d9d9,-3px -1px 3px #d9d9d9}
+.dm-box em{
+    float:left;
+    width:53px;
+    height:53px;
+    background:url(../images/phone-ico.png) center no-repeat}
+.dm-box span{
+    display:none;
+    float:left;
+    color:#fff;
+    height:53px;
+    line-height:53px;
+    font-size:30px;
+    font-family:"微软雅黑"}
+.dm-box b{
+    display:none;
+    float:right;
+    color:#fff;
+    width:40px;
+    height:47px;
+    line-height:20px;
+    padding:6px 0 0 15px;
+    font-size:14px;
+    font-family:"微软雅黑"}
+
+.dm-box b a,.dm-box b a:hover{
+    color:#fff
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

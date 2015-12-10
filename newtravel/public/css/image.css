@@ -1,0 +1,719 @@
+@charset "utf-8";
+.x-body{ background: #fff;}
+.picmanage_box{
+    float:left;
+    width:100%}
+.up_built_menu{
+    width:100%;
+    height:26px;
+    padding:10px 0;
+    border-bottom:1px solid #dcdcdc}
+.up_built_menu a{
+    float:left;
+    width:87px;
+    height:26px;
+    line-height:26px;
+    margin-right:12px;
+    font-size:0;
+    background:url(../images/pm-ico.png) no-repeat}
+.up_built_menu a.up_pic_btn{
+    background-position:0 -106px}
+.up_built_menu a.cj_pic_box{
+    background-position:0 -152px}
+.up_built_menu a.gl_pic_box{
+    background-position:0 -198px}
+.up_built_menu .pl_gl{
+    display:none;
+    float:left;
+    height:26px}
+.up_built_menu .pl_gl span{
+    float:left;
+    color:#43aee4;
+    height:24px;
+    line-height:24px;
+    padding:0 10px;
+    margin-right:12px;
+    cursor:pointer;
+    border:1px solid #43aee4;
+    border-radius:5px}
+.up_built_menu span.dr_pic{
+    float:right;
+    color:#313131;
+    height:26px;
+    line-height:26px;
+    padding-left:30px;
+    margin-right:20px;
+    cursor:pointer;
+    background:url(../images/pm-ico.png) no-repeat 0 -65px}
+.up_built_menu span.dr_pic:hover{
+    color:#f7b84f;
+    background:url(../images/pm-ico.png) no-repeat 0 -29px}
+
+.picmanage_list_con,
+.picmanage_list_con ul{
+    float:left;
+    width:100%}
+.picmanage_list_con ul li{
+    float:left;
+    width:172px;
+    position:relative;
+    margin:14px 50px 0 0}
+.picmanage_list_con ul li.on i{
+    position:absolute;
+    top:143px;
+    right:1px;
+    display:block;
+    width:30px;
+    height:30px;
+    background:url(../images/pm-ico.png) no-repeat right bottom}
+.picmanage_list_con ul li .pic{
+    float:left;
+    width:164px;
+    height:166px;
+    padding:3px;
+    border:1px solid #dcdcdc;
+    background:#fff}
+.picmanage_list_con.cursor ul li .pic{
+  cursor: pointer;
+}
+.picmanage_list_con ul li.on .pic{
+    border:1px solid #008ed8}
+.picmanage_list_con ul li .pic img{
+    float:left;
+    width:164px;
+    height:166px}
+.picmanage_list_con ul li .txt{
+    float:left;
+    width:172px;
+    margin-top:8px}
+.picmanage_list_con ul li .txt .pic_name,
+.move_file_box ul li .pic_name{
+    float:left;
+    color:#313131;
+    width:120px;
+    height:22px;
+    line-height:22px;
+    padding-left:5px;
+    font-family:"微软雅黑";
+    border:1px solid #fff}
+.picmanage_list_con ul li .txt span{
+    float:right;
+    width:15px;
+    height:14px;
+    margin:5px 4px 0 0;
+    font-size:0;
+    cursor:pointer;
+    background:url(../images/pm-ico.png) no-repeat}
+.picmanage_list_con ul li .txt .edit{
+    background-position:0 0}
+.picmanage_list_con ul li .txt .del{
+    background-position:-18px 0}
+
+.load_more{
+    float:left;
+    width:100%;
+    padding:20px 0}
+.load_more a{
+    display:block;
+    width:112px;
+    height:25px;
+    line-height:25px;
+    margin:0 auto;
+    font-size:0;
+    background:url(../images/pm-ico.png) no-repeat 0 -244px}
+
+.photo_sc_box{
+    float:left;
+    width:720px}
+.photo_pic_tit{
+    float:left;
+    width:680px;
+    padding:15px 20px;
+    border-bottom:1px solid #dcdcdc}
+.photo_pic_tit span{
+    float:left;
+    color:#313131;
+    height:26px;
+    line-height:26px}
+.photo_pic_tit select{
+    float:left;
+    color:#313131;
+    width:200px;
+    height:26px;
+    line-height:26px;
+    font-size:12px;
+    font-family:"微软雅黑";
+    border:1px solid #dcdcdc}
+
+.photo_pic_con{
+    float:left;
+    width:720px;
+    height:340px;
+    position:relative;
+    overflow-y:auto}
+.photo_pic_con ul li{
+    float:left;
+    width:90px;
+    position:relative;
+    margin:20px 0 0 20px;}
+.photo_pic_con ul li:hover .closed{
+    display:block;
+    width:19px;
+    height:19px;
+    position:absolute;
+    top:2px;
+    right:2px;
+    cursor:pointer;
+    z-index:999;
+    background:url(../images/quxiao_ico.png) left no-repeat}
+.photo_pic_con ul li span{
+    float:left;
+    width:86px;
+    height:86px;
+    padding:1px;
+    cursor:pointer;
+    position:relative;
+    z-index:99;
+    border:1px solid #dcdcdc}
+.photo_pic_con ul li span em{
+    display:block;
+    width:90px;
+    height:22px;
+    position:absolute;
+    bottom:-1px;
+    left:-1px;
+    background:url(../images/repeat_x.png) left repeat-x}
+.photo_pic_con ul li span em s{
+    float:left;
+    display:block;
+    height:22px;
+    background:#5fa13f}
+.photo_pic_con ul li span em b{
+    position:absolute;
+    left:0;
+    top:0;
+    display:block;
+    color:#fff;
+    width:90px;
+    height:22px;
+    line-height:22px;
+    text-align:center;
+    font-style:normal}
+.photo_pic_con ul li .text_name{
+    float:left;
+    width:88px;
+    height:22px;
+    line-height:22px;
+    margin-top:5px;
+    font-family:"微软雅黑";
+    border:1px solid #dcdcdc}
+.photo_pic_con ul li.add_photo_btn span{
+    font-size:0;
+    background:url(../images/add_photo_bg.png) center no-repeat; position:static; }
+
+.photo_pic_con .upload_success{
+    width:200px;
+    height:50px;
+    line-height:50px;
+    position:absolute;
+    left:50%;
+    top:50%;
+    margin:-26px 0 0 -101px;
+    text-align:center;
+    border:1px solid #dcdcdc;
+    background:url(../images/success-ico.png) no-repeat 20px 12px #fff}
+
+.photo_sc_box .upload_schedule{
+    float:left;
+    color:#313131;
+    width:680px;
+    height:32px;
+    line-height:32px;
+    padding:0 20px;
+    border-top:1px solid #dcdcdc;
+    background:#ebf0f6}
+.photo_sc_box .upload_schedule .sp1{
+    float:left;
+    height:32px;
+    line-height:32px}
+.photo_sc_box .upload_schedule .jd{
+    float:left;
+    width:100px;
+    height:16px;
+    margin:7px 10px 0 5px;
+    position:relative;
+    border:1px solid #dcdcdc;
+    background:#fff}
+.photo_sc_box .upload_schedule .jd span{
+    float:left;
+    height:16px;
+    background:#cfd9e8}
+.photo_sc_box .upload_schedule .jd em{
+    display:block;
+    width:100%;
+    height:16px;
+    line-height:16px;
+    text-align:center;
+    position:absolute;
+    left:0;
+    top:0;
+    font-style:normal}
+
+.photo_sc_box .cz_btn{
+    float:left;
+    width:720px;
+    padding:10px 0;
+    text-align:center;
+    border-top:1px solid #dcdcdc}
+.photo_sc_box .cz_btn a{
+    display:inline-block;
+    color:#fff;
+    width:65px;
+    height:25px;
+    line-height:25px;
+    margin:0 5px;
+    text-align:center;
+    border-radius:5px}
+.photo_sc_box .cz_btn a.cancel_btn{
+    background:#d2d2d2}
+.photo_sc_box .cz_btn a.save_btn{
+    background:#43aee4}
+
+.upload_pic_box{
+    float:left;
+    width:430px;
+    }
+.upload_pic_box .tabnav{
+    float:left;
+    width:430px;
+    height:30px;
+    border-bottom:1px solid #dcdcdc}
+.upload_pic_box .tabnav span{
+    float:left;
+    color:#313131;
+    width:80px;
+    height:29px;
+    line-height:29px;
+    margin-right:4px;
+    cursor:pointer;
+    text-align:center;
+    border:1px solid #dcdcdc}
+.upload_pic_box .tabnav span.on{
+    background:#f0f9ff;
+    border-bottom:1px solid #f0f9ff}
+.upload_pic_box .tabcon{
+    float:left;
+    width:428px;
+    border:1px solid #dcdcdc;
+    border-top:0;
+    background:#f0f9ff}
+.upload_pic_box .tabcon .back{
+    color:#313131;
+    float:left;
+    width:398px;
+    height:26px;
+    line-height:26px;
+    margin-left:15px;
+    padding-left:15px;
+    font-size:12px;
+    font-weight:500;
+    cursor:pointer;
+    background:url(../images/back_ico.png) left no-repeat}
+.upload_pic_box .tabcon .photo_xz{
+    float:left;
+    width:428px;
+    height:215px;
+    overflow-y:auto;
+    background:#fff;
+    border-top:1px solid #dcdcdc}
+.upload_pic_box .tabcon .photo_xz ul li{
+    float:left;
+    width:90px;
+    cursor:pointer;
+    position:relative;
+    margin:12px 0 12px 12px}
+.upload_pic_box .tabcon .photo_xz ul li img{
+    float:left;
+    width:86px;
+    height:86px;
+    padding:1px;
+    border:1px solid #dcdcdc}
+.upload_pic_box .tabcon .photo_xz ul li.on i{
+    display:block;
+    width:30px;
+    height:30px;
+    position:absolute;
+    right:0;
+    bottom:25px;
+    background:url(../images/pm-ico.png) no-repeat right bottom}
+.upload_pic_box .tabcon .photo_xz ul li img:hover{
+    border:1px solid #008ed8}
+.upload_pic_box .tabcon .photo_xz ul li span{
+    float:left;
+    color:#313131;
+    width:90px;
+    height:30px;
+    line-height:30px;
+    text-align:center}
+
+.upload_pic_box .tabcon .photo_local{
+    float:left;
+    width:428px;
+    height:215px;
+    margin-top:2px;
+    overflow-y:auto;
+    overflow-x:hidden;
+    background:#fff;
+    border-top:1px solid #dcdcdc}
+.photo_local dl{
+    float:left;
+    width:428px;
+    margin-top:20px}
+.photo_local dl dt{
+    float:left;
+    color:#313131;
+    width:88px;
+    height:24px;
+    line-height:24px;
+    text-align:right}
+.photo_local dl dd{
+    float:left;
+    color:#313131;
+    width:340px;}
+.photo_local dl dd .xl_select{
+    float:left;
+    width:120px;
+    height:24px;
+    line-height:24px;
+    border:1px solid #dcdcdc}
+.photo_local dl dd .file_up{
+    float:left;
+    width:65px;
+    height:25px;
+    margin-bottom:10px;
+    cursor:pointer;
+    background:url(../images/select_btn_bg.png) left no-repeat}
+.photo_local dl dd .file_up input{
+    float:left;
+    width:65px;
+    height:25px;
+    cursor:pointer;
+    opacity:0;
+    filter:alpha(opacity=0)}
+.photo_local dl dd .list_pic{
+    float:left;
+    width:340px}
+.photo_local dl dd .list_pic li{
+    float:left;
+    width:90px;
+    position:relative;
+    margin:0 15px 10px 0}
+.photo_local dl dd .list_pic li img{
+    float:left;
+    width:86px;
+    height:86px;
+    padding:1px;
+    border:1px solid #dcdcdc}
+/**/
+.photo_local ul li span{
+    float:left;
+    width:86px;
+    height:86px;
+    padding:1px;
+    cursor:pointer;
+    position:relative;
+    z-index:99;}
+.photo_local ul li span em{
+    display:block;
+    width:90px;
+    height:22px;
+    position:absolute;
+    bottom:-1px;
+    left:-1px;
+    background:url(../images/repeat_x.png) left repeat-x}
+.photo_local ul li span em s{
+    float:left;
+    display:block;
+    height:22px;
+    background:#5fa13f}
+.photo_local ul li span em b{
+    position:absolute;
+    left:0;
+    top:0;
+    display:block;
+    color:#fff;
+    width:90px;
+    height:22px;
+    line-height:22px;
+    text-align:center;
+    font-style:normal}
+/**/
+
+.photo_local dl dd .list_pic li:hover i{
+    display:block;
+    width:19px;
+    height:19px;
+    position:absolute;
+    right:0;
+    cursor:pointer;
+    background:url(../images/quxiao_ico.png) left no-repeat}
+
+.upload_pic_box .tabcon .photo_net{
+    float:left;
+    width:428px;
+    height:215px;
+    margin-top:2px;
+    overflow-y:auto;
+    background:#fff;
+    border-top:1px solid #dcdcdc}
+.photo_net table{
+    margin-top:20px;}
+.photo_net table th{
+    color:#313131;
+    font-size:12px;
+    font-weight:500}
+.photo_net table .ads_text{
+    float:left;
+    width:225px;
+    height:24px;
+    line-height:24px;
+    padding-left:5px;
+    font-family:"微软雅黑";
+    border:1px solid #dcdcdc}
+.photo_net table td .add_net_btn{
+    float:left;
+    width:65px;
+    height:25px;
+    line-height:25px;
+    font-size:0;
+    background:url(../images/add_net_btn.png) left no-repeat}
+
+
+
+.upload_pic_box .bom_cz,
+.twice_con .btn{
+    float:left;
+    width:430px;
+    padding:20px 0;
+    text-align:center}
+.upload_pic_box .bom_cz a,
+.twice_con .btn a,
+.new_add_file .btn a,
+.move_file_box .btn a,
+.pic_photo_df .btn a,
+.pic_library .btn a{
+    color:#fff;
+    display:inline-block;
+    width:65px;
+    height:25px;
+    line-height:25px;
+    margin:0 5px;
+    text-align:center;
+    border-radius:5px}
+.upload_pic_box .bom_cz a.cancel_btn,
+.twice_con .btn a.cancel_btn,
+.new_add_file .btn a.cancel_btn,
+.move_file_box .btn a.cancel_btn,
+.pic_photo_df .btn a.cancel_btn,
+.pic_library .btn a.cancel_btn{
+    background:#d2d2d2}
+.upload_pic_box .bom_cz a.confirm_btn,
+.twice_con .btn a.confirm_btn,
+.new_add_file .btn a.confirm_btn,
+.move_file_box .btn a.confirm_btn,
+.pic_photo_df .btn a.confirm_btn,
+.pic_library .btn a.confirm_btn{
+    background:#43aee4}
+
+.twice_con,
+.twice_con p{
+    float:left;
+    color:#313131;
+    width:225px;
+    text-align:center}
+.twice_con .btn,
+.new_add_file .btn,
+.move_file_box .btn,
+.pic_photo_df .btn,
+.pic_library .btn{
+    float:left;
+    width:100%;
+    padding:20px 0;
+    text-align:center}
+
+.new_add_file,
+.new_add_file dl,
+.pic_photo_df,
+.pic_photo_df dl{
+    float:left;
+    width:340px;}
+.new_add_file dl,
+.pic_photo_df dl{
+    margin-top:10px}
+.new_add_file dl dt,
+.pic_photo_df dl dt{
+    float:left;
+    color:#313131;
+    width:80px;
+    text-align:right}
+.new_add_file dl dd,
+.pic_photo_df dl dd{
+    float:left;
+    width:260px}
+.new_add_file dl dd .xc_text,
+.pic_photo_df dl dd .xc_text,
+.library_con .xc_text,
+.pic_photo_df dl dd select{
+    float:left;
+    width:200px;
+    height:22px;
+    line-height:22px;
+    padding-left:5px;
+    border:1px solid #e5e5e5}
+.pic_photo_df dl dd select{
+    width:207px;
+    height:24px;
+    line-height:24px}
+.pic_photo_df p{ line-height:24px;}
+.new_add_file dl dd textarea{
+    float:left;
+    width:200px;
+    height:80px;
+    padding-left:5px;
+    font-family:"微软雅黑";
+    border:1px solid #e5e5e5}
+
+
+.move_file_box,
+.move_file_box ul{
+    float:left;
+    width:100%}
+.move_file_box ul{height:274px; overflow: auto; width: 457px;}
+.move_file_box ul li{
+    float:left;
+    width:90px;
+    cursor:pointer;
+    margin:0px 20px 20px 0px}
+.move_file_box ul li span{
+    float:left;
+    width:90px;
+    height:90px;
+    position:relative}
+.move_file_box ul li.on span i{
+    display:block;
+    width:30px;
+    height:30px;
+    position:absolute;
+    bottom:0;
+    right:0;
+    background:url(../images/pm-ico.png) no-repeat right bottom}
+.move_file_box ul li img{
+    float:left;
+    width:86px;
+    height:86px;
+    padding:1px;
+    background:#fff;
+    border:1px solid #dcdcdc}
+.move_file_box ul li.on img{
+    border-color:#008ed8}
+.move_file_box ul li .pic_name{
+    width:88px;
+    margin-top:3px;
+    padding:0;
+    text-align:center}
+
+.picmanage_list_con ul li .txt .pic_name {
+    background-color: #fff;
+}
+
+.up_built_menu span.reback {
+    float: right;
+    color: #313131;
+    height: 26px;
+    padding-left: 30px;
+    line-height: 26px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.up_built_menu span.reback:hover {
+    color: #f7b84f;
+}
+
+.up_built_menu span.reback i {
+    background-image: url("../images/image-reback.png");
+    background-repeat: no-repeat;
+    padding-left: 19px;
+    margin-right: 3px;
+}
+
+.up_built_menu span.reback:hover i {
+    background-position: -19px 0;
+}
+
+
+/**add**/
+.up_built_menu a.cf_pic_box{
+    background-image: url("../images/img-config.png");
+}
+.pic_library{
+    float:left;
+    width:320px;
+    padding:0px 30px}
+.pic_library .bt{
+    float:left;
+    color:#313131;
+    width:320px}
+.library_con{
+    float:left;
+    width:320px;
+
+}
+.library_con .tabnav{
+    float:left;
+    width:320px;
+    margin-top:10px}
+.library_con .tabnav span{
+    float:left;
+    width:60px;
+    height:30px;
+    line-height:30px;
+    padding-left:15px;
+    cursor:pointer;
+    background:url(../images/radio-ico.png) no-repeat 0 9px}
+.library_con .tabnav span.on{
+    background:url(../images/radio-ico.png) no-repeat 0 -23px}
+.library_con .tabcon{
+    float:left;
+    width:320px;
+    margin-top:10px;
+    display: none;
+}
+.library_con .tabcon table th{
+    color:#313131;
+    font-weight:500;
+    text-align:left;}
+
+.photo_xz em{ display: block; width: 80px; padding:0 5px; height: 25px; line-height: 25px; text-overflow:ellipsis; overflow: hidden; font-style: normal}
+.upload_pic_box .tabcon .photo_xz ul li{ margin-bottom: 0;}
+.upload_pic_box .cancel_btn,.upload_pic_box .confirm_btn{ cursor: pointer}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
